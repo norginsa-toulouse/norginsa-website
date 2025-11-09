@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hvorfor skal man like Toulouse? – NORGINSA</title>
+
+  <!-- Tailwind + AOS CSS -->
+  <link rel="stylesheet" href="../../assets/css/article.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script>tailwind.config = { darkMode: 'class' }</script>
+</head>
+
+<body
+  class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 relative font-sans">
+
+  <!-- Navbar -->
+  <div id="navbar"></div>
+  <script src="../../assets/js/getNavbar.js"></script>
+  <script>document.getElementById("navbar").innerHTML = getArtikkelNavbarHTML();</script>
+  <script src="../../assets/js/navbar.js"></script>
+
+<!-- ======= TITTEL ======= -->
+  <section class="fade-down-anim max-w-7xl mx-auto px-4">
+    <div class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800">
+      <div class="px-6 py-16 text-center">
+        <p class="inline-flex items-center gap-2 text-sm font-medium text-red-600 dark:text-red-400">
+          SIST OPPDATERT: [DATO]
+        </p>
+        <h1 class="mt-3 text-3xl sm:text-5xl font-extrabold tracking-tight">
+            Hvorfor skal man like Toulouse?
+        </h1>
+        <p class="mt-3 text-base sm:text-lg text-gray-600 dark:text-gray-300">
+          SKREVET AV: Oskar Orvik  
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="mx-2 md:mx-0">
+    <!-- ======= ARTIKKELBILDE MED TEKST PÅ HØYRE SIDE ======= -->
+<div class="fade-down-anim max-w-4xl mx-auto my-12 flex flex-col md:flex-row items-center md:items-start gap-8">
+    <div class="md:w-1/2 w-full">
+       <a href="images/5.jpg" target="_blank" rel="noopener">
+            <img class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/5.jpg" alt="Article image">
+        </a>
+    </div>
+    <div class="md:w-1/2 w-full">
+        <h2 class="text-2xl font-bold mb-4">Innleding</h2>
+        <p class="mb-4">
+            Hei, jeg heter Oskar og har bodd i Toulouse i litt over tre år nå. Jeg visste ikke helt hva jeg gikk til når jeg begynte på NORGINSA, men jeg skulle studere på fransk i Toulouse. Jeg flyttet dermed ned til Toulouse for å begynne på et studie som varer i fem år, noe som passer meg godt. Det gir stabilitet og etter hvert har jeg heller ikke sett et behov for å reise fra Toulouse. Mer om dette skal jeg fortelle dere om i to artiker om Toulouse og Frankrike.
+        </p>
+    </div>
+</div>
+
+<!-- ======= ARTIKKELBILDE MED TEKST PÅ VENSTRE SIDE ======= -->
+<div class="fade-down-anim max-w-4xl mx-auto my-12 flex flex-col md:flex-row items-center md:items-start gap-8">
+    <div class="md:w-1/2 w-full order-2 md:order-1">
+        <h2 class="text-2xl font-bold mb-4">Mine grunner til å like Toulouse</h2>
+        <p class="mb-4">
+            Toulouse har blitt en by jeg er veldig glad i. Dersom man kunne flyttet byen til Norge hadde jeg garantert flyttet dit. Hvorfor det spør du? Det er ganske åpenbart for meg, selv om været skulle endre seg drastisk.
+        </p>
+        <p class = "mb-4">
+        Jeg setter også veldig stor pris på hvor lett det er å komme seg rundt, selv for noen som ikke har bil. Jeg har kjørt en gang i Toulouse sentrum, og det er noe av det verste jeg har gjort i Toulouse. På andre siden av spekteret er det metroen, bussen, trikken (Selv om den går UTROOOOOLIG treigt), og sist og ikke minst på sykkel. Jeg vet ikke om du har vært i Oslo, hvor det er ganske greit utbygd med sykkelstier. Jeg vil mene at det er enda bedre utbygd i Toulouse.
+        </p>
+         <p class = "mb-4">
+        Ta metroen til sentrum for å kjenne på en storby, med ulike deler som vi ikke har like mye av i Norge. Man har store plasser med mange mennesker, flotte bygninger, utendørs og innendørs markneder, samt loppemarkeneder.
+        </p>   
+         <p class = "mb-4">
+          Selv om det er ulike elementer jeg savner, synes jeg pakken som Toulouse gir er fantastisk. Kanskje DU også kommer til å like deg her?
+        </p>
+    </div>
+    <div class="md:w-1/2 w-full order-1 md:order-2">
+        <a href="images/6.jpg" target="_blank" rel="noopener">
+            <img class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/6.jpg" alt="Article image">
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- ======= Bilder med popup/slideshow ======= -->
+<!--OBS!! Begrenset til én per artikkel-->
+<div id="slideShowModal"></div>
+<div class="my-12 fade-down-anim max-w-4xl mx-auto">
+  <h2 class="text-2xl font-bold mb-4">Lyst til å se mer av byen?</h2>
+  <div id="slideshowGrid" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+<script>
+  const slideshowImages = [
+      "images/1.jpg",
+      "images/2.png",
+      "images/3.jpg", 
+      "images/4.jpg",
+      "images/5.jpg",
+      "images/6.jpg"  
+  ];
+</script>
+<script src="../../assets/js/slideshow.js"></script>
+<script>document.getElementById("slideShowModal").innerHTML = getSlideshowPopup()</script>
+</div>
+
+
+  <!-- Footer Container -->
+  <div id="footer"></div>
+  <script src="../../assets/js/getFooter.js"></script>
+  <script>document.getElementById("footer").innerHTML = getFooterHTML();</script>
+
+  <!-- Floating Theme Toggle Button -->
+  <div id="floatingButton"></div>
+  <script src="../../assets/js/getFloatingButton.js"></script>
+  <script>document.getElementById("floatingButton").innerHTML = getFloatingButton();</script>
+
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="../../assets/js/bunnscript.js"></script>
+</body>
+
+</html>
