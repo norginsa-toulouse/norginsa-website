@@ -1,13 +1,14 @@
 {
   "templates": [
     {
+
       "name": "Tekna Toulouse",
       "description": "Gjengen som gir deg en sosial, lærerik og uforglemmelig studiehverdag",
       "folder": "Tekna_Toulouse",
       "tags": [
         "Studiehverdagen", "Vintur", "Sommerlunsj", "Tekna"
       ],
-      "author": "Wiktor Jankowski og Maia Evensen",
+      "author": ["Wiktor Jankowski", "Maia Evensen"],
       "created": "08-11-2025",
       "featured": true
     },
@@ -31,6 +32,17 @@
       ],
       "author": "Andreas Holmsen",
       "created": "07-10-2025",
+      "featured": true
+    },
+    {
+      "name": "Jul i Toulouse",
+      "description": "Hvordan feirer man jul i Sør-Frankrike?",
+      "folder": "julitoulouse",
+      "tags": [
+        "Studiehverdagen"
+      ],
+      "author": "Oskar Orvik",
+      "created": "25-11-2025",
       "featured": true
     },
     {
@@ -115,7 +127,7 @@
       "description": "Ferieplan for 25-26 og generelle regler",
       "folder": "ferier",
       "tags": [
-        "Diverse info"
+        "Studiehverdagen"
       ],
       "author": "Andreas Holmsen",
       "created": "24-11-2025",
