@@ -44,6 +44,17 @@
       "created": "07-10-2025",
       "featured": true
     },
+    {
+      "name": "dobbeldiplom",
+      "description": "Muligheten for å ta flere grader samtidig!",
+      "folder": "dobbeldiplom",
+      "tags": [
+        "Studiet"
+      ],
+      "author": "Andreas Holmsen",
+      "created": "25-11-2025",
+      "featured": false
+    },
      {
       "name": "Kart over INSA",
       "description": "Kart over INSA",
