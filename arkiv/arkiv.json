@@ -1,5 +1,16 @@
 {
   "templates": [
+     {
+      "name": "RU",
+      "description": "Skoleresturanten RU",
+      "folder": "RU",
+      "tags": [
+        "Annet"
+      ],
+      "author": "Jesper Nytun",
+      "created": "30-12-2025",
+      "featured": true
+    },
     {
 
       "name": "Tekna Toulouse",
