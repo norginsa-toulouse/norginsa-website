@@ -1,5 +1,16 @@
 {
   "templates": [
+     {
+      "name": "Restaurant universitaire (RU)",
+      "description": "Guds gave til den fattige student",
+      "folder": "RU",
+      "tags": [
+        "Studiehverdag", "Studenthistorier"
+      ],
+      "author": "Jesper Nytun",
+      "created": "30-12-2025",
+      "featured": true
+    },
     {
 
       "name": "Tekna Toulouse",
