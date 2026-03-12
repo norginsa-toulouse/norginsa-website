@@ -143,17 +143,6 @@
       "author": "Andreas Holmsen",
       "created": "24-11-2025",
       "featured": false
-    },
-    {
-      "name": "eksempelartikkel",
-      "description": "Kort introduksjon",
-      "folder": "eksempelartikkel",
-      "tags": [
-        "Annet"
-      ],
-      "author": "Andreas Holmsen",
-      "created": "31-12-0000",
-      "featured": true
     }
   ]
 }
