@@ -1,5 +1,38 @@
 {
   "templates": [
+    {
+      "name": "IC",
+      "description": "Po'en IC",
+      "folder": "ic",
+      "tags": [
+        "Studiet"
+      ],
+      "author": "Andreas Holmsen",
+      "created": "12-03-2026",
+      "featured": true
+    },
+    {
+      "name": "ICBE",
+      "description": "Po'en ICBE",
+      "folder": "icbe",
+      "tags": [
+        "Studiet"
+      ],
+      "author": "Andreas Holmsen",
+      "created": "12-03-2026",
+      "featured": true
+    },
+    {
+      "name": "IMACS",
+      "description": "Po'en IMACS",
+      "folder": "imacs",
+      "tags": [
+        "Studiet"
+      ],
+      "author": "Andreas Holmsen",
+      "created": "12-03-2026",
+      "featured": true
+    },
      {
       "name": "Restaurant universitaire (RU)",
       "description": "Guds gave til den fattige student",
