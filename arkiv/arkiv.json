@@ -5,7 +5,7 @@
       "description": "Guds gave til den fattige student",
       "folder": "RU",
       "tags": [
-        "Studiehverdag", "Studenthistorier"
+        "Studiehverdagen"
       ],
       "author": "Jesper Nytun",
       "created": "30-12-2025",
@@ -17,7 +17,7 @@
       "description": "Gjengen som gir deg en sosial, lærerik og uforglemmelig studiehverdag",
       "folder": "Tekna_Toulouse",
       "tags": [
-        "Studiehverdagen", "Vintur", "Sommerlunsj", "Tekna"
+        "Tekna"
       ],
       "author": ["Wiktor Jankowski", "Maia Evensen"],
       "created": "08-11-2025",
@@ -91,7 +91,7 @@
     },
     {
       "name": "IR",
-      "description": "Informasjon om spesialiseringen IR",
+      "description": "Informasjon om spesialiseringen Informatique et Réseaux",
       "folder": "ir",
       "tags": [
         "Studiet"
