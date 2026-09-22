@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://norginsa.no/sitemap.xml
+Sitemap: https://www.norginsa.no/sitemap.xml
