@@ -21,53 +21,10 @@
   <link rel="icon" type="image/x-icon" href="assets/images/icon.ico">
 
   <!-- Tailwind + AOS CSS -->
-  <link rel="stylesheet" href="assets/css/navbar.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="assets/vendor/aos.css" rel="stylesheet" />
-  <script>
-    tailwind.config = { darkMode: 'class' };
-  </script>
+  <script src="assets/js/tailwind-oppsett.js"></script>
 
-  <style>
-    /* Glowing effect for cards & buttons */
-    .glowing {
-      box-shadow: 0 16px 32px rgba(246, 59, 59, 0.16), 0 8px 8px rgba(246, 59, 59, 0.1);
-      transition: box-shadow 0.15s, transform 0.15s;
-    }
-
-    .glowing:hover,
-    .glowing:focus-visible {
-      box-shadow: 0 32px 64px rgba(246, 59, 59, 0.24), 0 16px 16px rgba(246, 59, 59, 0.12);
-      transform: translateY(-3px) scale(1.03);
-      outline-offset: 4px;
-      outline: none;
-    }
-
-    /* Fade down animation for sections */
-    .fade-down-anim {
-      animation: fadeDown 0.75s cubic-bezier(.77, 0, .175, 1) forwards;
-    }
-
-    @keyframes fadeDown {
-      from {
-        transform: translateY(-20px);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    /* Floating theme toggle button fixed position */
-    #themeToggleBtn {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      z-index: 9999;
-    }
-  </style>
 
   <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
   <script>
@@ -80,6 +37,10 @@
     })();
   </script>
   <script src="assets/js/theme.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/site.css">
 </head>
 
 <body
@@ -93,17 +54,16 @@
     document.getElementById("navbar").innerHTML = getNavbarHTML();
   </script>
   <script src="assets/js/navbar.js"></script>
-  <div class="pt-24"></div>
 
   <!-- Page Title -->
   <div class="max-w-7xl mx-auto mb-12 text-center">
-    <h1 class="text-5xl font-extrabold mb-4 fade-down-anim">Kontakt Oss</h1>
+    <h1 class="text-4xl sm:text-5xl font-bold mb-4 fade-down-anim">Kontakt Oss</h1>
   </div>
 
   <!-- Our Mission Section -->
-  <section class="max-w-5xl mx-auto mb-20 bg-white dark:bg-gray-800 rounded-3xl glowing p-8 shadow-lg"
+  <section class="max-w-5xl mx-auto mb-12 sm:mb-16 kort p-8"
     data-aos="fade-up" tabindex="0" aria-label="Hvor når du oss">
-    <h2 class="text-3xl font-bold mb-6">Hvor?</h2>
+    <h2 class="text-2xl sm:text-3xl font-bold mb-5">Hvor?</h2>
     <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
     For informasjon om NORGINSA anbefaler vi å følge <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ansatoulouse/"><b>ANSA Toulouse</b></a> og <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/norginsa/"><b>Tekna Toulouse</b></a> på instagram! Begge organisasjonene er ansvarlig for informasjon om studiet, og vi svarer så fort som mulig.
     </p>
@@ -116,13 +76,13 @@
   </section>
 
   <!-- Meet The Team Section -->
-  <section class="max-w-7xl mx-auto mb-20" aria-labelledby="team-heading">
+  <section class="max-w-7xl mx-auto mb-12 sm:mb-16" aria-labelledby="team-heading">
     <h2 id="team-heading" class="text-3xl font-bold mb-12 text-center fade-down-anim">Viktige Instagram-kontoer</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
       <!-- Social Media Cards-->
       <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ansatoulouse/">
         <article
-          class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-red-400 transition"
+          class="kort kort-klikkbar p-6 flex flex-col items-center text-center"
           tabindex="0" aria-label="ANSA Toulouse">
         <img width="150" height="150" decoding="async" src="assets/images/kontakt-oss/ansatoulouse.jpg" alt="Ansa Toulouse logo"
           class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
@@ -134,7 +94,7 @@
 
       <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/norginsa/">
         <article
-          class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-rose-400 transition"
+          class="kort kort-klikkbar p-6 flex flex-col items-center text-center"
           tabindex="0" aria-label="Tekna Toulouse">
           <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/norginsa.jpg" alt="Norginsa logo"
         class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
@@ -147,7 +107,7 @@
 
       <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/insatoulouse/">
         <article
-          class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-yellow-400 transition"
+          class="kort kort-klikkbar p-6 flex flex-col items-center text-center"
           tabindex="0" aria-label="INSA Toulouse">
           <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/insatoulouse.jpg" alt="Insa Toulouse logo"
         class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
@@ -159,7 +119,7 @@
 
       <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ansafrankrike/">
         <article
-          class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-pink-400 transition"
+          class="kort kort-klikkbar p-6 flex flex-col items-center text-center"
           tabindex="0" aria-label="ANSA Frankrike">
           <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/ansafrankrike.jpg" alt="Ansa Frankrike logo"
         class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
@@ -171,7 +131,7 @@
 
       <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/boominsa/">
         <article
-          class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-pink-400 transition"
+          class="kort kort-klikkbar p-6 flex flex-col items-center text-center"
           tabindex="0" aria-label="BOOMINSA">
           <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/boominsa.jpg" alt="Boominsa logo"
         class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
@@ -183,7 +143,7 @@
 
       <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ansastudent/">
         <article
-          class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-pink-400 transition"
+          class="kort kort-klikkbar p-6 flex flex-col items-center text-center"
           tabindex="0" aria-label="ANSA student">
           <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/ansastudent.jpg" alt="Ansa student logo"
         class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
@@ -195,7 +155,7 @@
 
       <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/crochtea_insat/">
         <article
-          class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-pink-400 transition"
+          class="kort kort-klikkbar p-6 flex flex-col items-center text-center"
           tabindex="0" aria-label="Crochtea">
           <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/crochtea.jpg" alt="Crochtea logo"
         class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
@@ -207,7 +167,7 @@
 
       <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/norginsamemes/">
         <article
-          class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-pink-400 transition"
+          class="kort kort-klikkbar p-6 flex flex-col items-center text-center"
           tabindex="0" aria-label="NORGINSA-memes">
           <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/norginsamemes.jpg" alt="Norginsa-memes logo"
         class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
@@ -227,22 +187,6 @@
     document.getElementById("footer").innerHTML = getFooterHTML();
   </script>
 
-  <!-- Floating Theme Toggle Button -->
-  <button id="themeToggleBtn"
-    class="floating-btn bg-gradient-to-r from-red-600 to-rose-500 dark:from-gray-700 dark:to-gray-800 text-white p-3 rounded-full shadow-xl hover:scale-110 focus:outline-none duration-200"
-    title="Bytt mellom lyst og mørkt tema" aria-label="Bytt mellom lyst og mørkt tema">
-    <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24"
-      stroke="currentColor" aria-hidden="true">
-      <circle cx="12" cy="12" r="5" stroke-width="2" />
-      <path stroke-linecap="round" stroke-width="2"
-        d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M16.36 16.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M16.36 7.64l1.42-1.42" />
-    </svg>
-    <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24"
-      stroke="currentColor" aria-hidden="true">
-      <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-        d="M21 12.79A9 9 0 1111.21 3c.03 0 .06.01.09.01a7 7 0 0010.7 9.78z" />
-    </svg>
-  </button>
 
   <!-- Scripts -->
   <script src="assets/vendor/aos.js"></script>

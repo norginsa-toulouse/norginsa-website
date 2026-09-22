@@ -4,13 +4,12 @@
 // slik at temaet er på plass før siden tegnes (ingen hvit blinking).
 // Denne filen kobler opp knappene og holder sol-/måneikonene i synk.
 //
-// Knapper: #themeToggleBtn (flytende), #themeToggle (arkivsiden),
-// #themeToggleNav og #sidebarThemeToggle (navbaren) - eller [data-theme-toggle].
+// Knappen bor bare ett sted: i navbaren. #themeToggleNav er desktop-varianten
+// og #sidebarThemeToggle den i mobilmenyen - eller [data-theme-toggle].
 (function () {
-  const KNAPPER =
-    "#themeToggleBtn, #themeToggle, #themeToggleNav, #sidebarThemeToggle, [data-theme-toggle]";
-  const SOL = "#icon-sun, #nav-sun, #sidebar-sun, .icon-sun";
-  const MAANE = "#icon-moon, #nav-moon, #sidebar-moon, .icon-moon";
+  const KNAPPER = "#themeToggleNav, #sidebarThemeToggle, [data-theme-toggle]";
+  const SOL = "#nav-sun, #sidebar-sun, .icon-sun";
+  const MAANE = "#nav-moon, #sidebar-moon, .icon-moon";
 
   function oppdaterIkoner() {
     const mork = document.documentElement.classList.contains("dark");
@@ -18,8 +17,8 @@
     document.querySelectorAll(MAANE).forEach((el) => el.classList.toggle("hidden", mork));
   }
 
-  // Klikk fanges på document, ikke på knappen selv. Da virker også knapper som
-  // settes inn av getNavbar.js/getFloatingButton.js, uansett skriptrekkefølge.
+  // Klikk fanges på document, ikke på knappen selv. Da virker knappene som
+  // settes inn av getNavbar.js, uansett skriptrekkefølge.
   document.addEventListener("click", (e) => {
     const knapp = e.target instanceof Element ? e.target.closest(KNAPPER) : null;
     if (!knapp) return;

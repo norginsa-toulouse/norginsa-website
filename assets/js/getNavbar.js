@@ -16,18 +16,14 @@ function getNavbarHTML() {
         <nav class="hidden md:flex items-center gap-3 font-medium text-sm sm:text-base" aria-label="Hovedmeny">
           <a href="index.html"
             class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Hjem</a>
-          <a href="arkiv.html"
-            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Arkiv</a>
           <a href="about.html"
-            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Om NORGINSA</a>
-          <a href="https://wiki.etud.insa-toulouse.fr/books/1a/page/besta-ditt-forste-norginsa-ar-starter-pack"  rel="noopener"
-            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100 flex items-center gap-1 text-sm sm:text-base">
-            Wiki
-          </a>
-          <a href="kontakt.html" rel="noopener"
-            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100 flex items-center gap-1 text-sm sm:text-base">
-            Kontakt oss
-          </a>
+            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Om programmet</a>
+          <a href="sokeguiden.html"
+            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Søkeguiden</a>
+          <a href="arkiv.html"
+            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Artikler</a>
+          <a href="kontakt.html"
+            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Kontakt oss</a>
           <a href="https://utdanning.no/tema/utdanning_i_utlandet/ingeniorstudier_i_toulouse"  rel="noopener"
             class="ml-2 bg-gradient-to-r from-red-600 to-rose-500 text-white px-4 sm:px-5 py-1.5 sm:py-2 rounded-lg shadow hover:from-red-700 hover:to-rose-600 font-semibold transition duration-200 flex items-center gap-1 sm:gap-2 focus:outline-none focus:ring-2 focus:ring-red-300 text-sm sm:text-base">
             SØK HER
@@ -81,15 +77,16 @@ function getNavbarHTML() {
         </button>
       </div>
       <div class="flex-1 flex flex-col gap-1.5 sm:gap-2 py-2">
-        <a href="index.html" class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Hjem</a>
-        <a href="arkiv.html"
-          class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Arkiv</a>
+        <a href="index.html"
+          class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Hjem</a>
         <a href="about.html"
-          class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Om NORGINSA</a>
-          <a href="kontakt.html"
+          class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Om programmet</a>
+        <a href="sokeguiden.html"
+          class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Søkeguiden</a>
+        <a href="arkiv.html"
+          class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Artikler</a>
+        <a href="kontakt.html"
           class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Kontakt oss</a>
-          <a href="https://wiki.etud.insa-toulouse.fr/books/1a/page/besta-ditt-forste-norginsa-ar-starter-pack"
-          class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Wiki</a>
         <a href="https://utdanning.no/tema/utdanning_i_utlandet/ingeniorstudier_i_toulouse"  rel="noopener"
           class="block bg-gradient-to-r from-red-600 to-rose-500 text-white px-4 py-1.5 rounded-lg shadow hover:from-red-700 hover:to-rose-600 font-semibold transition duration-200 mt-2 text-sm">
           SØK HER
@@ -131,18 +128,14 @@ function getArtikkelNavbarHTML() {
         <nav class="hidden md:flex items-center gap-3 font-medium text-sm sm:text-base" aria-label="Hovedmeny">
           <a href="../../index.html"
             class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Hjem</a>
-          <a href="../../arkiv.html"
-            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Arkiv</a>
           <a href="../../about.html"
-            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Om NORGINSA</a>
-          <a href="https://wiki.etud.insa-toulouse.fr/books/1a/page/besta-ditt-forste-norginsa-ar-starter-pack"  rel="noopener"
-            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100 flex items-center gap-1 text-sm sm:text-base">
-            Wiki
-          </a>
-          <a href="../../kontakt.html" rel="noopener"
-            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100 flex items-center gap-1 text-sm sm:text-base">
-            Kontakt Oss
-          </a>
+            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Om programmet</a>
+          <a href="../../sokeguiden.html"
+            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Søkeguiden</a>
+          <a href="../../arkiv.html"
+            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Artikler</a>
+          <a href="../../kontakt.html"
+            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Kontakt oss</a>
           <a href="https://utdanning.no/tema/utdanning_i_utlandet/ingeniorstudier_i_toulouse"  rel="noopener"
             class="ml-2 bg-gradient-to-r from-red-600 to-rose-500 text-white px-4 sm:px-5 py-1.5 sm:py-2 rounded-lg shadow hover:from-red-700 hover:to-rose-600 font-semibold transition duration-200 flex items-center gap-1 sm:gap-2 focus:outline-none focus:ring-2 focus:ring-red-300 text-sm sm:text-base">
             SØK HER
@@ -194,15 +187,16 @@ function getArtikkelNavbarHTML() {
         </button>
       </div>
       <div class="flex-1 flex flex-col gap-1.5 sm:gap-2 py-2">
-        <a href="../../index.html" class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Hjem</a>
-        <a href="../../arkiv.html"
-          class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Arkiv</a>
+        <a href="../../index.html"
+          class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Hjem</a>
         <a href="../../about.html"
-          class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Om NORGINSA</a>
-          <a href="../../kontakt.html"
-          class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Kontakt Oss</a>
-          <a href="https://wiki.etud.insa-toulouse.fr/books/1a/page/besta-ditt-forste-norginsa-ar-starter-pack"
-          class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Wiki</a>
+          class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Om programmet</a>
+        <a href="../../sokeguiden.html"
+          class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Søkeguiden</a>
+        <a href="../../arkiv.html"
+          class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Artikler</a>
+        <a href="../../kontakt.html"
+          class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Kontakt oss</a>
         <a href="https://utdanning.no/tema/utdanning_i_utlandet/ingeniorstudier_i_toulouse"  rel="noopener"
           class="block bg-gradient-to-r from-red-600 to-rose-500 text-white px-4 py-1.5 rounded-lg shadow hover:from-red-700 hover:to-rose-600 font-semibold transition duration-200 mt-2 text-sm">
           SØK HER

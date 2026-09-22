@@ -17,7 +17,7 @@ if (slideshowGrid && Array.isArray(window.slideshowImages)) {
     const btn = document.createElement('button');
     btn.className = "focus:outline-none";
     btn.onclick = () => openSlideshow(i);
-    btn.innerHTML = `<img src="${src}" alt="Bilde ${i + 1}" loading="lazy" decoding="async" class="w-full h-40 object-cover rounded-lg shadow glowing" />`;
+    btn.innerHTML = `<img src="${src}" alt="Bilde ${i + 1}" loading="lazy" decoding="async" class="w-full h-40 object-cover rounded-lg shadow" />`;
     slideshowGrid.appendChild(btn);
   });
 }

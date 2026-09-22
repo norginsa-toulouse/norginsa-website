@@ -2,6 +2,7 @@
 <html lang="no" class="scroll-smooth">
 
 <head>
+  <meta name="robots" content="noindex, follow">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ARTIKKELNAVN | NORGINSA</title>
@@ -20,10 +21,9 @@
   <link rel="icon" type="image/x-icon" href="../../assets/images/icon.ico">
 
   <!-- Tailwind + AOS CSS -->
-  <link rel="stylesheet" href="../../assets/css/article.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="../../assets/vendor/aos.css" rel="stylesheet" />
-  <script>tailwind.config = { darkMode: 'class' }</script>
+  <script src="../../assets/js/tailwind-oppsett.js"></script>
 
   <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
   <script>
@@ -36,6 +36,10 @@
     })();
   </script>
   <script src="../../assets/js/theme.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="../../assets/css/site.css">
 </head>
 
 <body
@@ -49,12 +53,12 @@
 
 <!-- ======= TITTEL ======= -->
   <section class="fade-down-anim max-w-7xl mx-auto px-4">
-    <div class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800">
+    <div class="kort-dus">
       <div class="px-6 py-16 text-center">
         <p class="inline-flex items-center gap-2 text-sm font-medium text-red-600 dark:text-red-400">
           SIST OPPDATERT: [DATO]
         </p>
-        <h1 class="mt-3 text-3xl sm:text-5xl font-extrabold tracking-tight">
+        <h1 class="mt-3 text-3xl sm:text-5xl font-bold tracking-tight">
             ARTIKKELTITTEL
         </h1>
         <p class="mt-3 text-base sm:text-lg text-gray-600 dark:text-gray-300">
@@ -70,7 +74,7 @@
 <div class="fade-down-anim max-w-4xl mx-auto my-12 flex flex-col md:flex-row items-center md:items-start gap-8">
     <div class="md:w-1/2 w-full">
        <a href="images/5.jpg" target="_blank" rel="noopener">
-            <img width="1000" height="667" decoding="async" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/5.jpg" alt="Tre deltakere med ANSA-navneskilt foran scenen">
+            <img width="1000" height="667" decoding="async" class="fade-down-anim w-full h-auto rounded-lg shadow" src="images/5.jpg" alt="Tre deltakere med ANSA-navneskilt foran scenen">
         </a>
     </div>
     <div class="md:w-1/2 w-full">
@@ -97,7 +101,7 @@
     </div>
     <div class="md:w-1/2 w-full order-1 md:order-2">
         <a href="images/6.jpg" target="_blank" rel="noopener">
-            <img width="1000" height="666" decoding="async" loading="lazy" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/6.jpg" alt="To møteledere bak ANSA-bordet, den ene med hendene i været">
+            <img width="1000" height="666" decoding="async" loading="lazy" class="fade-down-anim w-full h-auto rounded-lg shadow" src="images/6.jpg" alt="To møteledere bak ANSA-bordet, den ene med hendene i været">
         </a>
     </div>
 </div>
@@ -109,22 +113,22 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div>
                 <a href="images/1.jpg" target="_blank" rel="noopener">
-                    <img width="1000" height="1778" decoding="async" loading="lazy" src="images/1.jpg" alt="Bilde 1" class="w-full h-40 object-cover rounded-lg shadow glowing" />
+                    <img width="1000" height="1778" decoding="async" loading="lazy" src="images/1.jpg" alt="Bilde 1" class="w-full h-40 object-cover rounded-lg shadow" />
                 </a>
             </div>
             <div>
                 <a href="images/2.jpg" target="_blank" rel="noopener">
-                    <img width="1000" height="1778" decoding="async" loading="lazy" src="images/2.jpg" alt="Bilde 2" class="w-full h-40 object-cover rounded-lg shadow glowing" />
+                    <img width="1000" height="1778" decoding="async" loading="lazy" src="images/2.jpg" alt="Bilde 2" class="w-full h-40 object-cover rounded-lg shadow" />
                 </a>
             </div>
             <div>
                 <a href="images/3.jpg" target="_blank" rel="noopener">
-                    <img width="1000" height="1778" decoding="async" loading="lazy" src="images/3.jpg" alt="Bilde 3" class="w-full h-40 object-cover rounded-lg shadow glowing" />
+                    <img width="1000" height="1778" decoding="async" loading="lazy" src="images/3.jpg" alt="Bilde 3" class="w-full h-40 object-cover rounded-lg shadow" />
                 </a>
             </div>
             <div>
                 <a href="images/4.jpg" target="_blank" rel="noopener">
-                    <img width="1000" height="1778" decoding="async" loading="lazy" src="images/4.jpg" alt="Bilde 4" class="w-full h-40 object-cover rounded-lg shadow glowing" />
+                    <img width="1000" height="1778" decoding="async" loading="lazy" src="images/4.jpg" alt="Bilde 4" class="w-full h-40 object-cover rounded-lg shadow" />
                 </a>
             </div>
         </div>
@@ -212,10 +216,6 @@
   <script src="../../assets/js/getFooter.js"></script>
   <script>document.getElementById("footer").innerHTML = getFooterHTML();</script>
 
-  <!-- Floating Theme Toggle Button -->
-  <div id="floatingButton"></div>
-  <script src="../../assets/js/getFloatingButton.js"></script>
-  <script>document.getElementById("floatingButton").innerHTML = getFloatingButton();</script>
 
 
   <!-- Scripts -->

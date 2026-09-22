@@ -1,0 +1,246 @@
+/* NORGINSA - felles stil.
+ *
+ * Farger og skrift settes i assets/js/tailwind-oppsett.js, slik at Tailwind-
+ * klassene ute i markupen bruker de samme verdiene. Her ligger komponentene:
+ * typografi, kort, knapper, hero og mobilmeny.
+ *
+ * Fargeregel: rødt betyr handling (knapper, lenker, tagger). Flater og
+ * kanter holder seg i den varme gråskalaen.
+ */
+
+:root {
+  --ng-kant: #ece5e5;
+  --ng-flate: #fffdfd;
+  --ng-flate-dus: #fcf9f9;
+  --ng-radius: 1rem;
+  --ng-skygge: 0 1px 2px rgb(20 18 16 / 0.05), 0 4px 12px rgb(20 18 16 / 0.07);
+  --ng-skygge-hover: 0 2px 4px rgb(20 18 16 / 0.06), 0 10px 24px rgb(20 18 16 / 0.1);
+}
+
+.dark {
+  --ng-kant: #38352f;
+  --ng-flate: #292724;
+  --ng-flate-dus: #211f1c;
+  --ng-skygge: 0 1px 2px rgb(0 0 0 / 0.35), 0 4px 12px rgb(0 0 0 / 0.3);
+  --ng-skygge-hover: 0 2px 4px rgb(0 0 0 / 0.4), 0 10px 24px rgb(0 0 0 / 0.4);
+}
+
+/* ---------- Typografi ----------
+ * IBM Plex Sans på overskriftene: nøytral uten å være anonym, og ikke
+ * geometrisk. Brødteksten står i systemfonten, så det er én ekstra forespørsel.
+ * Plex går opp til 700, så overskrifter settes i font-bold, ikke extrabold -
+ * ellers fetner nettleseren kunstig og det ser grumsete ut.
+ * Størrelsene settes fortsatt med Tailwind-klasser ute i markupen. */
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.15;
+  letter-spacing: -0.018em;
+  text-wrap: balance;
+}
+
+h1 {
+  letter-spacing: -0.025em;
+}
+
+p, li {
+  text-wrap: pretty;
+}
+
+/* ---------- Kort ---------- */
+
+.kort {
+  background-color: var(--ng-flate);
+  border: 1px solid var(--ng-kant);
+  border-radius: var(--ng-radius);
+  box-shadow: var(--ng-skygge);
+}
+
+/* Dempet variant, til seksjoner som skal ligge litt tilbake. */
+.kort-dus {
+  background-color: var(--ng-flate-dus);
+  border: 1px solid var(--ng-kant);
+  border-radius: var(--ng-radius);
+}
+
+/* Løftet er lite med vilje: det skal antyde at noe skjer, ikke sprette. */
+.kort-klikkbar {
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.kort-klikkbar:hover,
+.kort-klikkbar:focus-within {
+  box-shadow: var(--ng-skygge-hover);
+  transform: translateY(-2px);
+}
+
+/* ---------- Knapper ---------- */
+
+.knapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  text-align: center;
+  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.knapp:focus-visible {
+  outline: 2px solid #f04a78;
+  outline-offset: 2px;
+}
+
+.knapp-primar {
+  background-image: linear-gradient(to right, #d92046, #f04a78);
+  color: #ffffff;
+  box-shadow: var(--ng-skygge);
+}
+
+.knapp-primar:hover {
+  background-image: linear-gradient(to right, #b7153a, #dd2a63);
+}
+
+.knapp-sekundar {
+  border: 1px solid var(--ng-kant);
+  background-color: transparent;
+  color: inherit;
+}
+
+.knapp-sekundar:hover {
+  background-color: #f7f2f2;
+}
+
+.dark .knapp-sekundar:hover {
+  background-color: #38352f;
+}
+
+/* Sekundærknapp oppå et bilde, der kanten må stå mot foto og ikke mot flate. */
+.knapp-pa-bilde {
+  border: 1px solid rgb(255 255 255 / 0.5);
+  background-color: rgb(255 255 255 / 0.12);
+  color: #ffffff;
+  backdrop-filter: blur(6px);
+}
+
+.knapp-pa-bilde:hover {
+  background-color: rgb(255 255 255 / 0.22);
+}
+
+/* ---------- Hero ----------
+ * Bildet og tittelen er én ting, ikke en grå boks over et foto. Bilde og
+ * innhold legges i samme rutenettcelle, med en mørk gradient imellom så
+ * teksten er lesbar uansett hva som er i bildet. */
+
+.hero {
+  position: relative;
+  display: grid;
+  min-height: clamp(21rem, 52vw, 32rem);
+  overflow: hidden;
+  border-radius: var(--ng-radius);
+}
+
+.hero > img {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 58%;
+}
+
+.hero::after {
+  content: "";
+  grid-area: 1 / 1;
+  background: linear-gradient(
+    to top,
+    rgb(18 17 16 / 0.88) 0%,
+    rgb(18 17 16 / 0.58) 42%,
+    rgb(18 17 16 / 0.18) 100%
+  );
+}
+
+.hero-innhold {
+  z-index: 1;
+  grid-area: 1 / 1;
+  align-self: end;
+  max-width: 44rem;
+  padding: clamp(1.5rem, 4.5vw, 3.25rem);
+  color: #ffffff;
+}
+
+.hero-innhold h1 {
+  margin-top: 0;
+  font-size: clamp(2rem, 5.2vw, 3.5rem);
+  font-weight: 700;
+}
+
+.hero-ingress {
+  margin-top: 0.875rem;
+  max-width: 34rem;
+  font-size: clamp(1rem, 1.6vw, 1.1875rem);
+  line-height: 1.55;
+  color: rgb(255 255 255 / 0.88);
+}
+
+.hero-knapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+/* ---------- Animasjon ---------- */
+
+.fade-down-anim {
+  animation: ngFadeDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes ngFadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Mobilmeny ----------
+ * Lå tidligere i to identiske filer som ikke var koblet på de samme sidene,
+ * så scroll-låsen manglet på forsiden. */
+
+@media (max-width: 480px) {
+  #mobileSidebar {
+    width: 90vw !important;
+    min-width: 0 !important;
+    max-width: 360px !important;
+  }
+}
+
+body.sidebar-open {
+  overflow: hidden;
+  touch-action: none;
+}

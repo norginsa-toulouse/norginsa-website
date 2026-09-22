@@ -21,53 +21,10 @@
   <link rel="icon" type="image/x-icon" href="assets/images/icon.ico">
 
   <!-- Tailwind + AOS CSS -->
-  <link rel="stylesheet" href="assets/css/navbar.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="assets/vendor/aos.css" rel="stylesheet" />
-  <script>
-    tailwind.config = { darkMode: 'class' };
-  </script>
+  <script src="assets/js/tailwind-oppsett.js"></script>
 
-  <style>
-    /* Glowing effect for cards & buttons */
-    .glowing {
-      box-shadow: 0 16px 32px rgba(246, 59, 59, 0.16), 0 8px 8px rgba(246, 59, 59, 0.1);
-      transition: box-shadow 0.15s, transform 0.15s;
-    }
-
-    .glowing:hover,
-    .glowing:focus-visible {
-      box-shadow: 0 32px 64px rgba(246, 59, 59, 0.24), 0 16px 16px rgba(246, 59, 59, 0.12);
-      transform: translateY(-3px) scale(1.03);
-      outline-offset: 4px;
-      outline: none;
-    }
-
-    /* Fade down animation for sections */
-    .fade-down-anim {
-      animation: fadeDown 0.75s cubic-bezier(.77, 0, .175, 1) forwards;
-    }
-
-    @keyframes fadeDown {
-      from {
-        transform: translateY(-20px);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    /* Floating theme toggle button fixed position */
-    #themeToggleBtn {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      z-index: 9999;
-    }
-  </style>
 
   <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
   <script>
@@ -80,6 +37,10 @@
     })();
   </script>
   <script src="assets/js/theme.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/site.css">
 </head>
 
 <body
@@ -93,11 +54,10 @@
     document.getElementById("navbar").innerHTML = getNavbarHTML();
   </script>
   <script src="assets/js/navbar.js"></script>
-  <div class="pt-24"></div>
 
   <!-- Page Title -->
   <div class="max-w-7xl mx-auto mb-12 text-center">
-    <h1 class="text-5xl font-extrabold mb-4 fade-down-anim">Om NORGINSA</h1>
+    <h1 class="text-4xl sm:text-5xl font-bold mb-4 fade-down-anim">Om NORGINSA</h1>
     <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 text-lg leading-relaxed fade-down-anim"
       data-aos="fade-down" data-aos-delay="100">
       Er du snart ferdig med videregående skole og planlegger å studere teknologi? I den franske teknologihovedstaden Toulouse kan du utdanne deg til ingeniør gjennom NORGINSA-programmet. Studiet er godkjent for støtte fra Lånekassen. 
@@ -105,9 +65,9 @@
   </div>
 
   <!-- Our Mission Section -->
-  <section class="max-w-5xl mx-auto mb-20 bg-white dark:bg-gray-800 rounded-3xl glowing p-8 shadow-lg"
+  <section class="max-w-5xl mx-auto mb-12 sm:mb-16 kort p-8"
     data-aos="fade-up" tabindex="0" aria-label="Kort oppsummert">
-    <h2 class="text-3xl font-bold mb-6">Kort oppsummert</h2>
+    <h2 class="text-2xl sm:text-3xl font-bold mb-5">Kort oppsummert</h2>
     <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
      NORGINSA er et femårig masterstudie for norske studenter som vil studere i Toulouse. Studiet har en rekke retninger som velges gjennom studiet. Dette passer perfekt for både deg som vet hva du vil og deg som vil finne det ut etter hvert!
     </p>
@@ -120,7 +80,7 @@
       Slik ser et typisk studieløp ut ved INSA Toulouse
     </p>
     <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 ">
-      <article class="rounded-xl border border-gray-200 dark:border-gray-800 p-5 bg-white dark:bg-gray-800">
+      <article class="kort p-5">
         <h4 class="font-semibold">Første år</h4>
         <p class="mt-1 text-gray-600 dark:text-gray-300">Generelle fag, med introduksjoner innen mange fagfelt for å bedre kunne velge en spesialisering i andre året.</p>
         <p class="mt-1 text-gray-600 dark:text-gray-300">PPA (Petit Première Année = Lille Første Året) er preget av at alle nordmenn er i samme klasse, sammen med noen franskmenn for å bedre integreres.</p>
@@ -132,7 +92,7 @@
         
       </article>
 
-      <article class="rounded-xl border border-gray-200 dark:border-gray-800 p-5 bg-white dark:bg-gray-800">
+      <article class="kort p-5">
         <h4 class="font-semibold">Andre & Tredje år</h4>
         <p class="mt-1 text-gray-600 dark:text-gray-300">Alle har valgt en av fire linjer, og blir satt i franske klasser som resten av INSA-studentene. Linjene er:</p>
         <br>
@@ -147,7 +107,7 @@
 
 
       </article>
-      <article class="rounded-xl border border-gray-200 dark:border-gray-800 p-5 bg-white dark:bg-gray-800">
+      <article class="kort p-5">
         <h4 class="font-semibold">Fjerde & Femte år</h4>
         <p class="mt-1 text-gray-600 dark:text-gray-300">Studentene fordyper seg enda mer innen linjene sine, og fokuserer stadig mer på prosjektarbeid, internships og muligheten av <a class="text-red-600 hover:text-red-800" href="./arkiv/dobbeldiplom/dobbeldiplom.html">dobbeldiplom</a></p> <br>
         <p class="mt-1 text-gray-600 dark:text-gray-300">På INSA skrives det verken Bachelor- eller Masteroppgave, men hele 2. semester i 5. året er et internship på 20-26 uker. <u>Alle Internships kan gjennomføres hvor som helst i verden, inkludert i Norge!</u></p>
@@ -155,31 +115,28 @@
     </div>
   </section>
 
-  <!-- How to Contribute Section -->
-  <section class="max-w-5xl mx-auto mb-20 bg-white dark:bg-gray-800 rounded-3xl glowing p-8 shadow-lg"
+  <!-- ======= SØKEGUIDEN ======= -->
+  <section class="max-w-5xl mx-auto mb-12 sm:mb-16 kort p-8"
     data-aos="fade-up" tabindex="0" aria-label="Hvordan søke">
-    <h2 class="text-3xl font-bold mb-6">Hvordan søke på programmet:</h2>
-    <ol class="list-decimal list-inside space-y-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-      <li>Trykk på knappen "SØK HER" for å bli redirigert til Utdanning.no, og bla ned til espresso-lenken</li>
-      <li>Gå inn i Espresso</li>
-      <li>Klikk på «Registrering», og fyll ut «Brukerregistrering» (Dersom du ikke får e-post med passord med en gang, må du huske å sjekke søppelboksen din i tilfelle spamfilter)</li>
-      <li>Logg deg på og velg ønsket målform ved å klikke på et av de norske flaggene (bokmål eller nynorsk) øverst i høyre hjørne</li>
-      <li>Velg søknad for NORGINSA. NORGINSA-søknadsskjemaet vil tilgjengeliggjøres noen måneder før søknadsfristen</li>
-    </ol>
-    <a href="https://utdanning.no/tema/utdanning_i_utlandet/ingeniorstudier_i_toulouse"
-      class="mt-8 inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-red-600 to-rose-500 hover:from-red-700 hover:to-rose-600 rounded-lg font-semibold text-white shadow-lg transition glowing focus:outline-none focus:ring-4 focus:ring-red-400"
-      target="_blank" rel="noopener" aria-label="Søk på NORGINSA via Utdanning.no">
-      SØK HER
+    <h2 class="text-2xl sm:text-3xl font-bold mb-5">Hvordan søker jeg?</h2>
+    <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+      Framgangsmåten steg for steg, opptakskrav, kostnader og svar på det folk lurer
+      mest på har fått sin egen side.
+    </p>
+    <a href="sokeguiden.html"
+      class="knapp knapp-primar mt-8"
+      aria-label="Gå til Søkeguiden">
+      Til Søkeguiden
     </a>
   </section>
 
   <!-- Meet The Team Section 
-  <section class="max-w-7xl mx-auto mb-20" aria-labelledby="team-heading">
+  <section class="max-w-7xl mx-auto mb-12 sm:mb-16" aria-labelledby="team-heading">
     <h2 id="team-heading" class="text-3xl font-bold mb-12 text-center fade-down-anim">Hvem holder nettsiden gående?</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
       <!-- Team Member Cards
       <article
-        class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-red-400 transition"
+        class="kort kort-klikkbar p-6 flex flex-col items-center text-center"
         tabindex="0" aria-label="Person #1, Dev">
         <img width="150" height="150" decoding="async" src="assets/images/kontakt-oss/norginsa.jpg" alt="Person #1's avatar"
           class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
@@ -189,7 +146,7 @@
       </article>
 
       <article
-        class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-rose-400 transition"
+        class="kort kort-klikkbar p-6 flex flex-col items-center text-center"
         tabindex="0" aria-label="Person #2, UI Designer">
         <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/norginsa.jpg" alt="Person #2's avatar"
           class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
@@ -200,7 +157,7 @@
       </article>
 
       <article
-        class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-yellow-400 transition"
+        class="kort kort-klikkbar p-6 flex flex-col items-center text-center"
         tabindex="0" aria-label="Person #3, Frontend Developer">
         <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/norginsa.jpg" alt="Person #3's avatar"
           class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
@@ -211,7 +168,7 @@
       </article>
 
       <article
-        class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-pink-400 transition"
+        class="kort kort-klikkbar p-6 flex flex-col items-center text-center"
         tabindex="0" aria-label="Person #4, Community Manager">
         <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/norginsa.jpg" alt="Person #4's avatar"
           class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
@@ -232,22 +189,6 @@
     document.getElementById("footer").innerHTML = getFooterHTML();
   </script>
 
-  <!-- Floating Theme Toggle Button -->
-  <button id="themeToggleBtn"
-    class="floating-btn bg-gradient-to-r from-red-600 to-rose-500 dark:from-gray-700 dark:to-gray-800 text-white p-3 rounded-full shadow-xl hover:scale-110 focus:outline-none duration-200"
-    title="Bytt mellom lyst og mørkt tema" aria-label="Bytt mellom lyst og mørkt tema">
-    <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24"
-      stroke="currentColor" aria-hidden="true">
-      <circle cx="12" cy="12" r="5" stroke-width="2" />
-      <path stroke-linecap="round" stroke-width="2"
-        d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M16.36 16.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M16.36 7.64l1.42-1.42" />
-    </svg>
-    <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24"
-      stroke="currentColor" aria-hidden="true">
-      <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-        d="M21 12.79A9 9 0 1111.21 3c.03 0 .06.01.09.01a7 7 0 0010.7 9.78z" />
-    </svg>
-  </button>
 
   <!-- Scripts -->
   <script src="assets/vendor/aos.js"></script>

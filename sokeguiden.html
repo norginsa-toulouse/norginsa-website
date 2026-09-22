@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="no" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Søkeguiden: slik søker du på NORGINSA | NORGINSA</title>
+  <meta name="description" content="Slik søker du på NORGINSA og ingeniørstudiet ved INSA Toulouse: framgangsmåten steg for steg, hva som kreves, hva det koster og svar på det folk lurer mest på.">
+  <link rel="canonical" href="https://www.norginsa.no/sokeguiden">
+
+  <!-- Open Graph / deling på sosiale medier -->
+  <meta property="og:site_name" content="NORGINSA">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.norginsa.no/sokeguiden">
+  <meta property="og:title" content="Søkeguiden: slik søker du på NORGINSA | NORGINSA">
+  <meta property="og:description" content="Slik søker du på NORGINSA og ingeniørstudiet ved INSA Toulouse: framgangsmåten steg for steg, hva som kreves, hva det koster og svar på det folk lurer mest på.">
+  <meta property="og:image" content="https://www.norginsa.no/assets/images/mainpage2.jpg">
+  <meta property="og:locale" content="nb_NO">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/x-icon" href="assets/images/icon.ico">
+
+  <!-- Tailwind + AOS CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="assets/vendor/aos.css" rel="stylesheet" />
+  <script src="assets/js/tailwind-oppsett.js"></script>
+
+
+  <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
+  <script>
+    (function () {
+      try {
+        var lagret = localStorage.getItem("theme");
+        var mork = lagret ? lagret === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        if (mork) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+  <script src="assets/js/theme.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+
+<body
+  class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 relative font-sans">
+
+  <!-- Navbar -->
+  <div id="navbar"></div>
+  <script src="assets/js/getNavbar.js"></script>
+  <script>
+    document.getElementById("navbar").innerHTML = getNavbarHTML();
+  </script>
+  <script src="assets/js/navbar.js"></script>
+
+  <!-- Page Title -->
+  <div class="max-w-7xl mx-auto mb-12 text-center px-4">
+    <h1 class="text-4xl sm:text-5xl font-bold mb-4 fade-down-anim">Søkeguiden</h1>
+    <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 text-lg leading-relaxed fade-down-anim"
+      data-aos="fade-down" data-aos-delay="100">
+      <!-- TODO: én kort ingress. Hvem siden er for, og hva de får ut av å lese den. -->
+      Alt du trenger å vite for å søke deg til NORGINSA, skrevet av oss som har gjort det.
+    </p>
+  </div>
+
+  <!-- ======= STEG FOR STEG =======
+       Flyttet hit fra about.html, slik at «hvordan søke» bare finnes ett sted. -->
+  <section class="max-w-5xl mx-auto mb-12 sm:mb-16 kort p-8"
+    data-aos="fade-up" tabindex="0" aria-label="Slik søker du, steg for steg">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-5">Slik søker du, steg for steg</h2>
+    <ol class="list-decimal list-inside space-y-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+      <li>Trykk på knappen "SØK HER" for å bli redirigert til Utdanning.no, og bla ned til espresso-lenken</li>
+      <li>Gå inn i Espresso</li>
+      <li>Klikk på «Registrering», og fyll ut «Brukerregistrering» (Dersom du ikke får e-post med passord med en gang, må du huske å sjekke søppelboksen din i tilfelle spamfilter)</li>
+      <li>Logg deg på og velg ønsket målform ved å klikke på et av de norske flaggene (bokmål eller nynorsk) øverst i høyre hjørne</li>
+      <li>Velg søknad for NORGINSA. NORGINSA-søknadsskjemaet vil tilgjengeliggjøres noen måneder før søknadsfristen</li>
+    </ol>
+    <a href="https://utdanning.no/tema/utdanning_i_utlandet/ingeniorstudier_i_toulouse"
+      class="knapp knapp-primar mt-8"
+      target="_blank" rel="noopener" aria-label="Søk på NORGINSA via Utdanning.no">
+      SØK HER
+    </a>
+  </section>
+
+
+  <!-- ======= SEKSJONER Å FYLLE UT =======
+       Overskriftene under er forslag, bytt dem gjerne. Poenget med hver av dem
+       er at de svarer på noe folk faktisk googler før de kjenner ordet NORGINSA.
+       Utdanning.no eier de formelle detaljene (frister, offisielle krav), så
+       lenk dit for det, og bruk plassen her på det bare dere kan si.
+       Slett seksjoner dere ikke vil ha.
+
+  <section class="max-w-5xl mx-auto mb-12 sm:mb-16 kort p-8"
+    data-aos="fade-up" tabindex="0" aria-label="Hva kreves for å komme inn">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-5">Hva kreves for å komme inn?</h2>
+    <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+      <!-- TODO: realfagskrav, karakterer, og hvor mye som er «hardt krav» kontra
+           hva dere har sett fungere i praksis. Lenk til Utdanning.no for de
+           offisielle kravene.
+    </p>
+  </section>
+
+  <section class="max-w-5xl mx-auto mb-12 sm:mb-16 kort p-8"
+    data-aos="fade-up" tabindex="0" aria-label="Må jeg kunne fransk">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-5">Må jeg kunne fransk?</h2>
+    <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+      <!-- TODO: det korte svaret er nei, og det står allerede på forsiden.
+           Her er plassen til det lange svaret: hvordan første året faktisk
+           føles, hvor lang tid det tar, og hva som er vanskelig.
+    </p>
+  </section>
+
+  <section class="max-w-5xl mx-auto mb-12 sm:mb-16 kort p-8"
+    data-aos="fade-up" tabindex="0" aria-label="Hva koster det">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-5">Hva koster det?</h2>
+    <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+      <!-- TODO: skolepenger, bolig, mat, reise hjem. Hva Lånekassen dekker.
+           Gjerne et faktisk månedsbudsjett, det er det ingen andre gir dem.
+    </p>
+  </section>
+
+  <section class="max-w-5xl mx-auto mb-12 sm:mb-16 kort p-8"
+    data-aos="fade-up" tabindex="0" aria-label="Blir graden godkjent i Norge">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-5">Blir graden godkjent i Norge?</h2>
+    <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+      <!-- TODO: dette er spørsmålet foreldrene stiller. Godkjenning, hva
+           tittelen tilsvarer, og hva folk har gjort etter endt studium.
+    </p>
+  </section>
+
+  <section class="max-w-5xl mx-auto mb-12 sm:mb-16 kort p-8"
+    data-aos="fade-up" tabindex="0" aria-label="Når er fristen">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-5">Når er fristen?</h2>
+    <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+      <!-- TODO: hold denne kort og lenk til Utdanning.no, som eier datoene.
+           Da slipper dere å oppdatere siden hvert år.
+    </p>
+  </section>
+
+  <!-- ======= KONTAKT =======
+  <section class="max-w-5xl mx-auto mb-12 sm:mb-16 px-4">
+    <div class="kort p-8 text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold">Noe du fortsatt lurer på?</h2>
+      <p class="mt-3 text-gray-600 dark:text-gray-300">
+        Vi er studenter i Toulouse, og svarer gjerne på det som ikke står her.
+      </p>
+      <a href="kontakt.html"
+        class="knapp knapp-primar mt-6">
+        Kontakt oss
+      </a>
+    </div>
+  </section>
+  -->
+  <!-- Footer Container -->
+  <div id="footer"></div>
+  <script src="assets/js/getFooter.js"></script>
+  <script>
+    document.getElementById("footer").innerHTML = getFooterHTML();
+  </script>
+
+  <!-- Scripts -->
+  <script src="assets/vendor/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>

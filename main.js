@@ -1,4 +1,6 @@
-// Forsidens «Nye artikler»: de tre nyeste utvalgte artiklene fra arkiv.json.
+// Forsidens «Nye artikler»: de tre nyeste artiklene fra arkiv.json.
+// Artikler merket "utkast": true i arkiv.json holdes utenfor, så uferdige
+// sider ikke havner på forsiden.
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("templateListContent");
   container.innerHTML = ''; // Clear container before loading
@@ -8,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const data = await res.json();
 
     const topTemplates = data.templates
-      .filter(t => t.featured)
+      .filter(t => !t.utkast)
       .sort((a, b) => datoTall(b.created) - datoTall(a.created))
       .slice(0, 3);
 
@@ -16,11 +18,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       const card = document.createElement("article");
       card.setAttribute("tabindex", "0");
       card.className =
-        "bg-white dark:bg-gray-800 rounded-2xl shadow-md flex flex-col overflow-hidden w-full";
+        "kort kort-klikkbar flex flex-col overflow-hidden w-full";
       card.style.animationDelay = `${index * 150}ms`;
 
       card.innerHTML = `
-        <img src="arkiv/${template.folder}/images/preview.jpg" alt="Forhåndsvisning av «${template.name}»" loading="lazy" decoding="async" width="800" height="448" class="w-full h-56 object-cover rounded-t-2xl"/>
+        <img src="arkiv/${template.folder}/images/preview.jpg" alt="Forhåndsvisning av «${template.name}»" loading="lazy" decoding="async" width="800" height="448" class="w-full h-56 object-cover"/>
         <div class="p-6 flex flex-col flex-grow">
           <h3 class="text-2xl font-extrabold text-gray-900 dark:text-gray-100 mb-3 line-clamp-2">${template.name}</h3>
           <p class="text-gray-700 dark:text-gray-300 text-sm mb-5 flex-grow line-clamp-3">${template.description}</p>
@@ -31,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             Skrevet av <strong>${forfattere(template).join(", ")}</strong> · ${template.created}
           </p>
           <div class="mt-auto space-y-3">
-            <a href="arkiv/${template.folder}/${template.folder}.html" class="block w-full bg-gradient-to-r from-red-600 to-rose-500 hover:from-red-700 hover:to-rose-600 text-white text-center px-5 py-3 rounded-xl font-semibold shadow-lg transition transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-rose-400" aria-label="Les «${template.name}»">
+            <a href="arkiv/${template.folder}/${template.folder}.html" class="knapp knapp-primar w-full" aria-label="Les «${template.name}»">
               Les mer
             </a>
           </div>

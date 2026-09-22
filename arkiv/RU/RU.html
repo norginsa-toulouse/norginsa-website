@@ -22,10 +22,9 @@
   
 
   <!-- Tailwind + AOS CSS -->
-  <link rel="stylesheet" href="../../assets/css/article.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="../../assets/vendor/aos.css" rel="stylesheet" />
-  <script>tailwind.config = { darkMode: 'class' }</script>
+  <script src="../../assets/js/tailwind-oppsett.js"></script>
 
   <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
   <script>
@@ -38,6 +37,10 @@
     })();
   </script>
   <script src="../../assets/js/theme.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="../../assets/css/site.css">
 </head>
 
 <body
@@ -51,12 +54,12 @@
 
 <!-- ======= TITTEL ======= -->
   <section class="fade-down-anim max-w-7xl mx-auto px-4">
-    <div class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800">
+    <div class="kort-dus">
       <div class="px-6 py-16 text-center">
         <p class="inline-flex items-center gap-2 text-sm font-medium text-red-600 dark:text-red-400">
           SIST OPPDATERT: 30-11-2025
         </p>
-        <h1 class="mt-3 text-3xl sm:text-5xl font-extrabold tracking-tight">
+        <h1 class="mt-3 text-3xl sm:text-5xl font-bold tracking-tight">
             Skolerestauranten RU
         </h1>
         <p class="mt-3 text-base sm:text-lg text-gray-600 dark:text-gray-300">
@@ -72,7 +75,7 @@
 <div class="fade-down-anim max-w-4xl mx-auto my-12 flex flex-col md:flex-row items-center md:items-start gap-8">
     <div class="md:w-1/2 w-full">
        <a href="images/RU1.jpg" target="_blank" rel="noopener">
-            <img width="1714" height="1348" decoding="async" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/RU1.jpg" alt="Matbrett med varm mat fra RU">
+            <img width="1714" height="1348" decoding="async" class="fade-down-anim w-full h-auto rounded-lg shadow" src="images/RU1.jpg" alt="Matbrett med varm mat fra RU">
         </a>
     </div>
     <div class="md:w-1/2 w-full">
@@ -118,7 +121,7 @@
     </div>
     <div class="md:w-1/2 w-full order-1 md:order-2">
         <a href="images/RU2.jpg" target="_blank" rel="noopener">
-            <img width="1230" height="944" decoding="async" loading="lazy" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/RU2.jpg" alt="Studenter i kø utenfor RU">
+            <img width="1230" height="944" decoding="async" loading="lazy" class="fade-down-anim w-full h-auto rounded-lg shadow" src="images/RU2.jpg" alt="Studenter i kø utenfor RU">
         </a>
     </div>
 </div>
@@ -127,7 +130,7 @@
     <div class="fade-down-anim max-w-4xl mx-auto my-12 flex flex-col md:flex-row items-center md:items-start gap-8">
         <div class="md:w-1/2 w-full">
            <a href="images/RU3.jpg" target="_blank" rel="noopener">
-                <img width="1254" height="916" decoding="async" loading="lazy" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/RU3.jpg" alt="Middag på RU">
+                <img width="1254" height="916" decoding="async" loading="lazy" class="fade-down-anim w-full h-auto rounded-lg shadow" src="images/RU3.jpg" alt="Middag på RU">
             </a>
         </div>
         <div class="md:w-1/2 w-full">
@@ -157,10 +160,6 @@
   <script src="../../assets/js/getFooter.js"></script>
   <script>document.getElementById("footer").innerHTML = getFooterHTML();</script>
 
-  <!-- Floating Theme Toggle Button -->
-  <div id="floatingButton"></div>
-  <script src="../../assets/js/getFloatingButton.js"></script>
-  <script>document.getElementById("floatingButton").innerHTML = getFloatingButton();</script>
 
 
   <!-- Scripts -->
