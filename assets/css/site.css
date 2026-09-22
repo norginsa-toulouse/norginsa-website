@@ -1,28 +1,55 @@
-/* NORGINSA - felles komponenter.
+/* NORGINSA - felles stil.
  *
- * Tailwind gjør det meste, men kort, knapper og innganimasjonen ble skrevet
- * på nytt på hver enkelt side, i litt ulike varianter. Her ligger de ett sted,
- * så de faktisk ser like ut. Mørk modus styres av .dark på <html>.
+ * Farger og skrift settes i assets/js/tailwind-oppsett.js, slik at Tailwind-
+ * klassene ute i markupen bruker de samme verdiene. Her ligger komponentene:
+ * typografi, kort, knapper, hero og mobilmeny.
  *
- * Fargeregel: rødt betyr handling (knapper, lenker, tagger). Kort og
- * seksjoner holder seg nøytrale.
+ * Fargeregel: rødt betyr handling (knapper, lenker, tagger). Flater og
+ * kanter holder seg i den varme gråskalaen.
  */
 
 :root {
-  --ng-kant: rgb(229 231 235);      /* gray-200  */
-  --ng-flate: #ffffff;
-  --ng-flate-dus: rgb(249 250 251); /* gray-50   */
+  --ng-kant: #ece5e5;
+  --ng-flate: #fffdfd;
+  --ng-flate-dus: #fcf9f9;
   --ng-radius: 1rem;
-  --ng-skygge: 0 1px 2px rgb(15 23 42 / 0.04), 0 4px 12px rgb(15 23 42 / 0.06);
-  --ng-skygge-hover: 0 2px 4px rgb(15 23 42 / 0.05), 0 10px 24px rgb(15 23 42 / 0.09);
+  --ng-skygge: 0 1px 2px rgb(20 18 16 / 0.05), 0 4px 12px rgb(20 18 16 / 0.07);
+  --ng-skygge-hover: 0 2px 4px rgb(20 18 16 / 0.06), 0 10px 24px rgb(20 18 16 / 0.1);
 }
 
 .dark {
-  --ng-kant: rgb(31 41 55);         /* gray-800  */
-  --ng-flate: rgb(31 41 55);
-  --ng-flate-dus: rgb(31 41 55);
-  --ng-skygge: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 12px rgb(0 0 0 / 0.25);
-  --ng-skygge-hover: 0 2px 4px rgb(0 0 0 / 0.35), 0 10px 24px rgb(0 0 0 / 0.35);
+  --ng-kant: #38352f;
+  --ng-flate: #292724;
+  --ng-flate-dus: #211f1c;
+  --ng-skygge: 0 1px 2px rgb(0 0 0 / 0.35), 0 4px 12px rgb(0 0 0 / 0.3);
+  --ng-skygge-hover: 0 2px 4px rgb(0 0 0 / 0.4), 0 10px 24px rgb(0 0 0 / 0.4);
+}
+
+/* ---------- Typografi ----------
+ * IBM Plex Sans på overskriftene: nøytral uten å være anonym, og ikke
+ * geometrisk. Brødteksten står i systemfonten, så det er én ekstra forespørsel.
+ * Plex går opp til 700, så overskrifter settes i font-bold, ikke extrabold -
+ * ellers fetner nettleseren kunstig og det ser grumsete ut.
+ * Størrelsene settes fortsatt med Tailwind-klasser ute i markupen. */
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.15;
+  letter-spacing: -0.018em;
+  text-wrap: balance;
+}
+
+h1 {
+  letter-spacing: -0.025em;
+}
+
+p, li {
+  text-wrap: pretty;
 }
 
 /* ---------- Kort ---------- */
@@ -34,15 +61,14 @@
   box-shadow: var(--ng-skygge);
 }
 
-/* Dus variant, til seksjoner som skal ligge litt tilbake (f.eks. toppbannere). */
+/* Dempet variant, til seksjoner som skal ligge litt tilbake. */
 .kort-dus {
   background-color: var(--ng-flate-dus);
   border: 1px solid var(--ng-kant);
   border-radius: var(--ng-radius);
 }
 
-/* Kort som kan klikkes. Løftet er lite med vilje: det skal antyde at noe
-   skjer, ikke sprette i ansiktet på folk. */
+/* Løftet er lite med vilje: det skal antyde at noe skjer, ikke sprette. */
 .kort-klikkbar {
   transition: box-shadow 0.18s ease, transform 0.18s ease;
 }
@@ -70,18 +96,18 @@
 }
 
 .knapp:focus-visible {
-  outline: 2px solid rgb(248 113 113);
+  outline: 2px solid #f04a78;
   outline-offset: 2px;
 }
 
 .knapp-primar {
-  background-image: linear-gradient(to right, rgb(220 38 38), rgb(244 63 94));
+  background-image: linear-gradient(to right, #d92046, #f04a78);
   color: #ffffff;
   box-shadow: var(--ng-skygge);
 }
 
 .knapp-primar:hover {
-  background-image: linear-gradient(to right, rgb(185 28 28), rgb(225 29 72));
+  background-image: linear-gradient(to right, #b7153a, #dd2a63);
 }
 
 .knapp-sekundar {
@@ -91,11 +117,85 @@
 }
 
 .knapp-sekundar:hover {
-  background-color: rgb(243 244 246);
+  background-color: #f7f2f2;
 }
 
 .dark .knapp-sekundar:hover {
-  background-color: rgb(55 65 81);
+  background-color: #38352f;
+}
+
+/* Sekundærknapp oppå et bilde, der kanten må stå mot foto og ikke mot flate. */
+.knapp-pa-bilde {
+  border: 1px solid rgb(255 255 255 / 0.5);
+  background-color: rgb(255 255 255 / 0.12);
+  color: #ffffff;
+  backdrop-filter: blur(6px);
+}
+
+.knapp-pa-bilde:hover {
+  background-color: rgb(255 255 255 / 0.22);
+}
+
+/* ---------- Hero ----------
+ * Bildet og tittelen er én ting, ikke en grå boks over et foto. Bilde og
+ * innhold legges i samme rutenettcelle, med en mørk gradient imellom så
+ * teksten er lesbar uansett hva som er i bildet. */
+
+.hero {
+  position: relative;
+  display: grid;
+  min-height: clamp(21rem, 52vw, 32rem);
+  overflow: hidden;
+  border-radius: var(--ng-radius);
+}
+
+.hero > img {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 58%;
+}
+
+.hero::after {
+  content: "";
+  grid-area: 1 / 1;
+  background: linear-gradient(
+    to top,
+    rgb(18 17 16 / 0.88) 0%,
+    rgb(18 17 16 / 0.58) 42%,
+    rgb(18 17 16 / 0.18) 100%
+  );
+}
+
+.hero-innhold {
+  z-index: 1;
+  grid-area: 1 / 1;
+  align-self: end;
+  max-width: 44rem;
+  padding: clamp(1.5rem, 4.5vw, 3.25rem);
+  color: #ffffff;
+}
+
+.hero-innhold h1 {
+  margin-top: 0;
+  font-size: clamp(2rem, 5.2vw, 3.5rem);
+  font-weight: 700;
+}
+
+.hero-ingress {
+  margin-top: 0.875rem;
+  max-width: 34rem;
+  font-size: clamp(1rem, 1.6vw, 1.1875rem);
+  line-height: 1.55;
+  color: rgb(255 255 255 / 0.88);
+}
+
+.hero-knapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
 }
 
 /* ---------- Animasjon ---------- */
@@ -129,8 +229,8 @@
 }
 
 /* ---------- Mobilmeny ----------
- * Lå tidligere i to identiske filer (article.css og navbar.css), som ikke var
- * koblet på de samme sidene. Scroll-låsen manglet derfor på forsiden. */
+ * Lå tidligere i to identiske filer som ikke var koblet på de samme sidene,
+ * så scroll-låsen manglet på forsiden. */
 
 @media (max-width: 480px) {
   #mobileSidebar {

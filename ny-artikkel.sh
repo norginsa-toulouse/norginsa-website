@@ -70,11 +70,14 @@ sider = f"""<!DOCTYPE html>
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/x-icon" href="../../assets/images/icon.ico">
 
-  <!-- Tailwind + AOS CSS -->
+  <!-- Skrift, stil og Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="../../assets/css/site.css">
-  <script src="https://cdn.tailwindcss.com"></script>
   <link href="../../assets/vendor/aos.css" rel="stylesheet" />
-  <script>tailwind.config = {{ darkMode: 'class' }}</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../assets/js/tailwind-oppsett.js"></script>
 
   <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
   <script>
@@ -104,7 +107,7 @@ sider = f"""<!DOCTYPE html>
         <p class="inline-flex items-center gap-2 text-sm font-medium text-red-600 dark:text-red-400">
           SIST OPPDATERT: {e(dato)}
         </p>
-        <h1 class="mt-3 text-3xl sm:text-5xl font-extrabold tracking-tight">
+        <h1 class="mt-3 text-3xl sm:text-5xl font-bold tracking-tight">
           {e(tittel)}
         </h1>
         <p class="mt-3 text-base sm:text-lg text-gray-600 dark:text-gray-300">

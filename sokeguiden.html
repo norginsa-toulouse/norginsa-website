@@ -23,9 +23,7 @@
   <!-- Tailwind + AOS CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="assets/vendor/aos.css" rel="stylesheet" />
-  <script>
-    tailwind.config = { darkMode: 'class' };
-  </script>
+  <script src="assets/js/tailwind-oppsett.js"></script>
 
 
   <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
@@ -39,6 +37,9 @@
     })();
   </script>
   <script src="assets/js/theme.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="assets/css/site.css">
 </head>
 
@@ -55,7 +56,7 @@
 
   <!-- Page Title -->
   <div class="max-w-7xl mx-auto mb-12 text-center px-4">
-    <h1 class="text-5xl font-extrabold mb-4 fade-down-anim">Søkeguiden</h1>
+    <h1 class="text-4xl sm:text-5xl font-bold mb-4 fade-down-anim">Søkeguiden</h1>
     <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 text-lg leading-relaxed fade-down-anim"
       data-aos="fade-down" data-aos-delay="100">
       <!-- TODO: én kort ingress. Hvem siden er for, og hva de får ut av å lese den. -->
@@ -65,9 +66,9 @@
 
   <!-- ======= STEG FOR STEG =======
        Flyttet hit fra about.html, slik at «hvordan søke» bare finnes ett sted. -->
-  <section class="max-w-5xl mx-auto mb-20 kort p-8"
+  <section class="max-w-5xl mx-auto mb-12 sm:mb-16 kort p-8"
     data-aos="fade-up" tabindex="0" aria-label="Slik søker du, steg for steg">
-    <h2 class="text-3xl font-bold mb-6">Slik søker du, steg for steg</h2>
+    <h2 class="text-2xl sm:text-3xl font-bold mb-5">Slik søker du, steg for steg</h2>
     <ol class="list-decimal list-inside space-y-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
       <li>Trykk på knappen "SØK HER" for å bli redirigert til Utdanning.no, og bla ned til espresso-lenken</li>
       <li>Gå inn i Espresso</li>
@@ -90,9 +91,9 @@
        lenk dit for det, og bruk plassen her på det bare dere kan si.
        Slett seksjoner dere ikke vil ha.
 
-  <section class="max-w-5xl mx-auto mb-20 kort p-8"
+  <section class="max-w-5xl mx-auto mb-12 sm:mb-16 kort p-8"
     data-aos="fade-up" tabindex="0" aria-label="Hva kreves for å komme inn">
-    <h2 class="text-3xl font-bold mb-6">Hva kreves for å komme inn?</h2>
+    <h2 class="text-2xl sm:text-3xl font-bold mb-5">Hva kreves for å komme inn?</h2>
     <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
       <!-- TODO: realfagskrav, karakterer, og hvor mye som er «hardt krav» kontra
            hva dere har sett fungere i praksis. Lenk til Utdanning.no for de
@@ -100,9 +101,9 @@
     </p>
   </section>
 
-  <section class="max-w-5xl mx-auto mb-20 kort p-8"
+  <section class="max-w-5xl mx-auto mb-12 sm:mb-16 kort p-8"
     data-aos="fade-up" tabindex="0" aria-label="Må jeg kunne fransk">
-    <h2 class="text-3xl font-bold mb-6">Må jeg kunne fransk?</h2>
+    <h2 class="text-2xl sm:text-3xl font-bold mb-5">Må jeg kunne fransk?</h2>
     <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
       <!-- TODO: det korte svaret er nei, og det står allerede på forsiden.
            Her er plassen til det lange svaret: hvordan første året faktisk
@@ -110,27 +111,27 @@
     </p>
   </section>
 
-  <section class="max-w-5xl mx-auto mb-20 kort p-8"
+  <section class="max-w-5xl mx-auto mb-12 sm:mb-16 kort p-8"
     data-aos="fade-up" tabindex="0" aria-label="Hva koster det">
-    <h2 class="text-3xl font-bold mb-6">Hva koster det?</h2>
+    <h2 class="text-2xl sm:text-3xl font-bold mb-5">Hva koster det?</h2>
     <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
       <!-- TODO: skolepenger, bolig, mat, reise hjem. Hva Lånekassen dekker.
            Gjerne et faktisk månedsbudsjett, det er det ingen andre gir dem.
     </p>
   </section>
 
-  <section class="max-w-5xl mx-auto mb-20 kort p-8"
+  <section class="max-w-5xl mx-auto mb-12 sm:mb-16 kort p-8"
     data-aos="fade-up" tabindex="0" aria-label="Blir graden godkjent i Norge">
-    <h2 class="text-3xl font-bold mb-6">Blir graden godkjent i Norge?</h2>
+    <h2 class="text-2xl sm:text-3xl font-bold mb-5">Blir graden godkjent i Norge?</h2>
     <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
       <!-- TODO: dette er spørsmålet foreldrene stiller. Godkjenning, hva
            tittelen tilsvarer, og hva folk har gjort etter endt studium.
     </p>
   </section>
 
-  <section class="max-w-5xl mx-auto mb-20 kort p-8"
+  <section class="max-w-5xl mx-auto mb-12 sm:mb-16 kort p-8"
     data-aos="fade-up" tabindex="0" aria-label="Når er fristen">
-    <h2 class="text-3xl font-bold mb-6">Når er fristen?</h2>
+    <h2 class="text-2xl sm:text-3xl font-bold mb-5">Når er fristen?</h2>
     <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
       <!-- TODO: hold denne kort og lenk til Utdanning.no, som eier datoene.
            Da slipper dere å oppdatere siden hvert år.
@@ -138,7 +139,7 @@
   </section>
 
   <!-- ======= KONTAKT =======
-  <section class="max-w-5xl mx-auto mb-20 px-4">
+  <section class="max-w-5xl mx-auto mb-12 sm:mb-16 px-4">
     <div class="kort p-8 text-center">
       <h2 class="text-2xl sm:text-3xl font-bold">Noe du fortsatt lurer på?</h2>
       <p class="mt-3 text-gray-600 dark:text-gray-300">
