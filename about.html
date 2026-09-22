@@ -60,13 +60,6 @@
       }
     }
 
-    /* Floating theme toggle button fixed position */
-    #themeToggleBtn {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      z-index: 9999;
-    }
   </style>
 
   <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
@@ -155,21 +148,18 @@
     </div>
   </section>
 
-  <!-- How to Contribute Section -->
+  <!-- ======= SØKEGUIDEN ======= -->
   <section class="max-w-5xl mx-auto mb-20 bg-white dark:bg-gray-800 rounded-3xl glowing p-8 shadow-lg"
     data-aos="fade-up" tabindex="0" aria-label="Hvordan søke">
-    <h2 class="text-3xl font-bold mb-6">Hvordan søke på programmet:</h2>
-    <ol class="list-decimal list-inside space-y-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-      <li>Trykk på knappen "SØK HER" for å bli redirigert til Utdanning.no, og bla ned til espresso-lenken</li>
-      <li>Gå inn i Espresso</li>
-      <li>Klikk på «Registrering», og fyll ut «Brukerregistrering» (Dersom du ikke får e-post med passord med en gang, må du huske å sjekke søppelboksen din i tilfelle spamfilter)</li>
-      <li>Logg deg på og velg ønsket målform ved å klikke på et av de norske flaggene (bokmål eller nynorsk) øverst i høyre hjørne</li>
-      <li>Velg søknad for NORGINSA. NORGINSA-søknadsskjemaet vil tilgjengeliggjøres noen måneder før søknadsfristen</li>
-    </ol>
-    <a href="https://utdanning.no/tema/utdanning_i_utlandet/ingeniorstudier_i_toulouse"
+    <h2 class="text-3xl font-bold mb-6">Hvordan søker jeg?</h2>
+    <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+      Framgangsmåten steg for steg, opptakskrav, kostnader og svar på det folk lurer
+      mest på har fått sin egen side.
+    </p>
+    <a href="sokeguiden.html"
       class="mt-8 inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-red-600 to-rose-500 hover:from-red-700 hover:to-rose-600 rounded-lg font-semibold text-white shadow-lg transition glowing focus:outline-none focus:ring-4 focus:ring-red-400"
-      target="_blank" rel="noopener" aria-label="Søk på NORGINSA via Utdanning.no">
-      SØK HER
+      aria-label="Gå til Søkeguiden">
+      Til Søkeguiden
     </a>
   </section>
 
@@ -232,22 +222,6 @@
     document.getElementById("footer").innerHTML = getFooterHTML();
   </script>
 
-  <!-- Floating Theme Toggle Button -->
-  <button id="themeToggleBtn"
-    class="floating-btn bg-gradient-to-r from-red-600 to-rose-500 dark:from-gray-700 dark:to-gray-800 text-white p-3 rounded-full shadow-xl hover:scale-110 focus:outline-none duration-200"
-    title="Bytt mellom lyst og mørkt tema" aria-label="Bytt mellom lyst og mørkt tema">
-    <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24"
-      stroke="currentColor" aria-hidden="true">
-      <circle cx="12" cy="12" r="5" stroke-width="2" />
-      <path stroke-linecap="round" stroke-width="2"
-        d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M16.36 16.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M16.36 7.64l1.42-1.42" />
-    </svg>
-    <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24"
-      stroke="currentColor" aria-hidden="true">
-      <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-        d="M21 12.79A9 9 0 1111.21 3c.03 0 .06.01.09.01a7 7 0 0010.7 9.78z" />
-    </svg>
-  </button>
 
   <!-- Scripts -->
   <script src="assets/vendor/aos.js"></script>

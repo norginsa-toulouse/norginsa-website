@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Artikler om studiet og studentlivet i Toulouse | NORGINSA</title>
-  <meta name="description" content="Søk i NORGINSA-arkivet: studenthistorier, tips til studiestart, linjene på INSA Toulouse og de snodigste tradisjonene i Toulouse.">
+  <meta name="description" content="Artikler fra norske studenter i Toulouse: studenthistorier, tips til studiestart, linjene på INSA Toulouse og de snodigste tradisjonene i byen.">
   <link rel="canonical" href="https://www.norginsa.no/arkiv">
 
   <!-- Open Graph / deling på sosiale medier -->
@@ -13,7 +13,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.norginsa.no/arkiv">
   <meta property="og:title" content="Artikler om studiet og studentlivet i Toulouse | NORGINSA">
-  <meta property="og:description" content="Søk i NORGINSA-arkivet: studenthistorier, tips til studiestart, linjene på INSA Toulouse og de snodigste tradisjonene i Toulouse.">
+  <meta property="og:description" content="Artikler fra norske studenter i Toulouse: studenthistorier, tips til studiestart, linjene på INSA Toulouse og de snodigste tradisjonene i byen.">
   <meta property="og:image" content="https://www.norginsa.no/assets/images/mainpage2.jpg">
   <meta property="og:locale" content="nb_NO">
   <meta name="twitter:card" content="summary_large_image">
@@ -75,7 +75,7 @@
   <script src="assets/js/navbar.js"></script>
 
   <section class="text-center py-12 bg-red-600 text-white">
-    <h1 class="text-4xl font-bold mb-2">Søk i Arkivet</h1>
+    <h1 class="text-4xl font-bold mb-2">Artikler</h1>
     <p class="text-lg">Finn alt fra gamle studenthistorier og tips til første skoledag til de snodigste tradisjonene i Toulouse!</p>
   </section>
 
@@ -97,7 +97,7 @@
         class="mb-2 px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800" />
       <button id="applyFiltersBtn"
         class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition font-semibold shadow">
-        Søk i arkivet
+        Søk
       </button>
     </aside>
 
@@ -144,22 +144,6 @@
     </button>
   </div>
 
-  <!-- Floating Theme toggle button -->
-  <button id="themeToggle"
-    class="fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-lg bg-gradient-to-r from-red-600 to-rose-500 dark:from-gray-700 dark:to-gray-800 text-white hover:scale-110 focus:outline-none focus:ring-4 focus:ring-red-400 transition"
-    aria-label="Bytt mellom lyst og mørkt tema">
-    <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24"
-      stroke="currentColor" aria-hidden="true">
-      <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-        d="M21 12.79A9 9 0 1111.21 3c.03 0 .06.01.09.01a7 7 0 0010.7 9.78z" />
-    </svg>
-    <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24"
-      stroke="currentColor" aria-hidden="true">
-      <circle cx="12" cy="12" r="5" stroke-width="2" />
-      <path stroke-linecap="round" stroke-width="2"
-        d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M16.36 16.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M16.36 7.64l1.42-1.42" />
-    </svg>
-  </button>
 
    <div id="footer"></div>
   <script src="assets/js/getFooter.js"></script>
@@ -251,7 +235,7 @@
             // Update button styles: highlight all selected tags
             updateTagFilterUI();
             // Do NOT re-render templates here!
-            // Filtering will happen when "Søk i arkivet" is clicked
+            // Filtering will happen when "Søk" is clicked
           }
         });
         mobileTagFilters.addEventListener("click", e => {

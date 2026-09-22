@@ -29,13 +29,6 @@
       }
     }
 
-    /* Floating theme toggle button fixed position */
-    #themeToggleBtn {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      z-index: 9999;
-    }
 
     @media (max-width: 480px) {
   #mobileSidebar {
