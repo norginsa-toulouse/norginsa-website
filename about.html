@@ -4,13 +4,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Om</title>
-    <link rel="icon" type="image/x-icon" href="assets/images/icon.ico">
+  <title>Om NORGINSA</title>
+  <meta name="description" content="NORGINSA er et femårig masterstudie i ingeniørfag ved INSA Toulouse, tilrettelagt for norske studenter. Les om studieløpet, linjene og hvordan du søker.">
+  <link rel="canonical" href="https://norginsa.no/about.html">
+
+  <!-- Open Graph / deling på sosiale medier -->
+  <meta property="og:site_name" content="NORGINSA">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://norginsa.no/about.html">
+  <meta property="og:title" content="Om NORGINSA">
+  <meta property="og:description" content="NORGINSA er et femårig masterstudie i ingeniørfag ved INSA Toulouse, tilrettelagt for norske studenter. Les om studieløpet, linjene og hvordan du søker.">
+  <meta property="og:image" content="https://norginsa.no/assets/images/mainpage2.jpg">
+  <meta property="og:locale" content="nb_NO">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/x-icon" href="assets/images/icon.ico">
 
   <!-- Tailwind + AOS CSS -->
   <link rel="stylesheet" href="assets/css/navbar.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/aos.css" rel="stylesheet" />
   <script>
     tailwind.config = { darkMode: 'class' };
   </script>
@@ -55,6 +68,18 @@
       z-index: 9999;
     }
   </style>
+
+  <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
+  <script>
+    (function () {
+      try {
+        var lagret = localStorage.getItem("theme");
+        var mork = lagret ? lagret === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        if (mork) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+  <script src="assets/js/theme.js" defer></script>
 </head>
 
 <body
@@ -75,13 +100,13 @@
     <h1 class="text-5xl font-extrabold mb-4 fade-down-anim">Om NORGINSA</h1>
     <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 text-lg leading-relaxed fade-down-anim"
       data-aos="fade-down" data-aos-delay="100">
-      Er du snart ferdig med videregående skole og planlegger å studere teknologi? </p> I den franske teknologihovedstaden Toulouse kan du utdanne deg til ingeniør gjennom NORGINSA-programmet. </p> Studiet er godkjent for støtte fra Lånekassen. 
+      Er du snart ferdig med videregående skole og planlegger å studere teknologi? I den franske teknologihovedstaden Toulouse kan du utdanne deg til ingeniør gjennom NORGINSA-programmet. Studiet er godkjent for støtte fra Lånekassen. 
     </p>
   </div>
 
   <!-- Our Mission Section -->
   <section class="max-w-5xl mx-auto mb-20 bg-white dark:bg-gray-800 rounded-3xl glowing p-8 shadow-lg"
-    data-aos="fade-up" tabindex="0" aria-label="Our Mission">
+    data-aos="fade-up" tabindex="0" aria-label="Kort oppsummert">
     <h2 class="text-3xl font-bold mb-6">Kort oppsummert</h2>
     <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
      NORGINSA er et femårig masterstudie for norske studenter som vil studere i Toulouse. Studiet har en rekke retninger som velges gjennom studiet. Dette passer perfekt for både deg som vet hva du vil og deg som vil finne det ut etter hvert!
@@ -132,7 +157,7 @@
 
   <!-- How to Contribute Section -->
   <section class="max-w-5xl mx-auto mb-20 bg-white dark:bg-gray-800 rounded-3xl glowing p-8 shadow-lg"
-    data-aos="fade-up" tabindex="0" aria-label="How to Contribute">
+    data-aos="fade-up" tabindex="0" aria-label="Hvordan søke">
     <h2 class="text-3xl font-bold mb-6">Hvordan søke på programmet:</h2>
     <ol class="list-decimal list-inside space-y-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
       <li>Trykk på knappen "SØK HER" for å bli redirigert til Utdanning.no, og bla ned til espresso-lenken</li>
@@ -143,7 +168,7 @@
     </ol>
     <a href="https://utdanning.no/tema/utdanning_i_utlandet/ingeniorstudier_i_toulouse"
       class="mt-8 inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-red-600 to-rose-500 hover:from-red-700 hover:to-rose-600 rounded-lg font-semibold text-white shadow-lg transition glowing focus:outline-none focus:ring-4 focus:ring-red-400"
-      target="_blank" rel="noopener" aria-label="Contribute templates on GitHub">
+      target="_blank" rel="noopener" aria-label="Søk på NORGINSA via Utdanning.no">
       SØK HER
     </a>
   </section>
@@ -156,7 +181,7 @@
       <article
         class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-red-400 transition"
         tabindex="0" aria-label="Person #1, Dev">
-        <img src="assets/images/kontakt-oss/norginsa.jpg" alt="Person #1's avatar"
+        <img width="150" height="150" decoding="async" src="assets/images/kontakt-oss/norginsa.jpg" alt="Person #1's avatar"
           class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
         <h3 class="text-xl font-semibold mb-1 text-gray-900 dark:text-gray-100">Person #1</h3>
         <p class="text-red-600 font-medium mb-2">Dev</p>
@@ -166,7 +191,7 @@
       <article
         class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-rose-400 transition"
         tabindex="0" aria-label="Person #2, UI Designer">
-        <img src="assets/images/kontakt-oss/norginsa.jpg" alt="Person #2's avatar"
+        <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/norginsa.jpg" alt="Person #2's avatar"
           class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
         <h3 class="text-xl font-semibold mb-1 text-gray-900 dark:text-gray-100">Person #2</h3>
         <p class="text-rose-600 font-medium mb-2">UI Designer</p>
@@ -177,7 +202,7 @@
       <article
         class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-yellow-400 transition"
         tabindex="0" aria-label="Person #3, Frontend Developer">
-        <img src="assets/images/kontakt-oss/norginsa.jpg" alt="Person #3's avatar"
+        <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/norginsa.jpg" alt="Person #3's avatar"
           class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
         <h3 class="text-xl font-semibold mb-1 text-gray-900 dark:text-gray-100">Person #3.</h3>
         <p class="text-yellow-500 font-medium mb-2">Frontend Developer</p>
@@ -188,7 +213,7 @@
       <article
         class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-pink-400 transition"
         tabindex="0" aria-label="Person #4, Community Manager">
-        <img src="assets/images/kontakt-oss/norginsa.jpg" alt="Person #4's avatar"
+        <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/norginsa.jpg" alt="Person #4's avatar"
           class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
         <h3 class="text-xl font-semibold mb-1 text-gray-900 dark:text-gray-100">Person #4</h3>
         <p class="text-pink-500 font-medium mb-2">Community Manager</p>
@@ -210,7 +235,7 @@
   <!-- Floating Theme Toggle Button -->
   <button id="themeToggleBtn"
     class="floating-btn bg-gradient-to-r from-red-600 to-rose-500 dark:from-gray-700 dark:to-gray-800 text-white p-3 rounded-full shadow-xl hover:scale-110 focus:outline-none duration-200"
-    title="Toggle Theme" aria-label="Toggle Theme">
+    title="Bytt mellom lyst og mørkt tema" aria-label="Bytt mellom lyst og mørkt tema">
     <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24"
       stroke="currentColor" aria-hidden="true">
       <circle cx="12" cy="12" r="5" stroke-width="2" />
@@ -225,36 +250,10 @@
   </button>
 
   <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/vendor/aos.js"></script>
 
   <script>
     AOS.init();
-
-    const root = document.documentElement;
-    const themeToggleBtn = document.getElementById("themeToggleBtn");
-    const iconSun = document.getElementById("icon-sun");
-    const iconMoon = document.getElementById("icon-moon");
-
-    function updateThemeIcon() {
-      if (root.classList.contains("dark")) {
-        iconSun.classList.remove("hidden");
-        iconMoon.classList.add("hidden");
-      } else {
-        iconSun.classList.add("hidden");
-        iconMoon.classList.remove("hidden");
-      }
-    }
-
-    if (localStorage.getItem("theme") === "dark") {
-      root.classList.add("dark");
-    }
-    updateThemeIcon();
-
-    themeToggleBtn.addEventListener("click", () => {
-      const toDark = root.classList.toggle("dark");
-      localStorage.setItem("theme", toDark ? "dark" : "light");
-      updateThemeIcon();
-    });
   </script>
 </body>
 

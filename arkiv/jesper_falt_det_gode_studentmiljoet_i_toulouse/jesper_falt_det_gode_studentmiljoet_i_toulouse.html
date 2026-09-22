@@ -5,15 +5,39 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>Jesper Studenthistorie – NORGINSA</title>
+      <meta name="description" content="Studenthistorie med Jesper Nytun">
+      <link rel="canonical" href="https://norginsa.no/arkiv/jesper_falt_det_gode_studentmiljoet_i_toulouse/jesper_falt_det_gode_studentmiljoet_i_toulouse.html">
+
+      <!-- Open Graph / deling på sosiale medier -->
+      <meta property="og:site_name" content="NORGINSA">
+      <meta property="og:type" content="article">
+      <meta property="og:url" content="https://norginsa.no/arkiv/jesper_falt_det_gode_studentmiljoet_i_toulouse/jesper_falt_det_gode_studentmiljoet_i_toulouse.html">
+      <meta property="og:title" content="Jesper Studenthistorie – NORGINSA">
+      <meta property="og:description" content="Studenthistorie med Jesper Nytun">
+      <meta property="og:image" content="https://norginsa.no/arkiv/jesper_falt_det_gode_studentmiljoet_i_toulouse/images/preview.jpg">
+      <meta property="og:locale" content="nb_NO">
+      <meta name="twitter:card" content="summary_large_image">
       <link rel="icon" type="image/x-icon" href="../../assets/images/icon.ico">
 
 
       <!-- Tailwind + AOS CSS -->
       <link rel="stylesheet" href="../../assets/css/article.css">
       <script src="https://cdn.tailwindcss.com"></script>
-      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+      <link href="../../assets/vendor/aos.css" rel="stylesheet" />
       <script>tailwind.config = { darkMode: 'class' }</script>
-    </head>
+    
+  <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
+  <script>
+    (function () {
+      try {
+        var lagret = localStorage.getItem("theme");
+        var mork = lagret ? lagret === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        if (mork) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+  <script src="../../assets/js/theme.js" defer></script>
+</head>
 
     <body
       class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 relative font-sans">
@@ -48,7 +72,7 @@
     <div class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow p-6 flex flex-col md:flex-row items-center md:items-center w-full">
         <!-- Portrait -->
         <div class="flex-shrink-0 w-full md:w-40 flex flex-col items-center md:items-center mb-4 md:mb-0">
-            <img src="./images/preview.jpg" alt="Jesper portrett" class="w-28 h-28 rounded-full mb-3">
+            <img width="280" height="280" decoding="async" src="./images/preview.jpg" alt="Jesper portrett" class="w-28 h-28 rounded-full mb-3">
             <span class="block font-semibold text-center">Jesper Bartholomay Nytun</span>
         </div>
         <!-- Text -->
@@ -64,7 +88,7 @@
 <div class="fade-down-anim max-w-4xl mx-auto my-12 flex flex-col md:flex-row items-center md:items-start gap-8">
     <div class="md:w-1/2 w-full">
        <a href="images/Jesper_1.jpg" target="_blank" rel="noopener">
-            <img class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/Jesper_1.jpg" alt="Article image">
+            <img width="790" height="510" decoding="async" loading="lazy" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/Jesper_1.jpg" alt="To NORGINSA-studenter foran INSA-campus med regnbue over bygningen">
         </a>
     </div>
     <div class="md:w-1/2 w-full">
@@ -145,7 +169,7 @@ Det finnes tre typer undervisning ved INSA:
 <div class="fade-down-anim max-w-4xl mx-auto my-12 flex flex-col md:flex-row items-center md:items-start gap-8">
     <div class="md:w-1/2 w-full">
        <a href="images/Jesper_2.jpg" target="_blank" rel="noopener">
-            <img class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/Jesper_2.jpg" alt="Article image">
+            <img width="790" height="510" decoding="async" loading="lazy" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/Jesper_2.jpg" alt="To studenter jobber med matematikk på tavla">
         </a>
     </div>
     <div class="md:w-1/2 w-full">
@@ -159,7 +183,7 @@ Det finnes tre typer undervisning ved INSA:
 </div>
 
 <div class="fade-down-anim max-w-4xl mx-auto my-12 bg-gray-50 dark:bg-gray-800 rounded-lg p-5">
-    <i>«Ikke vær for hard mot deg selv hvis det går tungt i starten. De to første månedene er krevende, men det blir gradvis lettere å følge med. »
+    <i>«Ikke vær for hard mot deg selv hvis det går tungt i starten. De to første månedene er krevende, men det blir gradvis lettere å følge med. »</i>
 <br>― Jesper Bartholomay Nytun 
 </div>
 
@@ -220,7 +244,7 @@ Det finnes tre typer undervisning ved INSA:
     </div>
     <div class="md:w-1/2 w-full order-1 md:order-2">
         <a href="images/Jesper_3.jpg" target="_blank" rel="noopener">
-            <img class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/Jesper_3.jpg" alt="Article image">
+            <img width="790" height="510" decoding="async" loading="lazy" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/Jesper_3.jpg" alt="Laboppsett med multimetre og spole på elektronikklabb">
         </a>
     </div>
 </div>
@@ -237,13 +261,13 @@ Det finnes tre typer undervisning ved INSA:
 
       <!-- Floating Theme Toggle Button -->
       <div id="floatingButton"></div>
-      <script src="getFloatingButton.js"></script>
+      <script src="../../assets/js/getFloatingButton.js"></script>
       <script>document.getElementById("floatingButton").innerHTML = getFloatingButton();</script>
 
 
       <!-- Scripts -->
-      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-      <script src="../bunnscript.js"></script>
+      <script src="../../assets/vendor/aos.js"></script>
+      <script src="../../assets/js/bunnscript.js"></script>
     </body>
 
     </html>

@@ -4,13 +4,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kontakt Oss</title>
-    <link rel="icon" type="image/x-icon" href="assets/images/icon.ico">
+  <title>Kontakt oss | NORGINSA</title>
+  <meta name="description" content="Lurer du på noe om NORGINSA eller studielivet i Toulouse? Her finner du Instagram-kontoene til ANSA Toulouse, Tekna Toulouse og andre som svarer på spørsmål.">
+  <link rel="canonical" href="https://norginsa.no/kontakt.html">
+
+  <!-- Open Graph / deling på sosiale medier -->
+  <meta property="og:site_name" content="NORGINSA">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://norginsa.no/kontakt.html">
+  <meta property="og:title" content="Kontakt oss | NORGINSA">
+  <meta property="og:description" content="Lurer du på noe om NORGINSA eller studielivet i Toulouse? Her finner du Instagram-kontoene til ANSA Toulouse, Tekna Toulouse og andre som svarer på spørsmål.">
+  <meta property="og:image" content="https://norginsa.no/assets/images/mainpage2.jpg">
+  <meta property="og:locale" content="nb_NO">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/x-icon" href="assets/images/icon.ico">
 
   <!-- Tailwind + AOS CSS -->
   <link rel="stylesheet" href="assets/css/navbar.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/aos.css" rel="stylesheet" />
   <script>
     tailwind.config = { darkMode: 'class' };
   </script>
@@ -55,6 +68,18 @@
       z-index: 9999;
     }
   </style>
+
+  <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
+  <script>
+    (function () {
+      try {
+        var lagret = localStorage.getItem("theme");
+        var mork = lagret ? lagret === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        if (mork) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+  <script src="assets/js/theme.js" defer></script>
 </head>
 
 <body
@@ -77,7 +102,7 @@
 
   <!-- Our Mission Section -->
   <section class="max-w-5xl mx-auto mb-20 bg-white dark:bg-gray-800 rounded-3xl glowing p-8 shadow-lg"
-    data-aos="fade-up" tabindex="0" aria-label="Our Mission">
+    data-aos="fade-up" tabindex="0" aria-label="Hvor når du oss">
     <h2 class="text-3xl font-bold mb-6">Hvor?</h2>
     <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
     For informasjon om NORGINSA anbefaler vi å følge <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ansatoulouse/"><b>ANSA Toulouse</b></a> og <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/norginsa/"><b>Tekna Toulouse</b></a> på instagram! Begge organisasjonene er ansvarlig for informasjon om studiet, og vi svarer så fort som mulig.
@@ -93,7 +118,7 @@
         <article
           class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-red-400 transition"
           tabindex="0" aria-label="ANSA Toulouse">
-        <img src="assets/images/kontakt-oss/ansatoulouse.jpg" alt="Ansa Toulouse logo"
+        <img width="150" height="150" decoding="async" src="assets/images/kontakt-oss/ansatoulouse.jpg" alt="Ansa Toulouse logo"
           class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
         <h3 class="text-xl font-semibold mb-1 text-gray-900 dark:text-gray-100">ANSA Toulouse</h3>
         <p class="text-red-600 font-medium mb-2">@ansatoulouse</p>
@@ -105,7 +130,7 @@
         <article
           class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-rose-400 transition"
           tabindex="0" aria-label="Tekna Toulouse">
-          <img src="assets/images/kontakt-oss/norginsa.jpg" alt="Norginsa logo"
+          <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/norginsa.jpg" alt="Norginsa logo"
         class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
           <h3 class="text-xl font-semibold mb-1 text-gray-900 dark:text-gray-100">Tekna Toulouse</h3>
           <p class="text-rose-600 font-medium mb-2">@norginsa</p>
@@ -118,7 +143,7 @@
         <article
           class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-yellow-400 transition"
           tabindex="0" aria-label="INSA Toulouse">
-          <img src="assets/images/kontakt-oss/insatoulouse.jpg" alt="Insa Toulouse logo"
+          <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/insatoulouse.jpg" alt="Insa Toulouse logo"
         class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
           <h3 class="text-xl font-semibold mb-1 text-gray-900 dark:text-gray-100">INSA Toulouse</h3>
           <p class="text-yellow-500 font-medium mb-2">@insatoulouse</p>
@@ -130,7 +155,7 @@
         <article
           class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-pink-400 transition"
           tabindex="0" aria-label="ANSA Frankrike">
-          <img src="assets/images/kontakt-oss/ansafrankrike.jpg" alt="Ansa Frankrike logo"
+          <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/ansafrankrike.jpg" alt="Ansa Frankrike logo"
         class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
           <h3 class="text-xl font-semibold mb-1 text-gray-900 dark:text-gray-100">ANSA Frankrike</h3>
           <p class="text-pink-500 font-medium mb-2">@ansafrankrike</p>
@@ -142,7 +167,7 @@
         <article
           class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-pink-400 transition"
           tabindex="0" aria-label="BOOMINSA">
-          <img src="assets/images/kontakt-oss/boominsa.jpg" alt="Boominsa logo"
+          <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/boominsa.jpg" alt="Boominsa logo"
         class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
           <h3 class="text-xl font-semibold mb-1 text-gray-900 dark:text-gray-100">BOOMINSA</h3>
           <p class="text-pink-500 font-medium mb-2">@boominsa</p>
@@ -154,7 +179,7 @@
         <article
           class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-pink-400 transition"
           tabindex="0" aria-label="ANSA student">
-          <img src="assets/images/kontakt-oss/ansastudent.jpg" alt="Ansa student logo"
+          <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/ansastudent.jpg" alt="Ansa student logo"
         class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
           <h3 class="text-xl font-semibold mb-1 text-gray-900 dark:text-gray-100">ANSA student</h3>
           <p class="text-pink-500 font-medium mb-2">@ansastudent</p>
@@ -166,7 +191,7 @@
         <article
           class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-pink-400 transition"
           tabindex="0" aria-label="Crochtea">
-          <img src="assets/images/kontakt-oss/crochtea.jpg" alt="Crochtea logo"
+          <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/crochtea.jpg" alt="Crochtea logo"
         class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
           <h3 class="text-xl font-semibold mb-1 text-gray-900 dark:text-gray-100">Crochtea</h3>
           <p class="text-pink-500 font-medium mb-2">@crochtea_insat</p>
@@ -178,7 +203,7 @@
         <article
           class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-pink-400 transition"
           tabindex="0" aria-label="NORGINSA-memes">
-          <img src="assets/images/kontakt-oss/norginsamemes.jpg" alt="Norginsa-memes logo"
+          <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/norginsamemes.jpg" alt="Norginsa-memes logo"
         class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
           <h3 class="text-xl font-semibold mb-1 text-gray-900 dark:text-gray-100">NORGINSA-memes</h3>
           <p class="text-pink-500 font-medium mb-2">@norginsamemes</p>
@@ -199,7 +224,7 @@
   <!-- Floating Theme Toggle Button -->
   <button id="themeToggleBtn"
     class="floating-btn bg-gradient-to-r from-red-600 to-rose-500 dark:from-gray-700 dark:to-gray-800 text-white p-3 rounded-full shadow-xl hover:scale-110 focus:outline-none duration-200"
-    title="Toggle Theme" aria-label="Toggle Theme">
+    title="Bytt mellom lyst og mørkt tema" aria-label="Bytt mellom lyst og mørkt tema">
     <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24"
       stroke="currentColor" aria-hidden="true">
       <circle cx="12" cy="12" r="5" stroke-width="2" />
@@ -214,36 +239,10 @@
   </button>
 
   <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/vendor/aos.js"></script>
 
   <script>
     AOS.init();
-
-    const root = document.documentElement;
-    const themeToggleBtn = document.getElementById("themeToggleBtn");
-    const iconSun = document.getElementById("icon-sun");
-    const iconMoon = document.getElementById("icon-moon");
-
-    function updateThemeIcon() {
-      if (root.classList.contains("dark")) {
-        iconSun.classList.remove("hidden");
-        iconMoon.classList.add("hidden");
-      } else {
-        iconSun.classList.add("hidden");
-        iconMoon.classList.remove("hidden");
-      }
-    }
-
-    if (localStorage.getItem("theme") === "dark") {
-      root.classList.add("dark");
-    }
-    updateThemeIcon();
-
-    themeToggleBtn.addEventListener("click", () => {
-      const toDark = root.classList.toggle("dark");
-      localStorage.setItem("theme", toDark ? "dark" : "light");
-      updateThemeIcon();
-    });
   </script>
 </body>
 

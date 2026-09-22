@@ -5,14 +5,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Skoleresturanten RU – NORGINSA</title>
+  <link rel="icon" type="image/x-icon" href="../../assets/images/icon.ico">
+  <link rel="canonical" href="https://norginsa.no/arkiv/RU/RU.html">
+
+  <!-- Open Graph / deling på sosiale medier -->
+  <meta property="og:site_name" content="NORGINSA">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://norginsa.no/arkiv/RU/RU.html">
+  <meta property="og:title" content="Skoleresturanten RU – NORGINSA">
+  <meta property="og:description" content="Har du noen gang lurt på hvor en NORGINSA-student spiser en skoledag? Les denne studenthistorien om universitetskantinen RU.">
+  <meta property="og:image" content="https://norginsa.no/arkiv/RU/images/preview.jpg">
+  <meta property="og:locale" content="nb_NO">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="description"
         content="Har du noen gang lurt på hvor en NORGINSA-student spiser en skoledag? Les denne studenthistorien om universitetskantinen RU.">
 
   <!-- Tailwind + AOS CSS -->
   <link rel="stylesheet" href="../../assets/css/article.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="../../assets/vendor/aos.css" rel="stylesheet" />
   <script>tailwind.config = { darkMode: 'class' }</script>
+
+  <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
+  <script>
+    (function () {
+      try {
+        var lagret = localStorage.getItem("theme");
+        var mork = lagret ? lagret === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        if (mork) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+  <script src="../../assets/js/theme.js" defer></script>
 </head>
 
 <body
@@ -47,7 +71,7 @@
 <div class="fade-down-anim max-w-4xl mx-auto my-12 flex flex-col md:flex-row items-center md:items-start gap-8">
     <div class="md:w-1/2 w-full">
        <a href="images/RU1.jpg" target="_blank" rel="noopener">
-            <img class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/RU1.jpg" alt="Article image">
+            <img width="1714" height="1348" decoding="async" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/RU1.jpg" alt="Matbrett med varm mat fra RU">
         </a>
     </div>
     <div class="md:w-1/2 w-full">
@@ -93,7 +117,7 @@
     </div>
     <div class="md:w-1/2 w-full order-1 md:order-2">
         <a href="images/RU2.jpg" target="_blank" rel="noopener">
-            <img class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/RU2.jpg" alt="Article image">
+            <img width="1230" height="944" decoding="async" loading="lazy" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/RU2.jpg" alt="Studenter i kø utenfor RU">
         </a>
     </div>
 </div>
@@ -102,7 +126,7 @@
     <div class="fade-down-anim max-w-4xl mx-auto my-12 flex flex-col md:flex-row items-center md:items-start gap-8">
         <div class="md:w-1/2 w-full">
            <a href="images/RU3.jpg" target="_blank" rel="noopener">
-                <img class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/RU3.jpg" alt="Article image">
+                <img width="1254" height="916" decoding="async" loading="lazy" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/RU3.jpg" alt="Middag på RU">
             </a>
         </div>
         <div class="md:w-1/2 w-full">
@@ -125,6 +149,8 @@
 
   </div>
 
+  </div>
+
   <!-- Footer Container -->
   <div id="footer"></div>
   <script src="../../assets/js/getFooter.js"></script>
@@ -137,7 +163,7 @@
 
 
   <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="../../assets/vendor/aos.js"></script>
   <script src="../../assets/js/bunnscript.js"></script>
 </body>
 

@@ -5,13 +5,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ARTIKKELNAVN – NORGINSA</title>
+  <meta name="description" content="Malartikkel — kopier denne mappen for å lage en ny artikkel">
+  <link rel="canonical" href="https://norginsa.no/arkiv/eksempelartikkel/eksempelartikkel.html">
+
+  <!-- Open Graph / deling på sosiale medier -->
+  <meta property="og:site_name" content="NORGINSA">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://norginsa.no/arkiv/eksempelartikkel/eksempelartikkel.html">
+  <meta property="og:title" content="ARTIKKELNAVN – NORGINSA">
+  <meta property="og:description" content="Malartikkel — kopier denne mappen for å lage en ny artikkel">
+  <meta property="og:image" content="https://norginsa.no/arkiv/eksempelartikkel/images/preview.jpg">
+  <meta property="og:locale" content="nb_NO">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/x-icon" href="../../assets/images/icon.ico">
 
   <!-- Tailwind + AOS CSS -->
   <link rel="stylesheet" href="../../assets/css/article.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="../../assets/vendor/aos.css" rel="stylesheet" />
   <script>tailwind.config = { darkMode: 'class' }</script>
+
+  <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
+  <script>
+    (function () {
+      try {
+        var lagret = localStorage.getItem("theme");
+        var mork = lagret ? lagret === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        if (mork) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+  <script src="../../assets/js/theme.js" defer></script>
 </head>
 
 <body
@@ -46,7 +70,7 @@
 <div class="fade-down-anim max-w-4xl mx-auto my-12 flex flex-col md:flex-row items-center md:items-start gap-8">
     <div class="md:w-1/2 w-full">
        <a href="images/5.jpg" target="_blank" rel="noopener">
-            <img class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/5.jpg" alt="Article image">
+            <img width="1000" height="667" decoding="async" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/5.jpg" alt="Tre deltakere med ANSA-navneskilt foran scenen">
         </a>
     </div>
     <div class="md:w-1/2 w-full">
@@ -73,7 +97,7 @@
     </div>
     <div class="md:w-1/2 w-full order-1 md:order-2">
         <a href="images/6.jpg" target="_blank" rel="noopener">
-            <img class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/6.jpg" alt="Article image">
+            <img width="1000" height="666" decoding="async" loading="lazy" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/6.jpg" alt="To møteledere bak ANSA-bordet, den ene med hendene i været">
         </a>
     </div>
 </div>
@@ -85,22 +109,22 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div>
                 <a href="images/1.jpg" target="_blank" rel="noopener">
-                    <img src="images/1.jpg" alt="Bilde 1" class="w-full h-40 object-cover rounded-lg shadow glowing" />
+                    <img width="1000" height="1778" decoding="async" loading="lazy" src="images/1.jpg" alt="Bilde 1" class="w-full h-40 object-cover rounded-lg shadow glowing" />
                 </a>
             </div>
             <div>
                 <a href="images/2.jpg" target="_blank" rel="noopener">
-                    <img src="images/2.jpg" alt="Bilde 2" class="w-full h-40 object-cover rounded-lg shadow glowing" />
+                    <img width="1000" height="1778" decoding="async" loading="lazy" src="images/2.jpg" alt="Bilde 2" class="w-full h-40 object-cover rounded-lg shadow glowing" />
                 </a>
             </div>
             <div>
                 <a href="images/3.jpg" target="_blank" rel="noopener">
-                    <img src="images/3.jpg" alt="Bilde 3" class="w-full h-40 object-cover rounded-lg shadow glowing" />
+                    <img width="1000" height="1778" decoding="async" loading="lazy" src="images/3.jpg" alt="Bilde 3" class="w-full h-40 object-cover rounded-lg shadow glowing" />
                 </a>
             </div>
             <div>
                 <a href="images/4.jpg" target="_blank" rel="noopener">
-                    <img src="images/4.jpg" alt="Bilde 4" class="w-full h-40 object-cover rounded-lg shadow glowing" />
+                    <img width="1000" height="1778" decoding="async" loading="lazy" src="images/4.jpg" alt="Bilde 4" class="w-full h-40 object-cover rounded-lg shadow glowing" />
                 </a>
             </div>
         </div>
@@ -195,7 +219,7 @@
 
 
   <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="../../assets/vendor/aos.js"></script>
   <script src="../../assets/js/bunnscript.js"></script>
 </body>
 

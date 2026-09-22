@@ -4,12 +4,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Arkiv</title>
-    <link rel="icon" type="image/x-icon" href="assets/images/icon.ico">
+  <title>Arkiv | NORGINSA</title>
+  <meta name="description" content="Søk i NORGINSA-arkivet: studenthistorier, tips til studiestart, linjene på INSA Toulouse og de snodigste tradisjonene i Toulouse.">
+  <link rel="canonical" href="https://norginsa.no/arkiv.html">
+
+  <!-- Open Graph / deling på sosiale medier -->
+  <meta property="og:site_name" content="NORGINSA">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://norginsa.no/arkiv.html">
+  <meta property="og:title" content="Arkiv | NORGINSA">
+  <meta property="og:description" content="Søk i NORGINSA-arkivet: studenthistorier, tips til studiestart, linjene på INSA Toulouse og de snodigste tradisjonene i Toulouse.">
+  <meta property="og:image" content="https://norginsa.no/assets/images/mainpage2.jpg">
+  <meta property="og:locale" content="nb_NO">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/x-icon" href="assets/images/icon.ico">
 
   <!-- Tailwind + AOS CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/aos.css" rel="stylesheet" />
   <script>
     tailwind.config = { darkMode: 'class' };
   </script>
@@ -36,6 +49,18 @@
       top: 8rem;
     }
   </style>
+
+  <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
+  <script>
+    (function () {
+      try {
+        var lagret = localStorage.getItem("theme");
+        var mork = lagret ? lagret === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        if (mork) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+  <script src="assets/js/theme.js" defer></script>
 </head>
 
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
@@ -68,7 +93,6 @@
         class="mb-2 px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800">
         <option value="">Alle forfattere</option>
       </select>
-      </select>
       <input type="text" id="searchInput" placeholder="Søk artikkel..."
         class="mb-2 px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800" />
       <button id="applyFiltersBtn"
@@ -93,7 +117,7 @@
     class="fixed bottom-0 left-0 right-0 z-40 flex justify-center items-center md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-3 shadow-lg">
     <button id="mobileFilterFAB"
       class="flex items-center gap-2 rounded-full bg-red-600 text-white px-6 py-2 font-semibold text-lg shadow-lg focus:outline-none focus:ring-4 focus:ring-red-400 transition"
-      aria-label="Show Filters">
+      aria-label="Vis filtre">
       🔍 Filter
     </button>
   </div>
@@ -123,7 +147,7 @@
   <!-- Floating Theme toggle button -->
   <button id="themeToggle"
     class="fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-lg bg-gradient-to-r from-red-600 to-rose-500 dark:from-gray-700 dark:to-gray-800 text-white hover:scale-110 focus:outline-none focus:ring-4 focus:ring-red-400 transition"
-    aria-label="Toggle Theme">
+    aria-label="Bytt mellom lyst og mørkt tema">
     <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24"
       stroke="currentColor" aria-hidden="true">
       <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -144,7 +168,7 @@
     document.getElementById("footer").innerHTML = getFooterHTML();
   </script>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/vendor/aos.js"></script>
 
   <script>
     AOS.init();
@@ -154,6 +178,11 @@
     const loadMoreBtn = document.getElementById("loadMoreBtn");
 
     let templates = [];
+
+    // Noen artikler har flere forfattere: "author" kan være en streng eller en liste.
+    function forfattere(t) {
+      return Array.isArray(t.author) ? t.author : [t.author];
+    }
     let activeTags = [];
     let mobileActiveTags = [];
     let currentPage = 1;
@@ -165,7 +194,7 @@
       .then(data => {
         templates = data.templates;
         const uniqueTags = [...new Set(templates.flatMap(t => t.tags))];
-        const uniqueAuthors = [...new Set(templates.map(t => t.author))];
+        const uniqueAuthors = [...new Set(templates.flatMap(forfattere))].sort((a, b) => a.localeCompare(b, "no"));
 
         // Populate desktop tag buttons
         const tagFilters = document.getElementById("tagFilters");
@@ -259,7 +288,7 @@
 
           return data.filter(template => {
             const tagMatch = activeTags.length === 0 || activeTags.every(tag => template.tags.includes(tag));
-            const authorMatch = !selectedAuthor || template.author === selectedAuthor;
+            const authorMatch = !selectedAuthor || forfattere(template).includes(selectedAuthor);
             const searchMatch = template.name.toLowerCase().includes(searchQuery) || template.description.toLowerCase().includes(searchQuery);
             return tagMatch && authorMatch && searchMatch;
           }).slice(0, currentPage * pageSize);
@@ -272,7 +301,7 @@
 
           return data.filter(template => {
             const tagMatch = activeTags.length === 0 || activeTags.every(tag => template.tags.includes(tag));
-            const authorMatch = !selectedAuthor || template.author === selectedAuthor;
+            const authorMatch = !selectedAuthor || forfattere(template).includes(selectedAuthor);
             const searchMatch = template.name.toLowerCase().includes(searchQuery) || template.description.toLowerCase().includes(searchQuery);
             return tagMatch && authorMatch && searchMatch;
           });
@@ -281,7 +310,7 @@
         function renderTemplates(list, append = false) {
           if (!append) grid.innerHTML = "";
           if (list.length === 0) {
-            grid.innerHTML = `<p class="text-center col-span-full text-gray-500">No templates found.</p>`;
+            grid.innerHTML = `<p class="text-center col-span-full text-gray-500">Fant ingen artikler.</p>`;
             return;
           }
 
@@ -296,18 +325,18 @@
             const card = document.createElement("div");
             card.className = "bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col h-full";
             card.innerHTML = `
-              <img src="arkiv/${t.folder}/images/preview.jpg" alt="${t.name}" class="w-full h-48 object-cover rounded-t-lg" />
+              <img src="arkiv/${t.folder}/images/preview.jpg" alt="Forhåndsvisning av «${t.name}»" loading="lazy" decoding="async" width="800" height="384" class="w-full h-48 object-cover rounded-t-lg" />
               <div class="p-4 flex flex-col flex-1">
                 <div class="flex items-center justify-between mb-2">
                   <h3 class="text-xl font-bold">${t.name}</h3>
-                  ${t.featured ? '<span class="bg-yellow-400 text-xs px-2 py-1 rounded text-black">Featured</span>' : ''}
+                  ${t.featured ? '<span class="bg-yellow-400 text-xs px-2 py-1 rounded text-black">Utvalgt</span>' : ''}
                 </div>
                 <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">${t.description}</p>
                 <div class="flex flex-wrap gap-1 text-xs mb-3">
                   ${t.tags.map(tag => `<span class="bg-red-100 text-red-700 dark:bg-red-700 dark:text-white px-2 py-1 rounded">${tag}</span>`).join("")}
                 </div>
                 <div class="text-xs text-gray-500 dark:text-gray-400 mb-3">
-                  Skrevet av <strong>${t.author}</strong> · ${t.created}
+                  Skrevet av <strong>${forfattere(t).join(", ")}</strong> · ${t.created}
                 </div>
                 <div class="flex gap-3 mt-auto">
                   <a href="arkiv/${t.folder}/${t.folder}.html" target="_blank"
@@ -381,30 +410,6 @@
       setTimeout(() => { mobileFilterDrawer.style.display = "none"; }, 250);
     });
 
-    // --- Theme toggle button behavior ---
-    const themeToggle = document.getElementById("themeToggle");
-    const iconSun = document.getElementById("icon-sun");
-    const iconMoon = document.getElementById("icon-moon");
-    const root = document.documentElement;
-
-    function updateThemeIcon() {
-      if (root.classList.contains("dark")) {
-        iconSun.classList.remove("hidden");
-        iconMoon.classList.add("hidden");
-      } else {
-        iconSun.classList.add("hidden");
-        iconMoon.classList.remove("hidden");
-      }
-    }
-
-    themeToggle.addEventListener("click", () => {
-      const isDark = root.classList.toggle("dark");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-      updateThemeIcon();
-    });
-
-    if (localStorage.getItem("theme") === "dark") root.classList.add("dark");
-    updateThemeIcon();
 
   </script>
 </body>

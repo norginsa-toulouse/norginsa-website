@@ -5,13 +5,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pyrra - NORGINSA</title>
+  <meta name="description" content="Pyrratur!">
+  <link rel="canonical" href="https://norginsa.no/arkiv/pyrra/pyrra.html">
+
+  <!-- Open Graph / deling på sosiale medier -->
+  <meta property="og:site_name" content="NORGINSA">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://norginsa.no/arkiv/pyrra/pyrra.html">
+  <meta property="og:title" content="Pyrra - NORGINSA">
+  <meta property="og:description" content="Pyrratur!">
+  <meta property="og:image" content="https://norginsa.no/arkiv/pyrra/images/preview.jpg">
+  <meta property="og:locale" content="nb_NO">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/x-icon" href="../../assets/images/icon.ico">
 
   <!-- Tailwind + AOS CSS -->
   <link rel="stylesheet" href="../../assets/css/article.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="../../assets/vendor/aos.css" rel="stylesheet" />
   <script>tailwind.config = { darkMode: 'class' }</script>
+
+  <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
+  <script>
+    (function () {
+      try {
+        var lagret = localStorage.getItem("theme");
+        var mork = lagret ? lagret === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        if (mork) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+  <script src="../../assets/js/theme.js" defer></script>
 </head>
 
 <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 relative font-sans">
@@ -29,8 +53,8 @@
       <a href="images/preview.jpg" target="_blank" rel="noopener">
 	<div class="relative w-full mx-auto p-6">
     
-	  <img class="fade-down-anim w-full sm:w-3/4 mx-auto h-auto rounded-lg shadow glowing"
-	       src="images/preview.jpg" alt="Article image">
+	  <img width="1000" height="649" decoding="async" class="fade-down-anim w-full sm:w-3/4 mx-auto h-auto rounded-lg shadow glowing"
+	       src="images/preview.jpg" alt="Pyrragjengen samlet i Pyreneene">
 	  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
 	    <!-- Title -->
        <p style="font-family: 'Times New Roman', serif;" class="p-6 inline-flex items-center text-xs sm:text-xl text-white dark:text-white-400">
@@ -59,6 +83,7 @@
 	  </div>
 	  
 	</div>
+      </a>
     </div>
       </section>
 
@@ -69,11 +94,11 @@
 <div class="fade-down-anim max-w-4xl mx-auto my-12 flex flex-col md:flex-row items-center md:items-start gap-8">
     <div class="md:w-1/2 w-full">
        <a href="images/OssAlle.jpeg" target="_blank" rel="noopener">
-            <img class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/OssAlle.jpeg" alt="Article image">
+            <img width="1600" height="1200" decoding="async" loading="lazy" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/OssAlle.jpeg" alt="Hele Pyrragjengen samlet i skibakken">
        </a>
        <p></p>
         <a href="images/CollBlanc1.jpeg" target="_blank" rel="noopener">
-            <img class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/CollBlanc1.jpeg" alt="Afterski">
+            <img width="1600" height="1200" decoding="async" loading="lazy" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/CollBlanc1.jpeg" alt="Afterski">
         </a>
     </div>
     <div class="md:w-1/2 w-full">
@@ -107,10 +132,10 @@
   </div>
   <div class="md:w-1/2 w-full order-1 md:order-2">
     <a href="images/GrandValiraPists.jpg" target="_blank" rel="noopener">
-      <img class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/GrandValiraPists.jpg" alt="Article image">
+      <img width="2545" height="1029" decoding="async" loading="lazy" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/GrandValiraPists.jpg" alt="Skikart over Grandvalira">
     </a>
     <a href="images/SolanellesResto.jpg" target="_blank" rel="noopener">
-      <img class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/SolanellesResto.jpg" alt="Article image">
+      <img width="550" height="367" decoding="async" loading="lazy" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/SolanellesResto.jpg" alt="Restauranten Solanelles midt i Grandvalira">
     </a>
   </div>
 </div>
@@ -120,7 +145,7 @@
 <div class="fade-down-anim max-w-4xl mx-auto my-12 flex flex-col md:flex-row items-center md:items-start gap-8">
     <div class="md:w-1/2 w-full">
        <a href="images/Middag2025.jpg" target="_blank" rel="noopener">
-            <img class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/Middag2025.jpg" alt="Article image">
+            <img width="1920" height="1440" decoding="async" loading="lazy" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/Middag2025.jpg" alt="Pyrragenserne fra 2025">
         </a>
     </div>
     <div class="md:w-1/2 w-full">
@@ -141,22 +166,22 @@
   <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
     <div>
       <a href="images/Middag2022.jpeg" target="_blank" rel="noopener">
-        <img src="images/Middag2022.jpeg" alt="Bilde 1" class="w-full h-40 object-cover rounded-lg shadow glowing" />
+        <img width="828" height="1104" decoding="async" loading="lazy" src="images/Middag2022.jpeg" alt="Bilde 1" class="w-full h-40 object-cover rounded-lg shadow glowing" />
       </a>
     </div>
     <div>
       <a href="images/Middag2023.jpg" target="_blank" rel="noopener">
-        <img src="images/Middag2023.jpg" alt="Bilde 2" class="w-full h-40 object-cover rounded-lg shadow glowing" />
+        <img width="1125" height="1500" decoding="async" loading="lazy" src="images/Middag2023.jpg" alt="Bilde 2" class="w-full h-40 object-cover rounded-lg shadow glowing" />
       </a>
     </div>
     <div>
       <a href="images/rosa.jpg" target="_blank" rel="noopener">
-        <img src="images/rosa.jpg" alt="Bilde 3" class="w-full h-40 object-cover rounded-lg shadow glowing" />
+        <img width="1080" height="1350" decoding="async" loading="lazy" src="images/rosa.jpg" alt="Bilde 3" class="w-full h-40 object-cover rounded-lg shadow glowing" />
       </a>
     </div>
     <div>
       <a href="images/Middag2025.jpg" target="_blank" rel="noopener">
-        <img src="images/Middag2025.jpg" alt="Bilde 4" class="w-full h-40 object-cover rounded-lg shadow glowing" />
+        <img width="1920" height="1440" decoding="async" loading="lazy" src="images/Middag2025.jpg" alt="Bilde 4" class="w-full h-40 object-cover rounded-lg shadow glowing" />
       </a>
     </div>
   </div>
@@ -235,7 +260,7 @@
 
 
   <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="../../assets/vendor/aos.js"></script>
   <script src="../../assets/js/bunnscript.js"></script>
 </body>
 

@@ -7,14 +7,38 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>dobbeldiplom – NORGINSA</title>
+      <meta name="description" content="Muligheten for å ta flere grader samtidig!">
+      <link rel="canonical" href="https://norginsa.no/arkiv/dobbeldiplom/dobbeldiplom.html">
+
+      <!-- Open Graph / deling på sosiale medier -->
+      <meta property="og:site_name" content="NORGINSA">
+      <meta property="og:type" content="article">
+      <meta property="og:url" content="https://norginsa.no/arkiv/dobbeldiplom/dobbeldiplom.html">
+      <meta property="og:title" content="dobbeldiplom – NORGINSA">
+      <meta property="og:description" content="Muligheten for å ta flere grader samtidig!">
+      <meta property="og:image" content="https://norginsa.no/arkiv/dobbeldiplom/images/preview.jpg">
+      <meta property="og:locale" content="nb_NO">
+      <meta name="twitter:card" content="summary_large_image">
       <link rel="icon" type="image/x-icon" href="../../assets/images/icon.ico">
 
       <!-- Tailwind + AOS CSS -->
       <link rel="stylesheet" href="../../assets/css/article.css">
       <script src="https://cdn.tailwindcss.com"></script>
-      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+      <link href="../../assets/vendor/aos.css" rel="stylesheet" />
       <script>tailwind.config = { darkMode: 'class' }</script>
-    </head>
+    
+  <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
+  <script>
+    (function () {
+      try {
+        var lagret = localStorage.getItem("theme");
+        var mork = lagret ? lagret === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        if (mork) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+  <script src="../../assets/js/theme.js" defer></script>
+</head>
 
     <body
       class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 relative font-sans">
@@ -63,7 +87,7 @@
     </div>
     <div class="md:w-1/2 w-full order-1 md:order-2">
         <a href="images/1.jpg" target="_blank" rel="noopener">
-            <img class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/1.jpg" alt="Article image">
+            <img width="1051" height="667" decoding="async" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/1.jpg" alt="Illustrasjonsbilde for dobbeldiplom">
         </a>
     </div>
     </div>
@@ -120,13 +144,13 @@
 
       <!-- Floating Theme Toggle Button -->
       <div id="floatingButton"></div>
-      <script src="getFloatingButton.js"></script>
+      <script src="../../assets/js/getFloatingButton.js"></script>
       <script>document.getElementById("floatingButton").innerHTML = getFloatingButton();</script>
 
 
       <!-- Scripts -->
-      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-      <script src="../bunnscript.js"></script>
+      <script src="../../assets/vendor/aos.js"></script>
+      <script src="../../assets/js/bunnscript.js"></script>
     </body>
 
     </html>

@@ -5,13 +5,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hvorfor skal man like Toulouse? – NORGINSA</title>
+  <meta name="description" content="Oskar forteller hva han synes er bra med Toulouse">
+  <link rel="canonical" href="https://norginsa.no/arkiv/hvorforliketoulouse/hvorforliketoulouse.html">
+
+  <!-- Open Graph / deling på sosiale medier -->
+  <meta property="og:site_name" content="NORGINSA">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://norginsa.no/arkiv/hvorforliketoulouse/hvorforliketoulouse.html">
+  <meta property="og:title" content="Hvorfor skal man like Toulouse? – NORGINSA">
+  <meta property="og:description" content="Oskar forteller hva han synes er bra med Toulouse">
+  <meta property="og:image" content="https://norginsa.no/arkiv/hvorforliketoulouse/images/preview.jpg">
+  <meta property="og:locale" content="nb_NO">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/x-icon" href="../../assets/images/icon.ico">
 
   <!-- Tailwind + AOS CSS -->
   <link rel="stylesheet" href="../../assets/css/article.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="../../assets/vendor/aos.css" rel="stylesheet" />
   <script>tailwind.config = { darkMode: 'class' }</script>
+
+  <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
+  <script>
+    (function () {
+      try {
+        var lagret = localStorage.getItem("theme");
+        var mork = lagret ? lagret === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        if (mork) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+  <script src="../../assets/js/theme.js" defer></script>
 </head>
 
 <body
@@ -46,7 +70,7 @@
 <div class="fade-down-anim max-w-4xl mx-auto my-12 flex flex-col md:flex-row items-center md:items-start gap-8">
     <div class="md:w-1/2 w-full">
        <a href="images/DSC03202.JPG" target="_blank" rel="noopener">
-            <img class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/DSC03202.JPG" alt="Article image">
+            <img width="3000" height="2000" decoding="async" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/DSC03202.JPG" alt="Bilde fra Toulouse">
         </a>
     </div>
     <div class="md:w-1/2 w-full">
@@ -76,7 +100,7 @@
     </div>
     <div class="md:w-1/2 w-full order-1 md:order-2">
         <a href="images/1.jpg" target="_blank" rel="noopener">
-            <img class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/1.jpg" alt="Article image">
+            <img width="1080" height="1920" decoding="async" loading="lazy" class="fade-down-anim w-full h-auto rounded-lg shadow glowing" src="images/1.jpg" alt="Gatebilde fra Toulouse sentrum">
         </a>
     </div>
 </div>
@@ -106,6 +130,8 @@
 </div>
 
 
+  </div>
+
   <!-- Footer Container -->
   <div id="footer"></div>
   <script src="../../assets/js/getFooter.js"></script>
@@ -118,7 +144,7 @@
 
 
   <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="../../assets/vendor/aos.js"></script>
   <script src="../../assets/js/bunnscript.js"></script>
 </body>
 

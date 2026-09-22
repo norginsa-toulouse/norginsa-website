@@ -2,7 +2,7 @@ function getFloatingButton() {
     return `
     <button id="themeToggleBtn"
     class="floating-btn bg-gradient-to-r from-red-600 to-rose-500 dark:from-gray-700 dark:to-gray-800 text-white p-3 rounded-full shadow-xl hover:scale-110 focus:outline-none duration-200"
-    title="Toggle Theme" aria-label="Toggle Theme">
+    title="Bytt mellom lyst og mørkt tema" aria-label="Bytt mellom lyst og mørkt tema">
     <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24"
       stroke="currentColor" aria-hidden="true">
       <circle cx="12" cy="12" r="5" stroke-width="2" />

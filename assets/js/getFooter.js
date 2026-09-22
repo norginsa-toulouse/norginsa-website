@@ -6,7 +6,7 @@ function getFooterHTML() {
       <div class="text-center md:text-left max-w-md">
         <p class="text-sm md:text-base font-light">
           © 2025 <span class="font-semibold">NORGINSA</span>. Bygget med masse
-          <svg class="inline-block w-5 h-5 mx-1 text-red-500 -mt-0.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" aria-label="Heart">
+          <svg class="inline-block w-5 h-5 mx-1 text-red-500 -mt-0.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" aria-label="Hjerte">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 1.01 4.5 2.5C13.09 4.01 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
           </svg>
           av studentene.
@@ -15,7 +15,7 @@ function getFooterHTML() {
           Fordi vi er travle folk — template stjålet <a href="https://github.com/x01-open-source/webhub">herfra🌍</a>
         </p>
       </div>
-      <nav class="flex space-x-8 justify-center md:justify-end text-sm md:text-base font-medium" aria-label="Footer navigation">
+      <nav class="flex space-x-8 justify-center md:justify-end text-sm md:text-base font-medium" aria-label="Bunnmeny">
         <!--<a href="index.html" class="relative group hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-red-300 rounded">
           Home
           <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>

@@ -6,6 +6,18 @@
   <title>Ingeniørstudier i Toulouse | NORGINSA</title>
   <meta name="description"
         content="Hva er NORGINSA? Den anerkjente ingeniørskolen INSA i Frankrike tilbyr en femårig master i teknologi. Studiet er spesielt tilrettelagt for norske studenter, med integrert franskundervisning. Du behøver derfor ikke kunne fransk ved opptak.">
+  <link rel="canonical" href="https://norginsa.no/">
+
+  <!-- Open Graph / deling på sosiale medier -->
+  <meta property="og:site_name" content="NORGINSA">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://norginsa.no/">
+  <meta property="og:title" content="Ingeniørstudier i Toulouse | NORGINSA">
+  <meta property="og:description" content="Hva er NORGINSA? Den anerkjente ingeniørskolen INSA i Frankrike tilbyr en femårig master i teknologi. Studiet er spesielt tilrettelagt for norske studenter, med integrert franskundervisning. Du behøver derfor ikke kunne fransk ved opptak.">
+  <meta property="og:image" content="https://norginsa.no/assets/images/mainpage2.jpg">
+  <meta property="og:locale" content="nb_NO">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="icon" type="image/x-icon" href="assets/images/icon.ico">
 
   <!-- Tailwind (Play CDN) -->
@@ -31,6 +43,18 @@
       }
     }
   </style>
+
+  <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
+  <script>
+    (function () {
+      try {
+        var lagret = localStorage.getItem("theme");
+        var mork = lagret ? lagret === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        if (mork) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+  <script src="assets/js/theme.js" defer></script>
 </head>
 
 <!-- Use class-based dark mode -->
@@ -46,7 +70,7 @@
   <!-- ======= THEME TOGGLE (floating) ======= -->
   <button id="themeToggleBtn"
           class="floating-btn inline-flex items-center justify-center h-11 w-11 rounded-full bg-gray-900 text-white shadow-lg ring-1 ring-black/10 dark:bg-gray-100 dark:text-gray-900"
-          title="Toggle theme" aria-label="Toggle theme">
+          title="Bytt mellom lyst og mørkt tema" aria-label="Bytt mellom lyst og mørkt tema">
     <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <circle cx="12" cy="12" r="5" stroke-width="2" />
       <path stroke-linecap="round" stroke-width="2"
@@ -96,7 +120,7 @@
   -->
 
   <!-- ======= PHOTO ======== -->
-  <img class="w-[97.5%] mx-auto rounded-xl shadow mt-1 text-sm text-gray-600 dark:text-gray-300 max-w-7xl" src="assets/images/mainpage.jpg">
+  <img width="1920" height="700" decoding="async" alt="Toulouse sett fra luften, med elven Garonne gjennom byen" class="w-[97.5%] mx-auto rounded-xl shadow mt-1 text-sm text-gray-600 dark:text-gray-300 max-w-7xl" src="assets/images/mainpage.jpg">
 
   <!-- ======= FEATURES ======= 
   <section class="max-w-7xl mx-auto px-4 py-10">
@@ -139,7 +163,7 @@
   <!-- ======= COMMUNITY ======= -->
   <section class="max-w-4xl mx-auto px-2 py-2">
     <h2 class="text-2xl sm:text-3xl font-bold text-center">Nordmenn i Toulouse</h2>
-   <img class="w-[97.5%] mx-auto rounded-xl shadow mt-1 text-sm text-gray-600 dark:text-gray-300 max-w-7xl" src="assets/images/mainpage2.jpg">
+   <img width="1920" height="898" decoding="async" loading="lazy" alt="Norske studenter og venner samlet med norske flagg og bunader på 17. mai i Toulouse" class="w-[97.5%] mx-auto rounded-xl shadow mt-1 text-sm text-gray-600 dark:text-gray-300 max-w-7xl" src="assets/images/mainpage2.jpg">
 
   </section>
 
@@ -169,33 +193,6 @@
   <script src="assets/js/getFooter.js"></script>
   <script>
     document.getElementById("footer").innerHTML = getFooterHTML();
-  </script>
-
-  <!-- ======= SIMPLE THEME TOGGLE ======= -->
-  <script>
-    const root = document.documentElement;
-    const themeToggleBtn = document.getElementById("themeToggleBtn");
-    const iconSun = document.getElementById("icon-sun");
-    const iconMoon = document.getElementById("icon-moon");
-
-    function updateThemeIcon() {
-      const isDark = root.classList.contains("dark");
-      iconSun.classList.toggle("hidden", !isDark);
-      iconMoon.classList.toggle("hidden", isDark);
-    }
-
-    // Restore preference
-    if (localStorage.getItem("theme") === "dark") {
-      root.classList.add("dark");
-    }
-    updateThemeIcon();
-
-    // Toggle and persist
-    themeToggleBtn.addEventListener("click", () => {
-      const toDark = root.classList.toggle("dark");
-      localStorage.setItem("theme", toDark ? "dark" : "light");
-      updateThemeIcon();
-    });
   </script>
 
   <!-- App logic (optional) -->

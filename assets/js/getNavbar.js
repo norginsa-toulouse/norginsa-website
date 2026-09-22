@@ -3,17 +3,17 @@ function getNavbarHTML() {
   
   <header
     class="bg-white/90 dark:bg-gray-900/90 backdrop-blur border-b border-red-100/30 dark:border-gray-800/70 fixed w-full z-50 shadow-sm transition-colors duration-300"
-    role="navigation" aria-label="Main navigation">
+    role="navigation" aria-label="Hovedmeny">
     <div class="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
       <div class="flex justify-between items-center py-3 sm:py-4">
         <!-- Brand / Logo -->
         <a href="index.html"
           class="flex items-center gap-1.5 sm:gap-2 text-xl sm:text-2xl font-extrabold text-red-600 hover:text-red-700 transition tracking-tight select-none"
-          aria-label="Go to homepage">
+          aria-label="Til forsiden">
           <span>NORGINSA</span>
         </a>
         <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center gap-3 font-medium text-sm sm:text-base" aria-label="Primary navigation">
+        <nav class="hidden md:flex items-center gap-3 font-medium text-sm sm:text-base" aria-label="Hovedmeny">
           <a href="index.html"
             class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Hjem</a>
           <a href="arkiv.html"
@@ -34,7 +34,7 @@ function getNavbarHTML() {
           </a>
           <button id="themeToggleNav"
             class="ml-2 p-1.5 sm:p-2 bg-gray-100 dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-white dark:hover:bg-gray-700 transition"
-            title="Toggle Theme" aria-label="Toggle Theme" type="button">
+            title="Bytt mellom lyst og mørkt tema" aria-label="Bytt mellom lyst og mørkt tema" type="button">
             <svg id="nav-sun" class="w-4 h-4 sm:w-5 sm:h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2">
               <circle cx="12" cy="12" r="5" />
@@ -49,7 +49,7 @@ function getNavbarHTML() {
         </nav>
         <!-- Mobile Hamburger -->
         <div class="md:hidden flex items-center">
-          <button id="sidebarOpenBtn" aria-label="Open Menu"
+          <button id="sidebarOpenBtn" aria-label="Åpne meny"
             class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 transition">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -69,10 +69,10 @@ function getNavbarHTML() {
       class="fixed top-0 left-0 bottom-0 h-[100dvh] w-[90vw] max-w-xs min-w-[240px] bg-white dark:bg-gray-900 border-r border-red-100/30 dark:border-gray-800/70 shadow-lg z-50
       transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col md:hidden
       overflow-y-auto backdrop-blur-md"
-      aria-label="Mobile sidebar navigation" tabindex="-1" style="padding:0.75rem 0.9rem;">
+      aria-label="Mobilmeny" tabindex="-1" style="padding:0.75rem 0.9rem;">
       <div class="flex items-center justify-between mb-3">
         <span href="index.html" class="text-lg sm:text-xl font-bold text-red-600">NORGINSA</span>
-        <button id="sidebarCloseBtn" aria-label="Close Menu"
+        <button id="sidebarCloseBtn" aria-label="Lukk meny"
           class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-red-500">
           <svg class="w-5 h-5 text-gray-900 dark:text-gray-200" fill="none" stroke="currentColor" stroke-width="2"
             viewBox="0 0 24 24">
@@ -96,7 +96,7 @@ function getNavbarHTML() {
         </a>
         <button id="sidebarThemeToggle"
           class="mt-auto mb-3 p-2 flex items-center justify-center gap-1 sm:gap-2 bg-gray-100 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-white dark:hover:bg-gray-700 transition text-sm"
-          type="button" aria-label="Toggle Theme">
+          type="button" aria-label="Bytt mellom lyst og mørkt tema">
           <svg id="sidebar-sun" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <circle cx="12" cy="12" r="5" stroke-width="2" />
             <path stroke-linecap="round" stroke-width="2"
@@ -118,17 +118,17 @@ function getArtikkelNavbarHTML() {
   
   <header
     class="bg-white/90 dark:bg-gray-900/90 backdrop-blur border-b border-red-100/30 dark:border-gray-800/70 fixed w-full z-50 shadow-sm transition-colors duration-300"
-    role="navigation" aria-label="Main navigation">
+    role="navigation" aria-label="Hovedmeny">
     <div class="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
       <div class="flex justify-between items-center py-3 sm:py-4">
         <!-- Brand / Logo -->
         <a href="../../index.html"
           class="flex items-center gap-1.5 sm:gap-2 text-xl sm:text-2xl font-extrabold text-red-600 hover:text-red-700 transition tracking-tight select-none"
-          aria-label="Go to homepage">
+          aria-label="Til forsiden">
           <span>NORGINSA</span>
         </a>
         <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center gap-3 font-medium text-sm sm:text-base" aria-label="Primary navigation">
+        <nav class="hidden md:flex items-center gap-3 font-medium text-sm sm:text-base" aria-label="Hovedmeny">
           <a href="../../index.html"
             class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Hjem</a>
           <a href="../../arkiv.html"
@@ -149,7 +149,7 @@ function getArtikkelNavbarHTML() {
           </a>
           <button id="themeToggleNav"
             class="ml-2 p-1.5 sm:p-2 bg-gray-100 dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-white dark:hover:bg-gray-700 transition"
-            title="Toggle Theme" aria-label="Toggle Theme" type="button">
+            title="Bytt mellom lyst og mørkt tema" aria-label="Bytt mellom lyst og mørkt tema" type="button">
             <svg id="nav-sun" class="w-4 h-4 sm:w-5 sm:h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2">
               <circle cx="12" cy="12" r="5" />
@@ -164,7 +164,7 @@ function getArtikkelNavbarHTML() {
         </nav>
         <!-- Mobile Hamburger -->
         <div class="md:hidden flex items-center">
-          <button id="sidebarOpenBtn" aria-label="Open Menu"
+          <button id="sidebarOpenBtn" aria-label="Åpne meny"
             class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 transition">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -182,10 +182,10 @@ function getArtikkelNavbarHTML() {
       class="fixed top-0 left-0 bottom-0 h-[100dvh] w-[90vw] max-w-xs min-w-[240px] bg-white dark:bg-gray-900 border-r border-red-100/30 dark:border-gray-800/70 shadow-lg z-50
       transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col md:hidden
       overflow-y-auto backdrop-blur-md"
-      aria-label="Mobile sidebar navigation" tabindex="-1" style="padding:0.75rem 0.9rem;">
+      aria-label="Mobilmeny" tabindex="-1" style="padding:0.75rem 0.9rem;">
       <div class="flex items-center justify-between mb-3">
         <span href="../../index.html" class="text-lg sm:text-xl font-bold text-red-600">NORGINSA</span>
-        <button id="sidebarCloseBtn" aria-label="Close Menu"
+        <button id="sidebarCloseBtn" aria-label="Lukk meny"
           class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-red-500">
           <svg class="w-5 h-5 text-gray-900 dark:text-gray-200" fill="none" stroke="currentColor" stroke-width="2"
             viewBox="0 0 24 24">
@@ -209,7 +209,7 @@ function getArtikkelNavbarHTML() {
         </a>
         <button id="sidebarThemeToggle"
           class="mt-auto mb-3 p-2 flex items-center justify-center gap-1 sm:gap-2 bg-gray-100 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-white dark:hover:bg-gray-700 transition text-sm"
-          type="button" aria-label="Toggle Theme">
+          type="button" aria-label="Bytt mellom lyst og mørkt tema">
           <svg id="sidebar-sun" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <circle cx="12" cy="12" r="5" stroke-width="2" />
             <path stroke-linecap="round" stroke-width="2"
