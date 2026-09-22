@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url><loc>https://norginsa.no/</loc></url>
-  <url><loc>https://norginsa.no/about.html</loc></url>
-  <url><loc>https://norginsa.no/kontakt.html</loc></url>
-  <url><loc>https://norginsa.no/arkiv.html</loc></url>
+  <url><loc>https://www.norginsa.no/</loc></url>
+  <url><loc>https://www.norginsa.no/about</loc></url>
+  <url><loc>https://www.norginsa.no/kontakt</loc></url>
+  <url><loc>https://www.norginsa.no/arkiv</loc></url>
 
   <!-- Arkiv-artikler -->
-  <url><loc>https://norginsa.no/arkiv/RU/RU.html</loc><lastmod>2025-11-30</lastmod></url>
-  <url><loc>https://norginsa.no/arkiv/Tekna_Toulouse/Tekna_Toulouse.html</loc><lastmod>2025-11-08</lastmod></url>
-  <url><loc>https://norginsa.no/arkiv/dobbeldiplom/dobbeldiplom.html</loc><lastmod>2025-11-25</lastmod></url>
-  <url><loc>https://norginsa.no/arkiv/ferier/ferier.html</loc><lastmod>2025-11-24</lastmod></url>
-  <url><loc>https://norginsa.no/arkiv/hvorforliketoulouse/hvorforliketoulouse.html</loc><lastmod>2025-11-09</lastmod></url>
-  <url><loc>https://norginsa.no/arkiv/ic/ic.html</loc><lastmod>2026-03-12</lastmod></url>
-  <url><loc>https://norginsa.no/arkiv/icbe/icbe.html</loc><lastmod>2026-03-12</lastmod></url>
-  <url><loc>https://norginsa.no/arkiv/imacs/imacs.html</loc><lastmod>2026-03-12</lastmod></url>
-  <url><loc>https://norginsa.no/arkiv/ir/ir.html</loc><lastmod>2025-11-24</lastmod></url>
-  <url><loc>https://norginsa.no/arkiv/jesper_falt_det_gode_studentmiljoet_i_toulouse/jesper_falt_det_gode_studentmiljoet_i_toulouse.html</loc><lastmod>2025-10-07</lastmod></url>
-  <url><loc>https://norginsa.no/arkiv/julitoulouse/julitoulouse.html</loc><lastmod>2025-11-25</lastmod></url>
-  <url><loc>https://norginsa.no/arkiv/kart/kart.html</loc><lastmod>2025-11-24</lastmod></url>
-  <url><loc>https://norginsa.no/arkiv/mic/mic.html</loc><lastmod>2025-11-24</lastmod></url>
-  <url><loc>https://norginsa.no/arkiv/notail/notail.html</loc><lastmod>2024-06-08</lastmod></url>
-  <url><loc>https://norginsa.no/arkiv/pyrra/pyrra.html</loc><lastmod>2025-11-24</lastmod></url>
-  <url><loc>https://norginsa.no/arkiv/sommerlunsj/sommerlunsj.html</loc><lastmod>2025-10-07</lastmod></url>
+  <url><loc>https://www.norginsa.no/arkiv/RU/RU</loc><lastmod>2025-11-30</lastmod></url>
+  <url><loc>https://www.norginsa.no/arkiv/Tekna_Toulouse/Tekna_Toulouse</loc><lastmod>2025-11-08</lastmod></url>
+  <url><loc>https://www.norginsa.no/arkiv/dobbeldiplom/dobbeldiplom</loc><lastmod>2025-11-25</lastmod></url>
+  <url><loc>https://www.norginsa.no/arkiv/ferier/ferier</loc><lastmod>2025-11-24</lastmod></url>
+  <url><loc>https://www.norginsa.no/arkiv/hvorforliketoulouse/hvorforliketoulouse</loc><lastmod>2025-11-09</lastmod></url>
+  <url><loc>https://www.norginsa.no/arkiv/ic/ic</loc><lastmod>2026-03-12</lastmod></url>
+  <url><loc>https://www.norginsa.no/arkiv/icbe/icbe</loc><lastmod>2026-03-12</lastmod></url>
+  <url><loc>https://www.norginsa.no/arkiv/imacs/imacs</loc><lastmod>2026-03-12</lastmod></url>
+  <url><loc>https://www.norginsa.no/arkiv/ir/ir</loc><lastmod>2025-11-24</lastmod></url>
+  <url><loc>https://www.norginsa.no/arkiv/jesper_falt_det_gode_studentmiljoet_i_toulouse/jesper_falt_det_gode_studentmiljoet_i_toulouse</loc><lastmod>2025-10-07</lastmod></url>
+  <url><loc>https://www.norginsa.no/arkiv/julitoulouse/julitoulouse</loc><lastmod>2025-11-25</lastmod></url>
+  <url><loc>https://www.norginsa.no/arkiv/kart/kart</loc><lastmod>2025-11-24</lastmod></url>
+  <url><loc>https://www.norginsa.no/arkiv/mic/mic</loc><lastmod>2025-11-24</lastmod></url>
+  <url><loc>https://www.norginsa.no/arkiv/notail/notail</loc><lastmod>2024-06-08</lastmod></url>
+  <url><loc>https://www.norginsa.no/arkiv/pyrra/pyrra</loc><lastmod>2025-11-24</lastmod></url>
+  <url><loc>https://www.norginsa.no/arkiv/sommerlunsj/sommerlunsj</loc><lastmod>2025-10-07</lastmod></url>
 
 </urlset>

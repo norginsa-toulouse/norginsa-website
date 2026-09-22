@@ -1,5 +1,5 @@
 
-# NORGINSA – Nettside
+# NORGINSA - Nettside
 
 Hva som mangler:
 - [ ] Search engine optimisering
@@ -131,7 +131,7 @@ Legg til denne informasjonen
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>ARTIKKELNAVN – NORGINSA</title>
+      <title>ARTIKKELNAVN | NORGINSA</title>
       <link rel="icon" type="image/x-icon" href="../../assets/images/icon.ico">
 
       <!-- Tailwind + AOS CSS -->

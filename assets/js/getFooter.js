@@ -12,7 +12,7 @@ function getFooterHTML() {
           av studentene.
         </p>
         <p class="mt-2 text-red-100 text-xs md:text-sm italic tracking-wide">
-          Fordi vi er travle folk — template stjålet <a href="https://github.com/x01-open-source/webhub">herfra🌍</a>
+          Fordi vi er travle folk - template stjålet <a href="https://github.com/x01-open-source/webhub">herfra🌍</a>
         </p>
       </div>
       <nav class="flex space-x-8 justify-center md:justify-end text-sm md:text-base font-medium" aria-label="Bunnmeny">

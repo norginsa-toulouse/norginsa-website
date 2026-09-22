@@ -5,7 +5,7 @@
 // Denne filen kobler opp knappene og holder sol-/måneikonene i synk.
 //
 // Knapper: #themeToggleBtn (flytende), #themeToggle (arkivsiden),
-// #themeToggleNav og #sidebarThemeToggle (navbaren) — eller [data-theme-toggle].
+// #themeToggleNav og #sidebarThemeToggle (navbaren) - eller [data-theme-toggle].
 (function () {
   const KNAPPER =
     "#themeToggleBtn, #themeToggle, #themeToggleNav, #sidebarThemeToggle, [data-theme-toggle]";
@@ -27,7 +27,7 @@
     try {
       localStorage.setItem("theme", mork ? "dark" : "light");
     } catch (err) {
-      /* privat nettleservindu e.l. — temaet gjelder da bare denne økten */
+      /* privat nettleservindu e.l. - temaet gjelder da bare denne økten */
     }
     oppdaterIkoner();
   });
