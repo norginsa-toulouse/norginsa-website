@@ -1,4 +1,6 @@
-// Forsidens «Nye artikler»: de tre nyeste utvalgte artiklene fra arkiv.json.
+// Forsidens «Nye artikler»: de tre nyeste artiklene fra arkiv.json.
+// Artikler merket "utkast": true i arkiv.json holdes utenfor, så uferdige
+// sider ikke havner på forsiden.
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("templateListContent");
   container.innerHTML = ''; // Clear container before loading
@@ -8,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const data = await res.json();
 
     const topTemplates = data.templates
-      .filter(t => t.featured)
+      .filter(t => !t.utkast)
       .sort((a, b) => datoTall(b.created) - datoTall(a.created))
       .slice(0, 3);
 

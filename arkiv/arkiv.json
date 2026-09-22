@@ -4,6 +4,7 @@
       "name": "IC",
       "description": "Po'en IC",
       "folder": "ic",
+      "utkast": true,
       "tags": [
         "Studiet"
       ],
@@ -15,6 +16,7 @@
       "name": "ICBE",
       "description": "Po'en ICBE",
       "folder": "icbe",
+      "utkast": true,
       "tags": [
         "Studiet"
       ],
@@ -26,6 +28,7 @@
       "name": "IMACS",
       "description": "Po'en IMACS",
       "folder": "imacs",
+      "utkast": true,
       "tags": [
         "Studiet"
       ],
