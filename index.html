@@ -30,16 +30,6 @@
     tailwind.config = { darkMode: 'class' };
   </script>
 
-  <style>
-    /* Respect reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
 
   <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
   <script>
@@ -52,6 +42,7 @@
     })();
   </script>
   <script src="assets/js/theme.js" defer></script>
+  <link rel="stylesheet" href="assets/css/site.css">
 </head>
 
 <!-- Use class-based dark mode -->
@@ -67,7 +58,7 @@
 
   <!-- ======= HERO ======= -->
   <section class="max-w-7xl mx-auto px-4">
-    <div class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800">
+    <div class="kort-dus">
       <div class="px-6 py-16 text-center">
         <p class="inline-flex items-center gap-2 text-sm font-medium text-red-600 dark:text-red-400">
           NORGINSA-Programmet
@@ -80,12 +71,12 @@
         </p>
         <div class="mt-8 flex items-center justify-center gap-3">
           <a href="about.html"
-             class="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-3 text-white text-sm font-semibold hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400"
+             class="knapp knapp-primar"
              rel="noopener">
             Lær mer om studiet
           </a>
           <a href="arkiv.html"
-             class="inline-flex items-center justify-center rounded-full border border-gray-300 dark:border-gray-700 px-6 py-3 text-sm font-semibold hover:bg-gray-100 dark:hover:bg-gray-700">
+             class="knapp knapp-sekundar">
             Les artiklene
           </a>
         </div>
@@ -158,13 +149,13 @@
 
   <!-- ======= CONTRIBUTE ======= -->
   <section class="max-w-5xl mx-auto px-4 py-4">
-    <div class="rounded-2xl border border-gray-200 dark:border-gray-800 p-8 text-center">
+    <div class="kort p-8 text-center">
       <h2 class="text-2xl sm:text-3xl font-bold">Interessert?</h2>
       <p class="mt-3 text-gray-600 dark:text-gray-300">
         Ikke nøl med å kontakte oss for mer informasjon! 
       </p>
       <a href="kontakt.html"
-         class="mt-6 inline-flex items-center justify-center rounded-lg bg-red-600 px-6 py-3 text-white text-sm font-semibold hover:bg-red-700"
+         class="knapp knapp-primar mt-6"
          rel="noopener">
         Kontakt Oss
       </a>

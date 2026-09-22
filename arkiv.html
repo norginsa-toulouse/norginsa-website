@@ -61,6 +61,7 @@
     })();
   </script>
   <script src="assets/js/theme.js" defer></script>
+  <link rel="stylesheet" href="assets/css/site.css">
 </head>
 
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
@@ -124,7 +125,7 @@
 
   <!-- Mobile: Filter Panel Modal -->
   <div id="mobileFilterDrawer"
-    class="fixed z-50 left-0 right-0 bottom-0 bg-white dark:bg-gray-900 rounded-t-2xl border-t border-gray-200 dark:border-gray-800 shadow-2xl p-4 transition duration-300 transform mobile-filter-enter"
+    class="fixed z-50 left-0 right-0 bottom-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shadow-2xl p-4 transition duration-300 transform mobile-filter-enter"
     style="display:none;">
     <div class="flex items-center justify-between mb-1">
       <span class="font-semibold text-lg">Filter</span>
@@ -307,9 +308,9 @@
 
           itemsToRender.forEach(t => {
             const card = document.createElement("div");
-            card.className = "bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col h-full";
+            card.className = "kort kort-klikkbar overflow-hidden flex flex-col h-full";
             card.innerHTML = `
-              <img src="arkiv/${t.folder}/images/preview.jpg" alt="Forhåndsvisning av «${t.name}»" loading="lazy" decoding="async" width="800" height="384" class="w-full h-48 object-cover rounded-t-lg" />
+              <img src="arkiv/${t.folder}/images/preview.jpg" alt="Forhåndsvisning av «${t.name}»" loading="lazy" decoding="async" width="800" height="384" class="w-full h-48 object-cover" />
               <div class="p-4 flex flex-col flex-1">
                 <div class="flex items-center justify-between mb-2">
                   <h3 class="text-xl font-bold">${t.name}</h3>
@@ -324,7 +325,7 @@
                 </div>
                 <div class="flex gap-3 mt-auto">
                   <a href="arkiv/${t.folder}/${t.folder}.html" target="_blank"
-                    class="flex-1 bg-gradient-to-r from-red-600 to-red-500 text-white text-center px-4 py-2 rounded-lg shadow-md hover:from-red-700 hover:to-red-600 transition-all duration-200">
+                    class="knapp knapp-primar flex-1">
                     Les mer
                   </a>
                 </div>

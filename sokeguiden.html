@@ -21,45 +21,12 @@
   <link rel="icon" type="image/x-icon" href="assets/images/icon.ico">
 
   <!-- Tailwind + AOS CSS -->
-  <link rel="stylesheet" href="assets/css/navbar.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="assets/vendor/aos.css" rel="stylesheet" />
   <script>
     tailwind.config = { darkMode: 'class' };
   </script>
 
-  <style>
-    /* Glowing effect for cards & buttons */
-    .glowing {
-      box-shadow: 0 16px 32px rgba(246, 59, 59, 0.16), 0 8px 8px rgba(246, 59, 59, 0.1);
-      transition: box-shadow 0.15s, transform 0.15s;
-    }
-
-    .glowing:hover,
-    .glowing:focus-visible {
-      box-shadow: 0 32px 64px rgba(246, 59, 59, 0.24), 0 16px 16px rgba(246, 59, 59, 0.12);
-      transform: translateY(-3px) scale(1.03);
-      outline-offset: 4px;
-      outline: none;
-    }
-
-    /* Fade down animation for sections */
-    .fade-down-anim {
-      animation: fadeDown 0.75s cubic-bezier(.77, 0, .175, 1) forwards;
-    }
-
-    @keyframes fadeDown {
-      from {
-        transform: translateY(-20px);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-  </style>
 
   <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
   <script>
@@ -72,6 +39,7 @@
     })();
   </script>
   <script src="assets/js/theme.js" defer></script>
+  <link rel="stylesheet" href="assets/css/site.css">
 </head>
 
 <body
@@ -97,7 +65,7 @@
 
   <!-- ======= STEG FOR STEG =======
        Flyttet hit fra about.html, slik at «hvordan søke» bare finnes ett sted. -->
-  <section class="max-w-5xl mx-auto mb-20 bg-white dark:bg-gray-800 rounded-3xl glowing p-8 shadow-lg"
+  <section class="max-w-5xl mx-auto mb-20 kort p-8"
     data-aos="fade-up" tabindex="0" aria-label="Slik søker du, steg for steg">
     <h2 class="text-3xl font-bold mb-6">Slik søker du, steg for steg</h2>
     <ol class="list-decimal list-inside space-y-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
@@ -108,7 +76,7 @@
       <li>Velg søknad for NORGINSA. NORGINSA-søknadsskjemaet vil tilgjengeliggjøres noen måneder før søknadsfristen</li>
     </ol>
     <a href="https://utdanning.no/tema/utdanning_i_utlandet/ingeniorstudier_i_toulouse"
-      class="mt-8 inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-red-600 to-rose-500 hover:from-red-700 hover:to-rose-600 rounded-lg font-semibold text-white shadow-lg transition glowing focus:outline-none focus:ring-4 focus:ring-red-400"
+      class="knapp knapp-primar mt-8"
       target="_blank" rel="noopener" aria-label="Søk på NORGINSA via Utdanning.no">
       SØK HER
     </a>
@@ -122,7 +90,7 @@
        lenk dit for det, og bruk plassen her på det bare dere kan si.
        Slett seksjoner dere ikke vil ha.
 
-  <section class="max-w-5xl mx-auto mb-20 bg-white dark:bg-gray-800 rounded-3xl glowing p-8 shadow-lg"
+  <section class="max-w-5xl mx-auto mb-20 kort p-8"
     data-aos="fade-up" tabindex="0" aria-label="Hva kreves for å komme inn">
     <h2 class="text-3xl font-bold mb-6">Hva kreves for å komme inn?</h2>
     <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
@@ -132,7 +100,7 @@
     </p>
   </section>
 
-  <section class="max-w-5xl mx-auto mb-20 bg-white dark:bg-gray-800 rounded-3xl glowing p-8 shadow-lg"
+  <section class="max-w-5xl mx-auto mb-20 kort p-8"
     data-aos="fade-up" tabindex="0" aria-label="Må jeg kunne fransk">
     <h2 class="text-3xl font-bold mb-6">Må jeg kunne fransk?</h2>
     <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
@@ -142,7 +110,7 @@
     </p>
   </section>
 
-  <section class="max-w-5xl mx-auto mb-20 bg-white dark:bg-gray-800 rounded-3xl glowing p-8 shadow-lg"
+  <section class="max-w-5xl mx-auto mb-20 kort p-8"
     data-aos="fade-up" tabindex="0" aria-label="Hva koster det">
     <h2 class="text-3xl font-bold mb-6">Hva koster det?</h2>
     <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
@@ -151,7 +119,7 @@
     </p>
   </section>
 
-  <section class="max-w-5xl mx-auto mb-20 bg-white dark:bg-gray-800 rounded-3xl glowing p-8 shadow-lg"
+  <section class="max-w-5xl mx-auto mb-20 kort p-8"
     data-aos="fade-up" tabindex="0" aria-label="Blir graden godkjent i Norge">
     <h2 class="text-3xl font-bold mb-6">Blir graden godkjent i Norge?</h2>
     <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
@@ -160,7 +128,7 @@
     </p>
   </section>
 
-  <section class="max-w-5xl mx-auto mb-20 bg-white dark:bg-gray-800 rounded-3xl glowing p-8 shadow-lg"
+  <section class="max-w-5xl mx-auto mb-20 kort p-8"
     data-aos="fade-up" tabindex="0" aria-label="Når er fristen">
     <h2 class="text-3xl font-bold mb-6">Når er fristen?</h2>
     <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
@@ -171,13 +139,13 @@
 
   <!-- ======= KONTAKT =======
   <section class="max-w-5xl mx-auto mb-20 px-4">
-    <div class="rounded-2xl border border-gray-200 dark:border-gray-800 p-8 text-center">
+    <div class="kort p-8 text-center">
       <h2 class="text-2xl sm:text-3xl font-bold">Noe du fortsatt lurer på?</h2>
       <p class="mt-3 text-gray-600 dark:text-gray-300">
         Vi er studenter i Toulouse, og svarer gjerne på det som ikke står her.
       </p>
       <a href="kontakt.html"
-        class="mt-6 inline-flex items-center justify-center rounded-lg bg-red-600 px-6 py-3 text-white text-sm font-semibold hover:bg-red-700">
+        class="knapp knapp-primar mt-6">
         Kontakt oss
       </a>
     </div>

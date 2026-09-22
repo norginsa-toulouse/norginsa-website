@@ -71,7 +71,7 @@ sider = f"""<!DOCTYPE html>
   <link rel="icon" type="image/x-icon" href="../../assets/images/icon.ico">
 
   <!-- Tailwind + AOS CSS -->
-  <link rel="stylesheet" href="../../assets/css/article.css">
+  <link rel="stylesheet" href="../../assets/css/site.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="../../assets/vendor/aos.css" rel="stylesheet" />
   <script>tailwind.config = {{ darkMode: 'class' }}</script>

@@ -21,46 +21,12 @@
   <link rel="icon" type="image/x-icon" href="assets/images/icon.ico">
 
   <!-- Tailwind + AOS CSS -->
-  <link rel="stylesheet" href="assets/css/navbar.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="assets/vendor/aos.css" rel="stylesheet" />
   <script>
     tailwind.config = { darkMode: 'class' };
   </script>
 
-  <style>
-    /* Glowing effect for cards & buttons */
-    .glowing {
-      box-shadow: 0 16px 32px rgba(246, 59, 59, 0.16), 0 8px 8px rgba(246, 59, 59, 0.1);
-      transition: box-shadow 0.15s, transform 0.15s;
-    }
-
-    .glowing:hover,
-    .glowing:focus-visible {
-      box-shadow: 0 32px 64px rgba(246, 59, 59, 0.24), 0 16px 16px rgba(246, 59, 59, 0.12);
-      transform: translateY(-3px) scale(1.03);
-      outline-offset: 4px;
-      outline: none;
-    }
-
-    /* Fade down animation for sections */
-    .fade-down-anim {
-      animation: fadeDown 0.75s cubic-bezier(.77, 0, .175, 1) forwards;
-    }
-
-    @keyframes fadeDown {
-      from {
-        transform: translateY(-20px);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-  </style>
 
   <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
   <script>
@@ -73,6 +39,7 @@
     })();
   </script>
   <script src="assets/js/theme.js" defer></script>
+  <link rel="stylesheet" href="assets/css/site.css">
 </head>
 
 <body
@@ -86,7 +53,6 @@
     document.getElementById("navbar").innerHTML = getNavbarHTML();
   </script>
   <script src="assets/js/navbar.js"></script>
-  <div class="pt-24"></div>
 
   <!-- Page Title -->
   <div class="max-w-7xl mx-auto mb-12 text-center">
@@ -98,7 +64,7 @@
   </div>
 
   <!-- Our Mission Section -->
-  <section class="max-w-5xl mx-auto mb-20 bg-white dark:bg-gray-800 rounded-3xl glowing p-8 shadow-lg"
+  <section class="max-w-5xl mx-auto mb-20 kort p-8"
     data-aos="fade-up" tabindex="0" aria-label="Kort oppsummert">
     <h2 class="text-3xl font-bold mb-6">Kort oppsummert</h2>
     <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
@@ -113,7 +79,7 @@
       Slik ser et typisk studieløp ut ved INSA Toulouse
     </p>
     <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 ">
-      <article class="rounded-xl border border-gray-200 dark:border-gray-800 p-5 bg-white dark:bg-gray-800">
+      <article class="kort p-5">
         <h4 class="font-semibold">Første år</h4>
         <p class="mt-1 text-gray-600 dark:text-gray-300">Generelle fag, med introduksjoner innen mange fagfelt for å bedre kunne velge en spesialisering i andre året.</p>
         <p class="mt-1 text-gray-600 dark:text-gray-300">PPA (Petit Première Année = Lille Første Året) er preget av at alle nordmenn er i samme klasse, sammen med noen franskmenn for å bedre integreres.</p>
@@ -125,7 +91,7 @@
         
       </article>
 
-      <article class="rounded-xl border border-gray-200 dark:border-gray-800 p-5 bg-white dark:bg-gray-800">
+      <article class="kort p-5">
         <h4 class="font-semibold">Andre & Tredje år</h4>
         <p class="mt-1 text-gray-600 dark:text-gray-300">Alle har valgt en av fire linjer, og blir satt i franske klasser som resten av INSA-studentene. Linjene er:</p>
         <br>
@@ -140,7 +106,7 @@
 
 
       </article>
-      <article class="rounded-xl border border-gray-200 dark:border-gray-800 p-5 bg-white dark:bg-gray-800">
+      <article class="kort p-5">
         <h4 class="font-semibold">Fjerde & Femte år</h4>
         <p class="mt-1 text-gray-600 dark:text-gray-300">Studentene fordyper seg enda mer innen linjene sine, og fokuserer stadig mer på prosjektarbeid, internships og muligheten av <a class="text-red-600 hover:text-red-800" href="./arkiv/dobbeldiplom/dobbeldiplom.html">dobbeldiplom</a></p> <br>
         <p class="mt-1 text-gray-600 dark:text-gray-300">På INSA skrives det verken Bachelor- eller Masteroppgave, men hele 2. semester i 5. året er et internship på 20-26 uker. <u>Alle Internships kan gjennomføres hvor som helst i verden, inkludert i Norge!</u></p>
@@ -149,7 +115,7 @@
   </section>
 
   <!-- ======= SØKEGUIDEN ======= -->
-  <section class="max-w-5xl mx-auto mb-20 bg-white dark:bg-gray-800 rounded-3xl glowing p-8 shadow-lg"
+  <section class="max-w-5xl mx-auto mb-20 kort p-8"
     data-aos="fade-up" tabindex="0" aria-label="Hvordan søke">
     <h2 class="text-3xl font-bold mb-6">Hvordan søker jeg?</h2>
     <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
@@ -157,7 +123,7 @@
       mest på har fått sin egen side.
     </p>
     <a href="sokeguiden.html"
-      class="mt-8 inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-red-600 to-rose-500 hover:from-red-700 hover:to-rose-600 rounded-lg font-semibold text-white shadow-lg transition glowing focus:outline-none focus:ring-4 focus:ring-red-400"
+      class="knapp knapp-primar mt-8"
       aria-label="Gå til Søkeguiden">
       Til Søkeguiden
     </a>
@@ -169,7 +135,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
       <!-- Team Member Cards
       <article
-        class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-red-400 transition"
+        class="kort kort-klikkbar p-6 flex flex-col items-center text-center"
         tabindex="0" aria-label="Person #1, Dev">
         <img width="150" height="150" decoding="async" src="assets/images/kontakt-oss/norginsa.jpg" alt="Person #1's avatar"
           class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
@@ -179,7 +145,7 @@
       </article>
 
       <article
-        class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-rose-400 transition"
+        class="kort kort-klikkbar p-6 flex flex-col items-center text-center"
         tabindex="0" aria-label="Person #2, UI Designer">
         <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/norginsa.jpg" alt="Person #2's avatar"
           class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
@@ -190,7 +156,7 @@
       </article>
 
       <article
-        class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-yellow-400 transition"
+        class="kort kort-klikkbar p-6 flex flex-col items-center text-center"
         tabindex="0" aria-label="Person #3, Frontend Developer">
         <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/norginsa.jpg" alt="Person #3's avatar"
           class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />
@@ -201,7 +167,7 @@
       </article>
 
       <article
-        class="bg-white dark:bg-gray-800 rounded-3xl glowing shadow p-6 flex flex-col items-center text-center focus-within:ring-4 ring-pink-400 transition"
+        class="kort kort-klikkbar p-6 flex flex-col items-center text-center"
         tabindex="0" aria-label="Person #4, Community Manager">
         <img width="150" height="150" decoding="async" loading="lazy" src="assets/images/kontakt-oss/norginsa.jpg" alt="Person #4's avatar"
           class="w-32 h-32 rounded-full mb-4 shadow-md object-cover" />

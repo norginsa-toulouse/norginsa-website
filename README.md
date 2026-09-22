@@ -51,8 +51,7 @@ Hva som mangler:
 ├── sitemap.xml                 # må oppdateres når en artikkel publiseres
 ├── assets/
 │   ├── css/
-│   │   ├── article.css         # stiler for artikkelsidene
-│   │   └── navbar.css          # stiler for navbaren
+│   │   └── site.css            # felles komponenter: kort, knapper, animasjon
 │   ├── images/                 # bilder som ikke hører til en artikkel
 │   ├── vendor/                 # AOS (animasjoner), lokal kopi
 │   └── js/

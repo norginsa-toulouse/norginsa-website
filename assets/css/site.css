@@ -1,0 +1,146 @@
+/* NORGINSA - felles komponenter.
+ *
+ * Tailwind gjør det meste, men kort, knapper og innganimasjonen ble skrevet
+ * på nytt på hver enkelt side, i litt ulike varianter. Her ligger de ett sted,
+ * så de faktisk ser like ut. Mørk modus styres av .dark på <html>.
+ *
+ * Fargeregel: rødt betyr handling (knapper, lenker, tagger). Kort og
+ * seksjoner holder seg nøytrale.
+ */
+
+:root {
+  --ng-kant: rgb(229 231 235);      /* gray-200  */
+  --ng-flate: #ffffff;
+  --ng-flate-dus: rgb(249 250 251); /* gray-50   */
+  --ng-radius: 1rem;
+  --ng-skygge: 0 1px 2px rgb(15 23 42 / 0.04), 0 4px 12px rgb(15 23 42 / 0.06);
+  --ng-skygge-hover: 0 2px 4px rgb(15 23 42 / 0.05), 0 10px 24px rgb(15 23 42 / 0.09);
+}
+
+.dark {
+  --ng-kant: rgb(31 41 55);         /* gray-800  */
+  --ng-flate: rgb(31 41 55);
+  --ng-flate-dus: rgb(31 41 55);
+  --ng-skygge: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 12px rgb(0 0 0 / 0.25);
+  --ng-skygge-hover: 0 2px 4px rgb(0 0 0 / 0.35), 0 10px 24px rgb(0 0 0 / 0.35);
+}
+
+/* ---------- Kort ---------- */
+
+.kort {
+  background-color: var(--ng-flate);
+  border: 1px solid var(--ng-kant);
+  border-radius: var(--ng-radius);
+  box-shadow: var(--ng-skygge);
+}
+
+/* Dus variant, til seksjoner som skal ligge litt tilbake (f.eks. toppbannere). */
+.kort-dus {
+  background-color: var(--ng-flate-dus);
+  border: 1px solid var(--ng-kant);
+  border-radius: var(--ng-radius);
+}
+
+/* Kort som kan klikkes. Løftet er lite med vilje: det skal antyde at noe
+   skjer, ikke sprette i ansiktet på folk. */
+.kort-klikkbar {
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.kort-klikkbar:hover,
+.kort-klikkbar:focus-within {
+  box-shadow: var(--ng-skygge-hover);
+  transform: translateY(-2px);
+}
+
+/* ---------- Knapper ---------- */
+
+.knapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  text-align: center;
+  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.knapp:focus-visible {
+  outline: 2px solid rgb(248 113 113);
+  outline-offset: 2px;
+}
+
+.knapp-primar {
+  background-image: linear-gradient(to right, rgb(220 38 38), rgb(244 63 94));
+  color: #ffffff;
+  box-shadow: var(--ng-skygge);
+}
+
+.knapp-primar:hover {
+  background-image: linear-gradient(to right, rgb(185 28 28), rgb(225 29 72));
+}
+
+.knapp-sekundar {
+  border: 1px solid var(--ng-kant);
+  background-color: transparent;
+  color: inherit;
+}
+
+.knapp-sekundar:hover {
+  background-color: rgb(243 244 246);
+}
+
+.dark .knapp-sekundar:hover {
+  background-color: rgb(55 65 81);
+}
+
+/* ---------- Animasjon ---------- */
+
+.fade-down-anim {
+  animation: ngFadeDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes ngFadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Mobilmeny ----------
+ * Lå tidligere i to identiske filer (article.css og navbar.css), som ikke var
+ * koblet på de samme sidene. Scroll-låsen manglet derfor på forsiden. */
+
+@media (max-width: 480px) {
+  #mobileSidebar {
+    width: 90vw !important;
+    min-width: 0 !important;
+    max-width: 360px !important;
+  }
+}
+
+body.sidebar-open {
+  overflow: hidden;
+  touch-action: none;
+}
