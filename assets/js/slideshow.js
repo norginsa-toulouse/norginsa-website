@@ -1,64 +1,114 @@
-// Bildeslideshow for artikler.
-// Artikkelen definerer `slideshowImages`, har et tomt rutenett med
-// id="slideshowGrid", og setter inn modalen med getSlideshowPopup().
-//
-// Modalen settes inn ETTER at denne filen er lastet, så den slås opp først når
-// den brukes. Før krasjet scriptet her på en null-referanse, slik at «lukk ved
-// klikk utenfor bildet» aldri ble koblet opp.
-let currentSlide = 0;
+/* Bildegalleri for artiklene.
+ *
+ * Slik skriver du et galleri:
+ *
+ *     <div class="bildegalleri" data-bilder="images/1.jpg images/2.jpg"></div>
+ *
+ * Det er alt. Ingen array, ingen modal-div, ingen ekstra script-tagg, og du
+ * kan ha flere gallerier på samme side.
+ *
+ * Den gamle måten (et tomt <div id="slideshowGrid"> pluss en global
+ * slideshowImages) virker fortsatt, så eldre artikler ikke må skrives om.
+ * Den lå brakk fordi artiklene erklærte lista med «const»: en const på
+ * toppnivå blir ikke en egenskap på window, så vakten her slo alltid til.
+ */
+(function () {
+  if (window.__galleriLastet) return;
+  window.__galleriLastet = true;
 
-function slideshowModalEl() {
-  return document.getElementById('slideshowModal');
-}
+  let bilder = [];
+  let n = 0;
+  let sisteKnapp = null;
+  let modal, modalBilde, teller;
 
-const slideshowGrid = document.getElementById('slideshowGrid');
-if (slideshowGrid && Array.isArray(window.slideshowImages)) {
-  slideshowImages.forEach((src, i) => {
-    const btn = document.createElement('button');
-    btn.className = "focus:outline-none";
-    btn.onclick = () => openSlideshow(i);
-    btn.innerHTML = `<img src="${src}" alt="Bilde ${i + 1}" loading="lazy" decoding="async" class="w-full h-40 object-cover rounded-lg shadow" />`;
-    slideshowGrid.appendChild(btn);
+  function lagModal() {
+    if (modal) return;
+    modal = document.createElement("div");
+    modal.className = "galleri-modal";
+    modal.hidden = true;
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-label", "Bildevisning");
+    modal.innerHTML = `
+      <button type="button" class="galleri-lukk" aria-label="Lukk">&times;</button>
+      <button type="button" class="galleri-pil galleri-forrige" aria-label="Forrige bilde">&#10094;</button>
+      <figure class="galleri-ramme">
+        <img alt="">
+        <figcaption class="galleri-teller"></figcaption>
+      </figure>
+      <button type="button" class="galleri-pil galleri-neste" aria-label="Neste bilde">&#10095;</button>`;
+    document.body.appendChild(modal);
+    modalBilde = modal.querySelector("img");
+    teller = modal.querySelector(".galleri-teller");
+
+    modal.querySelector(".galleri-lukk").addEventListener("click", lukk);
+    modal.querySelector(".galleri-forrige").addEventListener("click", () => bla(-1));
+    modal.querySelector(".galleri-neste").addEventListener("click", () => bla(1));
+    modal.addEventListener("click", (e) => { if (e.target === modal) lukk(); });
+  }
+
+  function vis() {
+    modalBilde.src = bilder[n];
+    modalBilde.alt = `Bilde ${n + 1} av ${bilder.length}`;
+    teller.textContent = `${n + 1} / ${bilder.length}`;
+    modal.querySelectorAll(".galleri-pil").forEach((b) => { b.hidden = bilder.length < 2; });
+  }
+
+  function aapne(liste, i, knapp) {
+    lagModal();
+    bilder = liste;
+    n = i;
+    sisteKnapp = knapp || null;
+    vis();
+    modal.hidden = false;
+    document.body.style.overflow = "hidden";
+    modal.querySelector(".galleri-lukk").focus();
+  }
+
+  function lukk() {
+    if (!modal || modal.hidden) return;
+    modal.hidden = true;
+    document.body.style.overflow = "";
+    if (sisteKnapp) sisteKnapp.focus();   // tilbake dit man kom fra
+  }
+
+  function bla(d) {
+    n = (n + d + bilder.length) % bilder.length;
+    vis();
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (!modal || modal.hidden) return;
+    if (e.key === "Escape") lukk();
+    else if (e.key === "ArrowLeft") bla(-1);
+    else if (e.key === "ArrowRight") bla(1);
   });
-}
 
-// Close on ESC or click outside image
-document.addEventListener('keydown', function (e) {
-  const modal = slideshowModalEl();
-  if (!modal || modal.classList.contains('hidden')) return;
-  if (e.key === "Escape") closeSlideshow();
-  if (e.key === "ArrowLeft") changeSlide(-1);
-  if (e.key === "ArrowRight") changeSlide(1);
-});
-document.addEventListener('click', function (e) {
-  const modal = slideshowModalEl();
-  if (modal && e.target === modal) closeSlideshow();
-});
+  function tegn(el, liste) {
+    el.classList.add("bildegalleri");
+    el.innerHTML = liste.map((src, i) => `
+      <button type="button" class="galleri-miniatyr" data-i="${i}"
+              aria-label="Vis bilde ${i + 1} i full størrelse">
+        <img src="${src}" alt="" loading="lazy" decoding="async">
+      </button>`).join("");
+    el.addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-i]");
+      if (b) aapne(liste, Number(b.dataset.i), b);
+    });
+  }
 
-function openSlideshow(index) {
-  currentSlide = index;
-  document.getElementById('slideshowImage').src = slideshowImages[currentSlide];
-  slideshowModalEl().classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
-}
+  function start() {
+    document.querySelectorAll("[data-bilder]").forEach((el) => {
+      const liste = el.dataset.bilder.split(/[\s,]+/).filter(Boolean);
+      if (liste.length) tegn(el, liste);
+    });
 
-function closeSlideshow() {
-  slideshowModalEl().classList.add('hidden');
-  document.body.style.overflow = '';
-}
+  }
 
-function changeSlide(direction) {
-  currentSlide = (currentSlide + direction + slideshowImages.length) % slideshowImages.length;
-  document.getElementById('slideshowImage').src = slideshowImages[currentSlide];
-}
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start);
+  } else {
+    start();
+  }
+})();
 
-function getSlideshowPopup() {
-  return `
-        <div id="slideshowModal" class="fixed inset-0 z-[9999] bg-black bg-opacity-80 flex items-center justify-center hidden">
-      <button onclick="closeSlideshow()" class="absolute top-6 right-8 text-white text-3xl font-bold hover:text-red-400 focus:outline-none" aria-label="Lukk">&times;</button>
-      <button onclick="changeSlide(-1)" class="absolute left-4 md:left-12 top-1/2 -translate-y-1/2 text-white text-4xl font-bold px-3 py-1 bg-black bg-opacity-40 rounded-full hover:bg-opacity-70 focus:outline-none" aria-label="Forrige bilde">&#10094;</button>
-      <img id="slideshowImage" src="" alt="Slideshow bilde" class="max-h-[80vh] max-w-[90vw] rounded-lg shadow-xl border-4 border-white" />
-      <button onclick="changeSlide(1)" class="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 text-white text-4xl font-bold px-3 py-1 bg-black bg-opacity-40 rounded-full hover:bg-opacity-70 focus:outline-none" aria-label="Neste bilde">&#10095;</button>
-    </div>
-        `;
-}

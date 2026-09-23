@@ -1,4 +1,8 @@
 function getFooterHTML() {
+  // Footeren injiseres både fra rota og fra arkiv/<mappe>/, så stiene må
+  // få riktig dybde. Navbaren løser det med to funksjoner; her holder det
+  // med å se på adressen.
+  const rot = location.pathname.includes("/arkiv/") ? "../../" : "";
   return `
   <footer class="bg-gradient-to-tr from-red-700 to-rose-600 text-white mt-16 border-t border-red-500 dark:border-rose-700" role="contentinfo">
   <div class="max-w-7xl mx-auto px-6 py-12">
@@ -12,25 +16,25 @@ function getFooterHTML() {
           av studentene.
         </p>
       </div>
-      <nav class="flex space-x-8 justify-center md:justify-end text-sm md:text-base font-medium" aria-label="Bunnmeny">
-        <!--<a href="index.html" class="relative group hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-red-300 rounded">
-          Home
-          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-        </a>
-        <a href="arkiv.html" class="relative group hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-red-300 rounded">
-          Templates
-          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-        </a>
-        <a href="about.html" class="relative group hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-red-300 rounded">
-          About
-          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-        </a>
-        <a href="https://github.com/x01-open-source/NORGINSA" target="_blank" rel="noopener" class="relative group hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-red-300 rounded inline-flex items-center gap-1">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" aria-label="GitHub">
-            <path d="M12 2C6.5 2 2 6.5 2 12a10 10 0 006.8 9.5c.5.1.7-.2.7-.5v-2c-2.3.5-2.8-1-2.8-1-.4-.9-1-.95-1-.95-.8-.5.1-.5.1-.5 1 .1 1.5 1 1.5 1 .8 1.5 2 1 2.5.8a2.7 2.7 0 01.8-1.7c-1.8-.2-3.6-.9-3.6-4 0-.9.3-1.6 1-2.1 0-.2-.4-1 .1-2a6.2 6.2 0 011.5 0 5 5 0 013 0 6.3 6.3 0 011.5 0c.4 1 .1 1.8.1 2 .6.5 1 1.2 1 2.1 0 3-1.8 3.7-3.6 4 .3.4.6 1.3.6 2.6v3.8c0 .3.2.6.7.5A10 10 0 0022 12c0-5.5-4.5-10-10-10z"/>
-          </svg>
-          GitHub
-        </a>-->
+      <nav class="grid grid-cols-2 gap-x-10 gap-y-2 text-sm md:text-base" aria-label="Bunnmeny">
+        <div>
+          <p class="font-semibold mb-2 text-white/70 text-xs uppercase tracking-wider">Sider</p>
+          <ul class="space-y-1.5 list-none p-0 m-0">
+            <li><a href="${rot}index.html" class="hover:text-white/80 underline-offset-4 hover:underline">Hjem</a></li>
+            <li><a href="${rot}about.html" class="hover:text-white/80 underline-offset-4 hover:underline">Om programmet</a></li>
+            <li><a href="${rot}sokeguiden.html" class="hover:text-white/80 underline-offset-4 hover:underline">Søkeguiden</a></li>
+            <li><a href="${rot}artikler.html" class="hover:text-white/80 underline-offset-4 hover:underline">Artikler</a></li>
+            <li><a href="${rot}kontakt.html" class="hover:text-white/80 underline-offset-4 hover:underline">Kontakt oss</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-semibold mb-2 text-white/70 text-xs uppercase tracking-wider">Kontakt</p>
+          <ul class="space-y-1.5 list-none p-0 m-0">
+            <li><a href="mailto:toulouse@ansa.no" class="hover:text-white/80 underline-offset-4 hover:underline">toulouse@ansa.no</a></li>
+            <li><a href="https://www.instagram.com/norginsa/" rel="noopener" class="hover:text-white/80 underline-offset-4 hover:underline">@norginsa</a></li>
+            <li><a href="https://www.instagram.com/ansatoulouse/" rel="noopener" class="hover:text-white/80 underline-offset-4 hover:underline">@ansatoulouse</a></li>
+          </ul>
+        </div>
       </nav>
     </div>
   </div>

@@ -32,11 +32,12 @@ BESKRIVELSE=$(spør "Kort beskrivelse (én setning, vises på kortet i arkivet)"
 FORFATTER=$(spør "Forfatter (Fornavn Etternavn)" "$FORFATTER")
 
 DATO=$(date +%d-%m-%Y)
+VISDATO=$(date +%d.%m.%Y)
 
 mkdir -p "arkiv/$MAPPE/images"
 
 # HTML-en skrives med python3 for å slippe skallets tegnsetting i teksten.
-MAPPE="$MAPPE" TITTEL="$TITTEL" BESKRIVELSE="$BESKRIVELSE" FORFATTER="$FORFATTER" DATO="$DATO" \
+MAPPE="$MAPPE" TITTEL="$TITTEL" BESKRIVELSE="$BESKRIVELSE" FORFATTER="$FORFATTER" DATO="$DATO" VISDATO="$VISDATO" \
 python3 - <<'PY'
 import html, json, os, pathlib, re
 
@@ -45,6 +46,7 @@ tittel = os.environ["TITTEL"]
 beskrivelse = os.environ["BESKRIVELSE"]
 forfatter = os.environ["FORFATTER"]
 dato = os.environ["DATO"]
+visdato = os.environ["VISDATO"]
 
 e = html.escape          # trygt i attributter og tekst
 url = f"https://www.norginsa.no/arkiv/{mappe}/{mappe}"
@@ -75,7 +77,6 @@ sider = f"""<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="../../assets/css/site.css">
-  <link href="../../assets/vendor/aos.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="../../assets/js/tailwind-oppsett.js"></script>
 
@@ -101,28 +102,25 @@ sider = f"""<!DOCTYPE html>
   <script src="../../assets/js/navbar.js"></script>
 
   <!-- ======= TITTEL ======= -->
-  <section class="fade-down-anim max-w-7xl mx-auto px-4">
-    <div class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800">
-      <div class="px-6 py-16 text-center">
-        <p class="inline-flex items-center gap-2 text-sm font-medium text-red-600 dark:text-red-400">
-          SIST OPPDATERT: {e(dato)}
-        </p>
-        <h1 class="mt-3 text-3xl sm:text-5xl font-bold tracking-tight">
-          {e(tittel)}
-        </h1>
-        <p class="mt-3 text-base sm:text-lg text-gray-600 dark:text-gray-300">
-          SKREVET AV: {e(forfatter)}
-        </p>
+  <section class="max-w-5xl mx-auto px-4">
+    <div class="artikkeltopp fade-down-anim">
+      <img src="images/preview.jpg" alt="" decoding="async" fetchpriority="high">
+      <div class="artikkeltopp-innhold">
+        <h1>{e(tittel)}</h1>
+        <p class="artikkeltopp-meta">{e(forfatter)} &middot; Sist oppdatert {e(visdato)}</p>
       </div>
     </div>
   </section>
 
-  <div class="mx-2 md:mx-0">
+  <div class="mx-4 md:mx-0">
 
     <!-- ======= SKRIV ARTIKKELEN HER =======
          arkiv/eksempelartikkel/eksempelartikkel.html har ferdige blokker for
          bilde med tekst ved siden av, bildegalleri, lister, sitater og lenker.
-         Copy-paste derfra og bytt ut innholdet. -->
+         Copy-paste derfra og bytt ut innholdet.
+
+         Bildegalleri med klikkbare miniatyrer skriver du slik, og ikke mer:
+         <div class="bildegalleri" data-bilder="images/1.jpg images/2.jpg"></div> -->
 
     <div class="fade-down-anim max-w-4xl mx-auto my-12">
       <h2 class="text-2xl font-bold mb-4">Første overskrift</h2>
@@ -133,14 +131,17 @@ sider = f"""<!DOCTYPE html>
 
   </div>
 
+  <!-- Relaterte artikler -->
+  <section id="relaterte" class="max-w-5xl mx-auto px-4 pb-6" hidden></section>
+  <script src="../../assets/js/relaterte.js" defer></script>
+
   <!-- Footer -->
   <div id="footer"></div>
   <script src="../../assets/js/getFooter.js"></script>
   <script>document.getElementById("footer").innerHTML = getFooterHTML();</script>
 
   <!-- Scripts -->
-  <script src="../../assets/vendor/aos.js"></script>
-  <script src="../../assets/js/bunnscript.js"></script>
+  <script src="../../assets/js/slideshow.js" defer></script>
 </body>
 
 </html>
@@ -183,7 +184,8 @@ Ferdig. Opprettet:
 
 Neste steg:
   1. Legg et forhåndsvisningsbilde i arkiv/$MAPPE/images/preview.jpg
-     (må hete nøyaktig preview.jpg, med små bokstaver)
+     (må hete nøyaktig preview.jpg, med små bokstaver, og bør være
+      minst 1200 px bredt - det brukes som topp på artikkelen)
   2. Skriv artikkelen i arkiv/$MAPPE/$MAPPE.html
   3. Sjekk taggene i arkiv/arkiv.json - den står på "Studiet" nå
   4. Når den er klar: fjern "utkast": true fra arkiv.json, og legg denne

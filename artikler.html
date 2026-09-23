@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Artikler om studiet og studentlivet i Toulouse | NORGINSA</title>
   <meta name="description" content="Artikler fra norske studenter i Toulouse: studenthistorier, tips til studiestart, linjene på INSA Toulouse og de snodigste tradisjonene i byen.">
-  <link rel="canonical" href="https://www.norginsa.no/arkiv">
+  <link rel="canonical" href="https://www.norginsa.no/artikler">
 
   <!-- Open Graph / deling på sosiale medier -->
   <meta property="og:site_name" content="NORGINSA">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.norginsa.no/arkiv">
+  <meta property="og:url" content="https://www.norginsa.no/artikler">
   <meta property="og:title" content="Artikler om studiet og studentlivet i Toulouse | NORGINSA">
   <meta property="og:description" content="Artikler fra norske studenter i Toulouse: studenthistorier, tips til studiestart, linjene på INSA Toulouse og de snodigste tradisjonene i byen.">
   <meta property="og:image" content="https://www.norginsa.no/assets/images/mainpage2.jpg">
@@ -20,9 +20,8 @@
 
   <link rel="icon" type="image/x-icon" href="assets/images/icon.ico">
 
-  <!-- Tailwind + AOS CSS -->
+  <!-- Skrift, stil og Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="assets/vendor/aos.css" rel="stylesheet" />
   <script src="assets/js/tailwind-oppsett.js"></script>
   <style>
     .filter-scrollbar::-webkit-scrollbar {
@@ -104,7 +103,7 @@
     </aside>
 
     <!-- Projects grid -->
-    <main class="flex-1">
+    <main class="flex-1 pb-24 md:pb-0">
       <div id="projectsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
       <div class="flex justify-center mt-8">
         <button id="loadMoreBtn" class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 shadow transition">
@@ -126,7 +125,7 @@
 
   <!-- Mobile: Filter Panel Modal -->
   <div id="mobileFilterDrawer"
-    class="fixed z-50 left-0 right-0 bottom-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shadow-2xl p-4 transition duration-300 transform mobile-filter-enter"
+    class="fixed z-50 left-0 right-0 bottom-0 max-h-[85vh] overflow-y-auto bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shadow-2xl p-4 transition duration-300 transform mobile-filter-enter"
     style="display:none;">
     <div class="flex items-center justify-between mb-1">
       <span class="font-semibold text-lg">Filter</span>
@@ -154,11 +153,8 @@
     document.getElementById("footer").innerHTML = getFooterHTML();
   </script>
 
-  <script src="assets/vendor/aos.js"></script>
 
   <script>
-    AOS.init();
-
     // DOM element references needed for rendering
     const grid = document.getElementById("projectsGrid");
     const loadMoreBtn = document.getElementById("loadMoreBtn");
@@ -166,6 +162,19 @@
     let templates = [];
 
     // Noen artikler har flere forfattere: "author" kan være en streng eller en liste.
+// Datoene lagres som DD-MM-ÅÅÅÅ i arkiv.json, men vises med punktum, slik at
+    // kortene og artikkelsidene skriver dato på samme måte.
+// Historier og tradisjoner får aksentfarge, praktisk info står nøytralt, slik
+    // at man ser hva slags stoff det er før man leser tittelen.
+    const FORTELLENDE = ["Studenthistorier", "Livet i Toulouse"];
+    function taggKlasse(tag) {
+      return FORTELLENDE.includes(tag) ? "tagg-historie" : "tagg-guide";
+    }
+
+    function visDato(dato) {
+      return String(dato || "").replace(/-/g, ".");
+    }
+
     function forfattere(t) {
       return Array.isArray(t.author) ? t.author : [t.author];
     }
@@ -319,13 +328,13 @@
                 </div>
                 <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">${t.description}</p>
                 <div class="flex flex-wrap gap-1 text-xs mb-3">
-                  ${t.tags.map(tag => `<span class="bg-red-100 text-red-700 dark:bg-red-700 dark:text-white px-2 py-1 rounded">${tag}</span>`).join("")}
+                  ${t.tags.map(tag => `<span class="tagg ${taggKlasse(tag)}">${tag}</span>`).join("")}
                 </div>
                 <div class="text-xs text-gray-500 dark:text-gray-400 mb-3">
-                  Skrevet av <strong>${forfattere(t).join(", ")}</strong> · ${t.created}
+                  Skrevet av <strong>${forfattere(t).join(", ")}</strong> · ${visDato(t.created)}
                 </div>
                 <div class="flex gap-3 mt-auto">
-                  <a href="arkiv/${t.folder}/${t.folder}.html" target="_blank"
+                  <a href="arkiv/${t.folder}/${t.folder}.html"
                     class="knapp knapp-primar flex-1">
                     Les mer
                   </a>

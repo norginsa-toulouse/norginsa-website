@@ -19,9 +19,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/x-icon" href="../../assets/images/icon.ico">
 
-  <!-- Tailwind + AOS CSS -->
+  <!-- Skrift, stil og Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="../../assets/vendor/aos.css" rel="stylesheet" />
   <script src="../../assets/js/tailwind-oppsett.js"></script>
 
   <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
@@ -194,38 +193,10 @@
 
 
 <!-- ======= Bilder med popup/slideshow ======= -->
-<!--OBS!! Begrenset til én per artikkel-->
-<div id="slideShowModal"></div>
 <div class="my-12 fade-down-anim max-w-4xl mx-auto">
   <h2 class="text-2xl font-bold mb-4">Pyrra i bilder</h2>
-  <div id="slideshowGrid" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
-<script>
-  const slideshowImages = [
-      "images/OscarMedFlaggRiktig.jpg",
-      "images/Skiheis.jpg",
-      "images/PederOl.jpg",
-      "images/PenaBaiona.jpeg",
-      "images/Utsikt.jpg",
-      "images/VetleFlagg.jpeg",
-      "images/AlleFunny.jpeg",
-      "images/HappyJacob.jpg",
-      "images/JeagerNuke.jpeg",
-      "images/MiddagKeeg.jpeg",
-      "images/MulletResto.jpeg",
-      "images/NorskPresens.jpeg",
-      "images/NorskerP.jpeg",
-      "images/Baggis.jpg",
-      "images/HappyJenter1.jpg",
-      "images/GladeGutter2.jpeg",
-      "images/rosaGenser.jpg",
-      "images/falt.jpeg",
-      "images/stolt.jpeg",
-      "images/stoltere.jpeg"
-
-  ];
-</script>
-<script src="../../assets/js/slideshow.js"></script>
-<script>document.getElementById("slideShowModal").innerHTML = getSlideshowPopup()</script>
+  <div class="bildegalleri" data-bilder="images/OscarMedFlaggRiktig.jpg images/Skiheis.jpg images/PederOl.jpg images/PenaBaiona.jpeg images/Utsikt.jpg images/VetleFlagg.jpeg images/AlleFunny.jpeg images/HappyJacob.jpg images/JeagerNuke.jpeg images/MiddagKeeg.jpeg images/MulletResto.jpeg images/NorskPresens.jpeg images/NorskerP.jpeg images/Baggis.jpg images/HappyJenter1.jpg images/GladeGutter2.jpeg images/rosaGenser.jpg images/falt.jpeg images/stolt.jpeg images/stoltere.jpeg"></div>
+<script src="../../assets/js/slideshow.js" defer></script>
 </div>
 
 <div class="fade-down-anim max-w-4xl mx-auto my-12">
@@ -259,8 +230,6 @@
 
 
   <!-- Scripts -->
-  <script src="../../assets/vendor/aos.js"></script>
-  <script src="../../assets/js/bunnscript.js"></script>
 </body>
 
 </html>

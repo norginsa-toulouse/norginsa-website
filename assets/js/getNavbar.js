@@ -20,7 +20,7 @@ function getNavbarHTML() {
             class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Om programmet</a>
           <a href="sokeguiden.html"
             class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Søkeguiden</a>
-          <a href="arkiv.html"
+          <a href="artikler.html"
             class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Artikler</a>
           <a href="kontakt.html"
             class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Kontakt oss</a>
@@ -83,7 +83,7 @@ function getNavbarHTML() {
           class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Om programmet</a>
         <a href="sokeguiden.html"
           class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Søkeguiden</a>
-        <a href="arkiv.html"
+        <a href="artikler.html"
           class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Artikler</a>
         <a href="kontakt.html"
           class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Kontakt oss</a>
@@ -132,7 +132,7 @@ function getArtikkelNavbarHTML() {
             class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Om programmet</a>
           <a href="../../sokeguiden.html"
             class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Søkeguiden</a>
-          <a href="../../arkiv.html"
+          <a href="../../artikler.html"
             class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Artikler</a>
           <a href="../../kontakt.html"
             class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Kontakt oss</a>
@@ -193,7 +193,7 @@ function getArtikkelNavbarHTML() {
           class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Om programmet</a>
         <a href="../../sokeguiden.html"
           class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Søkeguiden</a>
-        <a href="../../arkiv.html"
+        <a href="../../artikler.html"
           class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Artikler</a>
         <a href="../../kontakt.html"
           class="block px-3 py-1.5 rounded hover:bg-red-100 dark:hover:bg-gray-700 text-sm">Kontakt oss</a>

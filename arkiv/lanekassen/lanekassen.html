@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="no" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lånekassen for NORGINSA-studenter | NORGINSA</title>
+  <meta name="description" content="Hvordan er studentøkonomien i Toulouse? Helt fabelaktig bra.">
+  <link rel="canonical" href="https://www.norginsa.no/arkiv/lanekassen/lanekassen">
+
+  <!-- Open Graph / deling på sosiale medier -->
+  <meta property="og:site_name" content="NORGINSA">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.norginsa.no/arkiv/lanekassen/lanekassen">
+  <meta property="og:title" content="Lånekassen for NORGINSA-studenter | NORGINSA">
+  <meta property="og:description" content="Hvordan er studentøkonomien i Toulouse? Helt fabelaktig bra.">
+  <meta property="og:image" content="https://www.norginsa.no/arkiv/lanekassen/images/preview.jpg">
+  <meta property="og:locale" content="nb_NO">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/x-icon" href="../../assets/images/icon.ico">
+
+  <!-- Skrift, stil og Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="../../assets/css/site.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../../assets/js/tailwind-oppsett.js"></script>
+
+  <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
+  <script>
+    (function () {
+      try {
+        var lagret = localStorage.getItem("theme");
+        var mork = lagret ? lagret === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        if (mork) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+  <script src="../../assets/js/theme.js" defer></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 relative font-sans">
+
+  <!-- Navbar -->
+  <div id="navbar"></div>
+  <script src="../../assets/js/getNavbar.js"></script>
+  <script>document.getElementById("navbar").innerHTML = getArtikkelNavbarHTML();</script>
+  <script src="../../assets/js/navbar.js"></script>
+
+  <!-- ======= TITTEL ======= -->
+  <section class="max-w-5xl mx-auto px-4">
+    <div class="artikkeltopp fade-down-anim">
+      <img src="images/preview.jpg" alt="" decoding="async" fetchpriority="high">
+      <div class="artikkeltopp-innhold">
+        <h1>Lånekassen for NORGINSA-studenter</h1>
+        <p class="artikkeltopp-meta">Andreas Holmsen &middot; Sist oppdatert 23.09.2026</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="mx-4 md:mx-0">
+
+    <div class="fade-down-anim max-w-4xl mx-auto my-12">
+      <h2 class="text-2xl font-bold mb-4">Får NORGINSA-studiet støtte fra lånekassen?</h2>
+      <p class="mb-4">
+        Jepp!
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Relaterte artikler -->
+  <section id="relaterte" class="max-w-5xl mx-auto px-4 pb-6" hidden></section>
+  <script src="../../assets/js/relaterte.js" defer></script>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+  <script src="../../assets/js/getFooter.js"></script>
+  <script>document.getElementById("footer").innerHTML = getFooterHTML();</script>
+
+  <!-- Scripts -->
+  <script src="../../assets/js/slideshow.js" defer></script>
+</body>
+
+</html>
