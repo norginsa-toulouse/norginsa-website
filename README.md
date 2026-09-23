@@ -4,7 +4,7 @@
 Hva som mangler:
 - [ ] Search engine optimisering
 - [ ] Legge til oppsummering av NORGINSA-programmet på /about.html siden
-- [ ] Passe på at tekstboksen i /arkiv.html er trygg og ikke kan ødelegge siden
+- [ ] Passe på at tekstboksen i /artikler.html er trygg og ikke kan ødelegge siden
 - [ ] Skrive masse artikler!
     - [ ] ANSA-Toulouse - Aleksander skriver
     - [ ] PO-er
@@ -47,19 +47,21 @@ Hva som mangler:
 ├── index.html                  # Hjemmeside
 ├── about.html                  # Om NORGINSA siden
 ├── kontakt.html                # Kontaktside
-├── arkiv.html                  # Arkivside
+├── artikler.html                  # Arkivside
 ├── sitemap.xml                 # må oppdateres når en artikkel publiseres
 ├── assets/
 │   ├── css/
 │   │   └── site.css            # felles komponenter: kort, knapper, animasjon
 │   ├── images/                 # bilder som ikke hører til en artikkel
-│   ├── vendor/                 # AOS (animasjoner), lokal kopi
 │   └── js/
 │       ├── getFooter.js        # genererer footeren
 │       ├── getNavbar.js        # genererer navbaren (og temaknappen)
 │       ├── navbar.js           # mobilmeny, animasjoner
 │       ├── theme.js            # lys/mørk modus
-│       └── bunnscript.js       # startes nederst på artikkelsidene
+│       ├── slideshow.js        # bildegallerier
+│       ├── relaterte.js        # «Les også» på artiklene
+│       ├── tidslinje.js        # tidslinja på «Om programmet»
+│       └── faq.js              # dyplenker i FAQ-en
 └── arkiv/
     ├── arkiv.json              # lista over alle artikler
     ├── eksempelartikkel/       # mal med alle formateringsmuligheter
@@ -88,7 +90,7 @@ mappa, en ferdig HTML-fil med riktige metatagger, og oppføringen i
 Artikkelen legges inn som **utkast**, så den dukker ikke opp på forsiden
 før du er ferdig med den.
 
-### Så gjenstår det fire ting
+### Så gjenstår det noen ting
 
 1. **Legg inn forhåndsvisningsbildet** i `arkiv/<mappe>/images/preview.jpg`.
    Filnavnet må være nøyaktig `preview.jpg` med små bokstaver, ellers blir
@@ -99,11 +101,20 @@ før du er ferdig med den.
    ligger ferdige blokker for bilde med tekst ved siden av, bildegalleri,
    lister, sitater og lenker. Copy-paste derfra.
 
-3. **Sjekk taggene** i `arkiv/arkiv.json`. Skriptet setter `"Studiet"` som
+3. **Bildegalleri**, hvis artikkelen skal ha det. Én linje, ingenting mer:
+
+   ```html
+   <div class="bildegalleri" data-bilder="images/1.jpg images/2.jpg images/3.jpg"></div>
+   ```
+
+   Skriptet lager miniatyrene og fullskjermvisningen selv, med piltaster,
+   Escape og klikk utenfor. Du kan ha flere gallerier i samme artikkel.
+
+4. **Sjekk taggene** i `arkiv/arkiv.json`. Skriptet setter `"Studiet"` som
    standard. Taggene som er i bruk nå er `Studiet`, `Studiehverdagen`,
    `Studenthistorier`, `Tradisjoner`, `Tekna`, `ANSA` og `Diverse info`.
 
-4. **Publiser**: fjern `"utkast": true` fra `arkiv/arkiv.json`, og legg
+5. **Publiser**: fjern `"utkast": true` fra `arkiv/arkiv.json`, og legg
    artikkelen inn i `sitemap.xml`. Skriptet skriver ut den ferdige linja du
    skal lime inn.
 
@@ -128,7 +139,7 @@ Skriptet fyller ut dette for deg, men slik ser den ut:
 | `name` | tittelen som vises på kortet i arkivet |
 | `description` | én setning, vises under tittelen |
 | `folder` | mappenavnet, og dermed også filnavnet |
-| `tags` | liste med kategorier |
+| `tags` | kategori: `Studiet`, `Praktisk`, `Livet i Toulouse` eller `Studenthistorier` |
 | `author` | `"Navn"`, eller `["Navn", "Annet navn"]` hvis dere er flere |
 | `created` | dato på formen `DD-MM-ÅÅÅÅ`, styrer rekkefølgen på forsiden |
 | `featured` | gir «Utvalgt»-merket i arkivet |

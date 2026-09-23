@@ -25,6 +25,53 @@
   --ng-skygge-hover: 0 2px 4px rgb(0 0 0 / 0.4), 0 10px 24px rgb(0 0 0 / 0.4);
 }
 
+/* ---------- Grunnlinje ----------
+ * Regler som må gjelde uansett hvilke klasser som står ute i markupen.
+ * Alt her er elementselektorer, så en klasse i HTML-en vinner alltid over dem. */
+
+img,
+svg,
+video,
+iframe {
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
+}
+
+html {
+  /* clip, ikke hidden: stopper vannrett rulling uten å lage en rullekontekst,
+     så position: sticky i artikkellista fortsetter å virke. */
+  overflow-x: clip;
+  /* Navbaren er fixed. Uten dette havner ankerlenker bak den. */
+  scroll-padding-top: 6rem;
+}
+
+body {
+  /* Lange lenker og franske fagnavn skal ikke sprenge kortene på mobil. */
+  overflow-wrap: break-word;
+}
+
+p,
+li {
+  /* 1.5 er Tailwind sin standard og litt tett for løpende tekst. */
+  line-height: 1.65;
+}
+
+/* Berøringsflater. En mus treffer 28 px, en tommel gjør det ikke. */
+@media (pointer: coarse) {
+  #sidebarOpenBtn,
+  #sidebarCloseBtn,
+  #themeToggleNav,
+  .galleri-lukk,
+  .galleri-pil {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+  }
+}
+
 /* ---------- Typografi ----------
  * IBM Plex Sans på overskriftene: nøytral uten å være anonym, og ikke
  * geometrisk. Brødteksten står i systemfonten, så det er én ekstra forespørsel.
@@ -50,6 +97,16 @@ h1 {
 
 p, li {
   text-wrap: pretty;
+}
+
+/* ---------- Lesebredde ----------
+ * 680 px gir rundt 72 tegn per linje. Over ~75 mister øyet linja når det
+ * hopper tilbake til venstre, og lesehastigheten faller uten at man merker
+ * hvorfor. Bilder, gallerier og flex-rader beholder full bredde - det er bare
+ * løpende tekst dette gjelder. */
+
+.lesebredde {
+  max-width: 42.5rem;
 }
 
 /* ---------- Kort ---------- */
@@ -143,14 +200,18 @@ p, li {
 
 .hero {
   position: relative;
-  display: grid;
+  isolation: isolate;
+  display: flex;
   min-height: clamp(21rem, 52vw, 32rem);
   overflow: hidden;
   border-radius: var(--ng-radius);
 }
 
+/* Samme grunn som i .artikkeltopp: et bilde i flyten bestemmer høyden selv. */
 .hero > img {
-  grid-area: 1 / 1;
+  position: absolute;
+  z-index: -2;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -159,20 +220,37 @@ p, li {
 
 .hero::after {
   content: "";
-  grid-area: 1 / 1;
+  position: absolute;
+  z-index: -1;
+  inset: 0;
   background: linear-gradient(
-    to top,
-    rgb(18 17 16 / 0.88) 0%,
-    rgb(18 17 16 / 0.58) 42%,
-    rgb(18 17 16 / 0.18) 100%
+    to right,
+    rgb(16 15 14 / 0.82) 0%,
+    rgb(16 15 14 / 0.66) 26%,
+    rgb(16 15 14 / 0.3) 52%,
+    rgb(16 15 14 / 0) 74%
   );
 }
 
+/* Smal skjerm: en gradient fra siden rekker ikke over teksten når den bryter
+   over hele bredden, så der legger vi den nedenfra i stedet. */
+@media (max-width: 40rem) {
+  .hero-innhold {
+    align-self: end;
+  }
+  .hero::after {
+    background: linear-gradient(
+      to top,
+      rgb(16 15 14 / 0.88) 0%,
+      rgb(16 15 14 / 0.6) 48%,
+      rgb(16 15 14 / 0.12) 100%
+    );
+  }
+}
+
 .hero-innhold {
-  z-index: 1;
-  grid-area: 1 / 1;
-  align-self: end;
-  max-width: 44rem;
+  align-self: center;
+  max-width: 36rem;
   padding: clamp(1.5rem, 4.5vw, 3.25rem);
   color: #ffffff;
 }
@@ -196,6 +274,687 @@ p, li {
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 1.75rem;
+}
+
+/* ---------- Artikkeltopp ----------
+ * Et avlangt bånd, ikke en hero. preview.jpg ligger som dempet bakgrunn bak
+ * tittelen i stedet for å være noe man ser på, derfor et jevnt slør over hele
+ * flaten og ikke en gradient fra siden slik forsiden har.
+ *
+ * Skru på --topp-slor for å endre balansen: lavere tall gir tydeligere bilde,
+ * høyere tall gir mer tilbaketrukket bilde og mer kontrast på teksten. */
+
+.artikkeltopp {
+  --topp-slor: 0.4;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: clamp(7rem, 13vw, 9.5rem);
+  overflow: hidden;
+  border-radius: var(--ng-radius);
+}
+
+/* Bildet tas ut av flyten. Ligger det i flyten, er det bildets egne
+   proporsjoner som bestemmer høyden, og min-height blir bare et gulv. */
+.artikkeltopp > img {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+  filter: saturate(0.9);
+}
+
+.artikkeltopp::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgb(14 13 12 / calc(var(--topp-slor) + 0.12)) 0%,
+    rgb(14 13 12 / var(--topp-slor)) 55%,
+    rgb(14 13 12 / calc(var(--topp-slor) - 0.08)) 100%
+  );
+}
+
+.artikkeltopp-innhold {
+  max-width: 44rem;
+  padding: 1.1rem clamp(1.25rem, 3.5vw, 2rem);
+  color: #ffffff;
+}
+
+.artikkeltopp h1 {
+  margin: 0;
+  font-size: clamp(1.375rem, 3.2vw, 2.125rem);
+  font-weight: 700;
+}
+
+.artikkeltopp-meta {
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: rgb(255 255 255 / 0.82);
+}
+
+/* ---------- Lister ----------
+ * Tailwind sin preflight fjerner punkttegn fra alle <ul>, som er grunnen til
+ * at det står streker skrevet for hånd flere steder. Denne gir dem tilbake. */
+
+.punktliste {
+  margin: 0.75rem 0 0;
+  padding-left: 1.15rem;
+  list-style: disc;
+}
+
+.punktliste li {
+  margin-bottom: 0.35rem;
+  padding-left: 0.2rem;
+}
+
+.punktliste li::marker {
+  color: #d92046;
+}
+
+.dark .punktliste li::marker {
+  color: #f66b81;
+}
+
+/* ---------- Nøkkeltall ---------- */
+
+.nokkeltall {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+}
+
+.nokkeltall-tall {
+  margin: 0;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: #b7153a;
+}
+
+.dark .nokkeltall-tall {
+  color: #f66b81;
+}
+
+.nokkeltall-tekst {
+  margin: 0.4rem 0 0;
+  font-size: 0.9375rem;
+  color: #56524d;
+}
+
+.dark .nokkeltall-tekst {
+  color: #cfc9c7;
+}
+
+/* ---------- Tidslinje ----------
+ * Loddrett linje med et steg per år. Streken er to lag: en grå i bunn og en
+ * farget oppå som fylles etter hvor langt ned man har rullet (--fyll settes
+ * fra tidslinje.js). */
+
+.tidslinje {
+  --fyll: 0%;
+  --linje-x: 1rem;
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 2.75rem;
+  list-style: none;
+}
+
+/* Streken går fra midten av første prikk til midten av siste. Begge målene
+   settes fra tidslinje.js, siden de avhenger av hvor høye kortene blir. */
+.tidslinje::before,
+.tidslinje::after {
+  content: "";
+  position: absolute;
+  top: var(--linje-topp, 1rem);
+  left: calc(var(--linje-x) - 1px);
+  width: 2px;
+  border-radius: 2px;
+}
+
+.tidslinje::before {
+  height: var(--linje-hoyde, 0);
+  background-color: var(--ng-kant);
+}
+
+.tidslinje::after {
+  height: var(--fyll, 0);
+  background-image: linear-gradient(#d92046, #f04a78);
+}
+
+.tidslinje-steg {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 1.75rem;
+}
+
+.tidslinje-steg:last-child {
+  padding-bottom: 0;
+}
+
+/* Innaningen slås bare på når skriptet faktisk kjører. Uten dette ville hele
+   tidslinja stått usynlig hvis JavaScript feiler eller blokkeres. */
+.tidslinje-aktiv .tidslinje-steg {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tidslinje-aktiv .tidslinje-steg.er-synlig {
+  opacity: 1;
+  transform: none;
+}
+
+.tidslinje-prikk {
+  position: absolute;
+  top: 1rem;
+  left: -2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--ng-kant);
+  border-radius: 999px;
+  background-color: var(--ng-flate);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #75716b;
+  transition: border-color 0.35s ease, background-color 0.35s ease, color 0.35s ease;
+}
+
+.er-synlig .tidslinje-prikk {
+  border-color: #d92046;
+  background-color: #d92046;
+  color: #ffffff;
+}
+
+.tidslinje-naar {
+  margin-bottom: 0.2rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #b7153a;
+}
+
+.dark .tidslinje-naar {
+  color: #f66b81;
+}
+
+.tidslinje-steg h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Faktabrikker */
+.brikker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.85rem;
+}
+
+.brikke {
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--ng-kant);
+  border-radius: 999px;
+  background-color: var(--ng-flate-dus);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #56524d;
+}
+
+.dark .brikke {
+  color: #cfc9c7;
+}
+
+/* Detaljer bak et klikk, bygget på <details> */
+.tidslinje-mer {
+  margin-top: 0.9rem;
+  border-top: 1px solid var(--ng-kant);
+  padding-top: 0.7rem;
+}
+
+.tidslinje-mer summary {
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #b7153a;
+  list-style: none;
+}
+
+.dark .tidslinje-mer summary {
+  color: #f66b81;
+}
+
+.tidslinje-mer summary::-webkit-details-marker {
+  display: none;
+}
+
+.tidslinje-mer summary::before {
+  content: "\25B8 ";
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.tidslinje-mer[open] summary::before {
+  transform: rotate(90deg);
+}
+
+/* Fagene i første klasse */
+.fagliste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.fag {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--ng-kant);
+  border-radius: 999px;
+  background-color: var(--ng-flate-dus);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.fag:hover {
+  border-color: #d92046;
+}
+
+.fag.er-valgt {
+  border-color: #d92046;
+  background-color: #d92046;
+  color: #ffffff;
+}
+
+.fag:focus-visible {
+  outline: 2px solid #f04a78;
+  outline-offset: 2px;
+}
+
+.fag-panel {
+  margin-top: 0.85rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--ng-kant);
+  border-radius: 0.75rem;
+  background-color: var(--ng-flate-dus);
+}
+
+.fag-panel h4 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.fag-panel p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: #56524d;
+}
+
+.dark .fag-panel p {
+  color: #cfc9c7;
+}
+
+/* Fagbildene kommer i alle mulige formater. Fast høyde med beskjæring gjør at
+   panelet ikke hopper i størrelse fra fag til fag. */
+.fag-bilde {
+  display: block;
+  width: 100%;
+  height: 11rem;
+  margin-bottom: 0.7rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+@media (min-width: 40rem) {
+  .fag-bilde {
+    height: 13rem;
+  }
+}
+
+/* Valgfritt bilde i et tidslinjesteg. Legg <figure class="tidslinje-bilde">
+   med et <img> inni kortet, så faller det på plass. */
+.tidslinje-bilde {
+  margin: 0.9rem 0 0;
+}
+
+.tidslinje-bilde img {
+  display: block;
+  width: 100%;
+  border-radius: 0.6rem;
+}
+
+.tidslinje-bilde figcaption {
+  margin-top: 0.4rem;
+  font-size: 0.8125rem;
+  color: #75716b;
+}
+
+.dark .tidslinje-bilde figcaption {
+  color: #a8a29f;
+}
+
+/* Linjevalget i år 2 */
+.linje-valg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.9rem 0;
+}
+
+.linje-knapp {
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--ng-kant);
+  border-radius: 0.5rem;
+  background-color: var(--ng-flate-dus);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.linje-knapp:hover {
+  border-color: #d92046;
+}
+
+.linje-knapp.er-valgt {
+  border-color: #d92046;
+  background-color: #d92046;
+  color: #ffffff;
+}
+
+.linje-knapp:focus-visible {
+  outline: 2px solid #f04a78;
+  outline-offset: 2px;
+}
+
+.tidslinje-valgt-navn {
+  margin-bottom: 0.35rem;
+  font-weight: 700;
+}
+
+.tidslinje-valgt-navn span {
+  font-weight: 400;
+  color: #75716b;
+}
+
+.dark .tidslinje-valgt-navn span {
+  color: #a8a29f;
+}
+
+.tidslinje-mangler {
+  color: #75716b;
+  font-style: italic;
+}
+
+.dark .tidslinje-mangler {
+  color: #a8a29f;
+}
+
+.tidslinje-lenke {
+  margin-top: 0.6rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.tidslinje-lenke a,
+.tidslinje-mangler a {
+  color: #b7153a;
+  text-underline-offset: 3px;
+}
+
+.dark .tidslinje-lenke a,
+.dark .tidslinje-mangler a {
+  color: #f66b81;
+}
+
+/* ---------- FAQ ----------
+ * Spørsmålene skal være store og tydelige, så de kan skummes uten å åpnes.
+ * Bygget på <details>, altså ingen JavaScript og tastaturtilgang gratis. */
+
+.faq {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.faq-sporsmal {
+  border: 1px solid var(--ng-kant);
+  border-radius: 0.75rem;
+  background-color: var(--ng-flate);
+  transition: border-color 0.15s ease;
+}
+
+.faq-sporsmal[open] {
+  border-color: #d92046;
+}
+
+.faq-sporsmal summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.15rem;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.35;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-sporsmal summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-sporsmal summary::after {
+  content: "+";
+  flex: none;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #b7153a;
+}
+
+.dark .faq-sporsmal summary::after {
+  color: #f66b81;
+}
+
+.faq-sporsmal[open] summary::after {
+  content: "\2212";
+}
+
+.faq-sporsmal summary:focus-visible {
+  outline: 2px solid #f04a78;
+  outline-offset: -2px;
+  border-radius: 0.75rem;
+}
+
+/* Kort markering når man kommer hit via en dyplenke. */
+.faq-sporsmal.er-fremhevet {
+  box-shadow: 0 0 0 3px rgb(217 32 70 / 0.25);
+}
+
+.faq-svar {
+  padding: 0 1.15rem 1.15rem;
+  color: #56524d;
+}
+
+.dark .faq-svar {
+  color: #cfc9c7;
+}
+
+.faq-svar p {
+  margin: 0;
+}
+
+/* ---------- Tagger ----------
+ * To familier: fortellende stoff (studenthistorier, tradisjoner) i aksent,
+ * praktisk stoff nøytralt. Da ser man hva slags artikkel det er før man har
+ * lest tittelen. */
+
+.tagg {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  white-space: nowrap;
+}
+
+.tagg-guide {
+  background-color: #f7f2f2;
+  border: 1px solid var(--ng-kant);
+  color: #585250;
+}
+
+.dark .tagg-guide {
+  background-color: #211f1c;
+  color: #cfc9c7;
+}
+
+.tagg-historie {
+  background-color: #ffe1e5;
+  color: #b7153a;
+}
+
+.dark .tagg-historie {
+  background-color: #5c0f26;
+  color: #ffd3da;
+}
+
+/* ---------- Bildegalleri ---------- */
+
+.bildegalleri {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+@media (min-width: 30rem) {
+  .bildegalleri {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 48rem) {
+  .bildegalleri {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.galleri-miniatyr {
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--ng-kant);
+  border-radius: 0.625rem;
+  background: none;
+  cursor: zoom-in;
+}
+
+.galleri-miniatyr img {
+  display: block;
+  width: 100%;
+  height: 9.5rem;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.galleri-miniatyr:hover img {
+  transform: scale(1.04);
+}
+
+.galleri-miniatyr:focus-visible {
+  outline: 2px solid #f04a78;
+  outline-offset: 2px;
+}
+
+.galleri-modal {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgb(12 11 10 / 0.88);
+}
+
+.galleri-ramme {
+  margin: 0;
+  text-align: center;
+}
+
+.galleri-ramme img {
+  max-width: min(92vw, 1200px);
+  max-height: 82vh;
+  border-radius: 0.5rem;
+}
+
+.galleri-teller {
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  color: rgb(255 255 255 / 0.7);
+}
+
+.galleri-lukk,
+.galleri-pil {
+  position: absolute;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #ffffff;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.galleri-lukk {
+  top: 1rem;
+  right: 1.25rem;
+  font-size: 2.25rem;
+}
+
+.galleri-pil {
+  top: 50%;
+  width: 2.75rem;
+  height: 2.75rem;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.14);
+  font-size: 1.5rem;
+}
+
+.galleri-forrige { left: 0.75rem; }
+.galleri-neste { right: 0.75rem; }
+
+.galleri-lukk:hover,
+.galleri-pil:hover {
+  background: rgb(255 255 255 / 0.28);
+}
+
+.galleri-lukk:focus-visible,
+.galleri-pil:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
 }
 
 /* ---------- Animasjon ---------- */

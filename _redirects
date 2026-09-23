@@ -1,0 +1,4 @@
+# Cloudflare Pages. Eksakte stier, ingen wildcard:
+# /arkiv/<artikkel> må fortsette å virke som før.
+/arkiv        /artikler   301
+/arkiv.html   /artikler   301

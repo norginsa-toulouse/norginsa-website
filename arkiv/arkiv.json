@@ -1,6 +1,18 @@
 {
   "templates": [
     {
+      "name": "Lånekassen for NORGINSA-studenter",
+      "description": "Hvordan er studentøkonomien i Toulouse? Helt fabelaktig bra.",
+      "folder": "lanekassen",
+      "utkast": true,
+      "tags": [
+        "Studiet"
+      ],
+      "author": "Andreas Holmsen",
+      "created": "23-09-2026",
+      "featured": false
+    },
+    {
       "name": "IC",
       "description": "Po'en IC",
       "folder": "ic",
@@ -41,7 +53,7 @@
       "description": "Guds gave til den fattige student",
       "folder": "RU",
       "tags": [
-        "Studiehverdagen"
+        "Praktisk"
       ],
       "author": "Jesper Nytun",
       "created": "30-11-2025",
@@ -53,7 +65,7 @@
       "description": "Gjengen som gir deg en sosial, lærerik og uforglemmelig studiehverdag",
       "folder": "Tekna_Toulouse",
       "tags": [
-        "Tekna"
+        "Livet i Toulouse"
       ],
       "author": ["Wiktor Jankowski", "Maia Evensen"],
       "created": "08-11-2025",
@@ -64,7 +76,7 @@
       "description": "Pyrratur!",
       "folder": "pyrra",
       "tags": [
-        "Tradisjoner", "ANSA"
+        "Livet i Toulouse"
       ],
       "author": "Brage Flønæs Johnsen",
       "created": "24-11-2025",
@@ -75,7 +87,7 @@
       "description": "Tekna Toulouse sitt mest solfylte arrangement!",
       "folder": "sommerlunsj",
       "tags": [
-        "Tradisjoner", "Tekna"
+        "Livet i Toulouse"
       ],
       "author": "Andreas Holmsen",
       "created": "07-10-2025",
@@ -86,7 +98,7 @@
       "description": "Hvordan feirer man jul i Sør-Frankrike?",
       "folder": "julitoulouse",
       "tags": [
-        "Studiehverdagen"
+        "Livet i Toulouse"
       ],
       "author": "Oskar Orvik",
       "created": "25-11-2025",
@@ -119,7 +131,7 @@
       "description": "Kart over INSA",
       "folder": "kart",
       "tags": [
-        "Diverse info"
+        "Praktisk"
       ],
       "author": "Andreas Holmsen",
       "created": "24-11-2025",
@@ -174,7 +186,7 @@
       "description": "Ferieplan for 25-26 og generelle regler",
       "folder": "ferier",
       "tags": [
-        "Studiehverdagen"
+        "Praktisk"
       ],
       "author": "Andreas Holmsen",
       "created": "24-11-2025",
