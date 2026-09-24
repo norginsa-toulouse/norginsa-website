@@ -188,9 +188,10 @@ Neste steg:
       minst 1200 px bredt - det brukes som topp på artikkelen)
   2. Skriv artikkelen i arkiv/$MAPPE/$MAPPE.html
   3. Sjekk taggene i arkiv/arkiv.json - den står på "Studiet" nå
-  4. Når den er klar: fjern "utkast": true fra arkiv.json, og legg denne
-     linja i sitemap.xml:
+  4. Når den er klar: fjern "utkast": true fra arkiv/arkiv.json, og kjør
 
-  <url><loc>https://www.norginsa.no/arkiv/$MAPPE/$MAPPE</loc><lastmod>$(date +%Y-%m-%d)</lastmod></url>
+       python3 sitemap.py
+
+     Den legger artikkelen inn i sitemap.xml, og holder utkast utenfor.
 
 EOF

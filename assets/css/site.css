@@ -9,11 +9,11 @@
  */
 
 :root {
-  --ng-kant: #ece5e5;
-  --ng-flate: #fffdfd;
-  --ng-flate-dus: #fcf9f9;
+  --ng-kant: #e4dcdb;
+  --ng-flate: #ffffff;
+  --ng-flate-dus: #f5efef;
   --ng-radius: 1rem;
-  --ng-skygge: 0 1px 2px rgb(20 18 16 / 0.05), 0 4px 12px rgb(20 18 16 / 0.07);
+  --ng-skygge: 0 1px 2px rgb(20 18 16 / 0.06), 0 3px 10px rgb(20 18 16 / 0.06);
   --ng-skygge-hover: 0 2px 4px rgb(20 18 16 / 0.06), 0 10px 24px rgb(20 18 16 / 0.1);
 }
 
@@ -605,7 +605,7 @@ p, li {
 .fag-panel p {
   margin: 0;
   font-size: 0.9375rem;
-  color: #56524d;
+  color: #423d3b;
 }
 
 .dark .fag-panel p {
@@ -651,7 +651,21 @@ p, li {
   color: #a8a29f;
 }
 
-/* Linjevalget i år 2 */
+/* Linjevalget. Finnes to steder: år 2 der du velger, og år 4 så du slipper
+   å bla helt opp for å bytte. Begge settene holdes i synk av tidslinje.js,
+   som plukker opp alle [data-linje-valg] under ett. */
+
+.linje-etikett {
+  margin: 0.9rem 0 -0.35rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #75716b;
+}
+
+.dark .linje-etikett {
+  color: #a8a29f;
+}
+
 .linje-valg {
   display: flex;
   flex-wrap: wrap;
@@ -794,7 +808,7 @@ p, li {
 
 .faq-svar {
   padding: 0 1.15rem 1.15rem;
-  color: #56524d;
+  color: #423d3b;
 }
 
 .dark .faq-svar {
