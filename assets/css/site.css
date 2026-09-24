@@ -10,6 +10,7 @@
 
 :root {
   --ng-kant: #e4dcdb;
+  --ng-feltkant: #9a908d;
   --ng-flate: #ffffff;
   --ng-flate-dus: #f5efef;
   --ng-radius: 1rem;
@@ -19,6 +20,7 @@
 
 .dark {
   --ng-kant: #38352f;
+  --ng-feltkant: #5c5651;
   --ng-flate: #292724;
   --ng-flate-dus: #211f1c;
   --ng-skygge: 0 1px 2px rgb(0 0 0 / 0.35), 0 4px 12px rgb(0 0 0 / 0.3);
@@ -233,18 +235,35 @@ p, li {
 }
 
 /* Smal skjerm: en gradient fra siden rekker ikke over teksten når den bryter
-   over hele bredden, så der legger vi den nedenfra i stedet. */
+   over hele bredden.
+   Gradienten går ovenfra og ned, ikke nedenfra og opp. Grunnen er målt: de
+   lyseste partiene i bildet (himmel og lyse fasader) ligger øverst, og det er
+   der tittelen står. Med den gamle gradienten lå øverste tittellinje på 2,3:1
+   mot de lyseste punktene, under kravet på 3:1 for stor tekst. Nå er den 8,9:1. */
 @media (max-width: 40rem) {
   .hero-innhold {
     align-self: end;
   }
+
   .hero::after {
     background: linear-gradient(
-      to top,
-      rgb(16 15 14 / 0.88) 0%,
-      rgb(16 15 14 / 0.6) 48%,
-      rgb(16 15 14 / 0.12) 100%
+      to bottom,
+      rgb(16 15 14 / 0.82) 0%,
+      rgb(16 15 14 / 0.62) 50%,
+      rgb(16 15 14 / 0.42) 100%
     );
+  }
+
+  /* Den lyse flaten lysnet bakgrunnen under sin egen hvite tekst, og havnet på
+     3,4:1. En mørk flate gjør det motsatte: 6,7:1, og fotoet skinner fortsatt
+     gjennom. Desktop er urørt. */
+  .knapp-pa-bilde {
+    background-color: rgb(16 15 14 / 0.35);
+    border-color: rgb(255 255 255 / 0.55);
+  }
+
+  .knapp-pa-bilde:hover {
+    background-color: rgb(16 15 14 / 0.5);
   }
 }
 
@@ -819,40 +838,296 @@ p, li {
   margin: 0;
 }
 
+/* ---------- Artikkellista ---------- */
+
+.antall {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #75716b;
+}
+
+.dark .antall {
+  color: #a8a29f;
+}
+
+/* Mobil: knappene har svært ulik bredde, så ombrekking blir fillete. Én rad
+   som rulles sideveis er mønsteret folk kjenner igjen, og tar minst plass.
+   Fra 48rem er det plass til alle, og da slår rullingen aldri inn. */
+.filterrad {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.25rem 0 1.75rem;
+}
+
+.taggstripe {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  /* Luft over og under så fokusringen ikke klippes, tatt igjen med negativ
+     marg. Til høyre: plass til uttoningen. */
+  padding: 0.3rem 3.5rem 0.3rem 0;
+  margin-block: -0.3rem;
+  /* Snapping gjør at raden kjennes «gripbar» med en gang man tar på den. */
+  scroll-snap-type: x proximity;
+  /* Uttoningen er bredere og brattere enn før, så den siste knappen tydelig
+     forsvinner ut av kanten i stedet for bare å bli litt blek. */
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 3.5rem), rgb(0 0 0 / 0.15) calc(100% - 0.75rem), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - 3.5rem), rgb(0 0 0 / 0.15) calc(100% - 0.75rem), transparent);
+}
+
+.taggstripe > * {
+  scroll-snap-align: start;
+}
+
+/* Rullet helt til høyre? Da er det ingenting mer, og uttoningen skal vekk. */
+.taggstripe.ved-enden {
+  padding-right: 0;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.taggstripe::-webkit-scrollbar {
+  display: none;
+}
+
+.taggstripe > * {
+  flex: none;
+}
+
+@media (min-width: 48rem) {
+  .filterrad {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .taggstripe {
+    flex-wrap: wrap;
+    overflow: visible;
+    padding: 0;
+    margin-block: 0;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
+
+.sokefelt {
+  width: 100%;
+  padding: 0.45rem 0.9rem;
+  /* Egen, mørkere kant enn kortene: et skjemafelt må kunne ses. Kortkanten
+     lå på 1,29:1 mot sidebakgrunnen, godt under kravet på 3:1 for kontroller. */
+  border: 1px solid var(--ng-feltkant);
+  border-radius: 999px;
+  background-color: var(--ng-flate);
+  box-shadow: inset 0 1px 2px rgb(20 18 16 / 0.06);
+  color: inherit;
+  font-size: 0.875rem;
+}
+
+.sokefelt::placeholder {
+  color: #78726f;
+}
+
+.dark .sokefelt::placeholder {
+  color: #a8a29f;
+}
+
+.sokefelt:hover {
+  border-color: #78726f;
+}
+
+.dark .sokefelt:hover {
+  border-color: #78726f;
+}
+
+@media (min-width: 48rem) {
+  .sokefelt {
+    flex: 1 1 16rem;
+    width: auto;
+    max-width: 28rem;
+    margin-left: auto;
+  }
+}
+
+.sokefelt:focus-visible {
+  outline: 2px solid #f04a78;
+  outline-offset: 1px;
+}
+
+.artikkelrutenett {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.artikkel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+}
+
+.artikkel-bilde {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.artikkel-tekst {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.95rem 1.1rem 1.15rem;
+}
+
+/* Brikkene er bokssjustert med teksten under, men har 0,6rem egen polstring,
+   så selve ordet starter lenger inn enn overskriften. Øyet justerer etter
+   teksten, ikke etter boksen, så raden dras tilbake med akkurat polstringen. */
+.merkerad {
+  margin-left: -0.6rem;
+}
+
+.artikkel-merker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-left: -0.6rem;
+}
+
+.artikkel-tittel {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.artikkel-ingress {
+  flex: 1;
+  margin: 0;
+  font-size: 0.9375rem;
+  color: #56524d;
+}
+
+.dark .artikkel-ingress {
+  color: #cfc9c7;
+}
+
+.artikkel-meta {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #75716b;
+}
+
+.dark .artikkel-meta {
+  color: #a8a29f;
+}
+
+/* Framhevet artikkel: bilde ved siden av teksten når det er plass. */
+.artikkel-stor {
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 48rem) {
+  .artikkel-stor {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    align-items: center;
+  }
+
+  .artikkel-stor .artikkel-bilde {
+    aspect-ratio: 16 / 10;
+  }
+
+  .artikkel-stor .artikkel-tekst {
+    padding: 1.75rem 2rem;
+  }
+
+  .artikkel-stor .artikkel-tittel {
+    font-size: 1.5rem;
+  }
+
+  .artikkel-stor .artikkel-ingress {
+    flex: 0;
+    font-size: 1rem;
+  }
+}
+
+.ingen-treff,
+.artikkel-feil {
+  padding: 2.5rem 1rem;
+  text-align: center;
+  color: #75716b;
+}
+
+.dark .ingen-treff,
+.dark .artikkel-feil {
+  color: #a8a29f;
+}
+
 /* ---------- Tagger ----------
- * To familier: fortellende stoff (studenthistorier, tradisjoner) i aksent,
- * praktisk stoff nøytralt. Da ser man hva slags artikkel det er før man har
- * lest tittelen. */
+ * Én farge per tema, satt i assets/js/tagger.js. Verdiene ligger som
+ * variabler, slik at merkelapp og filterknapp deler dem uten å gjenta seg.
+ *
+ * Fargen sier HVILKET tema. Fylt mot tonet sier om filteret er på. Blander
+ * man de to, ser en ufiltrert liste ut som om noe allerede er valgt. */
+
+.t-blaa    { --t-tekst: #24417a; --t-flate: #e6ecf8; --t-full: #2f549b; }
+.t-sand    { --t-tekst: #8a5512; --t-flate: #fbeed6; --t-full: #a8690f; }
+.t-tegl    { --t-tekst: #b7153a; --t-flate: #ffe1e5; --t-full: #d92046; }
+.t-violett { --t-tekst: #6b2c7a; --t-flate: #f4e7f8; --t-full: #7e3590; }
+.t-noytral { --t-tekst: #56524d; --t-flate: #f0ebeb; --t-full: #56524d; }
+
+/* I mørk modus snus den valgte tilstanden: uvalgt hviler tett på kortflaten,
+   valgt blir en LYS brikke med mørk tekst. Den valgte flaten er 24-37 ganger
+   lysere enn den uvalgte, mot omtrent det dobbelte da begge var mørke. */
+.dark .t-blaa    { --t-tekst: #a8c6f2; --t-flate: #16203a; --t-full: #8ab4f0; --t-fulltekst: #101a2e; }
+.dark .t-sand    { --t-tekst: #edc887; --t-flate: #2b1c06; --t-full: #e8b45c; --t-fulltekst: #2b1c06; }
+.dark .t-tegl    { --t-tekst: #ffb3c1; --t-flate: #40101d; --t-full: #ff7a94; --t-fulltekst: #3d0b17; }
+.dark .t-violett { --t-tekst: #dcb0e8; --t-flate: #2a0f33; --t-full: #c68ad6; --t-fulltekst: #260d2e; }
+.dark .t-noytral { --t-tekst: #c7c1be; --t-flate: #2b2825; --t-full: #d5cfcb; --t-fulltekst: #201d1b; }
 
 .tagg {
   display: inline-block;
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
+  background-color: var(--t-flate);
+  color: var(--t-tekst);
   font-size: 0.75rem;
   font-weight: 600;
   line-height: 1.25rem;
   white-space: nowrap;
 }
 
-.tagg-guide {
-  background-color: #f7f2f2;
-  border: 1px solid var(--ng-kant);
-  color: #585250;
+.taggknapp {
+  padding: 0.35rem 0.85rem;
+  border: 0;
+  border-radius: 999px;
+  background-color: var(--t-flate);
+  color: var(--t-tekst);
+  --t-fulltekst: #ffffff;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.dark .tagg-guide {
-  background-color: #211f1c;
-  color: #cfc9c7;
+.taggknapp:hover {
+  box-shadow: inset 0 0 0 1.5px var(--t-full);
 }
 
-.tagg-historie {
-  background-color: #ffe1e5;
-  color: #b7153a;
+.taggknapp.er-valgt {
+  background-color: var(--t-full);
+  color: var(--t-fulltekst);
 }
 
-.dark .tagg-historie {
-  background-color: #5c0f26;
-  color: #ffd3da;
+.taggknapp:focus-visible {
+  outline: 2px solid var(--t-full);
+  outline-offset: 2px;
 }
 
 /* ---------- Bildegalleri ---------- */
@@ -1002,14 +1277,189 @@ p, li {
 }
 
 /* ---------- Mobilmeny ----------
- * Lå tidligere i to identiske filer som ikke var koblet på de samme sidene,
- * så scroll-låsen manglet på forsiden. */
+ * En skuff som dekker siden. Oppførselen ligger i assets/js/navbar.js. */
 
-@media (max-width: 480px) {
-  #mobileSidebar {
-    width: 90vw !important;
-    min-width: 0 !important;
-    max-width: 360px !important;
+.mobilmeny-knapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  border: 0;
+  border-radius: 0.625rem;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.mobilmeny-knapp:hover {
+  background-color: var(--ng-flate-dus);
+}
+
+.mobilmeny-knapp:focus-visible {
+  outline: 2px solid #f04a78;
+  outline-offset: 2px;
+}
+
+.mobilmeny-overlegg {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  opacity: 0;
+  background-color: rgb(16 15 14 / 0.45);
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.mobilmeny-overlegg.er-apen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobilmeny {
+  position: fixed;
+  z-index: 51;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  width: min(86vw, 20rem);
+  background-color: var(--ng-flate);
+  border-right: 1px solid var(--ng-kant);
+  box-shadow: 0 0 2.5rem rgb(16 15 14 / 0.28);
+  transform: translateX(-100%);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobilmeny.er-apen {
+  transform: none;
+}
+
+.mobilmeny-topp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 0.9rem 0.85rem 1.1rem;
+  border-bottom: 1px solid var(--ng-kant);
+}
+
+.mobilmeny-lukk {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  border: 0;
+  border-radius: 999px;
+  background-color: var(--ng-flate-dus);
+  color: inherit;
+  cursor: pointer;
+}
+
+.mobilmeny-lukk:hover {
+  background-color: var(--ng-kant);
+}
+
+.mobilmeny-lukk:focus-visible {
+  outline: 2px solid #f04a78;
+  outline-offset: 2px;
+}
+
+.mobilmeny-lenker {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.6rem;
+  overflow-y: auto;
+}
+
+/* 3rem høye rader: en tommel treffer ikke 30 px. */
+.mobilmeny-lenke {
+  display: flex;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0 0.85rem;
+  border-radius: 0.625rem;
+  color: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.mobilmeny-lenke:hover {
+  background-color: var(--ng-flate-dus);
+}
+
+.mobilmeny-lenke:focus-visible {
+  outline: 2px solid #f04a78;
+  outline-offset: -2px;
+}
+
+/* Siden man står på. Uten dette vet man ikke hvor man er. */
+.mobilmeny-lenke.er-aktiv {
+  background-color: #ffe1e5;
+  color: #b7153a;
+  font-weight: 600;
+}
+
+.dark .mobilmeny-lenke.er-aktiv {
+  background-color: #40101d;
+  color: #ffb3c1;
+}
+
+.mobilmeny-bunn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem 0.9rem 1rem;
+  border-top: 1px solid var(--ng-kant);
+}
+
+.mobilmeny-tema {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  border: 1px solid var(--ng-kant);
+  border-radius: 0.625rem;
+  background: none;
+  color: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.mobilmeny-tema:hover {
+  background-color: var(--ng-flate-dus);
+}
+
+.mobilmeny-tema:focus-visible {
+  outline: 2px solid #f04a78;
+  outline-offset: 2px;
+}
+
+/* Merk hvilken side man er på, også i desktopmenyen. */
+.navlenke.er-aktiv {
+  color: #b7153a;
+  font-weight: 600;
+}
+
+.dark .navlenke.er-aktiv {
+  color: #ffb3c1;
+}
+
+/* Skjul skuffen på bredde. Gjøres her og ikke via md:hidden, fordi begge
+   er én klasse hver og da avgjør rekkefølgen - og Tailwind lastes ved kjøretid. */
+@media (min-width: 48rem) {
+  .mobilmeny,
+  .mobilmeny-overlegg,
+  .mobilmeny-knapp {
+    display: none;
   }
 }
 

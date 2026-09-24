@@ -23,29 +23,6 @@
   <!-- Skrift, stil og Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind-oppsett.js"></script>
-  <style>
-    .filter-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-
-    .filter-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    .mobile-filter-enter {
-      transform: translateY(100%);
-    }
-
-    .mobile-filter-open {
-      transform: translateY(0);
-    }
-
-    .sticky-sidebar {
-      position: sticky;
-      top: 8rem;
-    }
-  </style>
 
   <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
   <script>
@@ -70,343 +47,44 @@
   <div id="navbar"></div>
   <script src="assets/js/getNavbar.js"></script>
   <script>
-    // Call the function and insert into DOM
     document.getElementById("navbar").innerHTML = getNavbarHTML();
   </script>
   <script src="assets/js/navbar.js"></script>
 
-  <section class="text-center py-12 bg-red-600 text-white">
-    <h1 class="text-4xl font-bold mb-2">Artikler</h1>
-    <p class="text-lg">Finn alt fra gamle studenthistorier og tips til første skoledag til de snodigste tradisjonene i Toulouse!</p>
+  <section class="max-w-6xl mx-auto px-4 pt-4 pb-2">
+    <h1 class="text-4xl sm:text-5xl font-bold mb-3 fade-down-anim">Artikler</h1>
+    <p class="max-w-2xl text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+      Alt fra studenthistorier og tradisjoner til ferieplaner og kart over campus!
+    </p>
+
+    <div class="filterrad">
+      <div id="taggfilter" class="taggstripe" role="group" aria-label="Filtrer på tema"></div>
+      <label class="sr-only" for="sokefelt">Søk i artiklene</label>
+      <input type="search" id="sokefelt" class="sokefelt" placeholder="Søk i artiklene" autocomplete="off">
+    </div>
+
+    <p id="artikkel-antall" class="antall" aria-live="polite"></p>
   </section>
 
-  <!-- Main 2-column Layout -->
-  <div class="max-w-7xl mx-auto px-4 py-4 flex gap-6 md:mt-8 mt-2 relative">
-
-    <!-- Sidebar Filters for Desktop (hidden on small screens) -->
-    <aside id="sidebarFilters"
-      class="hidden md:flex flex-col gap-4 w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 p-4 rounded-xl filter-scrollbar sticky-sidebar h-fit overflow-y-auto"
-      style="min-width: 240px;">
-      <div class="flex flex-wrap gap-2 mb-4">
-        <div id="tagFilters" class="flex flex-wrap gap-2"></div>
-      </div>
-      <select id="authorFilter"
-        class="mb-2 px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800">
-        <option value="">Alle forfattere</option>
-      </select>
-      <input type="text" id="searchInput" placeholder="Søk artikkel..."
-        class="mb-2 px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800" />
-      <button id="applyFiltersBtn"
-        class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition font-semibold shadow">
-        Søk
-      </button>
-    </aside>
-
-    <!-- Projects grid -->
-    <main class="flex-1 pb-24 md:pb-0">
-      <div id="projectsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-      <div class="flex justify-center mt-8">
-        <button id="loadMoreBtn" class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 shadow transition">
-          Last inn
-        </button>
-      </div>
-    </main>
-  </div>
-
-  <!-- Mobile: bottom navbar with filter button -->
-  <div
-    class="fixed bottom-0 left-0 right-0 z-40 flex justify-center items-center md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-3 shadow-lg">
-    <button id="mobileFilterFAB"
-      class="flex items-center gap-2 rounded-full bg-red-600 text-white px-6 py-2 font-semibold text-lg shadow-lg focus:outline-none focus:ring-4 focus:ring-red-400 transition"
-      aria-label="Vis filtre">
-      🔍 Filter
-    </button>
-  </div>
-
-  <!-- Mobile: Filter Panel Modal -->
-  <div id="mobileFilterDrawer"
-    class="fixed z-50 left-0 right-0 bottom-0 max-h-[85vh] overflow-y-auto bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shadow-2xl p-4 transition duration-300 transform mobile-filter-enter"
-    style="display:none;">
-    <div class="flex items-center justify-between mb-1">
-      <span class="font-semibold text-lg">Filter</span>
-      <button id="closeMobileFilterDrawer"
-        class="text-2xl p-2 text-gray-500 hover:text-gray-800 focus:outline-none">×</button>
+  <section class="max-w-6xl mx-auto px-4 pb-16">
+    <div id="framhevet" hidden></div>
+    <div id="artikkelliste" class="artikkelrutenett"></div>
+    <div id="ingen-treff" class="ingen-treff" hidden>
+      <p>Fant ingen artikler som passer.</p>
+      <p class="mt-3">
+        <button type="button" class="knapp knapp-sekundar" data-nullstill>Vis alle</button>
+      </p>
     </div>
-    <div id="mobileTagFilters" class="flex flex-wrap gap-2 mb-2"></div>
-    <select id="mobileAuthorFilter"
-      class="mb-2 w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800">
-      <option value="">Alle forfattere</option>
-    </select>
-    <input type="text" id="mobileSearchInput" placeholder="Søk artikkel..."
-      class="mb-2 px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 w-full" />
-    <button id="mobileApplyFiltersBtn"
-      class="mt-3 w-full bg-red-600 text-white px-4 py-3 rounded-md text-lg font-bold hover:bg-red-700 shadow transition">
-      Bruk Filter
-    </button>
-  </div>
+  </section>
 
-
-   <div id="footer"></div>
+  <div id="footer"></div>
   <script src="assets/js/getFooter.js"></script>
   <script>
-    // Call the function and insert into DOM
     document.getElementById("footer").innerHTML = getFooterHTML();
   </script>
 
-
-  <script>
-    // DOM element references needed for rendering
-    const grid = document.getElementById("projectsGrid");
-    const loadMoreBtn = document.getElementById("loadMoreBtn");
-
-    let templates = [];
-
-    // Noen artikler har flere forfattere: "author" kan være en streng eller en liste.
-// Datoene lagres som DD-MM-ÅÅÅÅ i arkiv.json, men vises med punktum, slik at
-    // kortene og artikkelsidene skriver dato på samme måte.
-// Historier og tradisjoner får aksentfarge, praktisk info står nøytralt, slik
-    // at man ser hva slags stoff det er før man leser tittelen.
-    const FORTELLENDE = ["Studenthistorier", "Livet i Toulouse"];
-    function taggKlasse(tag) {
-      return FORTELLENDE.includes(tag) ? "tagg-historie" : "tagg-guide";
-    }
-
-    function visDato(dato) {
-      return String(dato || "").replace(/-/g, ".");
-    }
-
-    function forfattere(t) {
-      return Array.isArray(t.author) ? t.author : [t.author];
-    }
-    let activeTags = [];
-    let mobileActiveTags = [];
-    let currentPage = 1;
-    const pageSize = 6;
-
-    // Populate filters and handle events
-    fetch("arkiv/arkiv.json")
-      .then(res => res.json())
-      .then(data => {
-        templates = data.templates;
-        const uniqueTags = [...new Set(templates.flatMap(t => t.tags))];
-        const uniqueAuthors = [...new Set(templates.flatMap(forfattere))].sort((a, b) => a.localeCompare(b, "no"));
-
-        // Populate desktop tag buttons
-        const tagFilters = document.getElementById("tagFilters");
-        uniqueTags.forEach(tag => {
-          const btn = document.createElement("button");
-          btn.className = `tag-btn bg-red-100 text-red-700 dark:bg-red-800 dark:text-red-100 px-4 py-1 rounded-full text-sm hover:bg-red-200 dark:hover:bg-red-700 transition`;
-          btn.dataset.tag = tag;
-          btn.innerText = tag;
-          tagFilters.appendChild(btn);
-        });
-
-        // Populate dropdowns (desktop and mobile)
-        const authorFilter = document.getElementById("authorFilter");
-        const mobileAuthorFilter = document.getElementById("mobileAuthorFilter");
-
-        uniqueAuthors.forEach(author => {
-          const opt = document.createElement("option");
-          opt.value = author;
-          opt.innerText = author;
-          authorFilter.appendChild(opt);
-          mobileAuthorFilter.appendChild(opt.cloneNode(true));
-        });
-
-        // Mobile tag buttons
-        const mobileTagFilters = document.getElementById("mobileTagFilters");
-        function updateMobileTagFilterUI() {
-          mobileTagFilters.innerHTML = "";
-          uniqueTags.forEach(tag => {
-            const isActive = mobileActiveTags.includes(tag);
-            const btn = document.createElement("button");
-            btn.className =
-              'tag-btn px-4 py-1 rounded-full text-sm transition ' +
-              (isActive
-                ? 'bg-red-600 text-white'
-                : 'bg-red-100 text-red-700 dark:bg-red-800 dark:text-red-100 hover:bg-red-200 dark:hover:bg-red-700');
-            btn.dataset.tag = tag;
-            btn.innerText = tag;
-            mobileTagFilters.appendChild(btn);
-          });
-        }
-        updateMobileTagFilterUI();
-
-        // Tag filter toggle handlers
-        tagFilters.addEventListener("click", e => {
-          if (e.target.classList.contains("tag-btn")) {
-            const tag = e.target.dataset.tag;
-            if (activeTags.includes(tag)) {
-              // Deselect tag
-              activeTags = activeTags.filter(t => t !== tag);
-            } else {
-              // Select tag
-              activeTags.push(tag);
-            }
-            // Update button styles: highlight all selected tags
-            updateTagFilterUI();
-            // Do NOT re-render templates here!
-            // Filtering will happen when "Søk" is clicked
-          }
-        });
-        mobileTagFilters.addEventListener("click", e => {
-          if (e.target.classList.contains("tag-btn")) {
-            const tag = e.target.dataset.tag;
-            if (mobileActiveTags.includes(tag)) {
-              mobileActiveTags = mobileActiveTags.filter(t => t !== tag);
-            } else {
-              mobileActiveTags.push(tag);
-            }
-            updateMobileTagFilterUI();
-          }
-        });
-
-        // Sync mobile to desktop inputs
-        function syncMobileFiltersToDesktop() {
-          authorFilter.value = mobileAuthorFilter.value;
-          document.getElementById("searchInput").value = document.getElementById("mobileSearchInput").value;
-          activeTags = mobileActiveTags.slice();
-        }
-
-        // Sync desktop to mobile inputs
-        function syncDesktopFiltersToMobile() {
-          mobileAuthorFilter.value = authorFilter.value;
-          document.getElementById("mobileSearchInput").value = document.getElementById("searchInput").value;
-          mobileActiveTags = activeTags.slice();
-          updateMobileTagFilterUI();
-        }
-
-        // Filter and render functions
-        function getPageTemplates(data) {
-          const selectedAuthor = authorFilter.value;
-          const searchQuery = document.getElementById("searchInput").value.trim().toLowerCase();
-
-          return data.filter(template => {
-            const tagMatch = activeTags.length === 0 || activeTags.every(tag => template.tags.includes(tag));
-            const authorMatch = !selectedAuthor || forfattere(template).includes(selectedAuthor);
-            const searchMatch = template.name.toLowerCase().includes(searchQuery) || template.description.toLowerCase().includes(searchQuery);
-            return tagMatch && authorMatch && searchMatch;
-          }).slice(0, currentPage * pageSize);
-        }
-
-        // Get the total number of filtered articles (without slicing)
-        function getFilteredTemplates(data) {
-          const selectedAuthor = authorFilter.value;
-          const searchQuery = document.getElementById("searchInput").value.trim().toLowerCase();
-
-          return data.filter(template => {
-            const tagMatch = activeTags.length === 0 || activeTags.every(tag => template.tags.includes(tag));
-            const authorMatch = !selectedAuthor || forfattere(template).includes(selectedAuthor);
-            const searchMatch = template.name.toLowerCase().includes(searchQuery) || template.description.toLowerCase().includes(searchQuery);
-            return tagMatch && authorMatch && searchMatch;
-          });
-        }
-
-        function renderTemplates(list, append = false) {
-          if (!append) grid.innerHTML = "";
-          if (list.length === 0) {
-            grid.innerHTML = `<p class="text-center col-span-full text-gray-500">Fant ingen artikler.</p>`;
-            return;
-          }
-
-          // Only add new articles when appending
-          let itemsToRender = list;
-          if (append) {
-            const start = (currentPage - 1) * pageSize;
-            itemsToRender = list.slice(start, start + pageSize);
-          }
-
-          itemsToRender.forEach(t => {
-            const card = document.createElement("div");
-            card.className = "kort kort-klikkbar overflow-hidden flex flex-col h-full";
-            card.innerHTML = `
-              <img src="arkiv/${t.folder}/images/preview.jpg" alt="Forhåndsvisning av «${t.name}»" loading="lazy" decoding="async" width="800" height="384" class="w-full h-48 object-cover" />
-              <div class="p-4 flex flex-col flex-1">
-                <div class="flex items-center justify-between mb-2">
-                  <h3 class="text-xl font-bold">${t.name}</h3>
-                  ${t.featured ? '<span class="bg-gray-800 text-gray-50 dark:bg-gray-200 dark:text-gray-900 text-xs font-semibold px-2 py-1 rounded">Utvalgt</span>' : ''}
-                </div>
-                <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">${t.description}</p>
-                <div class="flex flex-wrap gap-1 text-xs mb-3">
-                  ${t.tags.map(tag => `<span class="tagg ${taggKlasse(tag)}">${tag}</span>`).join("")}
-                </div>
-                <div class="text-xs text-gray-500 dark:text-gray-400 mb-3">
-                  Skrevet av <strong>${forfattere(t).join(", ")}</strong> · ${visDato(t.created)}
-                </div>
-                <div class="flex gap-3 mt-auto">
-                  <a href="arkiv/${t.folder}/${t.folder}.html"
-                    class="knapp knapp-primar flex-1">
-                    Les mer
-                  </a>
-                </div>
-              </div>
-            `;
-            grid.appendChild(card);
-          });
-
-          // Show/hide Load More button
-          const totalFiltered = getFilteredTemplates(templates).length;
-          if ((currentPage * pageSize) >= totalFiltered) {
-            loadMoreBtn.classList.add("hidden");
-          } else {
-            loadMoreBtn.classList.remove("hidden");
-          }
-        }
-
-        // Add this after you define tagFilters and activeTags
-        function updateTagFilterUI() {
-          Array.from(document.getElementById("tagFilters").children).forEach(btn => {
-            const tag = btn.dataset.tag;
-            if (activeTags.includes(tag)) {
-              btn.classList.add("bg-red-600", "text-white");
-              btn.classList.remove("bg-red-100", "text-red-700", "dark:bg-red-800", "dark:text-red-100");
-            } else {
-              btn.classList.remove("bg-red-600", "text-white");
-              btn.classList.add("bg-red-100", "text-red-700", "dark:bg-red-800", "dark:text-red-100");
-            }
-          });
-        }
-
-        // Event Listeners for Apply Filters and Load More
-        document.getElementById("applyFiltersBtn").addEventListener("click", () => {
-          currentPage = 1;
-          renderTemplates(getPageTemplates(templates));
-          syncDesktopFiltersToMobile();
-        });
-        document.getElementById("mobileApplyFiltersBtn").addEventListener("click", () => {
-          syncMobileFiltersToDesktop();
-          currentPage = 1;
-          renderTemplates(getPageTemplates(templates));
-          document.getElementById("mobileFilterDrawer").classList.remove("mobile-filter-open");
-          setTimeout(() => { document.getElementById("mobileFilterDrawer").style.display = "none"; }, 250);
-        });
-        loadMoreBtn.addEventListener("click", () => {
-          currentPage++;
-          renderTemplates(getPageTemplates(templates), true);
-        });
-
-        // Initial render
-        renderTemplates(getPageTemplates(templates));
-      });
-
-    // Mobile filter drawer toggle
-    const mobileFilterFAB = document.getElementById("mobileFilterFAB");
-    const mobileFilterDrawer = document.getElementById("mobileFilterDrawer");
-    const closeMobileFilterDrawer = document.getElementById("closeMobileFilterDrawer");
-    mobileFilterFAB.addEventListener("click", () => {
-      mobileFilterDrawer.style.display = "block";
-      setTimeout(() => {
-        mobileFilterDrawer.classList.add("mobile-filter-open");
-        mobileFilterDrawer.classList.remove("mobile-filter-enter");
-      }, 10);
-    });
-    closeMobileFilterDrawer.addEventListener("click", () => {
-      mobileFilterDrawer.classList.remove("mobile-filter-open");
-      setTimeout(() => { mobileFilterDrawer.style.display = "none"; }, 250);
-    });
-
-
-  </script>
+  <script src="assets/js/tagger.js" defer></script>
+  <script src="assets/js/artikler.js" defer></script>
 </body>
 
 </html>
