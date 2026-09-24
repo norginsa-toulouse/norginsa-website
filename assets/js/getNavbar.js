@@ -8,22 +8,22 @@ function getNavbarHTML() {
       <div class="flex justify-between items-center py-3 sm:py-4">
         <!-- Brand / Logo -->
         <a href="index.html"
-          class="flex items-center gap-1.5 sm:gap-2 text-xl sm:text-2xl font-extrabold text-red-600 hover:text-red-700 transition tracking-tight select-none"
+          class="flex items-center gap-1.5 sm:gap-2 text-xl sm:text-2xl font-extrabold text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 transition tracking-tight select-none"
           aria-label="Til forsiden">
           <span>NORGINSA</span>
         </a>
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex items-center gap-3 font-medium text-sm sm:text-base" aria-label="Hovedmeny">
           <a href="index.html"
-            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Hjem</a>
+            class="px-2 py-1 rounded transition hover:text-red-600 dark:hover:text-red-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Hjem</a>
           <a href="about.html"
-            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Om programmet</a>
+            class="px-2 py-1 rounded transition hover:text-red-600 dark:hover:text-red-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Om programmet</a>
           <a href="sokeguiden.html"
-            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Søkeguiden</a>
+            class="px-2 py-1 rounded transition hover:text-red-600 dark:hover:text-red-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Søkeguiden</a>
           <a href="artikler.html"
-            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Artikler</a>
+            class="px-2 py-1 rounded transition hover:text-red-600 dark:hover:text-red-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Artikler</a>
           <a href="kontakt.html"
-            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Kontakt oss</a>
+            class="px-2 py-1 rounded transition hover:text-red-600 dark:hover:text-red-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Kontakt oss</a>
           <a href="https://utdanning.no/tema/utdanning_i_utlandet/ingeniorstudier_i_toulouse"  rel="noopener"
             class="ml-2 bg-gradient-to-r from-red-600 to-rose-500 text-white px-4 sm:px-5 py-1.5 sm:py-2 rounded-lg shadow hover:from-red-700 hover:to-rose-600 font-semibold transition duration-200 flex items-center gap-1 sm:gap-2 focus:outline-none focus:ring-2 focus:ring-red-300 text-sm sm:text-base">
             SØK HER
@@ -67,7 +67,7 @@ function getNavbarHTML() {
       overflow-y-auto backdrop-blur-md"
       aria-label="Mobilmeny" tabindex="-1" style="padding:0.75rem 0.9rem;">
       <div class="flex items-center justify-between mb-3">
-        <span href="index.html" class="text-lg sm:text-xl font-bold text-red-600">NORGINSA</span>
+        <span href="index.html" class="text-lg sm:text-xl font-bold text-red-600 dark:text-red-400">NORGINSA</span>
         <button id="sidebarCloseBtn" aria-label="Lukk meny"
           class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-red-500">
           <svg class="w-5 h-5 text-gray-900 dark:text-gray-200" fill="none" stroke="currentColor" stroke-width="2"
@@ -120,22 +120,22 @@ function getArtikkelNavbarHTML() {
       <div class="flex justify-between items-center py-3 sm:py-4">
         <!-- Brand / Logo -->
         <a href="../../index.html"
-          class="flex items-center gap-1.5 sm:gap-2 text-xl sm:text-2xl font-extrabold text-red-600 hover:text-red-700 transition tracking-tight select-none"
+          class="flex items-center gap-1.5 sm:gap-2 text-xl sm:text-2xl font-extrabold text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 transition tracking-tight select-none"
           aria-label="Til forsiden">
           <span>NORGINSA</span>
         </a>
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex items-center gap-3 font-medium text-sm sm:text-base" aria-label="Hovedmeny">
           <a href="../../index.html"
-            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Hjem</a>
+            class="px-2 py-1 rounded transition hover:text-red-600 dark:hover:text-red-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Hjem</a>
           <a href="../../about.html"
-            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Om programmet</a>
+            class="px-2 py-1 rounded transition hover:text-red-600 dark:hover:text-red-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Om programmet</a>
           <a href="../../sokeguiden.html"
-            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Søkeguiden</a>
+            class="px-2 py-1 rounded transition hover:text-red-600 dark:hover:text-red-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Søkeguiden</a>
           <a href="../../artikler.html"
-            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Artikler</a>
+            class="px-2 py-1 rounded transition hover:text-red-600 dark:hover:text-red-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Artikler</a>
           <a href="../../kontakt.html"
-            class="px-2 py-1 rounded transition hover:text-red-600 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Kontakt oss</a>
+            class="px-2 py-1 rounded transition hover:text-red-600 dark:hover:text-red-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">Kontakt oss</a>
           <a href="https://utdanning.no/tema/utdanning_i_utlandet/ingeniorstudier_i_toulouse"  rel="noopener"
             class="ml-2 bg-gradient-to-r from-red-600 to-rose-500 text-white px-4 sm:px-5 py-1.5 sm:py-2 rounded-lg shadow hover:from-red-700 hover:to-rose-600 font-semibold transition duration-200 flex items-center gap-1 sm:gap-2 focus:outline-none focus:ring-2 focus:ring-red-300 text-sm sm:text-base">
             SØK HER
@@ -177,7 +177,7 @@ function getArtikkelNavbarHTML() {
       overflow-y-auto backdrop-blur-md"
       aria-label="Mobilmeny" tabindex="-1" style="padding:0.75rem 0.9rem;">
       <div class="flex items-center justify-between mb-3">
-        <span href="../../index.html" class="text-lg sm:text-xl font-bold text-red-600">NORGINSA</span>
+        <span href="../../index.html" class="text-lg sm:text-xl font-bold text-red-600 dark:text-red-400">NORGINSA</span>
         <button id="sidebarCloseBtn" aria-label="Lukk meny"
           class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-red-500">
           <svg class="w-5 h-5 text-gray-900 dark:text-gray-200" fill="none" stroke="currentColor" stroke-width="2"
