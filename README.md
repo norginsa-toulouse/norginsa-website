@@ -48,7 +48,9 @@ Hva som mangler:
 ├── about.html                  # Om NORGINSA siden
 ├── kontakt.html                # Kontaktside
 ├── artikler.html                  # Arkivside
-├── sitemap.xml                 # må oppdateres når en artikkel publiseres
+├── sitemap.py                  # genererer sitemap.xml fra arkiv.json
+├── faq-schema.py               # genererer FAQ-data for Google fra about.html
+├── sitemap.xml                 # generert, ikke rediger for hånd
 ├── assets/
 │   ├── css/
 │   │   └── site.css            # felles komponenter: kort, knapper, animasjon

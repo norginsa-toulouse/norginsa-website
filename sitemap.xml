@@ -7,15 +7,10 @@
   <url><loc>https://www.norginsa.no/kontakt</loc></url>
   <url><loc>https://www.norginsa.no/artikler</loc></url>
 
-  <!-- Arkiv-artikler -->
-  <url><loc>https://www.norginsa.no/arkiv/RU/RU</loc><lastmod>2025-11-30</lastmod></url>
-  <url><loc>https://www.norginsa.no/arkiv/Tekna_Toulouse/Tekna_Toulouse</loc><lastmod>2025-11-08</lastmod></url>
+  <!-- Artikler. Utkast holdes utenfor, se sitemap.py -->
   <url><loc>https://www.norginsa.no/arkiv/dobbeldiplom/dobbeldiplom</loc><lastmod>2025-11-25</lastmod></url>
   <url><loc>https://www.norginsa.no/arkiv/ferier/ferier</loc><lastmod>2025-11-24</lastmod></url>
   <url><loc>https://www.norginsa.no/arkiv/hvorforliketoulouse/hvorforliketoulouse</loc><lastmod>2025-11-09</lastmod></url>
-  <url><loc>https://www.norginsa.no/arkiv/ic/ic</loc><lastmod>2026-03-12</lastmod></url>
-  <url><loc>https://www.norginsa.no/arkiv/icbe/icbe</loc><lastmod>2026-03-12</lastmod></url>
-  <url><loc>https://www.norginsa.no/arkiv/imacs/imacs</loc><lastmod>2026-03-12</lastmod></url>
   <url><loc>https://www.norginsa.no/arkiv/ir/ir</loc><lastmod>2025-11-24</lastmod></url>
   <url><loc>https://www.norginsa.no/arkiv/jesper_falt_det_gode_studentmiljoet_i_toulouse/jesper_falt_det_gode_studentmiljoet_i_toulouse</loc><lastmod>2025-10-07</lastmod></url>
   <url><loc>https://www.norginsa.no/arkiv/julitoulouse/julitoulouse</loc><lastmod>2025-11-25</lastmod></url>
@@ -23,7 +18,8 @@
   <url><loc>https://www.norginsa.no/arkiv/mic/mic</loc><lastmod>2025-11-24</lastmod></url>
   <url><loc>https://www.norginsa.no/arkiv/notail/notail</loc><lastmod>2024-06-08</lastmod></url>
   <url><loc>https://www.norginsa.no/arkiv/pyrra/pyrra</loc><lastmod>2025-11-24</lastmod></url>
+  <url><loc>https://www.norginsa.no/arkiv/RU/RU</loc><lastmod>2025-11-30</lastmod></url>
   <url><loc>https://www.norginsa.no/arkiv/sommerlunsj/sommerlunsj</loc><lastmod>2025-10-07</lastmod></url>
-  <url><loc>https://www.norginsa.no/arkiv/lanekassen/lanekassen</loc><lastmod>2026-09-23</lastmod></url>
+  <url><loc>https://www.norginsa.no/arkiv/Tekna_Toulouse/Tekna_Toulouse</loc><lastmod>2025-11-08</lastmod></url>
 
 </urlset>
