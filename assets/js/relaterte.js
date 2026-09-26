@@ -44,7 +44,7 @@
         <h2 class="text-2xl font-bold mb-5">Les også</h2>
         <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           ${valgt.map((t) => `
-            <a href="/arkiv/${t.folder}/${t.folder}"
+            <a href="../${t.folder}/${t.folder}.html"
                class="kort kort-klikkbar overflow-hidden flex flex-col no-underline">
               <img src="../${t.folder}/images/preview.jpg" alt="" loading="lazy" decoding="async"
                    width="800" height="384" class="w-full h-36 object-cover">

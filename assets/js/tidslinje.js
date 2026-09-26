@@ -19,7 +19,7 @@
       navn: "MIC",
       fullt: "Modélisation, Informatique et Communication",
       kort: "Matematikk, modellering og informatikk",
-      artikkel: "/arkiv/mic/mic",
+      artikkel: "arkiv/mic/mic.html",
       aar23:
         "Matte- og informatikklinja, med en god del elektronikk og automasjon ved siden av. " +
         "Folk som tar denne linjen ender ofte opp med å drive med: Utvikling (programmering), cybersikkerhet, " +
@@ -28,14 +28,14 @@
         "MIC blir til <b>IR (Informatikk og Nettverk)</b> eller <b>MA (Anvendt Matematikk)</b>. " +
         "IR-gjengen lager verktøy for videostreaming, får en seilbåt til å justere seg selv etter vindforhold og lager sitt eget programmeringsspråk. MA-folka " +
         "bruker maskinlæring til mye rart, beviser at rettssystemet er rasistisk og behandler store mengder data i sin egen Twitter-app.",
-      lenke: "/arkiv/ir/ir",
+      lenke: "arkiv/ir/ir.html",
       lenketekst: "Les om IR i fjerde og femte klasse",
     },
     IC: {
       navn: "IC",
       fullt: "Ingénierie de la Construction",
       kort: "Konstruksjon og maskinteknikk",
-      artikkel: "/arkiv/ic/ic",
+      artikkel: "arkiv/ic/ic.html",
       // TODO
       aar23: "",
       // TODO
@@ -45,7 +45,7 @@
       navn: "ICBE",
       fullt: "Ingénierie Chimique, Biochimique et Environnementale",
       kort: "Kjemi, biokjemi og miljøteknologi",
-      artikkel: "/arkiv/icbe/icbe",
+      artikkel: "arkiv/icbe/icbe.html",
       aar23: "",   // TODO
       aar45: "",   // TODO
     },
@@ -53,7 +53,7 @@
       navn: "IMACS",
       fullt: "Ingénierie des Matériaux, Composants et Systèmes",
       kort: "Fysikk, elektronikk og automatikk",
-      artikkel: "/arkiv/imacs/imacs",
+      artikkel: "arkiv/imacs/imacs.html",
       aar23: "",   // TODO
       aar45: "",   // TODO
     },
@@ -183,7 +183,7 @@
         ${f.tekst
           ? `<p>${f.tekst}</p>`
           : `<p class="tidslinje-mangler">Vi skriver om ${f.navn} nå. Lurer du på noe om faget?
-             <a href="/kontakt">Spør oss</a>.</p>`}`;
+             <a href="kontakt.html">Spør oss</a>.</p>`}`;
 
       // Finnes det ikke noe bilde for faget ennå, fjernes det stille.
       const img = fagPanel.querySelector(".fag-bilde");
