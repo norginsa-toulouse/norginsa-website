@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             Skrevet av <strong>${forfattere(template).join(", ")}</strong> · ${visDato(template.created)}
           </p>
           <div class="mt-auto space-y-3">
-            <a href="arkiv/${template.folder}/${template.folder}.html" class="knapp knapp-primar w-full" aria-label="Les «${template.name}»">
+            <a href="/arkiv/${template.folder}/${template.folder}" class="knapp knapp-primar w-full" aria-label="Les «${template.name}»">
               Les mer
             </a>
           </div>

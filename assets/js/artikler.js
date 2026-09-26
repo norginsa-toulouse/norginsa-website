@@ -65,7 +65,7 @@
     const meta = `${forfattere(a).join(", ")} &middot; ${visDato(a.created)}`;
     return `
       <a class="kort kort-klikkbar artikkel${stor ? " artikkel-stor" : ""}"
-         href="arkiv/${a.folder}/${a.folder}.html">
+         href="/arkiv/${a.folder}/${a.folder}">
         <img class="artikkel-bilde" src="arkiv/${a.folder}/images/preview.jpg"
              alt="" loading="lazy" decoding="async" width="800" height="450">
         <div class="artikkel-tekst">

@@ -19,33 +19,33 @@
       navn: "MIC",
       fullt: "Modélisation, Informatique et Communication",
       kort: "Matematikk, modellering og informatikk",
-      artikkel: "arkiv/mic/mic.html",
+      artikkel: "/arkiv/mic/mic",
       aar23:
         "Matte- og informatikklinja, med en god del elektronikk og automasjon ved siden av. " +
         "Folk som tar denne linjen ender ofte opp med å drive med: Utvikling (programmering), cybersikkerhet, " +
-        "databehandling, matematisk modellering og utvikling av KI. Her kommer du til å trives, enten om du vil hacke pentagon eller begynne med finans.",
+        "databehandling, matematisk modellering og utvikling av KI. Her kommer du til å trives, enten om du vil hacke Pentagon eller begynne med finans.",
       aar45:
         "MIC blir til <b>IR (Informatikk og Nettverk)</b> eller <b>MA (Anvendt Matematikk)</b>. " +
-        "IR-gjengen lager verktøy for å videostreaming, får en seilbåt til å justere seg selv etter vindforhold og lager sitt eget programmeringsspråk. MA-folka " +
-        "bruker maskinlæring til mye rart, beviser at rettsystemet er rasistisk og behandler store mengder data i sin egen Twitter-app.",
-      lenke: "arkiv/ir/ir.html",
+        "IR-gjengen lager verktøy for videostreaming, får en seilbåt til å justere seg selv etter vindforhold og lager sitt eget programmeringsspråk. MA-folka " +
+        "bruker maskinlæring til mye rart, beviser at rettssystemet er rasistisk og behandler store mengder data i sin egen Twitter-app.",
+      lenke: "/arkiv/ir/ir",
       lenketekst: "Les om IR i fjerde og femte klasse",
     },
     IC: {
       navn: "IC",
       fullt: "Ingénierie de la Construction",
       kort: "Konstruksjon og maskinteknikk",
-      artikkel: "arkiv/ic/ic.html",
-      // TODO: skriv hva andre og tredje klasse på IC faktisk inneholder.
+      artikkel: "/arkiv/ic/ic",
+      // TODO
       aar23: "",
-      // TODO: skriv hva fjerde og femte klasse inneholder.
+      // TODO
       aar45: "",
     },
     ICBE: {
       navn: "ICBE",
       fullt: "Ingénierie Chimique, Biochimique et Environnementale",
       kort: "Kjemi, biokjemi og miljøteknologi",
-      artikkel: "arkiv/icbe/icbe.html",
+      artikkel: "/arkiv/icbe/icbe",
       aar23: "",   // TODO
       aar45: "",   // TODO
     },
@@ -53,7 +53,7 @@
       navn: "IMACS",
       fullt: "Ingénierie des Matériaux, Composants et Systèmes",
       kort: "Fysikk, elektronikk og automatikk",
-      artikkel: "arkiv/imacs/imacs.html",
+      artikkel: "/arkiv/imacs/imacs",
       aar23: "",   // TODO
       aar45: "",   // TODO
     },
@@ -183,7 +183,7 @@
         ${f.tekst
           ? `<p>${f.tekst}</p>`
           : `<p class="tidslinje-mangler">Vi skriver om ${f.navn} nå. Lurer du på noe om faget?
-             <a href="kontakt.html">Spør oss</a>.</p>`}`;
+             <a href="/kontakt">Spør oss</a>.</p>`}`;
 
       // Finnes det ikke noe bilde for faget ennå, fjernes det stille.
       const img = fagPanel.querySelector(".fag-bilde");

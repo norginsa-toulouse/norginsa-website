@@ -1,16 +1,20 @@
 /* Navbaren, bygget ett sted.
  *
  * Lå tidligere som to nesten identiske kopier - én for rotsidene og én for
- * artiklene - som bare skilte seg ved «../../» foran lenkene. Nå er det én
- * mal som tar imot prefikset. De to funksjonene under finnes fortsatt, så
- * sidene ikke må endres.
+ * artiklene - som bare skilte seg ved «../../» foran lenkene. Nå er adressene
+ * rotabsolutte, så prefikset trengs ikke lenger. De to funksjonene under
+ * finnes fortsatt, så sidene ikke må endres.
+ *
+ * [adresse, filnavn, tekst]. Adressen er uten .html, altså den kanoniske
+ * formen Cloudflare Pages serverer. Filnavnet står igjen fordi navbar.js
+ * bruker det til å markere hvilken side man står på.
  */
 const NG_SIDER = [
-  ["index.html", "Hjem"],
-  ["about.html", "Om programmet"],
-  ["sokeguiden.html", "Søkeguiden"],
-  ["artikler.html", "Artikler"],
-  ["kontakt.html", "Kontakt oss"],
+  ["/", "index.html", "Hjem"],
+  ["/about", "about.html", "Om programmet"],
+  ["/sokeguiden", "sokeguiden.html", "Søkeguiden"],
+  ["/artikler", "artikler.html", "Artikler"],
+  ["/kontakt", "kontakt.html", "Kontakt oss"],
 ];
 
 const NG_SOK = "https://utdanning.no/tema/utdanning_i_utlandet/ingeniorstudier_i_toulouse";
@@ -28,13 +32,13 @@ function ngMaaneIkon(id, klasse) {
     </svg>`;
 }
 
-function byggNavbar(p) {
-  const desktopLenker = NG_SIDER.map(([h, t]) => `
-          <a href="${p}${h}" data-side="${h}"
+function byggNavbar() {
+  const desktopLenker = NG_SIDER.map(([adr, fil, t]) => `
+          <a href="${adr}" data-side="${fil}"
             class="navlenke px-2 py-1 rounded transition hover:text-red-600 dark:hover:text-red-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">${t}</a>`).join("");
 
-  const menyLenker = NG_SIDER.map(([h, t]) => `
-        <a href="${p}${h}" data-side="${h}" class="mobilmeny-lenke">${t}</a>`).join("");
+  const menyLenker = NG_SIDER.map(([adr, fil, t]) => `
+        <a href="${adr}" data-side="${fil}" class="mobilmeny-lenke">${t}</a>`).join("");
 
   return `
   <header
@@ -43,7 +47,7 @@ function byggNavbar(p) {
     <div class="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
       <div class="flex justify-between items-center py-3 sm:py-4">
 
-        <a href="${p}index.html"
+        <a href="/"
           class="flex items-center text-xl sm:text-2xl font-bold text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-400 transition tracking-tight select-none"
           aria-label="Til forsiden">NORGINSA</a>
 
@@ -74,7 +78,7 @@ function byggNavbar(p) {
 
   <nav id="mobileSidebar" class="mobilmeny md:hidden" aria-label="Meny" aria-hidden="true" inert>
     <div class="mobilmeny-topp">
-      <a href="${p}index.html" class="text-lg font-bold text-red-600 dark:text-red-500">NORGINSA</a>
+      <a href="/" class="text-lg font-bold text-red-600 dark:text-red-500">NORGINSA</a>
       <button id="sidebarCloseBtn" type="button" class="mobilmeny-lukk" aria-label="Lukk meny">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -99,9 +103,9 @@ function byggNavbar(p) {
 }
 
 function getNavbarHTML() {
-  return byggNavbar("");
+  return byggNavbar();
 }
 
 function getArtikkelNavbarHTML() {
-  return byggNavbar("../../");
+  return byggNavbar();
 }
