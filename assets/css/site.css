@@ -169,6 +169,12 @@ p, li {
   background-image: linear-gradient(to right, #b7153a, #dd2a63);
 }
 
+/* Større variant, der én knapp skal bære hele seksjonen. */
+.knapp-stor {
+  padding: 0.9rem 1.85rem;
+  font-size: 1.0625rem;
+}
+
 .knapp-sekundar {
   border: 1px solid var(--ng-kant);
   background-color: transparent;
@@ -757,6 +763,186 @@ p, li {
 .dark .tidslinje-lenke a,
 .dark .tidslinje-mangler a {
   color: #f66b81;
+}
+
+/* ---------- Kontakt ----------
+ * Siden har én jobb: få folk til å sende en melding. Derfor er de to veiene
+ * inn det største på siden, kontoene som faktisk svarer står som egne kort,
+ * og resten av kontoene er komprimert til rader. Åtte like kort ga ingen
+ * pekepinn om hvem man skulle skrive til.
+ */
+
+/* Lav hero. Forsiden skal fylle skjermen; en underside skal bare ha en
+   ordentlig åpning, ikke be om en halv rulling før innholdet begynner. */
+.hero-lav {
+  min-height: clamp(13rem, 30vw, 19rem);
+}
+
+/* De to veiene inn */
+.veier {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+}
+
+.vei {
+  position: relative;
+  display: block;
+  padding: 1.5rem;
+}
+
+.vei-ikon {
+  width: 2.25rem;
+  height: 2.25rem;
+  color: #d92046;
+}
+
+.dark .vei-ikon {
+  color: #f66b81;
+}
+
+.vei h3 {
+  margin: 1rem 0 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.vei-adresse {
+  margin: 0.2rem 0 0;
+  font-weight: 600;
+  color: #b7153a;
+}
+
+.dark .vei-adresse {
+  color: #f66b81;
+}
+
+.vei-om {
+  margin: 0.6rem 0 0;
+  font-size: 0.9375rem;
+  color: #56524d;
+}
+
+.dark .vei-om {
+  color: #cfc9c7;
+}
+
+/* «Raskest». Fyller samme rolle som en overskrift ville gjort, men uten å
+   stjele plassen til den. */
+.vei-merke {
+  position: absolute;
+  top: 1.15rem;
+  right: 1.15rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background-image: linear-gradient(to right, #d92046, #f04a78);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+/* Kontoene, gruppert. Overskriften er liten med vilje: den skal sortere, ikke
+   rope. */
+.konto-gruppe + .konto-gruppe {
+  margin-top: 2.5rem;
+}
+
+.konto-gruppe > h3 {
+  margin: 0 0 0.9rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #75716b;
+}
+
+.dark .konto-gruppe > h3 {
+  color: #a8a29f;
+}
+
+/* Radene. Én linje navn og handle, én linje hva kontoen er - det er alt som
+   trengs for å velge. Et kort med 128 px logo per konto ga over 2 000 px
+   rulling på mobil for den samme informasjonen. */
+.kontoliste {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+}
+
+.kontoliste a {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  height: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--ng-kant);
+  border-radius: 0.75rem;
+  background-color: var(--ng-flate);
+  transition: border-color 0.15s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.kontoliste a:hover {
+  border-color: #d92046;
+  box-shadow: var(--ng-skygge-hover);
+  transform: translateY(-2px);
+}
+
+.kontoliste a:focus-visible {
+  outline: 2px solid #f04a78;
+  outline-offset: 2px;
+}
+
+.konto-logo {
+  flex: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.konto-tekst {
+  min-width: 0;
+}
+
+.konto-navn {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.konto-handle {
+  margin-left: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #b7153a;
+}
+
+.dark .konto-handle {
+  color: #f66b81;
+}
+
+.konto-om {
+  display: block;
+  margin-top: 0.1rem;
+  font-size: 0.8125rem;
+  color: #56524d;
+}
+
+.dark .konto-om {
+  color: #cfc9c7;
+}
+
+.konto-pil {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  margin-left: auto;
+  color: #a8a29f;
 }
 
 /* ---------- FAQ ----------
