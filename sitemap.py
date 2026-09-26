@@ -9,10 +9,18 @@ Artikler merket "utkast": true holdes utenfor. Det er hele poenget: en
 uferdig side skal ikke meldes inn til Google, for tynt innhold trekker ned
 hele domenet. Før dette ble laget hadde fire utkast sneket seg inn.
 """
-import json, pathlib, re, sys
+import datetime, json, pathlib, re, sys
 
 BASE = "https://www.norginsa.no"
-FASTE = ["/", "/about", "/sokeguiden", "/kontakt", "/artikler"]
+# Sti -> fila den kommer fra. Fila gir <lastmod>, så Google ser når en side
+# faktisk er endret i stedet for å måtte gjette.
+FASTE = {
+    "/": "index.html",
+    "/about": "about.html",
+    "/sokeguiden": "sokeguiden.html",
+    "/kontakt": "kontakt.html",
+    "/artikler": "artikler.html",
+}
 ARKIV = pathlib.Path("arkiv/arkiv.json")
 UT = pathlib.Path("sitemap.xml")
 
@@ -35,8 +43,11 @@ def main():
 
     linjer = ['<?xml version="1.0" encoding="UTF-8"?>',
               '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">', ""]
-    for sti in FASTE:
-        linjer.append(f"  <url><loc>{BASE}{sti}</loc></url>")
+    for sti, fil in FASTE.items():
+        f = pathlib.Path(fil)
+        d = datetime.date.fromtimestamp(f.stat().st_mtime).isoformat() if f.exists() else None
+        linjer.append(f"  <url><loc>{BASE}{sti}</loc>"
+                      + (f"<lastmod>{d}</lastmod>" if d else "") + "</url>")
     linjer += ["", "  <!-- Artikler. Utkast holdes utenfor, se sitemap.py -->"]
 
     for a in sorted(publisert, key=lambda x: x["folder"].lower()):

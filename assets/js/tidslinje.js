@@ -23,11 +23,11 @@
       aar23:
         "Matte- og informatikklinja, med en god del elektronikk og automasjon ved siden av. " +
         "Folk som tar denne linjen ender ofte opp med å drive med: Utvikling (programmering), cybersikkerhet, " +
-        "databehandling, matematisk modellering og utvikling av KI. Her kommer du til å trives, enten om du vil hacke pentagon eller begynne med finans.",
+        "databehandling, matematisk modellering og utvikling av KI. Her kommer du til å trives, enten om du vil hacke Pentagon eller begynne med finans.",
       aar45:
         "MIC blir til <b>IR (Informatikk og Nettverk)</b> eller <b>MA (Anvendt Matematikk)</b>. " +
-        "IR-gjengen lager verktøy for å videostreaming, får en seilbåt til å justere seg selv etter vindforhold og lager sitt eget programmeringsspråk. MA-folka " +
-        "bruker maskinlæring til mye rart, beviser at rettsystemet er rasistisk og behandler store mengder data i sin egen Twitter-app.",
+        "IR-gjengen lager verktøy for videostreaming, får en seilbåt til å justere seg selv etter vindforhold og lager sitt eget programmeringsspråk. MA-folka " +
+        "bruker maskinlæring til mye rart, beviser at rettssystemet er rasistisk og behandler store mengder data i sin egen Twitter-app.",
       lenke: "arkiv/ir/ir.html",
       lenketekst: "Les om IR i fjerde og femte klasse",
     },
@@ -36,9 +36,9 @@
       fullt: "Ingénierie de la Construction",
       kort: "Konstruksjon og maskinteknikk",
       artikkel: "arkiv/ic/ic.html",
-      // TODO: skriv hva andre og tredje klasse på IC faktisk inneholder.
+      // TODO
       aar23: "",
-      // TODO: skriv hva fjerde og femte klasse inneholder.
+      // TODO
       aar45: "",
     },
     ICBE: {

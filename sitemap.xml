@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url><loc>https://www.norginsa.no/</loc></url>
-  <url><loc>https://www.norginsa.no/about</loc></url>
-  <url><loc>https://www.norginsa.no/sokeguiden</loc></url>
-  <url><loc>https://www.norginsa.no/kontakt</loc></url>
-  <url><loc>https://www.norginsa.no/artikler</loc></url>
+  <url><loc>https://www.norginsa.no/</loc><lastmod>2026-09-26</lastmod></url>
+  <url><loc>https://www.norginsa.no/about</loc><lastmod>2026-09-26</lastmod></url>
+  <url><loc>https://www.norginsa.no/sokeguiden</loc><lastmod>2026-09-26</lastmod></url>
+  <url><loc>https://www.norginsa.no/kontakt</loc><lastmod>2026-09-26</lastmod></url>
+  <url><loc>https://www.norginsa.no/artikler</loc><lastmod>2026-09-26</lastmod></url>
 
   <!-- Artikler. Utkast holdes utenfor, se sitemap.py -->
   <url><loc>https://www.norginsa.no/arkiv/dobbeldiplom/dobbeldiplom</loc><lastmod>2025-11-25</lastmod></url>

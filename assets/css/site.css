@@ -291,7 +291,10 @@ p, li {
   max-width: 34rem;
   font-size: clamp(1rem, 1.6vw, 1.1875rem);
   line-height: 1.55;
-  color: rgb(255 255 255 / 0.88);
+  /* Heldekkende hvit, ikke 88 %. Gjennomsiktig tekst blander seg med bildet
+     under og blir lesende grå: mot de lyseste punktene i kontaktbildet ga
+     88 % 3,4:1, mens hvit gir 4,1:1. */
+  color: #ffffff;
 }
 
 .hero-knapper {
@@ -299,6 +302,64 @@ p, li {
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 1.75rem;
+}
+
+/* Lysere slør, til heroer der bildet er poenget.
+ *
+ * Standardvarianten over er satt for forsiden, der teksten er lang og
+ * bildet lyst. På undersidene la den et slør over hele fotoet. Verdiene
+ * her er målt mot bildene de brukes på: kontaktoss.JPG har lys himmel og
+ * hvite skjorter bak teksten, og 0,62 er det som skal til for at ingressen
+ * klarer 4,5:1 i den verste prosenten av piksler. omprogrammet.jpg er mye
+ * mørkere der - bro og vann i skumring - og klarer kravet med 0,40, så den
+ * siden setter --hero-slor lavere selv.
+ *
+ * Skru på --hero-slor for å endre balansen: lavere tall gir tydeligere
+ * bilde, høyere tall gir mer kontrast på teksten. Samme knott som
+ * --topp-slor i .artikkeltopp under.
+ *
+ * Ingen tekstskygge her: den ble prøvd og var synlig som en uskarp kant
+ * rundt bokstavene. Slørverdiene over holder kravet uten den.
+ */
+
+.hero-lys {
+  --hero-slor: 0.62;
+}
+
+.hero-lys::after {
+  background: linear-gradient(
+    to right,
+    rgb(16 15 14 / var(--hero-slor)) 0%,
+    rgb(16 15 14 / calc(var(--hero-slor) * 0.9)) 50%,
+    rgb(16 15 14 / calc(var(--hero-slor) * 0.34)) 68%,
+    rgb(16 15 14 / 0) 84%
+  );
+}
+
+/* Smal skjerm: teksten fyller hele høyden i en lav hero, så sløret må ligge
+   jevnt i stedet for å tone ut. */
+@media (max-width: 40rem) {
+  .hero-lys::after {
+    background: linear-gradient(
+      to bottom,
+      rgb(16 15 14 / calc(var(--hero-slor) * 0.88)) 0%,
+      rgb(16 15 14 / calc(var(--hero-slor) * 0.94)) 55%,
+      rgb(16 15 14 / var(--hero-slor)) 100%
+    );
+  }
+}
+
+/* Bildetekst under en hero. Ligger utenfor .hero og ikke oppå bildet: den
+   høyre delen av fotoet har ingen gradient bak seg, så hvit tekst der ville
+   stått rett på motivet. Samme størrelse og farge som bildetekstene ellers. */
+.hero-fotnote {
+  margin: 0.6rem 0 0;
+  font-size: 0.8125rem;
+  color: #75716b;
+}
+
+.dark .hero-fotnote {
+  color: #a8a29f;
 }
 
 /* ---------- Artikkeltopp ----------
@@ -546,13 +607,15 @@ p, li {
 }
 
 /* Detaljer bak et klikk, bygget på <details> */
-.tidslinje-mer {
+.tidslinje-mer,
+.sok-mer {
   margin-top: 0.9rem;
   border-top: 1px solid var(--ng-kant);
   padding-top: 0.7rem;
 }
 
-.tidslinje-mer summary {
+.tidslinje-mer summary,
+.sok-mer summary {
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 600;
@@ -560,21 +623,25 @@ p, li {
   list-style: none;
 }
 
-.dark .tidslinje-mer summary {
+.dark .tidslinje-mer summary,
+.dark .sok-mer summary {
   color: #f66b81;
 }
 
-.tidslinje-mer summary::-webkit-details-marker {
+.tidslinje-mer summary::-webkit-details-marker,
+.sok-mer summary::-webkit-details-marker {
   display: none;
 }
 
-.tidslinje-mer summary::before {
+.tidslinje-mer summary::before,
+.sok-mer summary::before {
   content: "\25B8 ";
   display: inline-block;
   transition: transform 0.2s ease;
 }
 
-.tidslinje-mer[open] summary::before {
+.tidslinje-mer[open] summary::before,
+.sok-mer[open] summary::before {
   transform: rotate(90deg);
 }
 
@@ -812,6 +879,355 @@ p, li {
 
 .dark .sidetopp-ingress {
   color: #cfc9c7;
+}
+
+/* ---------- Søkeguiden ----------
+ * Siden skal leses ovenfra og ned som én sammenhengende bevegelse, men den
+ * skal ikke være tidslinja om igjen. Derfor ingen strek og ingen prikker:
+ * her har hvert steg sitt eget bilde, vekselvis til venstre og høyre, med
+ * et klebrig stegbånd øverst som viser hvor i prosessen man er.
+ *
+ * Bildet settes på plass når steget kommer til syne. Det er den ene
+ * animasjonen som betyr noe her.
+ */
+
+/* Nøkkeltallene i toppen får en farget strek på venstre side, så de leses som
+   én rad med fakta og ikke som tre løse tall. */
+.sok-fakta > div {
+  border-left: 2px solid #fec8d0;
+  padding-left: 1rem;
+}
+
+.dark .sok-fakta > div {
+  border-left-color: #6d1a2c;
+}
+
+/* Kravene. Det er dette folk kommer for, og det skal kunne skummes på to
+   sekunder - derfor tre hake-kort før prosessen i det hele tatt begynner. */
+.krav {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+}
+
+.krav li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--ng-kant);
+  border-radius: 0.75rem;
+  background-color: var(--ng-flate);
+}
+
+.krav svg {
+  flex: none;
+  width: 1.375rem;
+  height: 1.375rem;
+  color: #d92046;
+}
+
+.dark .krav svg {
+  color: #f66b81;
+}
+
+.krav strong {
+  display: block;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.krav p {
+  margin: 0.15rem 0 0;
+  font-size: 0.875rem;
+  color: #56524d;
+}
+
+.dark .krav p {
+  color: #cfc9c7;
+}
+
+/* Stegbåndet. Klebrig rett under navbaren, så «hvor er jeg» aldri forsvinner.
+   Høyden på navbaren måles i sokeguiden.js og legges i --ng-navhoyde; verdien
+   her er bare et gulv hvis skriptet ikke kjører. */
+.stegstripe {
+  position: sticky;
+  top: calc(var(--ng-navhoyde, 4.5rem) + 0.5rem);
+  z-index: 30;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border: 1px solid var(--ng-kant);
+  border-radius: 0.9rem;
+  background-color: rgb(255 255 255 / 0.9);
+  box-shadow: var(--ng-skygge);
+  backdrop-filter: blur(8px);
+}
+
+.dark .stegstripe {
+  background-color: rgb(41 39 36 / 0.92);
+}
+
+/* Fyllstreken langs nederkanten. Samme idé som på tidslinja, men vannrett:
+   den viser hvor langt ned i prosessen man har rullet. */
+.stegstripe::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: var(--fyll, 0%);
+  height: 2px;
+  background-image: linear-gradient(to right, #d92046, #f04a78);
+}
+
+/* Mobil: seks etiketter får ikke plass, og ombrekking gjør båndet to linjer
+   høyt. Én rad som rulles sideveis er mønsteret folk kjenner, og skriptet
+   drar det aktive steget inn i synsfeltet selv. */
+.stegstripe-liste {
+  display: flex;
+  gap: 0.15rem;
+  margin: 0;
+  padding: 0.3rem;
+  list-style: none;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+
+.stegstripe-liste::-webkit-scrollbar {
+  display: none;
+}
+
+.stegstripe-liste > li {
+  flex: none;
+}
+
+/* Desktop: det er plass til alle seks, og da skal de spres utover. Båndet
+   leses som en strekning tvers over siden, ikke som en klump til venstre.
+   Renner de over på smal skjerm, oppfører space-between seg som flex-start,
+   så sideveisrullingen over er urørt. */
+@media (min-width: 52rem) {
+  .stegstripe-liste {
+    justify-content: space-between;
+    padding: 0.3rem 0.45rem;
+  }
+}
+
+.stegstripe a {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 0.65rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #75716b;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.dark .stegstripe a {
+  color: #a8a29f;
+}
+
+.stegstripe a:hover {
+  background-color: var(--ng-flate-dus);
+  color: inherit;
+}
+
+.stegstripe a:focus-visible {
+  outline: 2px solid #f04a78;
+  outline-offset: -2px;
+}
+
+.stegstripe-nr {
+  display: grid;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 1px solid var(--ng-kant);
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  transition: border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Passert: bare konturen farges. Her og nå: full flate. Forskjellen må være
+   synlig uten farge alene, derfor både flate og vekt. */
+.stegstripe a.er-passert .stegstripe-nr {
+  border-color: #d92046;
+  color: #b7153a;
+}
+
+.dark .stegstripe a.er-passert .stegstripe-nr {
+  border-color: #f66b81;
+  color: #f66b81;
+}
+
+.stegstripe a[aria-current="step"] {
+  background-color: var(--ng-flate-dus);
+  color: inherit;
+}
+
+.stegstripe a[aria-current="step"] .stegstripe-nr {
+  border-color: #d92046;
+  background-color: #d92046;
+  color: #ffffff;
+}
+
+/* Stegene */
+.sok-stegliste {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sok-steg {
+  /* Bildebredden på desktop. Står som variabel fordi speilvendingen under
+     må bruke den samme verdien i den andre kolonnen. */
+  --bildebredde: clamp(14rem, 28vw, 24rem);
+  display: grid;
+  gap: 1.25rem;
+  padding: 2.5rem 0;
+  /* Ankerlenkene fra stegbåndet må lande under både navbar og bånd. */
+  scroll-margin-top: calc(var(--ng-navhoyde, 4.5rem) + 3.5rem);
+}
+
+/* scroll-padding-top på html legger seg oppå scroll-margin-top over, og da
+   havner steget godt under båndet i stedet for rett under. Her gjør
+   scroll-margin hele jobben, så polstringen nulles for denne siden. */
+html:has(.sok-lop) {
+  scroll-padding-top: 0;
+}
+
+.sok-steg + .sok-steg {
+  border-top: 1px solid var(--ng-kant);
+}
+
+@media (min-width: 52rem) {
+  .sok-steg {
+    grid-template-columns: var(--bildebredde) minmax(0, 1fr);
+    gap: 0 3rem;
+    padding: 3.25rem 0;
+  }
+
+  .sok-steg .sok-bilde {
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: end;
+  }
+
+  .sok-steg .sok-innhold {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  /* Annethvert steg speilvendes. Bare bildet bytter side - teksten står
+     venstrestilt hele veien, ellers må øyet lete etter linjestarten. */
+  .sok-steg:nth-child(even) {
+    grid-template-columns: minmax(0, 1fr) var(--bildebredde);
+  }
+
+  .sok-steg:nth-child(even) .sok-bilde {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .sok-steg:nth-child(even) .sok-innhold {
+    grid-column: 1;
+  }
+}
+
+/* Bildet som bærer hvert steg. Fast bildeformat med beskjæring: da faller
+   et nytt bilde inn uten å endre høyden på raden, uansett hvilket format
+   det har. På mobil fyller det bredden, på desktop står det i sin egen
+   kolonne ved siden av teksten. */
+.sok-bilde {
+  margin: 0;
+  width: 100%;
+}
+
+.sok-bilde img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--ng-kant);
+  border-radius: 0.75rem;
+  box-shadow: var(--ng-skygge);
+}
+
+/* Bildet kommer et lite øyeblikk etter teksten i steget. Slås bare på når
+   skriptet kjører, som resten av innaningen. */
+.sok-aktiv .sok-bilde img {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s;
+}
+
+.sok-aktiv .sok-steg.er-synlig .sok-bilde img {
+  opacity: 1;
+  transform: none;
+}
+
+/* Måneden over overskriften. Kort strek foran, samme som i toppen, slik at
+   stikkordene på siden hører sammen. */
+.sok-naar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 0.7rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #b7153a;
+}
+
+.dark .sok-naar {
+  color: #f66b81;
+}
+
+.sok-naar::before {
+  content: "";
+  flex: none;
+  width: 1.25rem;
+  height: 2px;
+  border-radius: 2px;
+  background-color: currentColor;
+}
+
+.sok-steg h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  font-weight: 700;
+}
+
+.sok-tekst {
+  margin: 0.9rem 0 0;
+  max-width: 40rem;
+  font-size: 1.0625rem;
+  color: #423d3b;
+}
+
+.dark .sok-tekst {
+  color: #cfc9c7;
+}
+
+/* Innaningen slås bare på når skriptet kjører, ellers ville hele siden stått
+   usynlig hvis JavaScript blokkeres. */
+.sok-aktiv .sok-steg {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.sok-aktiv .sok-steg.er-synlig {
+  opacity: 1;
+  transform: none;
 }
 
 /* ---------- Kontakt ----------
