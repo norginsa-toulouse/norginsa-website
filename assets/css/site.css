@@ -765,6 +765,55 @@ p, li {
   color: #f66b81;
 }
 
+/* ---------- Sidetopp ----------
+ * Overskriftsblokka som åpner en underside uten bilde: rød stikktittel med
+ * strek foran, stor tittel og en ingress. Venstrestilt med vilje - en
+ * midtstilt tittel over venstrestilt innhold gir to akser på samme skjerm,
+ * og da mister siden retningen.
+ */
+
+.sidetopp-stikk {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #b7153a;
+}
+
+.dark .sidetopp-stikk {
+  color: #f66b81;
+}
+
+.sidetopp-stikk::before {
+  content: "";
+  flex: none;
+  width: 1.75rem;
+  height: 2px;
+  border-radius: 2px;
+  background-image: linear-gradient(to right, #d92046, #f04a78);
+}
+
+.sidetopp h1 {
+  margin: 0.8rem 0 0;
+  font-size: clamp(2.5rem, 7.5vw, 4.25rem);
+  font-weight: 700;
+}
+
+.sidetopp-ingress {
+  margin: 1.1rem 0 0;
+  max-width: 36rem;
+  font-size: clamp(1.0625rem, 1.5vw, 1.1875rem);
+  color: #56524d;
+}
+
+.dark .sidetopp-ingress {
+  color: #cfc9c7;
+}
+
 /* ---------- Kontakt ----------
  * Siden har én jobb: få folk til å sende en melding. Derfor er de to veiene
  * inn det største på siden, kontoene som faktisk svarer står som egne kort,
