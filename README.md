@@ -51,8 +51,12 @@ Hva som mangler:
 ├── sitemap.py                  # genererer sitemap.xml fra arkiv.json
 ├── faq-schema.py               # genererer FAQ-data for Google fra about.html
 ├── sitemap.xml                 # generert, ikke rediger for hånd
+├── tailwind.config.js          # farger og Tailwind-oppsett
+├── package.json                # bare for å bygge CSS-en
+├── src/css/tailwind.css        # kilde til assets/css/tailwind.css
 ├── assets/
 │   ├── css/
+│   │   ├── tailwind.css        # generert, ikke rediger for hånd — se under
 │   │   └── site.css            # felles komponenter: kort, knapper, animasjon
 │   ├── images/                 # bilder som ikke hører til en artikkel
 │   └── js/
@@ -73,6 +77,25 @@ Hva som mangler:
             ├── preview.jpg     # forhåndsvisning, må hete akkurat dette
             └── ...
 ```
+# Bygge CSS-en
+
+Tailwind-klassene ute i markupen slås opp i `assets/css/tailwind.css`, som er
+generert. Siden lastet tidligere ned Play-CDN-en og kompilerte CSS i nettleseren
+ved hvert sidevisning — 120 kB JavaScript som blokkerte første tegning. Nå ligger
+den ferdige CSS-en i repoet (4,7 kB komprimert).
+
+**Legger du til en Tailwind-klasse som ikke er brukt før, må CSS-en bygges på
+nytt**, ellers finnes ikke klassen i stilarket og den gjør ingenting:
+
+```bash
+npm install      # én gang
+npm run build:css
+```
+
+`npm run watch:css` bygger automatisk mens du jobber. Farger og `darkMode` settes
+i `tailwind.config.js`. Husk å committe `assets/css/tailwind.css` — den
+deployes som den er, det kjøres ikke noe byggesteg i Cloudflare.
+
 # Hvordan skrive en artikkel
 
 Kjør skriptet fra rota av prosjektet:
@@ -153,7 +176,7 @@ Forsiden viser de tre nyeste artiklene som ikke er utkast, sortert på
 ## 📚 Teknologier Brukt
 
 * **HTML5**
-* **Tailwind CSS**
+* **Tailwind CSS** (bygget på forhånd, se «Bygge CSS-en»)
 * **JavaScript (Vanilla)**
 * **JSON** for å dynamisk laste inn data
 

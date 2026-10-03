@@ -1,6 +1,6 @@
 /* NORGINSA - felles stil.
  *
- * Farger og skrift settes i assets/js/tailwind-oppsett.js, slik at Tailwind-
+ * Farger og skrift settes i tailwind.config.js, slik at Tailwind-
  * klassene ute i markupen bruker de samme verdiene. Her ligger komponentene:
  * typografi, kort, knapper, hero og mobilmeny.
  *

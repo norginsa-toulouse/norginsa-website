@@ -1,4 +1,6 @@
-/* Felles Tailwind-oppsett. Lå tidligere inline i hver enkelt side.
+/* Felles Tailwind-oppsett. Lå tidligere i assets/js/tailwind-oppsett.js og ble
+ * tolket i nettleseren av Play-CDN-en. Nå bygges CSS-en på forhånd med
+ * `npm run build:css`, så siden ikke laster ned og kjører en kompilator.
  *
  * Paletten: murstein-rosa, altså Toulouse-rødt med metning i, ikke den dempede
  * terrakottaen som drar mot bronse. Gråskalaen er nesten nøytral med bare et
@@ -7,8 +9,19 @@
  * eksisterende klasser (text-red-600, bg-gray-100 osv.) følger med uten at
  * markupen må endres.
  */
-tailwind.config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   darkMode: "class",
+  // Alt som kan inneholde Tailwind-klasser. JS-filene er med fordi navbar,
+  // footer, artikkelkort og «Les også» bygger markup med klasser i seg.
+  content: [
+    "./*.html",
+    "./arkiv/**/*.html",
+    "./assets/js/**/*.js",
+    "./main.js",
+    // Det gamle notail-nettstedet har sin egen CSS og bruker ikke Tailwind.
+    "!./arkiv/notail/notail/**",
+  ],
   theme: {
     extend: {
       colors: {
@@ -35,4 +48,5 @@ tailwind.config = {
       },
     },
   },
+  plugins: [],
 };

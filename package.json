@@ -1,0 +1,14 @@
+{
+  "name": "norginsa-website",
+  "version": "1.0.0",
+  "description": "Nettsiden til NORGINSA-programmet ved INSA Toulouse — https://norginsa.no",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build:css": "tailwindcss -i src/css/tailwind.css -o assets/css/tailwind.css --minify",
+    "watch:css": "tailwindcss -i src/css/tailwind.css -o assets/css/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}
