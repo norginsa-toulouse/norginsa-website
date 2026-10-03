@@ -1,0 +1,6 @@
+/* Kilden til assets/css/tailwind.css. Bygges med `npm run build:css`.
+ * Komponentstilene ligger fortsatt i assets/css/site.css, som lastes etter
+ * denne, slik at den kan overstyre Tailwind-grunnstilen. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

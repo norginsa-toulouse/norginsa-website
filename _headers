@@ -1,0 +1,9 @@
+# Cloudflare Pages. Se også _redirects.
+#
+# Skriftene lastes fra eget domene nå, ikke fra fonts.gstatic.com, som sendte
+# dem med ett års cache. Cloudflare Pages gir statiske filer bare fire timer
+# som standard, så uten denne regelen ville faste besøkende sjekket skriftene
+# om igjen støtt og stadig. Filnavnet er versjonen: skal en skrift byttes ut,
+# gi den nytt navn, ellers sitter folk med den gamle i opptil et år.
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable

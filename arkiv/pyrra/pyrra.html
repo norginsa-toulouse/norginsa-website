@@ -20,8 +20,10 @@
   <link rel="icon" type="image/x-icon" href="../../assets/images/icon.ico">
 
   <!-- Skrift, stil og Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="../../assets/js/tailwind-oppsett.js"></script>
+  <!-- Skriften ligger lokalt. Forhåndslastes fordi overskriftene
+       bruker den, og den ellers oppdages først når CSS-en er lest. -->
+  <link rel="preload" href="../../assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/tailwind.css">
 
   <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
   <script>
@@ -34,9 +36,6 @@
     })();
   </script>
   <script src="../../assets/js/theme.js" defer></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="../../assets/css/site.css">
 </head>
 
@@ -59,10 +58,10 @@
 	       src="images/preview.jpg" alt="Pyrragjengen samlet i Pyreneene">
 	  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
 	    <!-- Title -->
-       <p style="font-family: 'Times New Roman', serif;" class="p-6 inline-flex items-center text-xs sm:text-xl text-white dark:text-white-400">
+       <p style="font-family: 'Times New Roman', serif;" class="p-6 inline-flex items-center text-xs sm:text-xl text-white">
           
         </p>
-         <p style="font-family: 'Times New Roman', serif;" class="p-6 inline-flex items-center text-xs sm:text-xl text-white dark:text-white-400">
+         <p style="font-family: 'Times New Roman', serif;" class="p-6 inline-flex items-center text-xs sm:text-xl text-white">
           
         </p>
 	    <h1 class="text-white text-6xl sm:text-6xl lg:text-8xl font-bold drop-shadow-lg"
@@ -79,7 +78,7 @@
 	       style="font-family: 'Times New Roman', serif;">
 	      <b>Brage Flønæs Johnsen</b>
 	    </p>
-      <p style="font-family: 'Times New Roman', serif;" class="inline-flex items-center text-xs sm:text-lg text-white dark:text-white-400">
+      <p style="font-family: 'Times New Roman', serif;" class="inline-flex items-center text-xs sm:text-lg text-white">
         Sist Oppdatert: 24.11.2025
       </p>
 	  </div>
