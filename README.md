@@ -58,6 +58,7 @@ Hva som mangler:
 │   ├── css/
 │   │   ├── tailwind.css        # generert, ikke rediger for hånd — se under
 │   │   └── site.css            # felles komponenter: kort, knapper, animasjon
+│   ├── fonts/                  # IBM Plex Sans, lagret lokalt (se fonts/README.md)
 │   ├── images/                 # bilder som ikke hører til en artikkel
 │   └── js/
 │       ├── getFooter.js        # genererer footeren
