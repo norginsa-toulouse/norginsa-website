@@ -49,6 +49,7 @@ Hva som mangler:
 ├── kontakt.html                # Kontaktside
 ├── artikler.html                  # Arkivside
 ├── sitemap.py                  # genererer sitemap.xml fra arkiv.json
+├── sjekk-arkiv.py              # sjekker arkiv.json før deploy
 ├── faq-schema.py               # genererer FAQ-data for Google fra about.html
 ├── sitemap.xml                 # generert, ikke rediger for hånd
 ├── tailwind.config.js          # farger og Tailwind-oppsett
@@ -85,8 +86,9 @@ generert. Siden lastet tidligere ned Play-CDN-en og kompilerte CSS i nettleseren
 ved hvert sidevisning — 120 kB JavaScript som blokkerte første tegning. Nå ligger
 den ferdige CSS-en i repoet (4,7 kB komprimert).
 
-**Legger du til en Tailwind-klasse som ikke er brukt før, må CSS-en bygges på
-nytt**, ellers finnes ikke klassen i stilarket og den gjør ingenting:
+GitHub Actions bygger CSS-en på nytt før hver deploy, så nye klasser virker på
+nettsiden selv om du redigerer rett i nettleseren på github.com. **Vil du se en
+ny klasse når du ser på siden lokalt, må du bygge selv**:
 
 ```bash
 npm install      # én gang
@@ -94,8 +96,19 @@ npm run build:css
 ```
 
 `npm run watch:css` bygger automatisk mens du jobber. Farger og `darkMode` settes
-i `tailwind.config.js`. Husk å committe `assets/css/tailwind.css` — den
-deployes som den er, det kjøres ikke noe byggesteg i Cloudflare.
+i `tailwind.config.js`. Den bygde `assets/css/tailwind.css` committes fortsatt,
+så siden ser riktig ut når den åpnes lokalt uten å bygge.
+
+# Sjekken før deploy
+
+`sjekk-arkiv.py` kjøres på hver push og pull request. Den stopper deployen hvis
+`arkiv/arkiv.json` ikke er gyldig JSON, hvis en artikkel mangler
+`<mappe>/<mappe>.html` eller `images/preview.jpg`, eller hvis `created` ikke er
+på formen `DD-MM-ÅÅÅÅ`. Kjør den gjerne selv før du committer:
+
+```bash
+python3 sjekk-arkiv.py
+```
 
 # Hvordan skrive en artikkel
 
@@ -137,12 +150,12 @@ før du er ferdig med den.
    Escape og klikk utenfor. Du kan ha flere gallerier i samme artikkel.
 
 4. **Sjekk taggene** i `arkiv/arkiv.json`. Skriptet setter `"Studiet"` som
-   standard. Taggene som er i bruk nå er `Studiet`, `Studiehverdagen`,
-   `Studenthistorier`, `Tradisjoner`, `Tekna`, `ANSA` og `Diverse info`.
+   standard. Taggene som er i bruk nå er `Studiet`, `Praktisk`,
+   `Livet i Toulouse` og `Studenthistorier`. Fargene deres står i
+   `assets/js/tagger.js`.
 
-5. **Publiser**: fjern `"utkast": true` fra `arkiv/arkiv.json`, og legg
-   artikkelen inn i `sitemap.xml`. Skriptet skriver ut den ferdige linja du
-   skal lime inn.
+5. **Publiser**: fjern `"utkast": true` fra `arkiv/arkiv.json`, og kjør
+   `python3 sitemap.py`, som legger artikkelen inn i `sitemap.xml`.
 
 ### Oppføringen i `arkiv/arkiv.json`
 

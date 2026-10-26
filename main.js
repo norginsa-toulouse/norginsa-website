@@ -47,34 +47,3 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Error loading template data:", err);
   }
 });
-
-// Noen artikler har flere forfattere: "author" kan være en streng eller en liste.
-function forfattere(t) {
-  return Array.isArray(t.author) ? t.author : [t.author];
-}
-
-// Datoene i arkiv.json er på formen DD-MM-ÅÅÅÅ. Gjør dem sorterbare.
-function datoTall(dato) {
-  const [dag, maaned, aar] = String(dato || "").split("-");
-  return Number(`${aar || 0}${maaned || ""}${dag || ""}`) || 0;
-}
-
-/* Fade-in animation */
-const style = document.createElement('style');
-style.innerHTML = `
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-fadeIn {
-    animation: fadeIn 0.5s ease forwards;
-  }
-`;
-document.head.appendChild(style);
-
-// Datoene lagres som DD-MM-ÅÅÅÅ i arkiv.json, men vises med punktum, slik at
-// kortene og artikkelsidene skriver dato på samme måte.
-function visDato(dato) {
-  return String(dato || "").replace(/-/g, ".");
-}
-

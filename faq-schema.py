@@ -9,21 +9,19 @@ Den leser <details class="faq-sporsmal"> som ikke er kommentert ut, og skriver
 et <script type="application/ld+json"> nederst i <head>. Google kan da vise
 spørsmålene rett i søkeresultatet.
 """
-import json, pathlib, re, sys
+import html, json, pathlib, re, sys
 
 SIDE = pathlib.Path("about.html")
 URL = "https://www.norginsa.no/about"
 START = "  <!-- FAQ-strukturerte data. Generert av faq-schema.py, ikke rediger for hånd. -->\n"
 SLUTT = "\n  <!-- /FAQ-strukturerte data -->\n"
 
-def ren(html):
-    html = re.sub(r"<!--.*?-->", "", html, flags=re.S)
-    return html
+def ren(s):
+    return re.sub(r"<!--.*?-->", "", s, flags=re.S)
 
-def tekst(html):
-    t = re.sub(r"<[^>]+>", " ", html)
-    t = (t.replace("&ndash;", "–").replace("&middot;", "·")
-          .replace("&amp;", "&").replace("&nbsp;", " "))
+def tekst(s):
+    t = re.sub(r"<[^>]+>", " ", s)
+    t = html.unescape(t)
     t = " ".join(t.split())
     # Taggene ble til mellomrom, så «teknologi </i>.» ble «teknologi .»
     t = re.sub(r"\s+([.,;:!?»)])", r"\1", t)

@@ -4,7 +4,9 @@ on:
   push:
     branches:
       - main
-      
+  # Pull requests får bare sjekken, ingen deploy.
+  pull_request:
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -14,10 +16,16 @@ jobs:
       deployments: write
     steps:
       - uses: actions/checkout@v4
+      - name: Sjekk arkiv.json
+        run: python3 sjekk-arkiv.py
+      # Redigeres en side i nettleseren, blir ikke tailwind.css bygget på nytt,
+      # og nye klasser gjør ingenting. Derfor bygges den her før hver deploy.
+      - name: Bygg CSS
+        run: npx -y tailwindcss@3.4.19 -i src/css/tailwind.css -o assets/css/tailwind.css --minify
       - name: Deploy with wrangler
+        if: github.event_name == 'push'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy . --project-name=norginsa-website
-          
