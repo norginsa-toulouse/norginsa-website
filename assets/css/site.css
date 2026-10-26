@@ -614,25 +614,6 @@ p, li {
   color: #f66b81;
 }
 
-/* Bilderad. Fast bildeformat, så bilder i ulike formater står på linje. */
-.fotorad {
-  display: grid;
-  gap: 1.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-}
-
-.fotorad figure {
-  margin: 0;
-}
-
-.fotorad img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 0.75rem;
-}
-
 /* ---------- Artikkeltopp ----------
  * Et avlangt bånd, ikke en hero. preview.jpg ligger som dempet bakgrunn bak
  * tittelen i stedet for å være noe man ser på, derfor et jevnt slør over hele
