@@ -6,16 +6,8 @@
  *
  * Det er alt. Ingen array, ingen modal-div, ingen ekstra script-tagg, og du
  * kan ha flere gallerier på samme side.
- *
- * Den gamle måten (et tomt <div id="slideshowGrid"> pluss en global
- * slideshowImages) virker fortsatt, så eldre artikler ikke må skrives om.
- * Den lå brakk fordi artiklene erklærte lista med «const»: en const på
- * toppnivå blir ikke en egenskap på window, så vakten her slo alltid til.
  */
 (function () {
-  if (window.__galleriLastet) return;
-  window.__galleriLastet = true;
-
   let bilder = [];
   let n = 0;
   let sisteKnapp = null;

@@ -9,7 +9,7 @@ Artikler merket "utkast": true holdes utenfor. Det er hele poenget: en
 uferdig side skal ikke meldes inn til Google, for tynt innhold trekker ned
 hele domenet. Før dette ble laget hadde fire utkast sneket seg inn.
 """
-import datetime, json, pathlib, re, sys
+import datetime, json, pathlib, re, subprocess, sys
 
 BASE = "https://www.norginsa.no"
 # Sti -> fila den kommer fra. Fila gir <lastmod>, så Google ser når en side
@@ -33,6 +33,15 @@ def iso(dato):
     return f"{d[2]}-{d[1]}-{d[0]}"
 
 
+def sist_endret(fil):
+    """Dato fra git, ikke fra fila: etter en ny klone har alle filer dagens dato.
+    Ucommittede endringer skal med i neste commit, så de får dagens dato."""
+    git = lambda *a: subprocess.run(["git", *a, "--", fil], capture_output=True, text=True).stdout.strip()
+    if git("status", "--porcelain"):
+        return datetime.date.today().isoformat()
+    return git("log", "-1", "--format=%cs") or None
+
+
 def main():
     if not ARKIV.exists():
         sys.exit("Kjør skriptet fra rota av nettsideprosjektet.")
@@ -44,8 +53,7 @@ def main():
     linjer = ['<?xml version="1.0" encoding="UTF-8"?>',
               '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">', ""]
     for sti, fil in FASTE.items():
-        f = pathlib.Path(fil)
-        d = datetime.date.fromtimestamp(f.stat().st_mtime).isoformat() if f.exists() else None
+        d = sist_endret(fil) if pathlib.Path(fil).exists() else None
         linjer.append(f"  <url><loc>{BASE}{sti}</loc>"
                       + (f"<lastmod>{d}</lastmod>" if d else "") + "</url>")
     linjer += ["", "  <!-- Artikler. Utkast holdes utenfor, se sitemap.py -->"]

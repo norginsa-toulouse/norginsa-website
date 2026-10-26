@@ -17,12 +17,7 @@
   const elFramhevet = document.getElementById("framhevet");
   const elTomt = document.getElementById("ingen-treff");
 
-  const forfattere = (t) => (Array.isArray(t.author) ? t.author : [t.author]);
-  const visDato = (d) => String(d || "").replace(/-/g, ".");
-  const datoTall = (d) => {
-    const [dag, mnd, aar] = String(d || "").split("-");
-    return Number(`${aar || 0}${mnd || ""}${dag || ""}`) || 0;
-  };
+  // forfattere, datoTall, visDato og taggKlasse kommer fra tagger.js
 
   let alle = [];
   let tagg = "";
