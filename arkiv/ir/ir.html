@@ -51,6 +51,8 @@
       <script>document.getElementById("navbar").innerHTML = getArtikkelNavbarHTML();</script>
       <script src="../../assets/js/navbar.js"></script>
 
+      <main id="innhold">
+
 
     <!-- ======= TITTEL ======= -->
   <!-- ======= TITTEL ======= -->
@@ -68,79 +70,92 @@
     
   <div class="mx-4 md:mx-0">
     <!-- ======= HELT VANLIG AVSNITT ======= -->
-<div class="fade-down-anim lesebredde mx-auto my-12">
-    <h2 class="text-2xl font-bold mb-4">Introduksjon</h2>
-    <p class="mb-4">
-        Etter to år med <a class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300" href="../mic/mic.html">MIC</a> 
-        begynner man på IR, som oftest er i GEI sammen med AE (en spesialisering innen IMACS).
-        Programmet er preget av mye informatikk, nettverk, og litt elektronikk (mer spesifikt mikrokontrollere).
-        Det er enda mer prosjektarbeid, og færre forelesninger og eksamener. 
-    </p>
+<div class="fade-down-anim max-w-4xl mx-auto my-12">
+    <div class="lesebredde">
+      <h2 class="text-2xl font-bold mb-4">Introduksjon</h2>
+      <p class="mb-6">
+          Etter to år med <a class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300" href="../mic/mic.html">MIC</a> 
+          begynner man på IR, som oftest er i GEI sammen med AE (en spesialisering innen IMACS).
+          Programmet er preget av mye informatikk, nettverk, og litt elektronikk (mer spesifikt mikrokontrollere).
+          Det er enda mer prosjektarbeid, og færre forelesninger og eksamener. 
+      </p>
+    </div>
 
-    <p class="mb-4">
-        Typiske prosjekter i IR er blant annet:
-
-        <ol class="list-decimal list-inside pl-8 space-y-2 mt-4 mb-4">
-          <li>Egen kommunikasjonsprotokoll (Stop & Wait TCP)</li>
-          <li>Algoritmer til en maps-app (finne korteste vei på et kart, implementert i Java)</li>
-          <li>Laserspill (bruk av fouriertransformasjon og programmering i C og ASM)</li>
-          <li>Distribuert chat-system i Java</li>
-          <li>Selvstyrende seilbåt ved bruk av en mikrokontroller (AE har samme prosjekt!)</li>
-          <li>Checkers-løser ved bruk av AI-metoder (implementert i Rust)</li>
-          <li>Egen C-compiler og VHDL mikroprosessor</li>
-        </ol>
-
-    </p>
-
-    <h2 class="text-2xl font-bold mb-4">SI og SC</h2>
-    <p class="mb-4">
-        Før man begynner i 4. klasse har man valget mellom SI (Systèmes Informatiques) og SC (Systèmes communicants).
-        SI har mer fokus på koding og nettverk, mens SC har mer fag innen telekommunikasjon.
-        <u>Dette valget har ingenting å si for 5. klasse.</u>
-
-        Det skal sies at 90% velger SI.
-    </p>
-
-    <p>Fagene til SC og SI for året finner man her: </p>
-    <ul class="list-disc list-inside pl-8 space-y-2 mt-4">
-        <li> <a class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300" href="./assets/Maquette_SI.xlsx">Systèmes Informatiques</a></li>
-        <li> <a class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300" href="./assets/Maquette_SC.xlsx">Systèmes communicants</a></li>
-    </ul>
+    <!-- Liste i boks, to spalter på bred skjerm -->
+    <div class="kort-dus p-6">
+      <h3 class="text-lg font-bold">Typiske prosjekter i IR</h3>
+      <ul class="punktliste sm:columns-2 gap-10">
+        <li>Egen kommunikasjonsprotokoll (Stop &amp; Wait TCP)</li>
+        <li>Algoritmer til en maps-app (finne korteste vei på et kart, implementert i Java)</li>
+        <li>Laserspill (bruk av fouriertransformasjon og programmering i C og ASM)</li>
+        <li>Distribuert chat-system i Java</li>
+        <li>Selvstyrende seilbåt ved bruk av en mikrokontroller (AE har samme prosjekt!)</li>
+        <li>Checkers-løser ved bruk av AI-metoder (implementert i Rust)</li>
+        <li>Egen C-compiler og VHDL mikroprosessor</li>
+      </ul>
+    </div>
 </div>
 
-<div class="fade-down-anim lesebredde mx-auto my-12">
-    <h2 class="text-2xl font-bold mb-4">5. Klasse</h2>
+    <!-- ======= VALG SOM KORT (hele kortet er lenken) ======= -->
+<div class="fade-down-anim max-w-4xl mx-auto my-12">
+    <h2 class="text-2xl font-bold mb-4">SI og SC</h2>
+    <p class="mb-6 lesebredde">
+        Før man begynner i 4. klasse har man valget mellom SI (Systèmes Informatiques) og SC (Systèmes communicants).
+        SI har mer fokus på koding og nettverk, mens SC har mer fag innen telekommunikasjon.
+    </p>
+    <div class="veier">
+      <a href="./assets/Maquette_SI.xlsx" class="vei kort kort-klikkbar">
+        <h3>SI</h3>
+        <p class="vei-adresse">Systèmes Informatiques</p>
+        <p class="vei-om">Mer koding og nettverk. Det skal sies at 90% velger SI. Se fagene for året (Excel).</p>
+      </a>
+      <a href="./assets/Maquette_SC.xlsx" class="vei kort kort-klikkbar">
+        <h3>SC</h3>
+        <p class="vei-adresse">Systèmes communicants</p>
+        <p class="vei-om">Mer fag innen telekommunikasjon. Se fagene for året (Excel).</p>
+      </a>
+    </div>
+    <p class="obs">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4M12 8h.01" /></svg>
+      <span>Dette valget har ingenting å si for 5. klasse.</span>
+    </p>
+</div>
 
-    <p class="mb-4">
-        I 5. Klasse kan man velge en rekke spesialiseringer, noen sammen med AE:
+    <!-- ======= VALG SOM KORT (uten lenke) ======= -->
+<div class="fade-down-anim max-w-4xl mx-auto my-12">
+    <h2 class="text-2xl font-bold mb-4">5. klasse</h2>
+    <p class="mb-6 lesebredde">I 5. klasse kan man velge en rekke spesialiseringer, noen sammen med AE:</p>
+    <div class="veier">
+      <div class="vei kort">
+        <h3>SDBD</h3>
+        <p class="vei-adresse">Systèmes Distribués et Big Data</p>
+        <p class="vei-om">Distribuerte systemer og databehandling.</p>
+      </div>
+      <div class="vei kort">
+        <h3>SIEC</h3>
+        <p class="vei-adresse">Systèmes Informatiques Embarqués Critiques</p>
+        <p class="vei-om">Embedded systems.</p>
+      </div>
+      <div class="vei kort">
+        <h3>TLS-SEC</h3>
+        <p class="vei-adresse">Sécurité</p>
+        <p class="vei-om">Cybersikkerhet. OBS! <a class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300" href="../dobbeldiplom/dobbeldiplom.html">Dobbeldiplom</a> med skolen ENSEEIHT.</p>
+      </div>
+    </div>
 
-        <ul class="list-decimal list-inside pl-8 space-y-2 mt-4 mb-4">
-            <li>SDBD (Systèmes Distribués et Big data) - Distribuerte systemer og databehandling</li>
-            <li>SIEC (Systèmes Informatiques Embarqués Critiques) - Embedded Systems</li>
-            <li>TLS-SEC (Sécurité) - Cybersikkerhet. OBS! dobbeldiplom med skolen ENSEEIHT</li>
-
-        </ul>
-
-        <p class="mb-4">
-             Det finnes også fordypninger som enda flere institutter kan ta, kalt PTP (Parcours Transverses Pluridisciplinaires)
-        </p>
-       
-        <ul class="list-decimal list-inside pl-8 space-y-2 mt-4 mb-4">
-            <li>ISS (Innovative Smart Systems)</li>
-            <li>IS (Ingénierie Systèmes)</li>
-            <li>PTP Risk Engineering</li>
-            <li>PTP Energie</li>
-        </ul>
-
-    <p class="mb-4"> <u>
+    <div class="lesebredde mt-8">
+      <p>Det finnes også fordypninger som enda flere institutter kan ta, kalt PTP (Parcours Transverses Pluridisciplinaires):</p>
+      <div class="brikker">
+        <span class="brikke">ISS (Innovative Smart Systems)</span>
+        <span class="brikke">IS (Ingénierie Systèmes)</span>
+        <span class="brikke">PTP Risk Engineering</span>
+        <span class="brikke">PTP Energie</span>
+      </div>
+      <p class="mt-6">
          Informasjon er vanskeligere å finne, men det kan være nyttig å lete på <a class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300" href="https://gei.insa-toulouse.fr/fr/index.html">gei.insa-toulouse.fr</a> og Moodle under GEI-mappen.
-    </u></p>
-   
-
-
-
-  </div>
-
+      </p>
+    </div>
+</div>
 
   </div>
 
@@ -148,6 +163,8 @@
   <!-- Relaterte artikler -->
   <section id="relaterte" class="max-w-5xl mx-auto px-4 pb-6" hidden></section>
   <script src="../../assets/js/relaterte.js" defer></script>
+      </main>
+
       <!-- Footer Container -->
       <div id="footer"></div>
       <script src="../../assets/js/getFooter.js"></script>

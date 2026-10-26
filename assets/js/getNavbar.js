@@ -31,15 +31,15 @@ function ngMaaneIkon(id, klasse) {
 function byggNavbar(p) {
   const desktopLenker = NG_SIDER.map(([h, t]) => `
           <a href="${p}${h}" data-side="${h}"
-            class="navlenke px-2 py-1 rounded transition hover:text-red-600 dark:hover:text-red-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">${t}</a>`).join("");
+            class="navlenke whitespace-nowrap px-2 py-1 rounded transition hover:text-red-600 dark:hover:text-red-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-red-400 text-gray-700 dark:text-gray-100">${t}</a>`).join("");
 
   const menyLenker = NG_SIDER.map(([h, t]) => `
         <a href="${p}${h}" data-side="${h}" class="mobilmeny-lenke">${t}</a>`).join("");
 
   return `
+  <a href="#innhold" class="hopp-lenke">Hopp til innholdet</a>
   <header
-    class="bg-white/90 dark:bg-gray-900/90 backdrop-blur border-b border-gray-200 dark:border-gray-800 fixed w-full z-40 shadow-sm transition-colors duration-300"
-    role="navigation" aria-label="Hovedmeny">
+    class="bg-white/90 dark:bg-gray-900/90 backdrop-blur border-b border-gray-200 dark:border-gray-800 fixed w-full z-40 shadow-sm transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
       <div class="flex justify-between items-center py-3 sm:py-4">
 
@@ -47,10 +47,10 @@ function byggNavbar(p) {
           class="flex items-center text-xl sm:text-2xl font-bold text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-400 transition tracking-tight select-none"
           aria-label="Til forsiden">NORGINSA</a>
 
-        <nav class="hidden md:flex items-center gap-3 font-medium text-sm sm:text-base" aria-label="Sider">${desktopLenker}
-          <a href="${NG_SOK}" rel="noopener"
-            class="ml-2 bg-gradient-to-r from-red-600 to-rose-500 text-white px-4 sm:px-5 py-1.5 sm:py-2 rounded-lg shadow hover:from-red-700 hover:to-rose-600 font-semibold transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-300 text-sm sm:text-base">
-            SØK HER
+        <nav class="hidden lg:flex items-center gap-3 font-medium text-sm sm:text-base" aria-label="Sider">${desktopLenker}
+          <a href="${NG_SOK}" rel="noopener" aria-label="Søk på utdanning.no"
+            class="ml-2 whitespace-nowrap bg-red-600 text-white px-4 py-2 rounded-lg shadow hover:bg-red-700 font-semibold transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-300 text-sm">
+            <span class="xl:hidden">Søk</span><span class="hidden xl:inline">Søk på utdanning.no</span> <span aria-hidden="true">↗</span>
           </a>
           <button id="themeToggleNav"
             class="ml-2 p-1.5 sm:p-2 bg-gray-100 dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-white dark:hover:bg-gray-700 transition"
@@ -60,7 +60,7 @@ function byggNavbar(p) {
           </button>
         </nav>
 
-        <button id="sidebarOpenBtn" type="button" class="mobilmeny-knapp md:hidden"
+        <button id="sidebarOpenBtn" type="button" class="mobilmeny-knapp lg:hidden"
           aria-label="Åpne meny" aria-expanded="false" aria-controls="mobileSidebar">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -70,9 +70,9 @@ function byggNavbar(p) {
     </div>
   </header>
 
-  <div id="sidebarOverlay" class="mobilmeny-overlegg md:hidden"></div>
+  <div id="sidebarOverlay" class="mobilmeny-overlegg lg:hidden"></div>
 
-  <nav id="mobileSidebar" class="mobilmeny md:hidden" aria-label="Meny" aria-hidden="true" inert>
+  <nav id="mobileSidebar" class="mobilmeny lg:hidden" aria-label="Meny" aria-hidden="true" inert>
     <div class="mobilmeny-topp">
       <a href="${p}index.html" class="text-lg font-bold text-red-600 dark:text-red-500">NORGINSA</a>
       <button id="sidebarCloseBtn" type="button" class="mobilmeny-lukk" aria-label="Lukk meny">
@@ -85,7 +85,7 @@ function byggNavbar(p) {
     <div class="mobilmeny-lenker">${menyLenker}</div>
 
     <div class="mobilmeny-bunn">
-      <a href="${NG_SOK}" rel="noopener" class="knapp knapp-primar w-full">SØK HER</a>
+      <a href="${NG_SOK}" rel="noopener" class="knapp knapp-primar w-full">Søk på utdanning.no <span aria-hidden="true">↗</span></a>
       <button id="sidebarThemeToggle" type="button" class="mobilmeny-tema"
         aria-label="Bytt mellom lyst og mørkt tema">
         ${ngSolIkon("sidebar-sun", "w-5 h-5")}

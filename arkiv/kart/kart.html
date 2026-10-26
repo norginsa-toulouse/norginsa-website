@@ -51,6 +51,8 @@
       <script>document.getElementById("navbar").innerHTML = getArtikkelNavbarHTML();</script>
       <script src="../../assets/js/navbar.js"></script>
 
+      <main id="innhold">
+
 
   <!-- ======= TITTEL ======= -->
   <section class="max-w-5xl mx-auto px-4">
@@ -64,34 +66,25 @@
   </section>
  
   <div class="mx-4 md:mx-0">
-   
-<!-- ======= Bilder med popup/slideshow ======= -->
-<!--OBS!! Begrenset til én per artikkel-->
+
+<!-- ======= STORT GALLERI =======
+     For kart og dokumenter som må kunne leses: hele bildet vises, og et
+     trykk åpner det i full størrelse. -->
 <div class="my-12 fade-down-anim max-w-4xl mx-auto">
-  <div class="bildegalleri" data-bilder="images/kart-campus-1.jpg images/kart-campus-2.jpg"></div>
+  <p class="mb-6 lesebredde">Kartet over campus, og forklaringen til det. Trykk på et bilde for å se det i full størrelse.</p>
+  <div class="bildegalleri bildegalleri-stor" data-bilder="images/kart-campus-1.jpg images/kart-campus-2.jpg"></div>
 <script src="../../assets/js/slideshow.js" defer></script>
+  <a href="./assets/kart-campus.pdf" class="knapp knapp-primar mt-8" target="_blank" rel="noopener">Last ned kartet som PDF</a>
 </div>
 
-<div class="fade-down-anim lesebredde mx-auto my-12">
-
-    <p><a href="./assets/kart-campus.pdf" class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300" target="_blank" rel="noopener">Lenke til PDF</a></p>
 </div>
-</div>
-
-
-
-
-
-
-
-
-
-
 
 
   <!-- Relaterte artikler -->
   <section id="relaterte" class="max-w-5xl mx-auto px-4 pb-6" hidden></section>
   <script src="../../assets/js/relaterte.js" defer></script>
+      </main>
+
       <!-- Footer Container -->
       <div id="footer"></div>
       <script src="../../assets/js/getFooter.js"></script>

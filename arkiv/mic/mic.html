@@ -50,6 +50,8 @@
       <script>document.getElementById("navbar").innerHTML = getArtikkelNavbarHTML();</script>
       <script src="../../assets/js/navbar.js"></script>
 
+      <main id="innhold">
+
 
   <!-- ======= TITTEL ======= -->
   <section class="max-w-5xl mx-auto px-4">
@@ -65,52 +67,57 @@
     
     
   <div class="mx-4 md:mx-0">
-   
+
     <!-- ======= HELT VANLIG AVSNITT ======= -->
-<div class="fade-down-anim lesebredde mx-auto my-12">
-    <h2 class="text-2xl font-bold mb-4">2MIC</h2>
-    <p>
-    MIC er en av førspesialiseringene (pré-orientation, forkortet PO) hos INSA Toulouse, som kan velges i andreklasse.
-    Linjen bygger mye på matte og informatikk, og muligheten til å spesialisere seg videre innen enten matte (MA) eller informatikk (IR).
-    </p>
+<div class="fade-down-anim max-w-4xl mx-auto my-12">
+    <div class="lesebredde">
+      <h2 class="text-2xl font-bold mb-4">2MIC</h2>
+      <p class="mb-4">
+      MIC er en av førspesialiseringene (pré-orientation, forkortet PO) hos INSA Toulouse, som kan velges i andreklasse.
+      Linjen bygger mye på matte og informatikk, og muligheten til å spesialisere seg videre innen enten matte (MA) eller informatikk (IR).
+      </p>
+      <p>
+          I andreklasse har man svært liknende fag som PO'en IMACS. Mye matte, videreføring i informatikk og en god del elektronikk &amp; automasjon.
+          Forskjellen mellom IMACS og MIC i 2. klasse er at MIC slipper unna med nanoteknologi og elektromagnetikk, men tar igjen med dypere innføring i 
+          algoritmer og matematisk analyse.
+      </p>
+    </div>
 
-    <br>
-    <p>
-        I andreklasse har man svært liknende fag som PO'en IMACS. Mye matte, videreføring i informatikk og en god del elektronikk & automasjon.
-        Forskjellen mellom IMACS og MIC i 2. klasse er at MIC slipper unna med nanoteknologi og elektromagnetikk, men tar igjen med dypere innføring i 
-        algoritmer og matematisk analyse.
-        Her er en liste med fag i første semesteret:
-    </p>
+    <!-- ======= MENY =======
+         Grupperte lister i spalter. Én <h3> og én <ul> per gruppe. -->
+    <div class="kort meny mt-8">
+      <h3 class="text-lg font-bold">Fagene i 2MIC</h3>
+      <div class="meny-spalter">
+        <h4>Første semester</h4>
+        <ul>
+          <li>Analyse (teoretisk matte)</li>
+          <li>Algèbre linéaire (teoretisk matte)</li>
+          <li>Électronique analogique &amp; numérique (elektronikk)</li>
+          <li>Automation Continue &amp; Discrète (automasjon)</li>
+          <li>Algorithmique et Programmation (algoritmer)</li>
+          <li>Python</li>
+          <li>Logique Combinatoire (logikk)</li>
+          <li>Unix (Linux)</li>
+        </ul>
+        <h4>Andre semester</h4>
+        <ul>
+          <li>Analyse</li>
+          <li>Probabilité (sannsynlighet)</li>
+          <li>C (programmeringsspråk)</li>
+          <li>Architecture Matérielle (systemarkitektur)</li>
+          <li>Signal 1 (signalbehandling)</li>
+          <li>Algorithmique et Programmation 2</li>
+        </ul>
+        <h4>Samt CSH (samfunnsfaglige) fag</h4>
+        <ul>
+          <li>FLE (Franskkurs)</li>
+          <li>APS (gym)</li>
+          <li>PPI (karriereveiledning)</li>
+        </ul>
+      </div>
+    </div>
 
-    <!-- Liste uten orden-->
-    <ul class="list-disc list-inside pl-8 space-y-2 mt-4">
-        <li>Analyse (teoretisk matte)</li>
-        <li>Algèbre linéaire (Teoretisk matte)</li>
-        <li>Électronique analogique & numérique (elektronikk)</li>
-        <li>Automation Continue & Discrète (Automasjon)</li>
-        <li>Algorithmique et Programmation (Algoritmer)</li>
-        <li>Python</li>
-        <li>Logique Combinatoire (logikk)</li>
-        <li>Unix (Linux)</li>
-    </ul>
-    <br> 
-
-    <p> Andre semester:</p>
-       <ul class="list-disc list-inside pl-8 space-y-2 mt-4">
-        <li>Analyse</li>
-        <li>Probabilité (sannsynlighet)</li>
-        <li>C (Programmeringsspråk)</li>
-        <li>Architecture Matérielle (systemarkitektur)</li>
-        <li>Signal 1 (signalbehandling)</li>
-        <li>Algorithmique et Programmation 2</li>
-    </ul>
-
-    <br>
-
-    <p> Samt CSH (samfunnsfaglige) fag som FLE, APS (Gym) og PPI (karriereveiledning) såklart! </p>
-
-    <br>
-    <p>
+    <p class="mt-8 lesebredde">
         Det kreves gode kunnskaper i matte og informatikk, men det viktigste er bare å jobbe jevnt og ikke falle bak. MIC blir mye "lettere" 
         i løpet av tredje året, ved at man får spesialisert seg mer.
     </p>
@@ -123,19 +130,9 @@
         <p class="mb-4">
             I tredjeklasse begynner ting å bli mer spesialisert, med mer fokus på informatikken, og <b>valg av spesialisering</b>.
         </p>
-        
-        Første semester:
-        <ul class="list-disc list-inside pl-8 space-y-2 mt-4">
-            <li>Optimalisering</li>
-            <li>Markovkjeder</li>
-            <li>Analyse de données (Dataanalyse)</li>
-            <li>Système d'exploitation (Operativsystemer)</li>
-            <li>Algorithmique avancée</li>
-            <li>Bases de données (Databaser)</li>
-            <li>Programmation Web (web-programmering)</li>
-            <li>Réseaux (Nettverk)</li>
-            <li>Théorie de l'informatique et du codage (Informatikkteori)</li>
-        </ul>
+        <p>
+           Som videre spesialisering har man valg mellom <a class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300" href="../ir/ir.html">IR</a> (Informatique et Réseaux) og MA (Mathématiques Appliquées).
+        </p>
     </div>
     <div class="md:w-1/2 w-full order-1 md:order-2">
         <a href="images/1.jpg" target="_blank" rel="noopener">
@@ -144,32 +141,36 @@
     </div>
 </div>
 
-    <div class="fade-down-anim lesebredde mx-auto my-12">
-         <p>
-           Som videre spesialisering har man valg mellom <a class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300" href="../ir/ir.html">IR</a> (Informatique et Réseaux) og MA (Mathématiques Appliquées).
-        </p>
-
-        <!-- Tekst med lenke-->
-    <p><a href="https://moodle.insa-toulouse.fr/course/view.php?id=1106" class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300" target="_blank" rel="noopener">Informasjon om MIC på Moodle</a></p>
-
+<div class="fade-down-anim max-w-4xl mx-auto my-12">
+    <div class="kort meny">
+      <h3 class="text-lg font-bold">Fagene i 3MIC</h3>
+      <div class="meny-spalter">
+        <h4>Første semester</h4>
+        <ul>
+          <li>Optimalisering</li>
+          <li>Markovkjeder</li>
+          <li>Analyse de données (dataanalyse)</li>
+          <li>Système d'exploitation (operativsystemer)</li>
+          <li>Algorithmique avancée</li>
+          <li>Bases de données (databaser)</li>
+          <li>Programmation Web (web-programmering)</li>
+          <li>Réseaux (nettverk)</li>
+          <li>Théorie de l'informatique et du codage (informatikkteori)</li>
+        </ul>
+      </div>
     </div>
 
-       
-
-
-
-
-
-
-
+    <a href="https://moodle.insa-toulouse.fr/course/view.php?id=1106" class="knapp knapp-sekundar mt-8" target="_blank" rel="noopener">Informasjon om MIC på Moodle <span aria-hidden="true">↗</span></a>
+</div>
 
   </div>
-
 
 
   <!-- Relaterte artikler -->
   <section id="relaterte" class="max-w-5xl mx-auto px-4 pb-6" hidden></section>
   <script src="../../assets/js/relaterte.js" defer></script>
+      </main>
+
       <!-- Footer Container -->
       <div id="footer"></div>
       <script src="../../assets/js/getFooter.js"></script>

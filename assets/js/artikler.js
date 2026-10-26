@@ -17,7 +17,7 @@
   const elFramhevet = document.getElementById("framhevet");
   const elTomt = document.getElementById("ingen-treff");
 
-  // forfattere, datoTall, visDato og taggKlasse kommer fra tagger.js
+  // forfattere, datoTall, visDato, taggKlasse og artikkelKort kommer fra tagger.js
 
   let alle = [];
   let tagg = "";
@@ -55,23 +55,6 @@
 
   /* ---------- tegning ---------- */
 
-  function kort(a, stor) {
-    const merker = a.tags.map((t) => `<span class="tagg ${taggKlasse(t)}">${t}</span>`).join("");
-    const meta = `${forfattere(a).join(", ")} &middot; ${visDato(a.created)}`;
-    return `
-      <a class="kort kort-klikkbar artikkel${stor ? " artikkel-stor" : ""}"
-         href="arkiv/${a.folder}/${a.folder}.html">
-        <img class="artikkel-bilde" src="arkiv/${a.folder}/images/preview.jpg"
-             alt="" loading="lazy" decoding="async" width="800" height="450">
-        <div class="artikkel-tekst">
-          <div class="artikkel-merker">${merker}</div>
-          <h3 class="artikkel-tittel">${a.name}</h3>
-          <p class="artikkel-ingress">${a.description}</p>
-          <p class="artikkel-meta">${meta}</p>
-        </div>
-      </a>`;
-  }
-
   function tegn() {
     const liste = treff();
     const filtrerer = Boolean(tagg || sok.trim());
@@ -82,11 +65,11 @@
       ? liste.filter((a) => a.featured).sort((a, b) => datoTall(b.created) - datoTall(a.created))[0]
       : null;
 
-    elFramhevet.innerHTML = framhevet ? kort(framhevet, true) : "";
+    elFramhevet.innerHTML = framhevet ? artikkelKort(framhevet, true) : "";
     elFramhevet.hidden = !framhevet;
 
     const resten = liste.filter((a) => a !== framhevet);
-    rot.innerHTML = resten.map((a) => kort(a, false)).join("");
+    rot.innerHTML = resten.map((a) => artikkelKort(a, false)).join("");
 
     elTomt.hidden = liste.length > 0;
 

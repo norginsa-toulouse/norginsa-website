@@ -7,11 +7,11 @@ function getFooterHTML() {
     ["https://www.instagram.com/norginsa/", "@norginsa"],
     ["https://www.instagram.com/ansatoulouse/", "@ansatoulouse"],
   ].map(([href, tekst]) =>
-    `<a href="${href}" rel="noopener" class="hover:text-white/75 underline-offset-4 hover:underline">${tekst}</a>`
+    `<a href="${href}" rel="noopener" class="py-1 hover:text-white/75 underline-offset-4 hover:underline">${tekst}</a>`
   ).join("");
 
   return `
-  <footer class="bg-gradient-to-tr from-red-700 to-rose-600 text-white mt-12 border-t border-red-500 dark:border-rose-700" role="contentinfo">
+  <footer class="bg-red-800 text-white mt-12 border-t border-red-700" role="contentinfo">
   <div class="max-w-7xl mx-auto px-6 py-4 sm:py-5">
     <div class="flex flex-col items-center gap-x-8 gap-y-2 md:flex-row-reverse md:justify-between">
       <div class="flex flex-wrap justify-center gap-x-5 gap-y-1 text-sm">${kontakt}
