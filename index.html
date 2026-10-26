@@ -72,25 +72,57 @@
   </script>
   <script src="assets/js/navbar.js"></script>
 
+  <main id="innhold">
+
 
   <!-- ======= HERO ======= -->
   <section class="max-w-7xl mx-auto px-4">
-    <div class="hero fade-down-anim">
-      <img width="1600" height="583" decoding="async" fetchpriority="high"
-        src="assets/images/mainpage.jpg"
-        alt="Toulouse sett fra luften, med elven Garonne gjennom byen">
-      <div class="hero-innhold">
-        <h1>Bli ingeniør i Frankrike!</h1>
-        <p class="hero-ingress">
-          NORGINSA er et femårig masterstudium i teknologi ved INSA Toulouse, tilrettelagt
-          for nordmenn. Selv om undervisningen er på fransk, er ikke forkunnskaper et krav
-          - vi får nemlig språkundervisning underveis.
-
-        </p>
-        <div class="hero-knapper">
-          <a href="about.html" class="knapp knapp-primar">Lær mer om studiet</a>
-          <a href="sokeguiden.html" class="knapp knapp-pa-bilde">Slik søker du</a>
+    <figure class="m-0">
+      <div class="hero hero-forside fade-down-anim">
+        <img width="2400" height="914" decoding="async" fetchpriority="high"
+          src="assets/images/mainpage.jpg"
+          alt="Garonne-elven i Toulouse en sommerkveld, med den opplyste Pont Neuf, Daurade-kaien og et pariserhjul">
+        <div class="hero-innhold">
+          <h1>Bli ingeniør i Frankrike!</h1>
+          <p class="hero-ingress">
+            NORGINSA er et femårig masterstudium i teknologi ved INSA Toulouse, lagt til rette
+            for nordmenn. Du trenger ikke kunne fransk for å søke: det lærer du underveis,
+            sammen med de andre nordmennene.
+          </p>
+          <div class="hero-knapper">
+            <a href="about.html" class="knapp knapp-primar">Lær mer om studiet</a>
+            <a href="sokeguiden.html" class="knapp knapp-pa-bilde">Slik søker du</a>
+          </div>
         </div>
+      </div>
+      <!-- CC BY krever at endringer oppgis: bildet beskjæres av object-fit: cover. -->
+      <figcaption class="hero-fotnote">
+        Foto: <a href="https://commons.wikimedia.org/wiki/File:Panorama_from_pont_Saint-Pierre_in_Toulouse_-_2012-08-31.jpg" target="_blank" rel="noopener noreferrer">Pierre-Selim Huard</a>,
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.no" target="_blank" rel="noopener noreferrer">CC BY 3.0</a>, beskåret,
+        via <a href="https://commons.wikimedia.org/wiki/File:Panorama_from_pont_Saint-Pierre_in_Toulouse_-_2012-08-31.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+      </figcaption>
+    </figure>
+  </section>
+
+
+  <!-- ======= NØKKELTALL ======= -->
+  <section class="max-w-6xl mx-auto px-4 pt-10 sm:pt-14" aria-label="Kort om studiet">
+    <div class="sok-fakta nokkeltall">
+      <div>
+        <p class="nokkeltall-tall">5 år</p>
+        <p class="nokkeltall-tekst">Integrert Master i Teknologi</p>
+      </div>
+      <div>
+        <p class="nokkeltall-tall">Fransk?</p>
+        <p class="nokkeltall-tekst">Ikke et krav for å søke!</p>
+      </div>
+      <div>
+        <p class="nokkeltall-tall">Lånekassen</p>
+        <p class="nokkeltall-tekst">Gir støtte i bøtter og spann</p>
+      </div>
+      <div>
+        <p class="nokkeltall-tall">~15. april</p>
+        <p class="nokkeltall-tekst">Søknadsfrist</p>
       </div>
     </div>
   </section>
@@ -102,18 +134,14 @@
       <div>
         <h2 class="text-2xl sm:text-3xl font-bold">Hva er NORGINSA?</h2>
         <p class="mt-4 text-gray-700 dark:text-gray-300">
-          INSA Toulouse er en statlig fransk ingeniørhøyskole (grande école), og NORGINSA er det norske tilgangspunktet.
-          Du går fem år, og går ut med <u>nøyaktig samme grad som de franske studentene</u> - en master
-          i teknologi. Dette høres kanskje litt vanskelig ut, men fortvil ikke: i førsteklasse er alle nordmennene samlet, og dere får masse språkundervisning underveis. 
+          INSA Toulouse er en statlig fransk ingeniørhøyskole (grande école), og NORGINSA er det norske
+          tilgangspunktet. Du går fem år, og går ut med <strong>nøyaktig samme grad som de franske
+          studentene</strong>: en master i teknologi.
         </p>
         <p class="mt-4 text-gray-700 dark:text-gray-300">
-          Hvorfor finnes programmet? Fordi realfagene på fransk videregående ligger et godt stykke over
-          de norske, og det merkes hvis du hopper rett inn i en fransk klasse. Derfor går alle nordmennene
-          sammen det første året, med ekstra matte og fransk, og undervisningen legges opp etter våre behov. 
-        </p>
-        <p class="mt-4 text-gray-700 dark:text-gray-300">
-          Fra andre skoleår velger du en spesialisering, og du sitter i vanlig fransk klasse. Retten til privattimer og ekstra tid på eksamener fortsetter derimot!
-          I fjerde og femte er du en helt ordinær INSA-student.
+          Realfagene på fransk videregående ligger et godt stykke over de norske. Derfor går alle
+          nordmennene sammen det første året, med ekstra matte og fransk. Fra andre år sitter du i vanlig
+          fransk klasse, men beholder retten til privattimer og ekstra tid på eksamen.
         </p>
       </div>
       <figure class="m-0 -mx-4 sm:mx-0">
@@ -128,26 +156,100 @@
     </div>
   </section>
 
-  <!-- ======= FEATURED (JS inject target) ======= -->
-  <section class="max-w-7xl mx-auto px-4 py-8">
-    <h2 class="text-2xl sm:text-3xl font-bold text-center">Nye artikler</h2>
-    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="templateListContent" aria-live="polite"></div>
-  </section>
 
-  <!-- ======= CONTRIBUTE ======= -->
-  <section class="max-w-5xl mx-auto px-4 py-4">
-    <div class="kort p-8 text-center">
-      <h2 class="text-2xl sm:text-3xl font-bold">Interessert?</h2>
-      <p class="mt-3 text-gray-700 dark:text-gray-300">
-        Ikke nøl med å kontakte oss for mer informasjon! 
-      </p>
-      <a href="kontakt.html"
-         class="knapp knapp-primar mt-6"
-         rel="noopener">
-        Kontakt oss
-      </a>
+  <!-- ======= FRA STUDENTENE =======
+       Sitatene er ordrett fra artiklene deres. Bytt gjerne ut, men bare med
+       noe studenten faktisk har sagt eller skrevet. -->
+  <section class="max-w-6xl mx-auto px-4 pb-12 sm:pb-16">
+    <h2 class="text-2xl sm:text-3xl font-bold">Fra studentene</h2>
+    <div class="stemmer mt-8">
+      <figure class="stemme kort">
+        <blockquote>
+          <p>«Det som til slutt overtalte meg til å reise til Toulouse var det sterke norske studentmiljøet.»</p>
+        </blockquote>
+        <figcaption>
+          <img src="arkiv/jesper_falt_det_gode_studentmiljoet_i_toulouse/images/preview.jpg" alt=""
+            width="280" height="280" loading="lazy" decoding="async">
+          <span>
+            <strong>Jesper Nytun</strong>
+            <a href="arkiv/jesper_falt_det_gode_studentmiljoet_i_toulouse/jesper_falt_det_gode_studentmiljoet_i_toulouse.html">Les historien til Jesper</a>
+          </span>
+        </figcaption>
+      </figure>
+      <figure class="stemme kort">
+        <blockquote>
+          <p>«Toulouse har blitt en by jeg er veldig glad i. Dersom man kunne flyttet byen til Norge hadde jeg garantert flyttet dit.»</p>
+        </blockquote>
+        <figcaption>
+          <img src="arkiv/hvorforliketoulouse/images/DSC03202.JPG" alt=""
+            width="1400" height="933" loading="lazy" decoding="async" style="object-position: 47% 30%">
+          <span>
+            <strong>Oskar Orvik</strong>
+            <a href="arkiv/hvorforliketoulouse/hvorforliketoulouse.html">Les hvorfor Oskar liker Toulouse</a>
+          </span>
+        </figcaption>
+      </figure>
     </div>
   </section>
+
+
+  <!-- ======= LIVET I TOULOUSE ======= -->
+  <section class="max-w-6xl mx-auto px-4 pb-12 sm:pb-16">
+    <h2 class="text-2xl sm:text-3xl font-bold">Livet i Toulouse</h2>
+    <div class="fotorad mt-8">
+      <figure>
+        <img src="arkiv/pyrra/images/OssAlle.jpeg" width="1400" height="1050" loading="lazy" decoding="async"
+          alt="Hele Pyrragjengen samlet i skibakken">
+        <figcaption class="hero-fotnote"><a href="arkiv/pyrra/pyrra.html">Pyrra</a>, skituren til Pyreneene</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/images/forside/canal-du-midi.jpg" width="1200" height="800" loading="lazy" decoding="async"
+          alt="Canal du Midi i Toulouse, med platantrær langs begge breddene som speiler seg i vannet">
+        <figcaption class="hero-fotnote">Canal du Midi</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/images/forside/ansa-generalforsamling.jpg" width="1600" height="1200" loading="lazy" decoding="async"
+          alt="En stor gruppe norske studenter i pent antrekk foran et lerret med ANSA-logoen">
+        <figcaption class="hero-fotnote">Toulouse-gjengen med resten av ANSA Frankrike på generalforsamlingen</figcaption>
+      </figure>
+    </div>
+  </section>
+
+
+  <!-- ======= FREMHEVEDE ARTIKLER (fylles av main.js) =======
+       Velg artiklene i data-artikler: mappenavnene fra arkiv.json, i den
+       rekkefølgen de skal vises. -->
+  <section class="max-w-6xl mx-auto px-4 pb-12 sm:pb-16">
+    <div class="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2">
+      <h2 class="text-2xl sm:text-3xl font-bold">Fremhevede artikler</h2>
+      <a href="artikler.html" class="lenke-pil">Se alle artiklene <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="mt-8 grid gap-5 md:grid-cols-3" id="templateListContent" data-artikler="pyrra Tekna_Toulouse notail" aria-live="polite"></div>
+  </section>
+
+
+  <!-- ======= KONTAKT ======= -->
+  <section class="max-w-6xl mx-auto px-4">
+    <div class="kort overflow-hidden grid md:grid-cols-2">
+      <img src="assets/images/kontakt-oss/kontaktoss.JPG" width="2400" height="1200" loading="lazy" decoding="async"
+        alt="Norske studenter i finstasen med flagg på 17. mai i Toulouse"
+        class="w-full h-full object-cover aspect-[3/2] md:aspect-auto">
+      <div class="p-8 sm:p-10 self-center">
+        <h2 class="text-2xl sm:text-3xl font-bold">Lurer du på noe?</h2>
+        <p class="mt-3 text-gray-700 dark:text-gray-300">
+          Vi er over 30 norske studenter i Toulouse, og svarer gjerne på alt fra søknad og fransk
+          til bolig. Raskest får du svar på Instagram.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="https://www.instagram.com/ansatoulouse/" target="_blank" rel="noopener noreferrer" class="knapp knapp-primar">Send en DM til @ansatoulouse</a>
+          <a href="kontakt.html" class="knapp knapp-sekundar">Flere måter å nå oss på</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  </main>
 
   <!-- ======= FOOTER (injected) ======= -->
   <div id="footer"></div>

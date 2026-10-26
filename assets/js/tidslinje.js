@@ -131,7 +131,12 @@
      så dukker den opp. Mangler den, vises panelet uten bilde.
      Heter fila noe annet, sett «bilde» på faget med hele stien.
 
-     Fyll inn «tekst» for hvert fag. */
+     Fyll inn «tekst» for hvert fag.
+
+     Bilder som ikke er våre egne trenger «foto» med fotograf, side og lisens,
+     så vises kreditten under bildet. «beskåret» står alltid med, fordi panelet
+     beskjærer bildet (object-fit: cover), og CC BY krever at endringer oppgis.
+     Egne bilder (gym, matte, programmering) trenger ingen kreditt. */
   const BILDEMAPPE = "assets/images/fagliste1a/";
 
   const FAG = {
@@ -139,15 +144,23 @@
       navn: "Matte",
       tekst: "Alt fra komplekse tall til funksjonslære, matriser, integraler, bevis, Taylor-rekker og vektorrom.",
     },
-    mekanikk:        { navn: "Mekanikk", tekst: "Punktmekanikk: Regne på legemer i bevegelse... Der referansesystemet også er under akselerasjon!" },
-    kjemi:           { navn: "Kjemi", tekst: "Syrer & Baser, reduksjon og atomlære. Mye labforsøk! Hvor mange blå schtroumpfs kan en spise før man dør av forgiftning?" },
-    optikk:          { navn: "Optikk", tekst: "Bruk av linser til å gjøre mye kult! Projeksjon, splitting av lys og teleskop." },
-    fransk:          { navn: "Fransk", tekst: "Flere klasser etter ferdighetsnivå. Her tar folk det svært svært rolig." },
-    elektrokinetikk: { navn: "Elektrokinetikk", tekst: "Lyspære + strøm = Mange gode ideer" },
-    elektrostatikk:  { navn: "Elektrostatikk", tekst: "Punktmekanikk, men for legemer med elektrisk ladning!" },
-    termodynamikk:   { navn: "Termodynamikk", tekst: "Energi inn og ut av systemer. Hvor mye energi sparer du ved å koke vann med lokket på?" },
+    mekanikk:        { navn: "Mekanikk", tekst: "Punktmekanikk: Regne på legemer i bevegelse... Der referansesystemet også er under akselerasjon!",
+                       foto: { av: "Tengo las llaves", side: "https://commons.wikimedia.org/wiki/File:Foucault_pendulum_in_Osaka_University,_03.jpg", lisens: "CC BY-SA 4.0", lisensUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.no" } },
+    kjemi:           { navn: "Kjemi", tekst: "Syrer & Baser, reduksjon og atomlære. Mye labforsøk! Hvor mange blå schtroumpfs kan en spise før man dør av forgiftning?",
+                       foto: { av: "Belikov Maxim", side: "https://commons.wikimedia.org/wiki/File:Equipment_and_glassware.jpg", lisens: "CC BY 4.0", lisensUrl: "https://creativecommons.org/licenses/by/4.0/deed.no" } },
+    optikk:          { navn: "Optikk", tekst: "Bruk av linser til å gjøre mye kult! Projeksjon, splitting av lys og teleskop.",
+                       foto: { av: "Kilohn limahn", side: "https://commons.wikimedia.org/wiki/File:DispersionPrisme.jpg", lisens: "CC BY-SA 4.0", lisensUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.no" } },
+    fransk:          { navn: "Fransk", tekst: "Flere klasser etter ferdighetsnivå. Her tar folk det svært svært rolig.",
+                       foto: { av: "Marie-Lan Nguyen", side: "https://commons.wikimedia.org/wiki/File:Grande_salle_ENC_n1.jpg", lisens: "CC BY 2.5", lisensUrl: "https://creativecommons.org/licenses/by/2.5/deed.no" } },
+    elektrokinetikk: { navn: "Elektrokinetikk", tekst: "Lyspære + strøm = Mange gode ideer",
+                       foto: { av: "Janek Lass", side: "https://commons.wikimedia.org/wiki/File:H%C3%B5%C3%B5glamp.jpg", lisens: "CC BY-SA 3.0", lisensUrl: "https://creativecommons.org/licenses/by-sa/3.0/deed.no" } },
+    elektrostatikk:  { navn: "Elektrostatikk", tekst: "Punktmekanikk, men for legemer med elektrisk ladning!",
+                       foto: { av: "Ram Samudrala", side: "https://commons.wikimedia.org/wiki/File:Glass_plasma_ball_with_finger.jpg", lisens: "CC BY-SA 4.0", lisensUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.no" } },
+    termodynamikk:   { navn: "Termodynamikk", tekst: "Energi inn og ut av systemer. Hvor mye energi sparer du ved å koke vann med lokket på?",
+                       foto: { av: "Ildar Sagdejev (Specious)", side: "https://commons.wikimedia.org/wiki/File:2008-07-05_Water_boiling_in_cooking_pot.jpg", lisens: "CC BY-SA 4.0", lisensUrl: "https://creativecommons.org/licenses/by-sa/4.0/deed.no" } },
     industriell:     { navn: "Industriell teknikk", tekst: "Her drar dere på et stort industrielt bygg utenfor campus for å leke med alle maskinene" },
-    programmering:   { navn: "Programmering", tekst: "Dere programmerer et fly til å ikke kræsje, og konverterer bilder til tekst (ASCII Art)" },
+    programmering:   { navn: "Programmering", tekst: "Dere programmerer et fly til å ikke kræsje, og konverterer bilder til tekst (ASCII Art)",
+                       bilde: `${BILDEMAPPE}programmering.png` },
     gym:             { navn: "Gym", tekst: "Ja, du hørte riktig! Vi har gym som fag de første fire årene. Kjempegod arena til å møte franskmenn, og få i seg litt D-vitamin i Toulouse-sola." },
   };
 
@@ -180,6 +193,10 @@
       fagPanel.innerHTML = `
         <h4>${f.navn}</h4>
         <img src="${bilde}" alt="" loading="lazy" decoding="async" class="fag-bilde">
+        ${f.foto
+          ? `<p class="fag-kreditt">Foto: <a href="${f.foto.side}" target="_blank" rel="noopener noreferrer">${f.foto.av}</a>,
+             <a href="${f.foto.lisensUrl}" target="_blank" rel="noopener noreferrer">${f.foto.lisens}</a>, beskåret, via Wikimedia Commons</p>`
+          : ""}
         ${f.tekst
           ? `<p>${f.tekst}</p>`
           : `<p class="tidslinje-mangler">Vi skriver om ${f.navn} nå. Lurer du på noe om faget?
@@ -187,7 +204,11 @@
 
       // Finnes det ikke noe bilde for faget ennå, fjernes det stille.
       const img = fagPanel.querySelector(".fag-bilde");
-      img.addEventListener("error", () => { img.remove(); maalLinje(); });
+      img.addEventListener("error", () => {
+        img.remove();
+        fagPanel.querySelector(".fag-kreditt")?.remove();
+        maalLinje();
+      });
 
       fagPanel.hidden = false;
       maalLinje();               // panelet endrer korthøyden

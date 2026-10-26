@@ -49,6 +49,8 @@
   <script>document.getElementById("navbar").innerHTML = getArtikkelNavbarHTML();</script>
   <script src="../../assets/js/navbar.js"></script>
 
+  <main id="innhold">
+
   <!-- ======= TITTEL ======= -->
   <section class="max-w-5xl mx-auto px-4">
     <div class="artikkeltopp fade-down-anim">
@@ -158,8 +160,9 @@
         <li>Tredje punkt</li>
     </ol>
 
-    <!-- Forskjellige tekstformateringer-->
-    <p><b>Fet skrift</b>, <i>kursiv</i>, <u>understreket</u></p>
+    <!-- Forskjellige tekstformateringer. Ikke understrek tekst: på denne
+         siden betyr understreket tekst at det er en lenke. -->
+    <p><b>Fet skrift</b> og <i>kursiv</i></p>
 
     <!--mellomrom-->
     <br>
@@ -197,6 +200,8 @@
   <!-- Relaterte artikler -->
   <section id="relaterte" class="max-w-5xl mx-auto px-4 pb-6" hidden></section>
   <script src="../../assets/js/relaterte.js" defer></script>
+  </main>
+
   <!-- Footer Container -->
   <div id="footer"></div>
   <script src="../../assets/js/getFooter.js"></script>

@@ -64,7 +64,7 @@
   });
 
   // Blir vinduet bredt nok til vanlig meny, skal skuffen ikke bli hengende
-  matchMedia("(min-width: 48rem)").addEventListener("change", (e) => { if (e.matches) lukk(); });
+  matchMedia("(min-width: 64rem)").addEventListener("change", (e) => { if (e.matches) lukk(); });
 
   /* Marker hvilken side man er på, i begge menyene. */
   const na = location.pathname.replace(/\/$/, "").split("/").pop() || "index.html";

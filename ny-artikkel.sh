@@ -100,6 +100,8 @@ sider = f"""<!DOCTYPE html>
   <script>document.getElementById("navbar").innerHTML = getArtikkelNavbarHTML();</script>
   <script src="../../assets/js/navbar.js"></script>
 
+  <main id="innhold">
+
   <!-- ======= TITTEL ======= -->
   <section class="max-w-5xl mx-auto px-4">
     <div class="artikkeltopp fade-down-anim">
@@ -133,6 +135,8 @@ sider = f"""<!DOCTYPE html>
   <!-- Relaterte artikler -->
   <section id="relaterte" class="max-w-5xl mx-auto px-4 pb-6" hidden></section>
   <script src="../../assets/js/relaterte.js" defer></script>
+
+  </main>
 
   <!-- Footer -->
   <div id="footer"></div>

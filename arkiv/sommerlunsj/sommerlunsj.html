@@ -48,6 +48,8 @@
       <script>document.getElementById("navbar").innerHTML = getArtikkelNavbarHTML();</script>
       <script src="../../assets/js/navbar.js"></script>
 
+      <main id="innhold">
+
 
   <!-- ======= TITTEL ======= -->
   <section class="max-w-5xl mx-auto px-4">
@@ -66,9 +68,9 @@
     
     <!-- ======= ARTIKKELBILDE MED TEKST PÅ VENSTRE SIDE ======= -->
 <div class="fade-down-anim max-w-4xl mx-auto my-12 flex flex-col md:flex-row items-center md:items-start gap-8">
-    <div class="md:w-1/2 w-full order-2 md:order-1">
+    <div class="md:w-1/2 w-full order-2 md:order-1 md:self-center">
         <p class="mb-4">
-            Tekna Toulouse arrangerer hvert år en sommerlunsj.
+            <a class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300" href="../Tekna_Toulouse/Tekna_Toulouse.html">Tekna Toulouse</a> arrangerer hvert år en sommerlunsj.
             Her blir det grilling, bading og god stemning!
             Dette arrangeres ofte i slutten av mai (men kan såklart variere fra år til år)
         </p>
@@ -76,53 +78,40 @@
           Tekna stiller med mat og sangria til folket, og folk er frie til å nyte den flotte sommerhagen som de vil.
           Forfriskninger og sol? Bading og badminton? Spille varulv? Alt er mulig! 
         </p>
-        <p class="mb-4">
+        <p>
             Sommerlunsjen pleier alltid å være på samme sted (men akkurat hvor det er husker jeg ikke...).
         </p>
-        <p class="mb-4">
-           Video fra Sommerlunsj 2023:
-        </p>
+        <!-- Faktabrikker: korte stikkord -->
+        <div class="brikker">
+          <span class="brikke">Slutten av mai</span>
+          <span class="brikke">Grilling og bading</span>
+          <span class="brikke">Mat og sangria fra Tekna</span>
+        </div>
     </div>
-    <div class="md:w-1/2 w-full order-1 md:order-2">
-        <div class="mx-auto w-full max-w-[160px] sm:max-w-[200px] md:max-w-[240px] aspect-[9/16] rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
-    <iframe
-      style="width:100%;height:100%;"
-      src="https://www.youtube.com/embed/NQ6DoiqFYL8?loop=1&modestbranding=1&playlist=NQ6DoiqFYL8&rel=0"
-      frameborder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-      allowfullscreen
-      loading="lazy"
-      title="YouTube Shorts: Sommerlunsj">
-    </iframe>
-  </div>
-    </div>
+    <figure class="md:w-1/2 w-full order-1 md:order-2 m-0">
+        <div class="mx-auto w-full max-w-[200px] md:max-w-[260px] aspect-[9/16] rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
+          <iframe
+            style="width:100%;height:100%;"
+            src="https://www.youtube.com/embed/NQ6DoiqFYL8?loop=1&modestbranding=1&playlist=NQ6DoiqFYL8&rel=0"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            allowfullscreen
+            loading="lazy"
+            title="YouTube Shorts: Sommerlunsj">
+          </iframe>
+        </div>
+        <figcaption class="hero-fotnote text-center">Video fra Sommerlunsj 2023</figcaption>
+    </figure>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
-
-
-
-    
-
 
 
   <!-- Relaterte artikler -->
   <section id="relaterte" class="max-w-5xl mx-auto px-4 pb-6" hidden></section>
   <script src="../../assets/js/relaterte.js" defer></script>
+      </main>
+
       <!-- Footer Container -->
       <div id="footer"></div>
       <script src="../../assets/js/getFooter.js"></script>

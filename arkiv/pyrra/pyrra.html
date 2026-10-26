@@ -47,6 +47,8 @@
   <script>document.getElementById("navbar").innerHTML = getArtikkelNavbarHTML();</script>
   <script src="../../assets/js/navbar.js"></script>
 
+  <main id="innhold">
+
 <!-- ======= TITTEL ======= -->
   <section class="fade-down-anim max-w-7xl mx-auto px-4">
     <div class="kort-dus">
@@ -56,15 +58,15 @@
     
 	  <img width="1000" height="649" decoding="async" class="fade-down-anim w-full sm:w-3/4 mx-auto h-auto rounded-lg shadow"
 	       src="images/preview.jpg" alt="Pyrragjengen samlet i Pyreneene">
-	  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+	  <div class="absolute top-1/2 sm:top-1/3 left-1/2 w-full sm:w-auto -translate-x-1/2 -translate-y-1/2 text-center">
 	    <!-- Title -->
-       <p style="font-family: 'Times New Roman', serif;" class="p-6 inline-flex items-center text-xs sm:text-xl text-white">
+       <p style="font-family: 'Times New Roman', serif;" class="p-6 hidden sm:inline-flex items-center text-xs sm:text-xl text-white">
           
         </p>
-         <p style="font-family: 'Times New Roman', serif;" class="p-6 inline-flex items-center text-xs sm:text-xl text-white">
+         <p style="font-family: 'Times New Roman', serif;" class="p-6 hidden sm:inline-flex items-center text-xs sm:text-xl text-white">
           
         </p>
-	    <h1 class="text-white text-6xl sm:text-6xl lg:text-8xl font-bold drop-shadow-lg"
+	    <h1 class="text-white text-5xl sm:text-6xl lg:text-8xl font-bold drop-shadow-lg"
 		style="font-family: 'Times New Roman', serif;">
 	      Pyrra
 	    </h1>
@@ -74,7 +76,7 @@
 	       style="font-family: 'Times New Roman', serif;">
 	      SKREVET AV:
 	    </p>
-	    <p class="mt-0 text-white text-2xl sm:text-2xl drop-shadow-lg"
+	    <p class="mt-0 text-white text-xl sm:text-2xl drop-shadow-lg"
 	       style="font-family: 'Times New Roman', serif;">
 	      <b>Brage Flønæs Johnsen</b>
 	    </p>
@@ -199,7 +201,7 @@
 </div>
 
 <div class="fade-down-anim max-w-4xl mx-auto my-12">
-  <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5CPKLriV1szTPxdaPZOgTK?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  <iframe title="Spilleliste på Spotify" data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5CPKLriV1szTPxdaPZOgTK?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 </div>
 
 
@@ -213,7 +215,7 @@
     
         <div class="flex justify-center">
           <div style="width: 400px; max-width: 100%; aspect-ratio: 16/9; position: relative;">
-            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/bjyad-iGnjg?loop=1&modestbranding=1&playlist=bjyad-iGnjg&rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"></iframe>
+            <iframe title="Video fra Pyrra på YouTube" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/bjyad-iGnjg?loop=1&modestbranding=1&playlist=bjyad-iGnjg&rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"></iframe>
           </div>
         </div>
 </div>
@@ -224,6 +226,8 @@
   <!-- Relaterte artikler -->
   <section id="relaterte" class="max-w-5xl mx-auto px-4 pb-6" hidden></section>
   <script src="../../assets/js/relaterte.js" defer></script>
+  </main>
+
   <!-- Footer Container -->
   <div id="footer"></div>
   <script src="../../assets/js/getFooter.js"></script>

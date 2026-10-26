@@ -105,6 +105,14 @@
  * Regler som må gjelde uansett hvilke klasser som står ute i markupen.
  * Alt her er elementselektorer, så en klasse i HTML-en vinner alltid over dem. */
 
+/* hidden skal alltid skjule. Tailwind har samme regel, men tailwind.css
+   lastes før denne fila, så en komponent med egen display (som
+   .galleri-modal sin flex) vant over den: bildevisningen ble stående
+   åpen når man trykket på krysset. */
+[hidden] {
+  display: none !important;
+}
+
 img,
 svg,
 video,
@@ -175,6 +183,36 @@ p, li {
   text-wrap: pretty;
 }
 
+/* ---------- Lenker i løpende tekst ----------
+ * Rødfargen alene skiller lenkene bare 2:1 fra brødteksten (1,9:1 i mørk
+ * modus), under kravet på 3:1, så de trenger en strek. Understreking betyr
+ * dermed lenke på denne siden - bruk <strong> til utheving, ikke <u>. */
+:is(p, li) a.text-red-600 {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Hopp-til-innhold. Usynlig til den får fokus, så tastaturbrukere slipper
+   å tabbe gjennom hele menyen på hver side. */
+.hopp-lenke {
+  position: fixed;
+  z-index: 60;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.6rem 1rem;
+  border-radius: 0.625rem;
+  background-color: var(--ng-flate);
+  box-shadow: var(--ng-skygge-hover);
+  font-weight: 600;
+  transform: translateY(-200%);
+}
+
+.hopp-lenke:focus {
+  transform: none;
+  outline: 2px solid #f04a78;
+  outline-offset: 2px;
+}
+
 /* ---------- Lesebredde ----------
  * 680 px gir rundt 72 tegn per linje. Over ~75 mister øyet linja når det
  * hopper tilbake til venstre, og lesehastigheten faller uten at man merker
@@ -183,6 +221,13 @@ p, li {
 
 .lesebredde {
   max-width: 42.5rem;
+}
+
+/* I artiklene står tekstblokkene og bilderadene (max-w-4xl, 56rem) om
+   hverandre. Midtstilt fikk de to ulike venstrekanter. Nå starter teksten
+   på samme kant som bilderadene, og overstyrer mx-auto fra markupen. */
+.lesebredde.mx-auto {
+  margin-left: max(0px, (100% - 56rem) / 2);
 }
 
 /* ---------- Kort ---------- */
@@ -233,14 +278,17 @@ p, li {
   outline-offset: 2px;
 }
 
+/* Ensfarget, ikke gradient: en rød-til-rosa toning på hver knapp er det
+   tydeligste malpreget en side kan ha. Gradienten er spart til
+   fremdriftsstrekene, der den viser bevegelse. */
 .knapp-primar {
-  background-image: linear-gradient(to right, #d92046, #f04a78);
+  background-color: #d92046;
   color: #ffffff;
   box-shadow: var(--ng-skygge);
 }
 
 .knapp-primar:hover {
-  background-image: linear-gradient(to right, #b7153a, #dd2a63);
+  background-color: #b7153a;
 }
 
 /* Større variant, der én knapp skal bære hele seksjonen. */
@@ -436,6 +484,155 @@ p, li {
   color: #a8a29f;
 }
 
+/* Lenker i bildeteksten, f.eks. fotokreditt. Samme grå som teksten rundt,
+   så streken er det som viser at de er lenker. */
+.hero-fotnote a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.hero-fotnote a:hover {
+  color: #423d3b;
+}
+
+.dark .hero-fotnote a:hover {
+  color: #dbd3d2;
+}
+
+/* ---------- Forsiden ---------- */
+
+/* Smal skjerm: bildet over teksten i stedet for bak den. Teksten fyller
+   ellers hele høyden, og panoramaet ble en mørk flate der verken bro eller
+   pariserhjul syntes. Bildet toner over i den mørke flaten under. */
+@media (max-width: 40rem) {
+  .hero-forside {
+    flex-direction: column;
+    background-color: #292724;
+  }
+
+  .hero-forside > img {
+    position: static;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-position: 85% 50%;
+    -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent);
+    mask-image: linear-gradient(to bottom, #000 70%, transparent);
+  }
+
+  .hero-forside::after {
+    display: none;
+  }
+
+  .hero-forside .hero-innhold {
+    align-self: stretch;
+    padding-top: 0.5rem;
+  }
+
+  /* Like brede knapper, i stedet for to ulike bredder stablet. */
+  .hero-knapper > .knapp {
+    flex: 1 1 100%;
+  }
+}
+
+/* Frittstående lenke med pil, f.eks. «Se alle artiklene →». */
+.lenke-pil {
+  font-weight: 600;
+  color: #b7153a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lenke-pil:hover {
+  color: #991536;
+}
+
+.dark .lenke-pil {
+  color: #f66b81;
+}
+
+.dark .lenke-pil:hover {
+  color: #fb9dab;
+}
+
+/* Sitater fra studentene, ordrett fra artiklene deres. */
+.stemmer {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+}
+
+.stemme {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 1.75rem;
+}
+
+.stemme blockquote {
+  margin: 0;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: clamp(1.125rem, 1.8vw, 1.3125rem);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.stemme blockquote p {
+  margin: 0;
+  line-height: inherit;
+}
+
+.stemme figcaption {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.9375rem;
+}
+
+.stemme figcaption img {
+  flex: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.stemme figcaption strong {
+  display: block;
+}
+
+.stemme figcaption a {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #b7153a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.dark .stemme figcaption a {
+  color: #f66b81;
+}
+
+/* Bilderad. Fast bildeformat, så bilder i ulike formater står på linje. */
+.fotorad {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+.fotorad figure {
+  margin: 0;
+}
+
+.fotorad img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
 /* ---------- Artikkeltopp ----------
  * Et avlangt bånd, ikke en hero. preview.jpg ligger som dempet bakgrunn bak
  * tittelen i stedet for å være noe man ser på, derfor et jevnt slør over hele
@@ -501,6 +698,17 @@ p, li {
   color: rgb(255 255 255 / 0.82);
 }
 
+/* Uten bilde: for artikler der preview.jpg er en logo og ikke et foto, og
+   ville blitt uskarp og rar som bakgrunn. Samme form, på murstein. Bruk
+   <div class="artikkeltopp artikkeltopp-ensfarget"> og dropp <img>. */
+.artikkeltopp-ensfarget {
+  background-color: #991536;
+}
+
+.artikkeltopp-ensfarget::after {
+  display: none;
+}
+
 /* ---------- Lister ----------
  * Tailwind sin preflight fjerner punkttegn fra alle <ul>, som er grunnen til
  * at det står streker skrevet for hånd flere steder. Denne gir dem tilbake. */
@@ -524,12 +732,56 @@ p, li {
   color: #f66b81;
 }
 
+/* ---------- Meny ----------
+ * En lang liste delt i grupper og satt i spalter, så den kan skummes i
+ * stedet for å leses som 30 punkter etter hverandre. Brukt i NoTail.
+ * Gruppene får brekke over spalter, ellers blir den lengste gruppa
+ * stående alene og spaltene ujevne. */
+
+.meny {
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.meny-spalter {
+  /* Maks tre spalter, og to på mobil i stedet for én lang søyle. */
+  columns: 3 8.5rem;
+  column-gap: clamp(1.5rem, 4vw, 2.5rem);
+  margin-top: 1.5rem;
+}
+
+/* h3 under en h2, h4 når kortet selv har en h3-tittel. */
+.meny-spalter :is(h3, h4) {
+  margin: 0 0 0.35rem;
+  padding-top: 0.25rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  break-after: avoid;
+}
+
+.meny-spalter ul {
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.meny-spalter li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0;
+  border-bottom: 1px dotted var(--ng-kant);
+  font-size: 0.9375rem;
+  break-inside: avoid;
+}
+
 /* ---------- Nøkkeltall ---------- */
 
 .nokkeltall {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  /* 9,5rem: to i bredden på mobil, i stedet for en lang søyle. */
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
 }
 
 .nokkeltall-tall {
@@ -690,6 +942,8 @@ p, li {
 
 .tidslinje-mer summary,
 .sok-mer summary {
+  /* Polstring så klikkflaten når 24 px høyde. */
+  padding-block: 0.25rem;
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 600;
@@ -795,6 +1049,22 @@ p, li {
   }
 }
 
+/* Kreditt for bilder vi har lånt, rett under bildet. */
+.fag-panel .fag-kreditt {
+  margin: -0.35rem 0 0.7rem;
+  font-size: 0.75rem;
+  color: #585250;
+}
+
+.dark .fag-panel .fag-kreditt {
+  color: #a8a29f;
+}
+
+.fag-kreditt a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* Valgfritt bilde i et tidslinjesteg. Legg <figure class="tidslinje-bilde">
    med et <img> inni kortet, så faller det på plass. */
 .tidslinje-bilde {
@@ -898,6 +1168,7 @@ p, li {
 .tidslinje-lenke a,
 .tidslinje-mangler a {
   color: #b7153a;
+  text-decoration: underline;
   text-underline-offset: 3px;
 }
 
@@ -935,7 +1206,7 @@ p, li {
   width: 1.75rem;
   height: 2px;
   border-radius: 2px;
-  background-image: linear-gradient(to right, #d92046, #f04a78);
+  background-color: currentColor;
 }
 
 .sidetopp h1 {
@@ -964,6 +1235,43 @@ p, li {
  * Bildet settes på plass når steget kommer til syne. Det er den ene
  * animasjonen som betyr noe her.
  */
+
+/* Merknad: én setning som må leses, men som ikke er en overskrift. */
+.obs {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  max-width: 36rem;
+  margin: 1.25rem 0 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--ng-kant);
+  border-radius: 0.75rem;
+  background-color: var(--ng-flate-dus);
+  font-size: 0.9375rem;
+}
+
+.obs svg {
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.15rem;
+  color: #b7153a;
+}
+
+.dark .obs svg {
+  color: #f66b81;
+}
+
+/* 700 og ikke 600: den tonede flaten gir 600 bare 4,35:1. */
+.obs a {
+  color: #b7153a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.dark .obs a {
+  color: #f66b81;
+}
 
 /* Nøkkeltallene i toppen får en farget strek på venstre side, så de leses som
    én rad med fakta og ikke som tre løse tall. */
@@ -1124,7 +1432,7 @@ p, li {
   height: 1.4rem;
   border: 1px solid var(--ng-kant);
   border-radius: 999px;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 700;
   transition: border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease;
 }
@@ -1346,6 +1654,21 @@ html:has(.sok-lop) {
   font-weight: 700;
 }
 
+/* Kort som ikke er lenker: undertittelen i grått, ikke rødt. Rødt betyr
+   noe man kan trykke på. */
+div.vei .vei-adresse {
+  color: #423d3b;
+}
+
+.dark div.vei .vei-adresse {
+  color: #dbd3d2;
+}
+
+/* Kort uten ikon over overskriften, f.eks. valgene i artiklene. */
+.vei h3:first-child {
+  margin-top: 0;
+}
+
 .vei-adresse {
   margin: 0.2rem 0 0;
   font-weight: 600;
@@ -1374,8 +1697,8 @@ html:has(.sok-lop) {
   right: 1.15rem;
   padding: 0.15rem 0.6rem;
   border-radius: 999px;
-  background-image: linear-gradient(to right, #d92046, #f04a78);
-  font-size: 0.6875rem;
+  background-color: #d92046;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -1448,14 +1771,17 @@ html:has(.sok-lop) {
   min-width: 0;
 }
 
+/* Navn og handle på hver sin linje. På samme linje brakk lange navn midt
+   i («ANSA / Frankrike @ansafrankrike») når kortet ble smalt. */
 .konto-navn {
+  display: block;
   font-family: "IBM Plex Sans", system-ui, sans-serif;
   font-size: 1rem;
   font-weight: 700;
 }
 
 .konto-handle {
-  margin-left: 0.4rem;
+  display: block;
   font-size: 0.8125rem;
   font-weight: 600;
   color: #b7153a;
@@ -1902,6 +2228,20 @@ html:has(.sok-lop) {
   outline-offset: 2px;
 }
 
+/* Store bilder i stedet for miniatyrer, for kart og dokumenter som må
+   kunne leses. Hele bildet vises, ingenting beskjæres. Bruk
+   <div class="bildegalleri bildegalleri-stor" data-bilder="...">. */
+/* Står etter .bildegalleri sine brytpunkter, så den vinner over dem. */
+.bildegalleri-stor {
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1.25rem;
+}
+
+.bildegalleri-stor .galleri-miniatyr img {
+  height: auto;
+  object-fit: contain;
+}
+
 .galleri-modal {
   position: fixed;
   z-index: 9999;
@@ -2053,13 +2393,15 @@ html:has(.sok-lop) {
   width: min(86vw, 20rem);
   background-color: var(--ng-flate);
   border-right: 1px solid var(--ng-kant);
-  box-shadow: 0 0 2.5rem rgb(16 15 14 / 0.28);
   transform: translateX(-100%);
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Skyggen bare når skuffen er ute: lukket ligger den rett utenfor kanten,
+   og skyggen la et grått bånd langs venstre side av hver mobilside. */
 .mobilmeny.er-apen {
   transform: none;
+  box-shadow: 0 0 2.5rem rgb(16 15 14 / 0.28);
 }
 
 .mobilmeny-topp {
@@ -2178,9 +2520,11 @@ html:has(.sok-lop) {
   color: #ffb3c1;
 }
 
-/* Skjul skuffen på bredde. Gjøres her og ikke via md:hidden, fordi begge
-   er én klasse hver og da avgjør rekkefølgen - og Tailwind lastes ved kjøretid. */
-@media (min-width: 48rem) {
+/* Skjul skuffen på bredde. Gjøres her og ikke via lg:hidden, fordi begge
+   er én klasse hver og da avgjør rekkefølgen.
+   64rem og ikke 48rem: under 1024 px fikk ikke de fem lenkene, søkeknappen
+   og temaknappen plass på én linje, og temaknappen havnet utenfor kanten. */
+@media (min-width: 64rem) {
   .mobilmeny,
   .mobilmeny-overlegg,
   .mobilmeny-knapp {

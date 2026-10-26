@@ -51,6 +51,8 @@
       <script>document.getElementById("navbar").innerHTML = getArtikkelNavbarHTML();</script>
       <script src="../../assets/js/navbar.js"></script>
 
+      <main id="innhold">
+
 
   <!-- ======= TITTEL ======= -->
   <section class="max-w-5xl mx-auto px-4">
@@ -68,46 +70,61 @@
 <div class="mx-4 md:mx-0">
 
     <!-- ======= ARTIKKELBILDE MED TEKST PÅ VENSTRE SIDE ======= -->
-<div class="fade-down-anim max-w-4xl mx-auto my-12 flex flex-col md:flex-row items-center md:items-start gap-8">
+<div class="fade-down-anim max-w-4xl mx-auto my-12 flex flex-col md:flex-row items-center md:items-center gap-8">
     <div class="md:w-1/2 w-full order-2 md:order-1">
         <h2 class="text-2xl font-bold mb-4">Ferieplan 25-26</h2>
-        <p class="mb-4">Her er INSA sin ferieplan for 2025-2026: <a class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300" href="./assets/ferieplan_2526.pdf">Ferieplan 2025-2026 (PDF)</a></p>
-        
-        <h2 class="text-2xl font-bold mb-4">Normale ferietider</h2>
-        <ul class="list-disc list-inside pl-8 space-y-2 mt-4">
-            <li>Én uke høstferie i slutten av oktober</li>
-            <li>~To uker juleferie fra desember til januar</li>
-            <li>Én uke vinterferie i slutten av februar <a class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300" href="../pyrra/pyrra.html">(Pyrra!)</a></li>
-            <li>To uker "vårferie" i april-mai. Tidspunkt varierer mye fra år til år </li>
-            <li>Sommerferie fra midten av juni til andre uke i september</li>
-        </ul>
+        <p class="mb-6">Her er INSA sin ferieplan for 2025-2026:</p>
+        <a class="knapp knapp-primar" href="./assets/ferieplan_2526.pdf" target="_blank" rel="noopener">Ferieplan 2025-2026 (PDF)</a>
     </div>
-    <div class="md:w-1/2 w-full order-1 md:order-2">
-        <a href="images/pyrra.jpg" target="_blank" rel="noopener">
-            <img width="1600" height="1200" decoding="async" class="fade-down-anim w-full h-auto rounded-lg shadow" src="images/pyrra.jpg" alt="Studenter på vinterferietur til Pyrra">
+    <figure class="md:w-1/2 w-full order-1 md:order-2 m-0">
+        <a href="images/capri.jpg" target="_blank" rel="noopener">
+            <img width="1400" height="700" decoding="async" class="fade-down-anim w-full h-auto rounded-lg shadow" src="images/capri.jpg" alt="To studenter i sommerskjorter på en terrasse, med klippene og havet på Capri i bakgrunnen">
         </a>
-    </div>
+        <figcaption class="hero-fotnote">Capri, Italia 2024</figcaption>
+    </figure>
 </div>
 
-    <div class="fade-down-anim lesebredde mx-auto my-12">
-        <p class="mb-4">
-        1.-3. klasse slutter ofte andre uke i juni, 
-        mens 4. klasse slutter i slutten av mai for å starte internship.
-        4. klasse får også ferie til slutten av september (for å fullføre internship).
-     </p>
+    <!-- ======= NØKKELTALL =======
+         Stort tall eller stikkord øverst, forklaring under. -->
+<div class="fade-down-anim max-w-4xl mx-auto my-12">
+    <h2 class="text-2xl font-bold mb-6">Normale ferietider</h2>
+    <div class="sok-fakta nokkeltall">
+      <div>
+        <p class="nokkeltall-tall">1 uke</p>
+        <p class="nokkeltall-tekst">Høstferie i slutten av oktober</p>
+      </div>
+      <div>
+        <p class="nokkeltall-tall">~2 uker</p>
+        <p class="nokkeltall-tekst">Juleferie fra desember til januar</p>
+      </div>
+      <div>
+        <p class="nokkeltall-tall">1 uke</p>
+        <p class="nokkeltall-tekst">Vinterferie i slutten av februar <a class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300" href="../pyrra/pyrra.html">(Pyrra!)</a></p>
+      </div>
+      <div>
+        <p class="nokkeltall-tall">2 uker</p>
+        <p class="nokkeltall-tekst">"Vårferie" i april-mai. Tidspunkt varierer mye fra år til år</p>
+      </div>
+      <div>
+        <p class="nokkeltall-tall">Sommer</p>
+        <p class="nokkeltall-tekst">Fra midten av juni til andre uke i september</p>
+      </div>
     </div>
-    
-     
 
-  </div>
+    <p class="obs">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4M12 8h.01" /></svg>
+      <span>1.-3. klasse slutter ofte andre uke i juni, mens 4. klasse slutter i slutten av mai for å starte internship. 4. klasse får også ferie til slutten av september (for å fullføre internship).</span>
+    </p>
+</div>
 
-
-
+</div>
 
 
   <!-- Relaterte artikler -->
   <section id="relaterte" class="max-w-5xl mx-auto px-4 pb-6" hidden></section>
   <script src="../../assets/js/relaterte.js" defer></script>
+      </main>
+
       <!-- Footer Container -->
       <div id="footer"></div>
       <script src="../../assets/js/getFooter.js"></script>
