@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="no" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fant ikke siden | NORGINSA</title>
+  <!-- Uten denne fila serverte Cloudflare Pages forsiden med status 200 for
+       alle ukjente adresser, og Google fant dusinvis av «kopier» av forsiden.
+       Nå får de 404. -->
+  <meta name="robots" content="noindex">
+
+  <!-- Alle stier er absolutte: siden vises på hvilken som helst adresse,
+       også /arkiv/noe/annet/, og da peker «assets/...» ut i løse luften. -->
+  <link rel="icon" type="image/x-icon" href="/assets/images/icon.ico">
+  <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/tailwind.css">
+
+  <!-- Temaet settes før siden tegnes, så den ikke blinker hvit i mørk modus -->
+  <script>
+    (function () {
+      try {
+        var lagret = localStorage.getItem("theme");
+        var mork = lagret ? lagret === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        if (mork) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+  <script src="/assets/js/theme.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+
+<body
+  class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 relative font-sans">
+
+  <!-- Navbar. Prefikset "/" i stedet for getNavbarHTML(), av samme grunn som over. -->
+  <div id="navbar"></div>
+  <script src="/assets/js/getNavbar.js"></script>
+  <script>
+    document.getElementById("navbar").innerHTML = byggNavbar("/");
+  </script>
+  <script src="/assets/js/navbar.js"></script>
+
+  <main id="innhold">
+
+  <section class="max-w-7xl mx-auto px-4 mb-12 sm:mb-16">
+    <figure class="m-0">
+      <div class="hero hero-lys fade-down-anim">
+        <img width="1200" height="800" decoding="async" fetchpriority="high"
+          src="/assets/images/forside/canal-du-midi.jpg"
+          alt="Canal du Midi i Toulouse, med platantrær langs begge breddene som speiler seg i vannet">
+        <div class="hero-innhold">
+          <h1>Her var det ingenting</h1>
+          <p class="hero-ingress">
+            Sorry sjef, her var det ingen side... Muligens flyttet? Snakker om flytting, har du vurdert å flytte til Toulouse? 
+          </p>
+          <div class="hero-knapper">
+            <a href="/" class="knapp knapp-primar">Til forsiden</a>
+            <a href="/artikler" class="knapp knapp-pa-bilde">Se alle artiklene</a>
+          </div>
+        </div>
+      </div>
+      <figcaption class="hero-fotnote">Canal du Midi, Toulouse</figcaption>
+    </figure>
+  </section>
+
+  </main>
+
+  <div id="footer"></div>
+  <script src="/assets/js/getFooter.js"></script>
+  <script>
+    document.getElementById("footer").innerHTML = getFooterHTML();
+  </script>
+
+</body>
+
+</html>
