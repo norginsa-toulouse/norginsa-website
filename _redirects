@@ -2,3 +2,42 @@
 # /arkiv/<artikkel> må fortsette å virke som før.
 /arkiv        /artikler   301
 /arkiv.html   /artikler   301
+
+# Den korte adressen /arkiv/<mappe>/ til hver artikkel. Den brukes i eldre
+# lenker og i Eleventy-grenen, og ga før 404.html en kopi av forsiden med
+# status 200. Wildcard går ikke: /arkiv/:mappe ville også truffet
+# /arkiv/arkiv.json. Legg gjerne til en linje når du lager en ny artikkel.
+/arkiv/dobbeldiplom   /arkiv/dobbeldiplom/dobbeldiplom   301
+/arkiv/dobbeldiplom/  /arkiv/dobbeldiplom/dobbeldiplom   301
+/arkiv/ferier   /arkiv/ferier/ferier   301
+/arkiv/ferier/  /arkiv/ferier/ferier   301
+/arkiv/hvorforliketoulouse   /arkiv/hvorforliketoulouse/hvorforliketoulouse   301
+/arkiv/hvorforliketoulouse/  /arkiv/hvorforliketoulouse/hvorforliketoulouse   301
+/arkiv/ic   /arkiv/ic/ic   301
+/arkiv/ic/  /arkiv/ic/ic   301
+/arkiv/icbe   /arkiv/icbe/icbe   301
+/arkiv/icbe/  /arkiv/icbe/icbe   301
+/arkiv/imacs   /arkiv/imacs/imacs   301
+/arkiv/imacs/  /arkiv/imacs/imacs   301
+/arkiv/ir   /arkiv/ir/ir   301
+/arkiv/ir/  /arkiv/ir/ir   301
+/arkiv/jesper_falt_det_gode_studentmiljoet_i_toulouse   /arkiv/jesper_falt_det_gode_studentmiljoet_i_toulouse/jesper_falt_det_gode_studentmiljoet_i_toulouse   301
+/arkiv/jesper_falt_det_gode_studentmiljoet_i_toulouse/  /arkiv/jesper_falt_det_gode_studentmiljoet_i_toulouse/jesper_falt_det_gode_studentmiljoet_i_toulouse   301
+/arkiv/julitoulouse   /arkiv/julitoulouse/julitoulouse   301
+/arkiv/julitoulouse/  /arkiv/julitoulouse/julitoulouse   301
+/arkiv/kart   /arkiv/kart/kart   301
+/arkiv/kart/  /arkiv/kart/kart   301
+/arkiv/lanekassen   /arkiv/lanekassen/lanekassen   301
+/arkiv/lanekassen/  /arkiv/lanekassen/lanekassen   301
+/arkiv/mic   /arkiv/mic/mic   301
+/arkiv/mic/  /arkiv/mic/mic   301
+/arkiv/notail   /arkiv/notail/notail   301
+/arkiv/notail/  /arkiv/notail/notail   301
+/arkiv/pyrra   /arkiv/pyrra/pyrra   301
+/arkiv/pyrra/  /arkiv/pyrra/pyrra   301
+/arkiv/RU   /arkiv/RU/RU   301
+/arkiv/RU/  /arkiv/RU/RU   301
+/arkiv/sommerlunsj   /arkiv/sommerlunsj/sommerlunsj   301
+/arkiv/sommerlunsj/  /arkiv/sommerlunsj/sommerlunsj   301
+/arkiv/Tekna_Toulouse   /arkiv/Tekna_Toulouse/Tekna_Toulouse   301
+/arkiv/Tekna_Toulouse/  /arkiv/Tekna_Toulouse/Tekna_Toulouse   301
