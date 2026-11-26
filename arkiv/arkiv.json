@@ -191,6 +191,17 @@
       "author": "Andreas Holmsen",
       "created": "24-11-2025",
       "featured": false
+    },
+    {
+      "name": "IMACS",
+      "description": "Informasjon om PO'en IMACS",
+      "folder": "imacs",
+      "tags": [
+        "Studiet"
+      ],
+      "author": "Maia Evensen, Wiktor Jankowski",
+      "created": "26-11-2026",
+      "featured": true
     }
   ]
 }
