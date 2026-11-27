@@ -54,8 +54,15 @@
       fullt: "Ingénierie des Matériaux, Composants et Systèmes",
       kort: "Fysikk, elektronikk og automatikk",
       artikkel: "arkiv/imacs/imacs.html",
-      aar23: "",   // TODO
-      aar45: "",   // TODO
+      aar23:
+        "Fysikk- og elektronikklinja, med en god del mattematikk og programmering ved siden av. " +
+        "Folk som tar denne linjen ender ofte opp med å drive med: Utvikling (programmering), mikroelektronikk, " +
+        "cybersikkerhet, forskning og testbenk utvikling (instrumentering). Her kommer du til å trives, enten om du vil bygge din egen Terminator eller utvikle halvlederteknologi hos ASML.",
+      aar45:
+        "IMACS blir til <b>GP (Anvendt Fysikk)</b> eller <b>AE (Automasjon og Elektronikk)</b>. " +
+        "GP-gjengen lager egne transistorer helt fra bunn av, går i dybden av kvantefysikk og utvikler helt egne sensorer for bevegelse. AE-folka " +
+        "bruker elektronikk til mye rart, blant annet få en seilbåt til å justere seg selv etter vindforhold. De er ogsp flinke til å ungå dusjen så mye som overhodet mulig.",
+      lenke: "arkiv/gp/gp.html",
     },
   };
 

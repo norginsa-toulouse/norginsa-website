@@ -202,6 +202,17 @@
       "author": "Maia Evensen, Wiktor Jankowski",
       "created": "26-11-2026",
       "featured": true
+    },
+    {
+      "name": "GP",
+      "description": "Informasjon om spesialiseringen Génie Physique",
+      "folder": "gp",
+      "tags": [
+        "Studiet"
+      ],
+      "author": "Wiktor Jankowski",
+      "created": "27-11-2026",
+      "featured": true
     }
   ]
 }
